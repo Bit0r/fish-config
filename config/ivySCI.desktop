@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ivySCI
+GenericName=ivy science
+Comment=ivySCI（青藤学术）文献阅读器
+Exec=/usr/local/bin/ivySCI %U
+Icon=graphics-viewer-document
+Type=Application
+Categories=Office;Viewer;Education;
+MimeType=application/pdf;

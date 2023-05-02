@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+
+import re
+from pathlib import Path
+
+from rich import box, print
+from rich.console import Console
+from rich.table import Column, Table
+
+steam_path = Path('~/.steam/').expanduser()
+users = open(steam_path / 'users.txt').readlines()
+
+console = Console()
+
+table = Table(Column("序号", style="cyan"),
+              Column("包含的游戏", style="magenta"),
+              Column("用户名", style="green"),
+              title="Steam账号列表",
+              box=box.ROUNDED)
+for idx, user in enumerate(users):
+    account = user.split()
+    games, username = account[0], account[1]
+    table.add_row(str(idx + 1), games, username)
+console.print(table)
+
+print('请选择一个用户进行切换')
+while True:
+    try:
+        idx = int(input('请输入序号：')) - 1
+    except ValueError:
+        print('[bold red]请输入一个数字[/bold red]')
+    except (KeyboardInterrupt, EOFError):
+        print('[bold red]已退出[/bold red]')
+        exit()
+    else:
+        break
+
+username = users[idx].split()[1]
+
+with (steam_path / 'registry.vdf').open('r+') as fp:
+    reg = fp.read()
+    reg = re.sub(r'("AutoLoginUser"\s*)"\w*"', rf'\1"{username}"', reg)
+    fp.seek(0)
+    fp.write(reg)
+    fp.truncate()

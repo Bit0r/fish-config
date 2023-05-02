@@ -1,0 +1,14 @@
+[Unit]
+Description=Don't Starve Together Dedicated Server
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/home/steam/run_dedicated_servers.sh
+User=steam
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dst
+
+[Install]
+WantedBy=multi-user.target

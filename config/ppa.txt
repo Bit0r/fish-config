@@ -1,0 +1,6 @@
+fish-shell/release-3
+serge-rider/dbeaver-ce
+obsproject/obs-studio
+mozillateam/ppa
+jonmagon/kdiskmark
+flexiondotorg/nvtop

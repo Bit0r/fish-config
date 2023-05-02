@@ -1,0 +1,30 @@
+# General
+eol: lf
+toc: true
+standalone: true
+request-headers:
+  - ["User-Agent", "Mozilla/5.0 AppleWebKit/537.36 Chrome/101.0.4951.64"]
+
+# Citation
+citeproc: true
+
+# HTML
+embed-resources: true
+
+html-q-tags: true
+strip-comments: true
+
+css:
+  - ${USERDATA}/css/github.css
+
+html-math-method:
+  method: katex
+  url: http://cdn.staticfile.org/KaTeX/0.15.3/
+
+# MetaData
+metadata:
+  #title: pagetitle
+  toc-title: 目录
+  link-citations: true
+  reference-section-title: 参考文献
+  csl: chinese-gb7714-2005-numeric.csl

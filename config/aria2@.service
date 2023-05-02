@@ -1,0 +1,12 @@
+[Unit]
+Description=aria2 daemon
+Requires=network.target
+After=network.target
+
+[Service]
+User=%i
+Type=forking
+ExecStart=/usr/bin/aria2c --enable-rpc --daemon --dir=/home/%i/下载
+
+[Install]
+WantedBy=multi-user.target

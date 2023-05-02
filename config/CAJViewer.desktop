@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=CAJ Viewer
+GenericName=Viewer for CAJ files
+Comment=知网官方caj阅读器
+Exec=/opt/caj-viewer/CAJViewer.AppImage %U
+Icon=graphics-viewer-document
+Type=Application
+Categories=Office;Viewer;Education;
+MimeType=application/x-caj;

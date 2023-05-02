@@ -1,0 +1,8 @@
+bibclean
+img2pdf
+kbibtex
+mutool
+ocrmypdf
+pandoc
+pdfarranger
+texlive

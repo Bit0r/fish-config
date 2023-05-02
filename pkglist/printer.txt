@@ -1,0 +1,4 @@
+hplip
+hpijs-ppds
+printer-driver-all
+system-config-printer

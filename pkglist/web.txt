@@ -1,0 +1,7 @@
+mycli
+mydumper
+mysql-server
+nginx
+iredis
+redis-server
+unit

@@ -1,0 +1,11 @@
+[Unit]
+Description=Start Activate-Linux
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/activate-linux -d
+
+[Install]
+WantedBy=graphical-session.target

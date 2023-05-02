@@ -1,0 +1,4 @@
+virtualbox
+virtualbox-ext-pack
+virtualbox-guest-additions-iso
+virtualbox-guest-x11

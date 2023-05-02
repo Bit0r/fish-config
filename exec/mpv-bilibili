@@ -1,0 +1,4 @@
+#!/bin/fish
+set urls (string sub -s 29 $argv[1] | string split '@')
+mpv --no-ytdl --referrer='https://www.bilibili.com' --user-agent='Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36' \
+    --audio-file=$urls[2] $urls[1]

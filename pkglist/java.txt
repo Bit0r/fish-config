@@ -1,0 +1,5 @@
+openjdk-8-source
+openjdk-11-source
+openjdk-17-source
+maven
+fastboot

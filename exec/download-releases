@@ -1,0 +1,95 @@
+#!/usr/bin/python
+
+import asyncio
+import csv
+import os
+import re
+import sys
+
+import httpx
+
+gh_token = os.getenv('GH_TOKEN')
+
+
+async def download(id: int, client: httpx.AsyncClient):
+    repo, version = releases[id]
+    r = await client.get(
+        f'https://api.github.com/repos/{repo}/releases/latest',
+        headers={'Authorization': f'token {gh_token}'})
+
+    r_json = r.json()
+
+    if r.status_code != 200:
+        print(f'{repo}: {r_json["message"]}', file=sys.stderr)
+        return
+
+    # 如果已经是最新版本，则不用下载
+    tag_name = r_json['tag_name']
+    if tag_name == version:
+        return
+
+    # 填充下载名
+    names = [None] * 4
+    for asset in r_json['assets']:
+        name = asset['name'].casefold()
+
+        prior = 0
+        """
+        0. gnu.deb
+        1. musl.deb
+        2. gnu.zip or gnu.tar.gz
+        3. musl.zip or gnu.tar.gz
+        """
+
+        if amd64.search(name) and not digest_suffix.search(name):
+            if name[-4:] != '.deb' and 'ubuntu' not in name:
+                prior += 2
+            if 'musl' in name:
+                prior += 1
+
+            if prior < 2 or prior >= 2 and 'linux' in name:
+                names[prior] = name
+
+    if not any(names):
+        print(f'{repo}: no assets', file=sys.stderr)
+        return
+
+    # 根据包名的优先级进行下载
+    for name in names:
+        if name is None:
+            continue
+
+        # 使用流式传输下载
+        print(f'Downloading {name}')
+        async with client.stream(
+                'GET',
+                f'https://github.com/{repo}/releases/latest/download/{name}'
+        ) as respose:
+            with open(name, 'wb') as f:
+                async for chunk in respose.aiter_bytes():
+                    f.write(chunk)
+
+        # 完成下载，修改发布列表
+        releases[id][1] = tag_name
+        break
+
+
+async def main():
+    limits = httpx.Limits(max_connections=4, max_keepalive_connections=2)
+    async with httpx.AsyncClient(follow_redirects=True,
+                                 proxies='socks5://localhost:1080',
+                                 limits=limits,
+                                 http2=True) as client:
+        await asyncio.gather(*(download(i, client)
+                               for i in range(len(releases))))
+
+
+amd64 = re.compile(r'(amd|x86[-_])64')
+digest_suffix = re.compile(r'\.(sha256|minisig)$')
+with open('releases.csv', newline='') as f:
+    releases = list(csv.reader(f))
+
+asyncio.run(main())
+
+with open('releases.csv', 'w', newline='') as f:
+    csv.writer(f, quoting=csv.QUOTE_NONNUMERIC).writerows(releases)

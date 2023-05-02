@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=XSession
+Exec=/usr/local/bin/plasma-awesome.fish
+DesktopNames=KDE
+Name=Plasma (awesome)
+Comment=KDE Plasma with awesome as the WM
+X-KDE-PluginInfo-Version=5.24.7

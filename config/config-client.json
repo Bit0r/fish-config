@@ -1,0 +1,178 @@
+{
+	"log": {
+		"access": "/var/log/xray/access.log",
+		"error": "/var/log/xray/error.log",
+		"loglevel": "warning"
+	},
+	"inbounds": [
+		{
+			"port": 1080,
+			"listen": "127.0.0.1",
+			"protocol": "socks",
+			"settings": {
+				"udp": true
+			}
+		},
+		{
+			"port": 8800,
+			"listen": "127.0.0.1",
+			"protocol": "http"
+		},
+		{
+			"tag": "tproxy",
+			"listen": "127.0.0.1",
+			"port": 12345,
+			"protocol": "dokodemo-door",
+			"settings": {
+				"network": "tcp,udp",
+				"followRedirect": true
+			},
+			"sniffing": {
+				"destOverride": [
+					"http",
+					"tls",
+					"quic"
+				],
+				"enabled": true
+			},
+			"streamSettings": {
+				"sockopt": {
+					"tproxy": "tproxy"
+				}
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"tag": "direct",
+			"protocol": "freedom",
+			"streamSettings": {
+				"sockopt": {
+					"mark": 255
+				}
+			}
+		},
+		{
+			"tag": "dns-out",
+			"protocol": "dns",
+			"settings": {
+				"address": "1.1.1.1"
+			},
+			"streamSettings": {
+				"sockopt": {
+					"mark": 255
+				}
+			}
+		}
+	],
+	"routing": {
+		"domainStrategy": "AsIs",
+		"rules": [
+			{
+				"outboundTag": "direct",
+				"type": "field",
+				"ip": [
+					"geoip:private",
+					"geoip:cn"
+				]
+			},
+			{
+				"outboundTag": "direct",
+				"type": "field",
+				"domain": [
+					"geosite:private",
+					"domain:cn",
+					"domain:127.net",
+					"domain:alibabacloud.com",
+					"domain:bootstrapcdn.com",
+					//"domain:github.com",
+					//"domain:gvt2.com",
+					//"domain:githubusercontent.com",
+					//"domain:githubassets.com",
+					//"domain:bing.com",
+					"domain:bing.net",
+					"domain:msn.com",
+					"domain:microsoft.com",
+					"domain:gitee.io",
+					"domain:lanzoui.com",
+					"domain:whatismybrowser.com",
+					"domain:icourse163.org",
+					"domain:pinyuncloud.com",
+					"domain:eccdnx.com",
+					"domain:stackoverflow.com",
+					"domain:apple.com"
+				]
+			},
+			{
+				"outboundTag": "dns-out",
+				"type": "field",
+				"inboundTag": [
+					"tproxy"
+				],
+				"port": 53
+			},
+			{
+				"outboundTag": "proxy",
+				"type": "field",
+				"domain": [
+					"geosite:geolocation-!cn",
+					"domain:sh",
+					"domain:openai.com",
+					"domain:guru",
+					"domain:python.org",
+					"domain:asciimath.org",
+					"domain:linuxmint.com",
+					"domain:pytorch.org",
+					"domain:fishshell.com",
+					"domain:einops.rocks",
+					"domain:ultralytics.com",
+					"domain:spring.io",
+					"domain:yaml.org",
+					"domain:mysqltutorial.org",
+					"domain:redis.com",
+					"domain:craftinginterpreters.com",
+					"domain:xmake.io",
+					"domain:mit.edu",
+					"domain:sourceforge.net",
+					"domain:composingprograms.com",
+					"domain:calibre-ebook.com",
+					"domain:v2ex.com",
+					"domain:wenxuecity.com",
+					"domain:realpython.com",
+					"domain:linuxquestions.org",
+					"domain:csdiy.wiki",
+					"domain:epochtimes.com",
+					"domain:teamviewer.com",
+					"domain:wordpress.com",
+					"domain:wikiwand.com",
+					"domain:fanqiangdang.com",
+					"domain:bulma.io",
+					"domain:mycli.net",
+					"domain:cppreference.com",
+					"domain:ycombinator.com",
+					"domain:pdfdrive.com",
+					"domain:substack.com",
+					"domain:d2l.ai"
+				]
+			},
+			{
+				"outboundTag": "proxy",
+				"type": "field",
+				"ip": [
+					"geoip:!cn"
+				]
+			}
+		]
+	},
+	"dns": {
+		"servers": [
+			"localhost",
+			{
+				"address": "1.1.1.1",
+				"domains": [
+					"geosite:geolocation-!cn"
+				]
+			}
+		]
+	}
+}

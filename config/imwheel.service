@@ -1,0 +1,14 @@
+[Unit]
+Description=IMWheel
+Wants=display-manager.service
+After=display-manager.service
+
+[Service]
+Type=forking
+Environment=XAUTHORITY=%h/.Xauthority
+ExecStart=/usr/bin/imwheel -kb "4 5"
+ExecReload=/usr/bin/imwheel -kb "4 5"
+ExecStop=/usr/bin/imwheel -kq
+
+[Install]
+WantedBy=graphical-session.target

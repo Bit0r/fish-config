@@ -1,0 +1,2 @@
+#自动唤醒ESurfingSvr
+*/20 * * * * bit0r	pkill -CONT ESurfingSvr && sleep 30s && pkill -STOP ESurfingSvr

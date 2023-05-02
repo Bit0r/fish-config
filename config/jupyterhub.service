@@ -1,0 +1,13 @@
+[Unit]
+Description=JupyterHub
+Documentation=https://jupyterhub.readthedocs.io/
+After=network.target mysql.service
+Wants=mysql.service
+
+[Service]
+ExecStart=/usr/local/bin/jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

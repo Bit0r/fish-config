@@ -1,0 +1,63 @@
+{
+	"log": {
+		"access": "/var/log/xray/access.log",
+		"error": "/var/log/xray/error.log",
+		"loglevel": "warning"
+	},
+	"routing": {
+		"domainStrategy": "AsIs",
+		"rules": [
+			{
+				"type": "field",
+				"ip": [
+					"geoip:cn"
+				],
+				"outboundTag": "block"
+			},
+			{
+				"type": "field",
+				"domain": [
+					"geosite:cn"
+				],
+				"outboundTag": "block"
+			}
+		]
+	},
+	"inbounds": [
+		{
+			"port": 443,
+			"protocol": "vless",
+			"settings": {
+				"clients": [
+					{
+						"id": "", // 填写UUID
+						"flow": "xtls-rprx-vision"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "tcp",
+				"security": "tls",
+				"tlsSettings": {
+					"certificates": [
+						{
+							"certificateFile": "/usr/local/share/ca-certificates/domain_chain.crt", // 完整证书的绝对路径
+							"keyFile": "/usr/local/share/private/domain.key" // 私钥的绝对路径
+						}
+					]
+				}
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"protocol": "freedom",
+			"tag": "direct"
+		},
+		{
+			"protocol": "blackhole",
+			"tag": "block"
+		}
+	]
+}

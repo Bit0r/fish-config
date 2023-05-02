@@ -1,0 +1,31 @@
+{
+	"outbounds": [
+		{
+			"protocol": "vless",
+			"settings": {
+				"vnext": [
+					{
+						"address": "", // 服务器域名或IP（发起请求时无需解析域名）
+						"port": 443,
+						"users": [
+							{
+								"id": "", // 填写UUID
+								"flow": "xtls-rprx-vision",
+								"encryption": "none"
+							}
+						]
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "tcp",
+				"security": "tls",
+				"tlsSettings": {
+					"fingerprint": "chrome",
+					"serverName": "" // 服务器域名
+				}
+			},
+			"tag": "proxy"
+		}
+	]
+}
