@@ -1,3 +1,4 @@
+alias -s man-vivaldi "man -H'vivaldi --no-sandbox'"
 alias -s proxy-wget2 'wget2 --http-proxy=http://localhost:8800'
 alias -s proxy-go 'http_proxy=http://localhost:8800 go'
 alias -s proxy-curl 'curl -x socks5h://localhost'
@@ -11,3 +12,5 @@ alias -s unar 'unar -k skip'
 alias -s readelf 'readelf -W'
 alias -s cnki2bib 'cnki2bib -nod'
 alias -s nvrun 'env DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json'
+alias -s safe-rsync 'rsync --ignore-existing'
+alias -s residual-config "dpkg -l | rg '^rc' | tuc -e '\s+' -f 2"
