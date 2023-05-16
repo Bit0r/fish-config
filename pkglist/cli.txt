@@ -14,6 +14,7 @@ git-filter-repo
 git-lfs
 git-sizer
 gpustat
+groff
 hspell
 hyperfine
 imwheel
@@ -27,6 +28,7 @@ litecli
 lhasa
 lm-sensors
 lnav
+lsyncd
 mat2
 micro
 ncat

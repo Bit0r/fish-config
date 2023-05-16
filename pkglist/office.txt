@@ -3,6 +3,7 @@ img2pdf
 kbibtex
 mutool
 ocrmypdf
+tesseract-ocr-chi-sim*
 pandoc
 pdfarranger
 texlive
