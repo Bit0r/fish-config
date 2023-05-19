@@ -1,5 +1,4 @@
 gcc-doc
-manpages-zh
 mydumper-doc
 python-cffi-doc
 python-networkx-doc

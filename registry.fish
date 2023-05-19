@@ -7,12 +7,12 @@ if type -q pip
     sudo pip config --global set global.index-url 'https://mirrors.cloud.tencent.com/pypi/simple'
 end
 
-cp config/.condarc ~/
+# cp config/.condarc ~/
 
 mkdir -p ~/.config/go/ && cp config/go.env ~/.config/go/env
 
-cp config/{.npmrc,.yarnrc} ~/
-sudo cp config/{.npmrc,.yarnrc} /root/
+# cp config/{.npmrc,.yarnrc} ~/
+# sudo cp config/{.npmrc,.yarnrc} /root/
 
 mkdir -p /etc/docker/ && sudo cp config/daemon.json /etc/docker/
 

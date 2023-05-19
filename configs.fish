@@ -16,7 +16,8 @@ ln -s ~/anaconda3/etc/fish/conf.d/conda.fish ~/.config/fish/conf.d/
 ln -s ~/anaconda3/etc/profile.d/conda.sh ~/.config/profile.d/
 
 #cp config/konsole.conf ~/.local/share/konsole/配置方案-1.profile
-cp config/wget2.conf ~/.wget2rc
+cp config/.*rc ~/
+sudo cp config/.*rc /root/
 mkdir -pm 0700 ~/.ssh/ && cp config/ssh.conf ~/.ssh/config
 if type -q python
     cp config/usercustomize.py (python -m site --user-site)/
@@ -28,7 +29,6 @@ for suffix in csl css
     cp config/*.$suffix ~/.local/share/pandoc/$suffix/
 end
 cp config/aria2.conf ~/.config/aria2/
-cp config/.imwheelrc ~/
 cp config/smplayer.ini ~/.config/smplayer/
 cp config/mat2.desktop ~/.local/share/kservices5/ServiceMenus/
 cp config/keepassxc.ini ~/.config/keepassxc/
@@ -42,7 +42,7 @@ sudo cp config/mycli.conf /etc/myclirc
 sudo cp config/aria2@.service /etc/systemd/system/
 sudo cp config/imwheel.service /etc/systemd/user/
 sudo mkdir -p /etc/systemd/system/xray.service.d/
-sudo cp config/xray-local.service /etc/systemd/system/xray.service.d/xray.conf
+sudo cp config/xray-local.service /etc/systemd/system/xray.service.d/local.conf
 
 sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2.conf /root/.config/aria2/
 sudo mkdir -p /usr/local/share/applications/
