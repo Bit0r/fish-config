@@ -7,7 +7,8 @@
 [http "https://github.com"]
 	proxy = socks5://localhost
 [credential]
-	helper = keepassxc
+	# helper = keepassxc
+	helper = store --file ~/.config/git/git-credentials
 [rerere]
 	enabled = true
 [pull]
@@ -17,9 +18,15 @@
 [diff]
 	tool = vscode
 	submodule = log
+	ignoreAllSpace = true
 [difftool "vscode"]
 	cmd = code -w -d $LOCAL $REMOTE
 [diff "exif"]
 	textconv = exiftool
-[merge "ours"]
-	driver = true
+# [merge "ours"]
+# 	driver = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
