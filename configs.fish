@@ -14,8 +14,9 @@ cat config/profile.sh >>~/.profile
 
 ln -s ~/anaconda3/etc/fish/conf.d/conda.fish ~/.config/fish/conf.d/
 ln -s ~/anaconda3/etc/profile.d/conda.sh ~/.config/profile.d/
-ln -s ~/mambaforge/etc/fish/conf.d/mamba.fish ~/.config/fish/conf.d/
-ln -s ~/mambaforge/etc/profile.d/mamba.sh ~/.config/profile.d/
+# 如果要使用mambaforge，取消下面两行的注释，同时注释上面两行。
+#ln -s ~/mambaforge/etc/fish/conf.d/*.fish ~/.config/fish/conf.d/
+#ln -s ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
 
 #cp config/konsole.conf ~/.local/share/konsole/配置方案-1.profile
 cp config/.*rc ~/
