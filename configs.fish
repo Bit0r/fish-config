@@ -44,6 +44,7 @@ sudo cp config/mysql.cnf /etc/mysql/conf.d/
 sudo cp config/mycli.conf /etc/myclirc
 sudo cp config/aria2@.service /etc/systemd/system/
 sudo cp config/imwheel.service /etc/systemd/user/
+#sudo cp config/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
 sudo mkdir -p /etc/systemd/system/xray.service.d/
 sudo cp config/xray-local.service /etc/systemd/system/xray.service.d/local.conf
 
