@@ -11,6 +11,7 @@ set -U fish_features all
 set -U fish_user_paths \
     ~/.local/bin \
     ~/go/bin \
+    /usr/local/cuda/bin \
     /usr/local/go/bin \
     ~/.cargo/bin \
     $VOLTA_HOME/bin \
