@@ -4,9 +4,9 @@ source include/confirm.fish
 
 # 定义清单函数
 set pkglist
-function add-list
-    if confirm $argv[1]
-        set -a pkglist $argv[2]
+function add-list -d 'Add a package list' -a msg pkg
+    if confirm $msg
+        set -a pkglist $pkg
     end
 end
 

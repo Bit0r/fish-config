@@ -1,8 +1,6 @@
 #!/usr/bin/fish
 
-function link-home
-    set dir $argv[1]
-
+function link-home -d "Link a directory from home to /usr/local/home" -a dir
     /usr/local/$HOME/
 
     cp -r ~/$dir/ ./

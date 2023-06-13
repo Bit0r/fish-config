@@ -1,8 +1,7 @@
-function nginx-sitectl
+function nginx-sitectl -d "Enable or disable a site in nginx" -a subcommand file
     set prefix /etc/nginx
-    set file $argv[2]
 
-    switch $argv[1]
+    switch $subcommand
         case enable
             sudo ln -s $prefix/sites-available/$file $prefix/sites-enabled/$file
         case disable
