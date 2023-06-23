@@ -24,7 +24,7 @@
 		},
 		{
 			"port": 1080,
-			"listen": "127.0.0.1",
+			"listen": "0.0.0.0",
 			"protocol": "socks",
 			"settings": {
 				"udp": true
@@ -32,12 +32,12 @@
 		},
 		{
 			"port": 8800,
-			"listen": "127.0.0.1",
+			"listen": "0.0.0.0",
 			"protocol": "http"
 		},
 		{
 			"tag": "tproxy",
-			"listen": "127.0.0.1",
+			"listen": "0.0.0.0",
 			"port": 12345,
 			"protocol": "dokodemo-door",
 			"settings": {

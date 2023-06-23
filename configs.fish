@@ -22,6 +22,7 @@ ln -s ~/anaconda3/etc/profile.d/conda.sh ~/.config/profile.d/
 cp config/.*rc ~/
 sudo cp config/.*rc /root/
 mkdir -pm 0700 ~/.ssh/ && cp config/ssh.conf ~/.ssh/config
+#mkdir -p ~/.docker/ && cp config/docker.conf ~/.docker/config.json    # 配置docker代理
 if type -q python
     cp config/usercustomize.py (python -m site --user-site)/
 end

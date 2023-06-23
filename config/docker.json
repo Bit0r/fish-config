@@ -1,0 +1,9 @@
+{
+	"proxies": {
+		"default": {
+			"httpProxy": "http://172.17.0.1:8800",
+			"httpsProxy": "https://172.17.0.1:8800",
+			"noProxy": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,127.0.0.0/8,localhost,*.local"
+		}
+	}
+}
