@@ -103,6 +103,12 @@ if type -q vncserver && confirm 'Do you want to configure vncserver?'
     sudo cp config/vnc.conf /etc/X11/xorg.conf.d/
 end
 
+# 配置LXD
+if type -q lxd && confirm 'Do you want to configure LXD?'
+    snap set lxd ui.enable=true
+    snap restart --reload lxd
+end
+
 # 添加自身到必需的组
 if confirm 'Do you want to add yourself to some groups?'
     for group in lp lpadmin adm systemd-journal ssl-cert www-data wireshark docker kvm input
@@ -112,6 +118,9 @@ end
 
 # 设置防火墙
 if confirm 'Do you want to configure firewall?'
+    #sudo ufw allow in on lxdbr0
+    #sudo ufw route allow in on lxdbr0
+    #sudo ufw route allow out on lxdbr0
     sudo ufw limit ssh
     #sudo ufw allow http
     #sudo ufw allow https

@@ -25,6 +25,7 @@ add-list 'Do you want to install some software docs?' doc
 add-list 'Do you want to install some awesome fonts?' fonts
 add-list 'Do you want to install office suite?' office
 add-list 'Do you want to install docker?' docker
+add-list 'Do you want to install LXD?' lxd
 add-list 'Do you want to install virtualbox?' virtualbox
 
 # 开始安装

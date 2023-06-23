@@ -7,7 +7,7 @@ net.core.default_qdisc=fq' >>/etc/sysctl.conf
 
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
-dpkg-reconfigure locales
+update-locale LANG="zh_CN.UTF-8" LANGUAGE="zh_CN:zh" LC_ALL="zh_CN.UTF-8"
 
 cp functions/cat.fish /usr/share/fish/functions/
 alias -s ls 'exa --group-directories-first -aF'

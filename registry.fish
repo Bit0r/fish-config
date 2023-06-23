@@ -24,3 +24,7 @@ mkdir -p ~/.cargo/ && cp config/cargo.cfg ~/.cargo/config
 if type -q kaggle
     kaggle config set -n proxy -v 'http://localhost:8800'
 end
+
+if type -q lxc
+    lxc remote add mirror-images https://mirrors.cernet.edu.cn/lxc-images/ --protocol=simplestreams --public
+end
