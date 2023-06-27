@@ -22,7 +22,6 @@ ln -s ~/anaconda3/etc/profile.d/conda.sh ~/.config/profile.d/
 cp config/.*rc ~/
 sudo cp config/.*rc /root/
 mkdir -pm 0700 ~/.ssh/ && cp config/ssh.conf ~/.ssh/config
-#mkdir -p ~/.docker/ && cp config/docker.conf ~/.docker/config.json    # 配置docker代理
 if type -q python
     cp config/usercustomize.py (python -m site --user-site)/
 end
@@ -45,7 +44,6 @@ sudo cp config/mysql.cnf /etc/mysql/conf.d/
 sudo cp config/mycli.conf /etc/myclirc
 sudo cp config/aria2@.service /etc/systemd/system/
 sudo cp config/imwheel.service /etc/systemd/user/
-#sudo cp config/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
 sudo mkdir -p /etc/systemd/system/xray.service.d/
 sudo cp config/xray-local.service /etc/systemd/system/xray.service.d/local.conf
 
@@ -92,6 +90,11 @@ if confirm 'Do you want to configure update-alternatives?'
     #end
 end
 
+# 配置apt自动更新
+if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'
+    sudo cp config/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
+end
+
 # 创建mysql管理员
 if type -q mysql && confirm 'Do you want to create a MySQL super user?'
     source mysql.fish
@@ -104,10 +107,22 @@ if type -q vncserver && confirm 'Do you want to configure vncserver?'
     sudo cp config/vnc.conf /etc/X11/xorg.conf.d/
 end
 
+# 将plasma-awesome作为默认桌面
+if type -q awesome && type -q startplasma-x11 && confirm 'Do you want to use plasma-awesome as default desktop?'
+    sudo cp config/plasma-awesome.desktop /usr/share/xsessions/
+    sudo cp config/sddm.conf /etc/sddm.conf
+end
+
 # 配置LXD
 if type -q lxd && confirm 'Do you want to configure LXD?'
     snap set lxd ui.enable=true
     snap restart --reload lxd
+end
+
+# 配置docker代理
+if type -q docker && confirm 'Do you want to configure docker proxy?'
+    mkdir -p ~/.docker/
+    cp config/docker.conf ~/.docker/config.json
 end
 
 # 添加自身到必需的组
