@@ -11,6 +11,8 @@ gradio
 onnx
 einops
 torch
+lovely-tensors
+imutils
 torchvision
 torchaudio
 tensorboard

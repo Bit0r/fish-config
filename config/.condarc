@@ -1,6 +1,10 @@
 auto_activate_base: false
 channels:
-  - defaults
+  # - defaults
+  - nvidia
+  - pytorch
+  - robostack-staging
+  - conda-forge
 default_channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
