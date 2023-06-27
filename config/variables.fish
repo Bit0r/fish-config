@@ -4,6 +4,7 @@ set -Ux EDITOR micro
 set -Ux VOLTA_HOME ~/.volta
 set -Ux PLAN9 /usr/local/plan9
 set -Ux LXD_INSECURE_TLS true
+#set -Ux BUILDKIT_PROGRESS plain
 set -U UBUNTU_CODENAME (lsb_release -cs)
 #set -Ux PYTHONPATH .	# 方便调试，不适合用于生产环境
 #set -Ux ELECTRON_TRASH gio
