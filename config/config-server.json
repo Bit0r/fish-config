@@ -10,14 +10,23 @@
 			{
 				"type": "field",
 				"ip": [
-					"geoip:cn"
+					"geoip:cn",
+					"geoip:private"
 				],
 				"outboundTag": "block"
 			},
 			{
 				"type": "field",
 				"domain": [
-					"geosite:cn"
+					"geosite:cn",
+					"geosite:private"
+				],
+				"outboundTag": "block"
+			},
+			{
+				"type": "field",
+				"protocol": [
+					"bittorrent"
 				],
 				"outboundTag": "block"
 			}
@@ -25,28 +34,17 @@
 	},
 	"inbounds": [
 		{
-			"port": 443,
-			"protocol": "vless",
-			"settings": {
-				"clients": [
-					{
-						"id": "", // 填写UUID
-						"flow": "xtls-rprx-vision"
-					}
+			"port": 443, // 监听端口
+			"protocol": "", // 协议类型
+			"settings": {}, // 协议配置
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls",
+					"quic"
 				],
-				"decryption": "none"
-			},
-			"streamSettings": {
-				"network": "tcp",
-				"security": "tls",
-				"tlsSettings": {
-					"certificates": [
-						{
-							"certificateFile": "/usr/local/share/ca-certificates/domain_chain.crt", // 完整证书的绝对路径
-							"keyFile": "/usr/local/share/private/domain.key" // 私钥的绝对路径
-						}
-					]
-				}
+				"routeOnly": true
 			}
 		}
 	],
@@ -59,5 +57,13 @@
 			"protocol": "blackhole",
 			"tag": "block"
 		}
-	]
+	],
+	"policy": {
+		"levels": {
+			"0": {
+				"handshake": 2,
+				"connIdle": 120
+			}
+		}
+	}
 }
