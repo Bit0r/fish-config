@@ -1,9 +1,9 @@
-apt install lnav micro pip exa bat git-crypt language-pack-zh-hans python-dev-is-python3
+apt install lnav micro pip exa bat git-crypt language-pack-zh-hans python-dev-is-python3 software-properties-common
 
 set -U fish_greeting
 
 echo 'net.ipv4.tcp_congestion_control=bbr
-net.core.default_qdisc=fq' >>/etc/sysctl.conf
+net.core.default_qdisc=fq' >/etc/sysctl.d/local.conf
 
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
