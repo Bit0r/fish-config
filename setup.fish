@@ -32,9 +32,14 @@ if confirm 'Do you want to use external package manager to install some software
     source extra.fish
 end
 
-# 修改系统配置
-if confirm 'Do you want to install some softwares config?'
-    source configs.fish
+# 安装系统配置
+if confirm 'Do you want to install system configs?'
+    source configs-system.fish
+end
+
+# 安装用户配置
+if confirm 'Do you want to install user configs?'
+    source configs-user.fish
 end
 
 # 安装一些下载特别耗时的软件
