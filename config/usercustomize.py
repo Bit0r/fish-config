@@ -1,8 +1,8 @@
 import site
 import sysconfig
 
-from rich.traceback import install
+from rich import traceback
 
 lib_path = [sysconfig.get_path("stdlib"),
             site.getusersitepackages()] + site.getsitepackages()
-install(show_locals=True, suppress=lib_path)
+traceback.install(show_locals=True, suppress=lib_path)
