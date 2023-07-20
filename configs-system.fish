@@ -2,6 +2,9 @@
 
 source include/confirm.fish
 
+# 设置软链接
+sudo ln -s /etc /usr/
+
 # 配置mysql
 sudo cp config/mysql.cnf /etc/mysql/conf.d/
 sudo cp config/mycli.conf /etc/myclirc
@@ -18,6 +21,10 @@ sudo cp config/10-vnc.conf /etc/X11/xorg.conf.d/
 # 配置aria2
 sudo cp config/aria2@.service /etc/systemd/system/
 sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2.conf /root/.config/aria2/
+
+# 配置npm和yarn
+sudo cp config/.npmrc /etc/npmrc
+sudo cp config/.yarnrc /etc/yarnrc
 
 # 配置杂项
 sudo cp config/mpv.conf /etc/mpv/
