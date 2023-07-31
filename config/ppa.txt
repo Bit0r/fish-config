@@ -4,3 +4,4 @@ obsproject/obs-studio
 mozillateam/ppa
 jonmagon/kdiskmark
 flexiondotorg/nvtop
+ubuntuhandbook1/ffmpeg6
