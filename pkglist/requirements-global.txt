@@ -2,6 +2,7 @@ thop
 drgn
 grequests
 pyupgrade
+black
 ruff
 dataset
 fastapi[all]
@@ -18,8 +19,10 @@ imutils
 torchvision
 torchaudio
 tensorboard
-torchsnooper
-tensor-sensor[torch]
+jax[cuda12_pip]
+jaxtyping
+equinox
+tensor-sensor[torch,jax]
 huggingface_hub
 transformers
 datasets
