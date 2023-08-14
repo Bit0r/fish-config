@@ -3,7 +3,7 @@ cnki2bib
 ddddocr
 ffmpeg-python
 handcalcs
-httpx[http2,brotli,socks]
+httpx[cli,http2,socks5,brotli]
 johnnydep
 kaggle
 latexify-py
@@ -13,6 +13,7 @@ pdf2docx
 polars
 pqdict
 playwright
+pytest-playwright
 pymusic-dl
 py-spy
 pywebio

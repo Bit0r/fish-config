@@ -10,16 +10,19 @@ typer[all]
 typer-cli
 rich
 snoop
+plotnine[all]
 gradio
 onnx
+xarray[complete]
 einops
+xarray-einstats
 torch
 lovely-tensors
 imutils
 torchvision
 torchaudio
 tensorboard
-jax[cuda12_pip]
+jax[cuda12_local] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 jaxtyping
 equinox
 tensor-sensor[torch,jax]
