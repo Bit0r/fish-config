@@ -15,8 +15,8 @@ alias -s ls 'exa --group-directories-first -aF'
 set EDITOR micro
 update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/micro.1.gz
 
-# ufw limit ssh
-# ufw allow https
+ufw limit ssh
+ufw allow https
 # echo '[Unit]
 # Description=Uncomplicated firewall
 # Documentation=man:ufw(8)
