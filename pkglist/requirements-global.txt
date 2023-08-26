@@ -1,9 +1,11 @@
 thop
 drgn
+stitching
 grequests
 pyupgrade
 black
 ruff
+clevercsv[full]
 dataset
 fastapi[all]
 typer[all]
@@ -17,6 +19,7 @@ xarray[complete]
 einops
 xarray-einstats
 torch
+tensor-repr[snoop]
 lovely-tensors
 imutils
 torchvision
@@ -26,6 +29,11 @@ jax[cuda12_local] -f https://storage.googleapis.com/jax-releases/jax_cuda_releas
 jaxtyping
 equinox
 tensor-sensor[torch,jax]
-huggingface_hub
-transformers
+codecarbon
+#huggingface_hub
+transformers[sentencepiece]
 datasets
+evaluate[template]
+accelerate
+deepspeed
+peft

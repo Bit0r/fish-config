@@ -10,6 +10,8 @@ latexify-py
 memray
 name-that-hash
 pdf2docx
+pytablereader[all]
+pytablewriter[all]
 polars
 pqdict
 playwright
