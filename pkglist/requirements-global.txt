@@ -13,6 +13,7 @@ typer-cli
 rich
 snoop
 plotnine[all]
+mplfonts
 gradio
 onnx
 xarray[complete]

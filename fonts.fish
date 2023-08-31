@@ -8,3 +8,7 @@ sudo cp fonts/{MTExtra, Symbol}.ttf /usr/local/share/fonts/fancy/
 sudo cp fonts/*_GB2312.ttf /usr/local/share/fonts/gb2312/
 
 fc-cache -f -v
+
+if type -q mplfonts
+    sudo mplfonts init
+end
