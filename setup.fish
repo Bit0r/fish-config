@@ -6,6 +6,9 @@ source include/confirm.fish
 if confirm 'Do you want to install configs?'
     source config/variables.fish
     source config/alias.fish
+    source /usr/share/fish/tools/web_config/sample_prompts/disco.fish
+    funcsave fish_prompt
+    funcsave fish_right_prompt
     sudo mv ~/.config/fish/functions/* /etc/fish/functions/
     sudo cp functions/* /etc/fish/functions/
     sudo install exec/* /usr/local/bin/
