@@ -6,6 +6,7 @@ source include/confirm.fish
 mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,smplayer,keepassxc,matplotlib}
 mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
 mkdir -p ~/.local/share/kservices5/ServiceMenus
+mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
 
 # 创建一个用户级别的 profile.d
