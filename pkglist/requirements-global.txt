@@ -2,6 +2,7 @@ thop
 drgn
 stitching
 grequests
+pysocks
 pyupgrade
 black
 ruff
@@ -19,6 +20,7 @@ onnx
 xarray[complete]
 einops
 xarray-einstats
+sympy
 torch
 tensor-repr[snoop]
 lovely-tensors
@@ -36,5 +38,6 @@ transformers[sentencepiece]
 datasets
 evaluate[template]
 accelerate
-deepspeed
+#deepspeed
+bitsandbytes
 peft
