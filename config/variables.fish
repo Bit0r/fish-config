@@ -5,6 +5,7 @@ set -Ux VOLTA_HOME ~/.volta
 set -Ux PLAN9 /usr/local/plan9
 set -Ux LXD_INSECURE_TLS true
 set -Ux PYTORCH_CUDA_ALLOC_CONF max_split_size_mb:1024 # 设置 PyTorch 的 CUDA 内存分配策略
+#set -Ux TORCH_HOME /data/torch	# 设置 PyTorch 的缓存目录
 #set -Ux HF_HOME /data/huggingface	# 设置 HuggingFace 的缓存目录
 #set -Ux BUILDKIT_PROGRESS plain
 set -U UBUNTU_CODENAME (lsb_release -cs)
