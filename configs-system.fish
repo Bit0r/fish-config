@@ -112,7 +112,7 @@ if confirm 'Do you want to configure firewall?'
     sudo ufw allow 1714:1764/udp comment 'KDE Connect'
     sudo ufw allow 6881:6999/tcp comment BitTorrent
     sudo ufw allow 6881:6999/udp comment DHT
-    #sudo ufw allow 6800/tcp comment Aria2RPC
+    #sudo ufw allow 6800:6809/tcp comment Aria2RPC
     #sudo ufw allow 5900:5910/tcp comment VNC
     sudo ufw allow 6006/tcp comment TensorBoard
     sudo ufw enable
