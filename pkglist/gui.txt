@@ -2,6 +2,7 @@ avahi-discover
 awesome
 bleachbit
 cpu-x
+dbeaver-ce
 fcitx5-rime
 fcitx5-chinese-addons
 galternatives
@@ -9,6 +10,7 @@ guestfs-tools
 gnome-themes-extra
 kcharselect
 kde-config-cron
+kdiskmark
 keepassxc
 kleopatra
 kompare
@@ -22,6 +24,7 @@ luckybackup
 markdownpart
 mystiq
 nmapsi4
+obs-studio
 protontricks
 q4wine
 smplayer
