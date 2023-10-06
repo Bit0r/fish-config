@@ -21,11 +21,11 @@ imwheel
 inxi
 iredis
 jq
+lhasa
 libimage-exiftool-perl
 linux-tools-common
 linux-tools-generic
 litecli
-lhasa
 lm-sensors
 lnav
 lsyncd
@@ -35,6 +35,7 @@ ncat
 net-tools
 nvtop
 p7zip-rar
+progress
 qemu
 rar
 ripgrep

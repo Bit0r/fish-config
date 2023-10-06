@@ -1,3 +1,4 @@
+repository,version
 "boyter/scc",""
 "ogham/exa",""
 "Canop/lfs",""
@@ -31,7 +32,8 @@
 "ogham/dog",""
 "iawia002/lux",""
 "zu1k/nali",""
-"xgadget-lab/nexttrace",""
+"nxtrace/NTrace-core",""
+"Archeb/opentrace",""
 "sirwart/ripsecrets",""
 "Frederick888/git-credential-keepassxc",""
 "svenstaro/genact",""
