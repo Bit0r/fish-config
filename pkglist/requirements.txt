@@ -16,8 +16,6 @@ polars
 pqdict
 playwright
 pytest-playwright
-pymusic-dl
-py-spy
 pywebio
 rtoml
 scanf

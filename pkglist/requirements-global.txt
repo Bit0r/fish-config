@@ -1,7 +1,9 @@
 thop
 drgn
+#scalene
 stitching
 grequests
+aiofiles
 pysocks
 pyupgrade
 black
@@ -10,7 +12,8 @@ clevercsv[full]
 sqlitebiter[all]
 ftfy
 dataset
-fastapi[all]
+#fastapi[all]
+litestar[standard]
 typer[all]
 typer-cli
 rich
