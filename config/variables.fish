@@ -1,3 +1,4 @@
+set -Ux MANGOHUD 1
 set -Ux MTR_OPTIONS -b
 set -Ux VISUAL kate
 set -Ux EDITOR micro

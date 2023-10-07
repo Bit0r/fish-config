@@ -6,6 +6,7 @@ dbeaver-ce
 fcitx5-rime
 fcitx5-chinese-addons
 galternatives
+goverlay
 guestfs-tools
 gnome-themes-extra
 kcharselect
