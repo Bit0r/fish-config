@@ -1,0 +1,9 @@
+#!/usr/bin/fish
+
+/tmp/
+proxy-aria2c --auto-file-renaming=false -d ./ 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks'
+sudo install ./winetricks /usr/local/bin/
+proxy-aria2c --auto-file-renaming=false -d ./ 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks.1'
+gzip ./winetricks.1
+sudo mv ./winetricks.1.gz /usr/local/share/man/man1/
+prevd

@@ -80,6 +80,11 @@ if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upg
     sudo cp config/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
 end
 
+# 配置winetricks自动更新
+if confirm 'Do you want winetricks to auto-update?'
+    sudo ln -s /usr/local/bin/update_winetricks /etc/cron.weekly/
+end
+
 # 创建mysql管理员
 if type -q mysql && confirm 'Do you want to create a MySQL super user?'
     source mysql.fish

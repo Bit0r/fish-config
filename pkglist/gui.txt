@@ -35,5 +35,4 @@ yad
 virt-manager
 vokoscreen-ng
 weston
-winetricks
 wireshark
