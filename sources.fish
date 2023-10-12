@@ -26,6 +26,11 @@ if confirm 'Do you want to add other software sources?'
     sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
     sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/ubuntu/dists/$UBUNTU_CODENAME/winehq-$UBUNTU_CODENAME.sources"
 
+    # zotero
+    proxy-aria2c -d /tmp/ https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg
+    sudo mv /tmp/zotero-archive-keyring.gpg /usr/share/keyrings/
+    echo 'deb [signed-by=/usr/share/keyrings/zotero-archive-keyring.gpg by-hash=force] https://zotero.retorque.re/file/apt-package-archive ./' | sudo tee /etc/apt/sources.list.d/zotero.list >/dev/null
+
     # unit
     #sudo cp config/unit.list /etc/apt/sources.list.d/
 end
