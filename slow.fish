@@ -14,12 +14,9 @@ if confirm 'Do you want to install fnm?'
     proxy-curl -fsSL 'https://fnm.vercel.app/install' | http_proxy='http://localhost:8800' bash
 end
 
-if confirm 'Do you want to install Wine mono?'
-    proxy-aria2c 'https://dl.winehq.org/wine/wine-mono/8.0.0/wine-mono-8.0.0-x86.msi'
-    wine msiexec /i ./wine-mono-8.0.0-x86.msi
-end
-
 git clone 'https://github.com/iDvel/rime-ice.git' ~/.local/share/fcitx5/rime
+
+proxy-curl -fsSL https://d2lang.com/install.sh | sh -s --
 
 if confirm 'Do you want to download the software from the GitHub release?'
     mkdir tmp/
