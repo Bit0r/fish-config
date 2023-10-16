@@ -1,0 +1,7 @@
+android-adb-fastboot-tools
+net.cnki.cajviewer
+re.cutter.spark
+winfonts
+wps-office
+linuxqq
+com.qq.weixin.spark

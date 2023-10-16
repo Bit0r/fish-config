@@ -34,7 +34,8 @@ sudo cp config/imwheel.service /etc/systemd/user/
 # 配置桌面设置
 sudo mkdir -p /usr/local/share/applications/
 sudo mkdir -p /usr/local/share/mime/packages/
-for app_image in CAJViewer ivySCI
+# for app_image in CAJViewer ivySCI
+for app_image in ivySCI
     sudo ln -s /opt/$app_image/$app_image.AppImage /usr/local/bin/$app_image
     sudo cp config/$app_image.desktop /usr/local/share/applications/
 end

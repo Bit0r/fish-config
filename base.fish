@@ -34,3 +34,7 @@ for pkg in $pkglist
     set -a files pkglist/$pkg.txt
 end
 sudo apt install (cat $files)
+
+# 使用aptss安装软件包
+#sudo apt install aptss
+#sudo aptss install (cat pkglist/spark.txt)

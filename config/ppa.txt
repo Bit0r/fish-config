@@ -1,7 +1,11 @@
 fish-shell/release-3
+xmake-io/xmake
+longsleep/golang-backports
 serge-rider/dbeaver-ce
+rvm/smplayer
 obsproject/obs-studio
 mozillateam/ppa
+phoerious/keepassxc
 jonmagon/kdiskmark
 flexiondotorg/nvtop
 ubuntuhandbook1/ffmpeg6
