@@ -23,6 +23,7 @@ ln -sf ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
 # 复制rc文件
 cp config/.*rc ~/
 cp config/matplotlibrc ~/.config/matplotlib/
+cp config/konsolerc.cfg ~/.config/konsolerc
 
 # 配置xorg
 cp .xprofile ~/.xprofile
