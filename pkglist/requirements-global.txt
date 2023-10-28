@@ -46,3 +46,4 @@ accelerate
 #deepspeed
 bitsandbytes
 peft
+trl
