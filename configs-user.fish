@@ -3,7 +3,7 @@
 source include/confirm.fish
 
 # 创建目录
-mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,smplayer,keepassxc,matplotlib}
+mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib}
 mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
 mkdir -p ~/.local/share/kservices5/ServiceMenus
 mkdir -pm 700 ~/.ssh/controls
@@ -24,6 +24,9 @@ ln -sf ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
 cp config/.*rc ~/
 cp config/matplotlibrc ~/.config/matplotlib/
 cp config/konsolerc.cfg ~/.config/konsolerc
+
+# 配置pip
+#cp config/pip.conf ~/.config/pip/
 
 # 配置xorg
 cp .xprofile ~/.xprofile

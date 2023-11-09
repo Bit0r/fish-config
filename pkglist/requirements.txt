@@ -19,5 +19,6 @@ playwright
 pytest-playwright
 pywebio
 rtoml
+xmltodict
 scanf
 selectolax

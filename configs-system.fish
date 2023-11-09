@@ -22,6 +22,9 @@ sudo cp config/10-vnc.conf /etc/X11/xorg.conf.d/
 sudo cp config/aria2@.service /etc/systemd/system/
 sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2.conf /root/.config/aria2/
 
+# 配置pip
+sudo cp config/pip.conf /etc/
+
 # 配置npm和yarn
 sudo cp config/.npmrc /etc/npmrc
 sudo cp config/.yarnrc /etc/yarnrc
