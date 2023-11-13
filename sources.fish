@@ -16,10 +16,12 @@ if confirm 'Do you want to add other software sources?'
     sudo apt install curl
 
     # nodejs
-    curl -fsSL 'https://deb.nodesource.com/setup_lts.x' | sudo -E bash -
+    curl -fsSL 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key' | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+    set -l NODE_MAJOR 20
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list >/dev/null
 
     # docker
-    curl -fsSL 'http://mirrors.163.com/docker-ce/linux/ubuntu/gpg' | gpg --dearmor | sudo tee /etc/apt/keyrings/docker-ce-163.gpg >/dev/null
+    curl -fsSL 'http://mirrors.163.com/docker-ce/linux/ubuntu/gpg' | sudo gpg --dearmor -o /etc/apt/keyrings/docker-ce-163.gpg
     echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker-ce-163.gpg] https://mirrors.163.com/docker-ce/linux/ubuntu $UBUNTU_CODENAME stable" | sudo tee /etc/apt/sources.list.d/docker-ce-163.list >/dev/null
 
     # wine
