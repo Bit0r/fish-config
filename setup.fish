@@ -31,8 +31,8 @@ if confirm 'Do you want to configure software registries?'
 end
 
 # 使用包管理安装额外软件
-if confirm 'Do you want to use external package manager to install some softwares?'
-    source extra.fish
+if confirm 'Do you want to use a third-party package manager to install some software packages?'
+    source third-party.fish
 end
 
 # 安装系统配置

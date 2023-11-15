@@ -1,4 +1,5 @@
 #!/usr/bin/fish
+source ./include/comfirm.fish
 
 if type -q pip
     pip install -r pkglist/requirements.txt
@@ -21,6 +22,10 @@ if type -q wine
     wine msiexec /i ./wine-mono-8.0.0-x86.msi
     wine msiexec /i ./wine-gecko-2.47.4-x86_64.msi
     wine msiexec /i ./wine-gecko-2.47.4-x86.msi
+end
+
+if type -q aptss && confirm 'Do you want to install some software using spark-store?'
+    sudo aptss install (cat ./pkglist/spark.txt)
 end
 
 #if ! type -q client

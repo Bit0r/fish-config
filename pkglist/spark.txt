@@ -1,4 +1,5 @@
 android-adb-fastboot-tools
+com.xiaomitool
 net.cnki.cajviewer
 re.cutter.spark
 winfonts
