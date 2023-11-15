@@ -1,6 +1,7 @@
 addict
 thop
 drgn
+dynaconf[all]
 #scalene
 stitching
 grequests
