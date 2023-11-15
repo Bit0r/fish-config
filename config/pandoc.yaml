@@ -1,4 +1,6 @@
 # General
+from: markdown+east_asian_line_breaks
+#from: markdown+ignore_line_breaks
 eol: lf
 toc: true
 standalone: true
@@ -21,8 +23,15 @@ html-math-method:
   method: katex
   url: http://cdn.staticfile.org/KaTeX/0.15.3/
 
+# Docx
+reference-doc: ${USERDATA}/docx/计划书.docx
+
+# PDF
+pdf-engine: prince
+
 # MetaData
 metadata:
+  lang: zh-CN
   #title: pagetitle
   toc-title: 目录
   link-citations: true
