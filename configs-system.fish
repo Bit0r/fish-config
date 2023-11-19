@@ -23,11 +23,10 @@ sudo cp config/aria2@.service /etc/systemd/system/
 sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2.conf /root/.config/aria2/
 
 # 配置pip
-sudo cp config/pip.conf /etc/
+#sudo cp config/pip.conf /etc/
 
 # 配置npm和yarn
-sudo cp config/.npmrc /etc/npmrc
-sudo cp config/.yarnrc /etc/yarnrc
+#sudo cp config/{.npmrc,.yarnrc} /etc/
 
 # 配置杂项
 sudo cp config/mpv.conf /etc/mpv/
