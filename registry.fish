@@ -3,13 +3,13 @@
 #echo 'set -e FNM_NODE_DIST_MIRROR' >>~/.config/fish/conf.d/fnm.fish
 set -Ux FNM_NODE_DIST_MIRROR 'https://repo.huaweicloud.com/nodejs/'
 
-cp config/.condarc ~/
+cp -f config/.condarc ~/
 
 sudo cp config/pip.conf /etc/
 
 mkdir -p ~/.config/go/ && cp config/go.env ~/.config/go/env
 
-cp config/{.npmrc,.yarnrc} ~/
+cp -f config/{.npmrc,.yarnrc} ~/
 sudo cp config/{.npmrc,.yarnrc} /etc/
 
 mkdir -p /etc/docker/ && sudo cp config/daemon.json /etc/docker/

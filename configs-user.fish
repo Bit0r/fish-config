@@ -21,7 +21,7 @@ ln -sf ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
 #cp config/konsole.conf ~/.local/share/konsole/配置方案-1.profile
 
 # 复制rc文件
-cp config/.*rc ~/
+cp -f config/.*rc ~/
 cp config/matplotlibrc ~/.config/matplotlib/
 cp config/konsolerc.cfg ~/.config/konsolerc
 
@@ -59,7 +59,7 @@ end
 update-mime-database ~/.local/share/mime/
 
 # 配置vncserver
-cp vnc.cfg ~/.vnc/config
+cp config/vnc.cfg ~/.vnc/config
 if type -q vncserver && confirm 'Do you want to configure vncserver?'
     vncpasswd
     vncserver
