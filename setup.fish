@@ -18,7 +18,7 @@ if confirm 'Do you want to install the system-level configuration for fish?'
 end
 
 # 安装字体
-if confirm 'Do you want to install fonts?'
+if confirm 'Do you want to install some third-party fonts?'
     source fonts.fish
 end
 
