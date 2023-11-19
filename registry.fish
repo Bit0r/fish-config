@@ -5,14 +5,11 @@ set -Ux FNM_NODE_DIST_MIRROR 'https://repo.huaweicloud.com/nodejs/'
 
 cp -f config/.condarc ~/
 
-sudo cp config/pip.conf /etc/
+cp config/pip.conf ~/.config/pip/
 
 mkdir -p ~/.config/go/ && cp config/go.env ~/.config/go/env
 
 cp -f config/{.npmrc,.yarnrc} ~/
-sudo cp config/{.npmrc,.yarnrc} /etc/
-
-mkdir -p /etc/docker/ && sudo cp config/daemon.json /etc/docker/
 
 set -Ux RUSTUP_UPDATE_ROOT 'https://mirrors.cernet.edu.cn/rustup/rustup'
 set -Ux RUSTUP_DIST_SERVER 'https://mirrors.cernet.edu.cn/rustup'
