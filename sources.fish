@@ -12,7 +12,7 @@ if confirm 'Do you want to add some ppa?'
 end
 
 # 添加外部源
-if confirm 'Do you want to add other software sources?'
+if confirm 'Do you want to add some third-party apt sources?'
     sudo apt install curl
 
     # nodejs
