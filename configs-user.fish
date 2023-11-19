@@ -3,9 +3,10 @@
 source include/confirm.fish
 
 # 创建目录
+mkdir -p ~/.vnc
 mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib}
 mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
-mkdir -p ~/.local/share/kservices5/ServiceMenus
+mkdir -p ~/.local/share/{kservices5/ServiceMenus,mime/packages}
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
 
