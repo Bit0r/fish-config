@@ -30,7 +30,7 @@ cp config/konsolerc.cfg ~/.config/konsolerc
 #cp config/pip.conf ~/.config/pip/
 
 # 配置xorg
-cp .xprofile ~/.xprofile
+cp config/.xprofile ~/.xprofile
 
 # 配置ssh
 mkdir -pm 0700 ~/.ssh/ && cp config/ssh.conf ~/.ssh/config
