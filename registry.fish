@@ -28,6 +28,7 @@ cp config/cargo.cfg ~/.cargo/config
 
 # 配置 kaggle 代理
 if type -q kaggle
+    touch ~/.kaggle/kaggle.json
     kaggle config set -n proxy -v 'http://localhost:8800'
 end
 
