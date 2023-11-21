@@ -16,9 +16,10 @@ if type -q fnm
 end
 
 if type -q wine
-    aria2c 'https://mirrors.cernet.edu.cn/winehq/wine/wine-mono/8.0.0/wine-mono-8.0.0-x86.msi'
-    aria2c 'https://mirrors.cernet.edu.cn/winehq/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86_64.msi'
-    aria2c 'https://mirrors.cernet.edu.cn/winehq/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86.msi'
+    aria2c --conf-path=./config/aria2.conf \
+        'https://mirrors.cernet.edu.cn/winehq/wine/wine-mono/8.0.0/wine-mono-8.0.0-x86.msi' \
+        'https://mirrors.cernet.edu.cn/winehq/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86_64.msi' \
+        'https://mirrors.cernet.edu.cn/winehq/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86.msi'
     wine msiexec /i ./wine-mono-8.0.0-x86.msi
     wine msiexec /i ./wine-gecko-2.47.4-x86_64.msi
     wine msiexec /i ./wine-gecko-2.47.4-x86.msi
