@@ -7,8 +7,11 @@ standalone: true
 request-headers:
   - ["User-Agent", "Mozilla/5.0 AppleWebKit/537.36 Chrome/101.0.4951.64"]
 
-# Citation
-citeproc: true
+# Crossref
+#citeproc: true
+filters:
+  - pandoc-crossref
+  - citeproc
 
 # HTML
 embed-resources: true
@@ -24,7 +27,7 @@ html-math-method:
   url: http://cdn.staticfile.org/KaTeX/0.15.3/
 
 # Docx
-reference-doc: ${USERDATA}/docx/计划书.docx
+reference-doc: ${USERDATA}/docx/思政.docx
 
 # PDF
 pdf-engine: prince
