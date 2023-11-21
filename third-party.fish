@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-source ./include/comfirm.fish
+source ./include/confirm.fish
 
 if type -q pip
     pip install -r pkglist/requirements.txt
