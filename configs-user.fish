@@ -4,7 +4,7 @@ source include/confirm.fish
 
 # 创建目录
 mkdir -p ~/.vnc
-mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib}
+mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib,discord}
 mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
 mkdir -p ~/.local/share/{kservices5/ServiceMenus,mime/packages}
 mkdir -pm 700 ~/.ssh/controls
@@ -55,6 +55,9 @@ cp config/pandoc.yaml ~/.local/share/pandoc/defaults/
 for suffix in csl css
     cp config/*.$suffix ~/.local/share/pandoc/$suffix/
 end
+
+# 配置discord
+cp -R ./config/discord/* ~/.config/discord/
 
 # 更新mime数据库
 update-mime-database ~/.local/share/mime/
