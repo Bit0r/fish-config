@@ -9,6 +9,10 @@ if confirm 'Do you want to install calibre?'
     sudo http_proxy='http://localhost:8800' sh /tmp/linux-installer.sh
 end
 
+if confirm 'Do you want to install ttf-mscorefonts-installer?'
+    sudo http_proxy='http://localhost:8800' apt install --reinstall ttf-mscorefonts-installer
+end
+
 if confirm 'Do you want to install fnm?'
     proxy-curl -fsSL 'https://fnm.vercel.app/install' | http_proxy='http://localhost:8800' bash
 end
