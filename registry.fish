@@ -9,11 +9,11 @@ cp -f config/.condarc ~/
 
 # 配置 pip 镜像
 mkdir -p ~/.config/pip/
-cp config/pip.conf ~/.config/pip/
+cp ./config/python/pip.conf ~/.config/pip/
 
 # 配置 go 镜像
 mkdir -p ~/.config/go/
-cp config/go.env ~/.config/go/env
+cp -b ./config/go/.env ~/.config/go/env
 
 # 配置 npm 和 yarn 镜像
 cp -f config/{.npmrc,.yarnrc} ~/
@@ -24,7 +24,7 @@ set -Ux RUSTUP_DIST_SERVER 'https://mirrors.cernet.edu.cn/rustup'
 
 # 配置 cargo 镜像
 mkdir -p ~/.cargo/
-cp config/cargo.cfg ~/.cargo/config
+cp -b ./config/rust/cargo.cfg ~/.cargo/config
 
 # 配置 kaggle 代理
 if type -q kaggle

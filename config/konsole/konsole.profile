@@ -1,7 +1,7 @@
 [Appearance]
 AntiAliasFonts=true
 BoldIntense=true
-ColorScheme=SolarizedLight
+#ColorScheme=SolarizedLight
 UseFontLineChararacters=true
 
 [Cursor Options]

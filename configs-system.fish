@@ -5,47 +5,53 @@ source include/confirm.fish
 # 设置软链接
 sudo ln -s /etc /usr/
 
+# 配置 sudo
+#sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
+
 # 配置mysql
-sudo cp config/mysql.cnf /etc/mysql/conf.d/
-sudo cp config/mycli.conf /etc/myclirc
+sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
+sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置Xray
 sudo mkdir -p /etc/systemd/system/xray.service.d/
-sudo cp config/xray-local.service /etc/systemd/system/xray.service.d/local.conf
-sudo cp config/xray-logrotate.cfg /etc/logrotate.d/xray
+sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
+sudo cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
 
 # 配置X11
-sudo cp config/plasma-awesome.desktop /usr/share/xsessions/
-sudo cp config/10-vnc.conf /etc/X11/xorg.conf.d/
+sudo cp ./config/kde/plasma-awesome.desktop /usr/share/xsessions/
+sudo cp ./config/vnc/10-vnc.conf /etc/X11/xorg.conf.d/
 
 # 配置aria2
-sudo cp config/aria2@.service /etc/systemd/system/
-sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2.conf /root/.config/aria2/
+sudo cp config/aria2/aria2@.service /etc/systemd/system/
+sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2/aria2.conf /root/.config/aria2/
 
 # 配置pip
-sudo cp config/pip.conf /etc/
+sudo cp ./config/python/pip.conf /etc/
 
 # 配置npm和yarn
 sudo cp config/{.npmrc,.yarnrc} /etc/
 
 # 配置docker
 sudo mkdir -p /etc/docker/
-sudo cp config/daemon.json /etc/docker/
+sudo cp ./config/docker/daemon.json /etc/docker/
+
+# 配置 imwheel
+#sudo cp ./config/imwheel/imwheelrc /etc/X11/imwheel/
+sudo cp ./config/imwheel/imwheel.service /etc/systemd/user/
 
 # 配置杂项
-sudo cp config/mpv.conf /etc/mpv/
+sudo cp ./config/smplayer/mpv.conf /etc/mpv/
 sudo cp config/tmux.conf /etc/tmux.conf
-sudo cp config/imwheel.service /etc/systemd/user/
 
 # 配置桌面设置
 sudo mkdir -p /usr/local/share/applications/
 sudo mkdir -p /usr/local/share/mime/packages/
-# for app_image in CAJViewer ivySCI
+#for app_image in CAJViewer ivySCI
 for app_image in ivySCI
     sudo ln -s /opt/$app_image/$app_image.AppImage /usr/local/bin/$app_image
-    sudo cp config/$app_image.desktop /usr/local/share/applications/
+    sudo cp config/desktop/$app_image.desktop /usr/local/share/applications/
 end
-sudo cp config/caj-viewer.xml /usr/local/share/mime/packages/
+#sudo cp config/caj-viewer.xml /usr/local/share/mime/packages/
 
 # 配置snap
 sudo snap set system snapshots.automatic.retention=no
@@ -84,7 +90,7 @@ end
 
 # 配置apt自动更新
 if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'
-    sudo cp config/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
+    sudo cp --backup=t config/apt/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
 end
 
 # 配置winetricks自动更新
@@ -99,7 +105,7 @@ end
 
 # 将plasma-awesome作为默认桌面
 if type -q awesome && type -q startplasma-x11 && confirm 'Do you want to use plasma-awesome as default desktop?'
-    sudo cp config/sddm.conf /etc/sddm.conf
+    sudo cp --backup=t ./config/kde/sddm.conf /etc/sddm.conf
 end
 
 # 配置LXD

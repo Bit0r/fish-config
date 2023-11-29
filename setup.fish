@@ -4,16 +4,17 @@ source include/confirm.fish
 
 # 安装基本配置
 if confirm 'Do you want to install the user-level configuration for fish?'
-    source config/variables.fish
+    source ./fish/variables.fish
 end
 
 if confirm 'Do you want to install the system-level configuration for fish?'
-    source config/alias.fish
+    source ./fish/alias.fish
     source /usr/share/fish/tools/web_config/sample_prompts/disco.fish
     funcsave fish_prompt
     funcsave fish_right_prompt
     sudo mv ~/.config/fish/functions/* /etc/fish/functions/
-    sudo cp functions/* /etc/fish/functions/
+    sudo cp ./fish/functions/* /etc/fish/functions/
+    sudo cp ./fish/conf.d/* /etc/fish/conf.d/
     sudo install exec/* /usr/local/bin/
 end
 
