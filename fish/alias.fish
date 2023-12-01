@@ -9,6 +9,7 @@ alias -s proxy-curl "curl -x $socks5_proxy"
 alias -s proxy-apt "apt -o Acquire::http::Proxy=$socks5_proxy"
 alias -s proxy-pip "pip --proxy $socks5_proxy"
 alias -s proxy-aria2c "aria2c --all-proxy=$http_proxy"
+alias -s proxy-git-lfs "git -c http.proxy=$http_proxy lfs"
 alias -s gh "all_proxy=$http_proxy command gh"
 alias -s ssh-proxy 'ssh -R 1080:localhost:1080 -R 8800:localhost:8800'
 
