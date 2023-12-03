@@ -1,10 +1,11 @@
 pip
 bar_chart_race
 cnki2bib
-ddddocr
+#ddddocr
 ffmpeg-python
 handcalcs
 httpx[cli,http2,socks5,brotli]
+furl
 johnnydep
 kaggle
 latexify-py
