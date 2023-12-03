@@ -1,5 +1,7 @@
 #!/usr/bin/fish
 
+sudo apt install fontconfig
+
 sudo chmod 1777 /usr/local/share/fonts
 
 mkdir -p /usr/local/share/fonts/{sim,wingdings,fancy,gb2312,YaHei,Deng}/
