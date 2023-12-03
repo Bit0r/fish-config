@@ -1,4 +1,4 @@
-apt install lnav micro pip exa bat git-crypt language-pack-zh-hans python-dev-is-python3 software-properties-common
+apt install lnav micro pip bat git-crypt language-pack-zh-hans python-dev-is-python3 software-properties-common
 
 set -U fish_greeting
 
@@ -9,7 +9,7 @@ ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 update-locale LANG="zh_CN.UTF-8" LANGUAGE="zh_CN:zh" LC_ALL="zh_CN.UTF-8"
 
-cp functions/cat.fish /usr/share/fish/functions/
+cp functions/cat.fish /etc/fish/functions/
 alias -s ls 'exa --group-directories-first -aF'
 
 set EDITOR micro
