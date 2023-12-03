@@ -55,7 +55,7 @@ cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
 cp ./config/ruff/* ~/.config/ruff/
 if type -q ruff
     ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
-    sudo mv ~/.config/fish/completions/* /usr/share/fish/completions/
+    sudo mv ~/.config/fish/completions/* /etc/fish/completions/
 end
 
 # 配置pandoc
