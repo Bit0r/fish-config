@@ -5,7 +5,7 @@ source include/confirm.fish
 # 添加ppa
 if confirm 'Do you want to add some ppa?'
     for ppa in (cat ./config/apt/ppa.txt)
-        sudo add-apt-repository -ynP $ppa
+        sudo add-apt-repository -yn ppa:$ppa
     end
     sudo cp ./config/apt/preferences.d/* /etc/apt/preferences.d/
     sudo apt update
