@@ -5,6 +5,14 @@ source include/confirm.fish
 # 设置软链接
 sudo ln -s /etc /usr/
 
+# 创建目录
+sudo mkdir -p \
+    /root/.config/aria2 \
+    /usr/share/xsessions \
+    /etc/{mpv,docker} \
+    /etc/systemd/system/xray.service.d \
+    /usr/local/share/{applications,mime/packages}
+
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
 
@@ -13,7 +21,6 @@ sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
 sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置Xray
-sudo mkdir -p /etc/systemd/system/xray.service.d/
 sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
 sudo cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
 
@@ -23,7 +30,7 @@ sudo cp ./config/vnc/10-vnc.conf /etc/X11/xorg.conf.d/
 
 # 配置aria2
 sudo cp config/aria2/aria2@.service /etc/systemd/system/
-sudo mkdir -p /root/.config/aria2/ && sudo cp config/aria2/aria2.conf /root/.config/aria2/
+sudo cp config/aria2/aria2.conf /root/.config/aria2/
 
 # 配置pip
 sudo cp ./config/python/pip.conf /etc/
@@ -32,7 +39,6 @@ sudo cp ./config/python/pip.conf /etc/
 sudo cp config/{.npmrc,.yarnrc} /etc/
 
 # 配置docker
-sudo mkdir -p /etc/docker/
 sudo cp ./config/docker/daemon.json /etc/docker/
 
 # 配置 imwheel
@@ -44,8 +50,6 @@ sudo cp ./config/smplayer/mpv.conf /etc/mpv/
 sudo cp config/tmux.conf /etc/tmux.conf
 
 # 配置桌面设置
-sudo mkdir -p /usr/local/share/applications/
-sudo mkdir -p /usr/local/share/mime/packages/
 #for app_image in CAJViewer ivySCI
 for app_image in ivySCI
     sudo ln -s /opt/$app_image/$app_image.AppImage /usr/local/bin/$app_image
