@@ -52,7 +52,7 @@ end
 # 配置 matplotlib
 cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
 # 配置 ruff
-cp ./config/ruff/* ~/.config/ruff/
+cp ./config/python/ruff/* ~/.config/ruff/
 if type -q ruff
     ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
     sudo mv ~/.config/fish/completions/* /etc/fish/completions/
