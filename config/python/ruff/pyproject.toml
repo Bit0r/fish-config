@@ -1,0 +1,38 @@
+[tool.ruff]
+fix = true
+select = [
+	"F",
+	"E",
+	"W",
+	"I",
+	"UP",
+	"N",
+	"ASYNC",
+	"FBT",
+	"B",
+	"A",
+	"C4",
+	"DTZ",
+	"EM",
+	"EXE",
+	"PIE",
+	"SLOT",
+	"SIM",
+	"INT",
+	"PTH",
+	"TD",
+	"PD",
+	"PL",
+	"TRY",
+	"FLY",
+	"NPY",
+	"RUF",
+]
+ignore = ["F401", "E501", "PTH123", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.format]
+line-ending = "lf"
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true

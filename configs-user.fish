@@ -4,7 +4,7 @@ source include/confirm.fish
 
 # 创建目录
 mkdir -p ~/.vnc
-mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib,discord}
+mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib,discord,ruff}
 mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
 mkdir -p ~/.local/share/{kservices5/ServiceMenus,mime/packages}
 mkdir -pm 700 ~/.ssh/controls
@@ -21,9 +21,6 @@ ln -sf ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
 
 # 复制rc文件
 cp -f config/.*rc ~/
-
-# 配置 matplotlib
-cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
 
 # 配置 konsole
 cp config/konsole/*.profile ~/.local/share/konsole/
@@ -51,6 +48,14 @@ cp config/keepassxc.ini ~/.config/keepassxc/
 # 配置python
 if type -q python
     cp ./config/python/usercustomize.py (python -m site --user-site)/
+end
+# 配置 matplotlib
+cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
+# 配置 ruff
+cp ./config/ruff/* ~/.config/ruff/
+if type -q ruff
+    ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
+    sudo mv ~/.config/fish/completions/* /usr/share/fish/completions/
 end
 
 # 配置pandoc

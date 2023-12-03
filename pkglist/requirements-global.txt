@@ -8,7 +8,7 @@ grequests
 aiofiles
 pysocks
 pyupgrade
-black
+#black
 ruff
 clevercsv[full]
 sqlitebiter[all]
