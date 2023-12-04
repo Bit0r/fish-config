@@ -15,15 +15,17 @@ alias -s ssh-proxy 'ssh -R 1080:localhost:1080 -R 8800:localhost:8800'
 
 alias -s pipx-global 'PIPX_HOME=/usr/local/lib/pipx PIPX_BIN_DIR=/usr/local/bin pipx'
 alias -s gdb 'gdb -quiet'
-alias -s ls 'exa -xF --group-directories-first'
-alias -s ll 'ls -lhg@'
-alias -s la 'll -a'
+if type -q exa
+    alias -s ls 'exa -xF --group-directories-first'
+    alias -s ll 'ls -lhg@'
+    alias -s la 'll -a'
+end
 alias -s logout 'loginctl terminate-user'
 alias -s unar 'unar -k skip'
 alias -s readelf 'readelf -W'
 alias -s cnki2bib 'cnki2bib -nod'
 alias -s nvrun 'env DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json'
-alias -s safe-rsync 'rsync --ignore-existing'
+alias -s rsync-safe 'rsync --ignore-existing'
 alias -s residual-config "dpkg -l | rg '^rc' | tuc -e '\s+' -f 2"
 
 set -e http_proxy
