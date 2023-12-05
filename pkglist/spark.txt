@@ -4,5 +4,6 @@ net.cnki.cajviewer
 re.cutter.spark
 winfonts
 wps-office
+org.shotcut.spark
 linuxqq
 com.qq.weixin.spark

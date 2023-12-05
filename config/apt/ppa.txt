@@ -2,6 +2,7 @@ fish-shell/release-3
 xmake-io/xmake
 longsleep/golang-backports
 serge-rider/dbeaver-ce
+maarten-fonville/android-studio
 rvm/smplayer
 obsproject/obs-studio
 mozillateam/ppa
@@ -9,5 +10,6 @@ phoerious/keepassxc
 jonmagon/kdiskmark
 flexiondotorg/nvtop
 ubuntuhandbook1/ffmpeg6
+alex-p/tesseract-ocr5
 michel-slm/distrobox
 ubuntugis/ubuntugis-unstable
