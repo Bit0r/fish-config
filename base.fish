@@ -34,7 +34,7 @@ for pkg in $pkglist
     set -a files pkglist/$pkg.txt
 end
 sudo apt update
-sudo apt install (cat $files)
+sudo apt install (cat $files | grep -v '^#')
 
 # 使用aptss安装软件包
 #sudo apt install aptss
