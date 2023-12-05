@@ -9,7 +9,7 @@ sudo ln -s /etc /usr/
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{mpv,docker} \
+    /etc/{mpv,docker,mysql/conf.d} \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,mime/packages}
 
@@ -115,6 +115,7 @@ end
 # 配置LXD
 if type -q lxd && confirm 'Do you want to configure LXD?'
     sudo snap set lxd ui.enable=true
+    cat ./config/lxd/x11.yaml | lxc profile edit x11
     sudo snap restart --reload lxd
 end
 

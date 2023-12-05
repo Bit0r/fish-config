@@ -6,7 +6,7 @@ source include/confirm.fish
 mkdir -p ~/.vnc
 mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib,discord,ruff}
 mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
-mkdir -p ~/.local/share/{kservices5/ServiceMenus,mime/packages}
+mkdir -p ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole}
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
 
