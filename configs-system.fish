@@ -9,7 +9,7 @@ sudo ln -s /etc /usr/
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{mpv,docker,mysql/conf.d} \
+    /etc/{mpv,docker,mysql/conf.d,samba} \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,mime/packages}
 
@@ -119,6 +119,13 @@ if type -q lxd && confirm 'Do you want to configure LXD?'
     sudo snap restart --reload lxd
 end
 
+# 配置samba
+if type -q samba && confirm 'Do you want to configure Samba?'
+    sudo cp --backup=t ./config/samba/smb.conf /etc/samba/
+    sudo smbpasswd -a nobody
+    sudo systemctl restart smbd
+end
+
 # 设置防火墙
 if confirm 'Do you want to configure firewall?'
     #sudo ufw allow in on lxdbr0
@@ -129,6 +136,7 @@ if confirm 'Do you want to configure firewall?'
     #sudo ufw allow https
     #sudo ufw allow ipp
     #sudo ufw allow mdns
+    #sudo ufw allow samba comment Samba
     #sudo ufw allow 1080 comment 'socks5 proxy server'
     #sudo ufw allow 8800/tcp comment 'http proxy server'
     sudo ufw allow 1714:1764/tcp comment 'KDE Connect'
@@ -137,6 +145,7 @@ if confirm 'Do you want to configure firewall?'
     sudo ufw allow 6881:6999/udp comment DHT
     #sudo ufw allow 6800:6809/tcp comment Aria2RPC
     #sudo ufw allow 5900:5910/tcp comment VNC
+    #sudo ufw allow 3389/tcp comment RDP
     sudo ufw allow 6006/tcp comment TensorBoard
     sudo ufw enable
 end
