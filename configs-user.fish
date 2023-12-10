@@ -29,8 +29,10 @@ cp config/konsole/konsolerc.cfg ~/.config/konsolerc
 # 配置pip
 #cp config/pip.conf ~/.config/pip/
 
-# 配置xorg
-cp config/.xprofile ~/.xprofile
+# 配置 x0vncserver
+if type -q x0vncserver && confirm 'Do you want to configure x0vncserver?'
+    cp ./config/.xprofile ~/.xprofile
+end
 
 # 配置ssh
 mkdir -pm 0700 ~/.ssh/ && cp ./config/ssh/ssh.conf ~/.ssh/config
