@@ -90,7 +90,7 @@ end
 
 # 添加自身到必需的组
 if confirm 'Do you want to add yourself to some groups?'
-    for group in lp lpadmin adm systemd-journal ssl-cert www-data wireshark docker kvm input
+    for group in lp lpadmin mysql adm systemd-journal ssl-cert www-data wireshark docker kvm input sambashare
         sudo adduser $USER $group
     end
 end
