@@ -127,6 +127,12 @@ if type -q samba && confirm 'Do you want to configure Samba?'
     sudo systemctl restart smbd
 end
 
+# 配置libvirt
+if type -q virsh && confirm 'Do you want to configure libvirt?'
+    sudo cp --backup=t ./config/libvirt/qemu/*.xml /etc/libvirt/qemu/
+    sudo cp --backup=t ./config/libvirt/storge/*.xml /etc/libvirt/storage/
+end
+
 # 设置防火墙
 if confirm 'Do you want to configure firewall?'
     #sudo ufw allow in on lxdbr0
