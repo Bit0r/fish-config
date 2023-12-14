@@ -1,27 +1,5 @@
 {
-	"log": {
-		"access": "/var/log/xray/access.log",
-		"error": "/var/log/xray/error.log",
-		"loglevel": "warning"
-	},
-	"api": {
-		"tag": "api",
-		"services": [
-			//"HandlerService",
-			"LoggerService",
-			"StatsService"
-		]
-	},
 	"inbounds": [
-		{
-			"listen": "127.0.0.1",
-			"port": 8880,
-			"protocol": "dokodemo-door",
-			"settings": {
-				"address": "127.0.0.1"
-			},
-			"tag": "api"
-		},
 		{
 			"port": 1080,
 			"listen": "0.0.0.0",
@@ -34,64 +12,29 @@
 			"port": 8800,
 			"listen": "0.0.0.0",
 			"protocol": "http"
-		},
-		{
-			"tag": "tproxy",
-			"listen": "0.0.0.0",
-			"port": 12345,
-			"protocol": "dokodemo-door",
-			"settings": {
-				"network": "tcp,udp",
-				"followRedirect": true
-			},
-			"sniffing": {
-				"destOverride": [
-					"http",
-					"tls",
-					"quic"
-				],
-				"enabled": true
-			},
-			"streamSettings": {
-				"sockopt": {
-					"tproxy": "tproxy"
-				}
-			}
 		}
 	],
 	"outbounds": [
 		{
-			"tag": "direct",
-			"protocol": "freedom",
-			"streamSettings": {
-				"sockopt": {
-					"mark": 255
-				}
-			}
+			"protocol": "vless",
+			"settings": {},
+			"streamSettings": {},
+			"mux": {
+				"enabled": true,
+				"concurrency": -1,
+				"xudpConcurrency": 16,
+				"xudpProxyUDP443": "reject"
+			},
+			"tag": "proxy"
 		},
 		{
-			"tag": "dns-out",
-			"protocol": "dns",
-			"settings": {
-				"address": "1.1.1.1"
-			},
-			"streamSettings": {
-				"sockopt": {
-					"mark": 255
-				}
-			}
+			"tag": "direct",
+			"protocol": "freedom"
 		}
 	],
 	"routing": {
 		"domainStrategy": "AsIs",
 		"rules": [
-			{
-				"inboundTag": [
-					"api"
-				],
-				"outboundTag": "api",
-				"type": "field"
-			},
 			{
 				"outboundTag": "direct",
 				"type": "field",
@@ -107,14 +50,6 @@
 					"geosite:private",
 					"geosite:cn"
 				]
-			},
-			{
-				"outboundTag": "dns-out",
-				"type": "field",
-				"inboundTag": [
-					"tproxy"
-				],
-				"port": 53
 			},
 			{
 				"outboundTag": "proxy",
@@ -165,17 +100,6 @@
 					"2001:67c:4e8::/48",
 					"2001:b28:f23c::/48",
 					"2a0a:f280::/32"
-				]
-			}
-		]
-	},
-	"dns": {
-		"servers": [
-			"localhost",
-			{
-				"address": "1.1.1.1",
-				"domains": [
-					"geosite:geolocation-!cn"
 				]
 			}
 		]
