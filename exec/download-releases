@@ -1,21 +1,31 @@
 #!/usr/bin/python
 
+# %%
 import asyncio
-import csv
 import os
+from pathlib import Path
 import re
 import sys
+from typing import Iterable
 
+import clevercsv
+from dotenv import load_dotenv
 import httpx
 
-gh_token = os.getenv('GH_TOKEN')
+# %%
+releases_path = Path("./releases.csv")
+
+load_dotenv()
+gh_token = os.getenv("GH_TOKEN")
 
 
-async def download(id: int, client: httpx.AsyncClient):
-    repo, version = releases[id]
+# %%
+async def download(idx: int, client: httpx.AsyncClient):
+    repo, version = releases[idx]
     r = await client.get(
-        f'https://api.github.com/repos/{repo}/releases/latest',
-        headers={'Authorization': f'token {gh_token}'})
+        f"https://api.github.com/repos/{repo}/releases/latest",
+        headers={"Authorization": f"token {gh_token}"},
+    )
 
     r_json = r.json()
 
@@ -24,34 +34,50 @@ async def download(id: int, client: httpx.AsyncClient):
         return
 
     # 如果已经是最新版本，则不用下载
-    tag_name = r_json['tag_name']
+    tag_name = r_json["tag_name"]
     if tag_name == version:
         return
 
     # 填充下载名
-    names = [None] * 4
-    for asset in r_json['assets']:
-        name = asset['name'].casefold()
+    names = [None] * 6
+    for asset in r_json["assets"]:
+        name = asset["name"].casefold()
 
         prior = 0
         """
         0. gnu.deb
         1. musl.deb
-        2. gnu.zip or gnu.tar.gz
-        3. musl.zip or gnu.tar.gz
+        2. gnu.run
+        3. musl.run
+        4. gnu.zip or gnu.tar.gz
+        5. musl.zip or gnu.tar.gz
         """
 
-        if amd64.search(name) and not digest_suffix.search(name):
-            if name[-4:] != '.deb' and 'ubuntu' not in name:
-                prior += 2
-            if 'musl' in name:
-                prior += 1
+        name_path = Path(name)
+        name_stem = name_path.stem
+        name_suffix = name_path.suffix
 
-            if prior < 2 or prior >= 2 and 'linux' in name:
-                names[prior] = name
+        if not amd64.search(name_stem) or digest_suffix.search(name_stem):
+            # 不是amd64架构或者是校验文件，那么就不用下载
+            continue
+
+        if name_suffix != ".deb" and "ubuntu" not in name_stem:
+            # 不是deb包，也不是ubuntu的包，那么优先级下调2
+            prior += 2
+        if prior >= 2 and name_suffix != ".run":
+            # 也不是run包，那么优先级下调2
+            prior += 2
+
+        if "musl" in name_stem:
+            # 是musl包，那么优先级下调1
+            prior += 1
+
+        if prior < 4 or (prior >= 4 and "linux" in name_stem):
+            # 如果优先级小于4，或者优先级大于等于4且是linux包，那么就是我们想要的包
+            names[prior] = name
 
     if not any(names):
-        print(f'{repo}: no assets', file=sys.stderr)
+        print(f"{repo}: no assets", file=sys.stderr)
         return
 
     # 根据包名的优先级进行下载
@@ -60,36 +86,41 @@ async def download(id: int, client: httpx.AsyncClient):
             continue
 
         # 使用流式传输下载
-        print(f'Downloading {name}')
+        print(f"Downloading {name}")
         async with client.stream(
-                'GET',
-                f'https://github.com/{repo}/releases/latest/download/{name}'
+            "GET", f"https://github.com/{repo}/releases/latest/download/{name}"
         ) as respose:
-            with open(name, 'wb') as f:
+            with open(name, "wb") as f:
                 async for chunk in respose.aiter_bytes():
                     f.write(chunk)
 
         # 完成下载，修改发布列表
-        releases[id][1] = tag_name
+        releases[idx][1] = tag_name
         break
 
 
-async def main():
+# %%
+async def main(idxs: Iterable[int]):
     limits = httpx.Limits(max_connections=4, max_keepalive_connections=2)
-    async with httpx.AsyncClient(follow_redirects=True,
-                                 proxies='socks5://localhost:1080',
-                                 limits=limits,
-                                 http2=True) as client:
-        await asyncio.gather(*(download(i, client)
-                               for i in range(len(releases))))
+    async with httpx.AsyncClient(
+        follow_redirects=True,
+        proxies="socks5h://localhost:1080",
+        limits=limits,
+        http2=True,
+    ) as client:
+        await asyncio.gather(*(download(i, client) for i in idxs))
 
 
-amd64 = re.compile(r'(amd|x86[-_])64')
-digest_suffix = re.compile(r'\.(sha256|minisig)$')
-with open('releases.csv', newline='') as f:
-    releases = list(csv.reader(f))
+# %%
+if __name__ == "__main__":
+    # %%
+    amd64 = re.compile(r"(amd|x86[-_])64")
+    digest_suffix = re.compile(r"\.(sha256|minisig)$")
+    releases = clevercsv.read_table(releases_path)
 
-asyncio.run(main())
+    # %%
+    # 将第一行的标题去掉，其它行作为下载列表
+    asyncio.run(main(range(1, len(releases))))
 
-with open('releases.csv', 'w', newline='') as f:
-    csv.writer(f, quoting=csv.QUOTE_NONNUMERIC).writerows(releases)
+    # %%
+    clevercsv.write_table(releases, releases_path)
