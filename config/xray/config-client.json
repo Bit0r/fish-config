@@ -2,7 +2,8 @@
 	"log": {
 		"access": "/var/log/xray/access.log",
 		"error": "/var/log/xray/error.log",
-		"loglevel": "warning"
+		"loglevel": "warning",
+		"dnsLog": true
 	},
 	"api": {
 		"tag": "api",
@@ -121,7 +122,8 @@
 				"type": "field",
 				"domain": [
 					"geosite:geolocation-!cn",
-					"geosite:tld-!cn"
+					"geosite:tld-!cn",
+					"domain:org"
 				]
 			},
 			{
@@ -175,7 +177,8 @@
 			{
 				"address": "1.1.1.1",
 				"domains": [
-					"geosite:geolocation-!cn"
+					"geosite:geolocation-!cn",
+					"geosite:tld-!cn"
 				]
 			}
 		]

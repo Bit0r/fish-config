@@ -7,7 +7,8 @@ ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 update-locale LANG="zh_CN.UTF-8" LANGUAGE="zh_CN:zh" LC_ALL="zh_CN.UTF-8"
 
-#sudo chsh -s /usr/bin/fish $USER # 更改默认shell
+#sudo passwd $USER # 修改密码
+#chsh -s /usr/bin/fish # 修改默认shell
 set -U fish_greeting
 
 cp functions/cat.fish /etc/fish/functions/
