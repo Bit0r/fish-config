@@ -1,3 +1,5 @@
+#cn.flamescion.bookworm-compatibility-mode
+com.github.ccc-app-manager
 android-adb-fastboot-tools
 com.xiaomitool
 net.cnki.cajviewer
@@ -6,4 +8,4 @@ winfonts
 wps-office
 org.shotcut.spark
 linuxqq
-com.qq.weixin.spark
+com.qq.weixin.mejituu

@@ -26,7 +26,7 @@ if type -q wine
 end
 
 if type -q aptss && confirm 'Do you want to install some software using spark-store?'
-    sudo aptss install (cat ./pkglist/spark.txt)
+    sudo aptss install (cat ./pkglist/spark.txt | grep -v '^#')
 end
 
 #if ! type -q client

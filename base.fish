@@ -35,7 +35,3 @@ for pkg in $pkglist
 end
 sudo apt update
 sudo apt install (cat $files | grep -v '^#')
-
-# 使用aptss安装软件包
-#sudo apt install aptss
-#sudo aptss install (cat pkglist/spark.txt)
