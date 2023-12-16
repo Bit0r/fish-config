@@ -4,8 +4,8 @@
 #echo 'set -e FNM_NODE_DIST_MIRROR' >>~/.config/fish/conf.d/fnm.fish
 set -Ux FNM_NODE_DIST_MIRROR 'https://repo.huaweicloud.com/nodejs/'
 
-# 配置 conda 镜像
-cp -f config/.condarc ~/
+# 配置 conda 和 mamba 镜像
+cp -b ./config/conda/.* ~/
 
 # 配置 pip 镜像
 mkdir -p ~/.config/pip/

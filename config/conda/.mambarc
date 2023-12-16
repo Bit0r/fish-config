@@ -1,0 +1,12 @@
+channels:
+  # The Anaconda default channels are incompatible with conda-forge.
+  # https://mamba.readthedocs.io/en/latest/user_guide/troubleshooting.html#mixing-the-defaults-and-conda-forge-channels
+  - nvidia
+  - pytorch
+  - robostack-staging
+  - conda-forge
+show_channel_urls: true
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  nvidia: https://mirrors.cernet.edu.cn/anaconda-extra/cloud/

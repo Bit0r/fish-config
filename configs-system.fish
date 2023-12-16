@@ -9,7 +9,7 @@ sudo ln -s /etc /usr/
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{mpv,docker,mysql/conf.d,samba} \
+    /etc/{conda,mpv,docker,mysql/conf.d,samba} \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,mime/packages}
 
@@ -19,6 +19,9 @@ sudo mkdir -p \
 # 配置mysql
 sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
 sudo cp ./config/mysql/mycli.conf /etc/myclirc
+
+# 配置conda
+sudo cp ./config/conda/.* /etc/conda/
 
 # 配置Xray
 sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
