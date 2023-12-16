@@ -19,3 +19,5 @@ python3-altair
 python3-sklearn
 python3-sqlalchemy-i18n
 python3-venv
+pyqt5-dev-tools
+python3-pyqt5.qtopengl

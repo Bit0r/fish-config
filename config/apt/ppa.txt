@@ -12,4 +12,4 @@ flexiondotorg/nvtop
 ubuntuhandbook1/ffmpeg6
 alex-p/tesseract-ocr5
 michel-slm/distrobox
-ubuntugis/ubuntugis-unstable
+#ubuntugis/ubuntugis-unstable
