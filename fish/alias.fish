@@ -2,10 +2,7 @@ set -l http_proxy http://localhost:8800
 set -l socks5_proxy socks5://localhost:1080
 set -l socks5h_proxy socks5h://localhost:1080
 
-set -l xray_logs /var/log/xray/{access,error}.log
-alias -s lnav-xray "lnav $xray_logs"
-set -e xray_logs
-
+alias -s lnav-xray 'lnav /var/log/xray/*.log'
 alias -s proxy-wget2 "wget2 --http-proxy=$http_proxy"
 alias -s proxy-wget "http_proxy=$http_proxy wget"
 alias -s proxy-go "http_proxy=$http_proxy go"
