@@ -9,4 +9,4 @@ show_channel_urls: true
 custom_channels:
   conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  nvidia: https://mirrors.cernet.edu.cn/anaconda-extra/cloud/
+  # nvidia: https://mirrors.cernet.edu.cn/anaconda-extra/cloud/ # 404
