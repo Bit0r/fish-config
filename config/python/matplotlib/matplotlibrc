@@ -1,5 +1,5 @@
 axes.unicode_minus: False
-font.serif: Noto Serif CJK SC, serif
-font.sans-serif: Noto Sans CJK SC, sans-serif
+font.serif: Noto Serif, serif
+font.sans-serif: Noto Sans, sans-serif
 font.fantasy: xkcd, fantasy
 font.monospace: Fria Code, monospace
