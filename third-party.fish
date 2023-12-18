@@ -15,6 +15,10 @@ if type -q fnm
     fnm install --lts
 end
 
+if type -q yarn
+    yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
+end
+
 if type -q wine
     aria2c --conf-path=./config/aria2.conf \
         'https://mirrors.cernet.edu.cn/winehq/wine/wine-mono/8.0.0/wine-mono-8.0.0-x86.msi' \
