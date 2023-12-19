@@ -4,14 +4,14 @@ set -l socks5h_proxy socks5h://localhost:1080
 
 alias -s lnav-xray 'lnav /var/log/xray/*.log'
 alias -s proxy-wget2 "wget2 --http-proxy=$http_proxy"
-alias -s proxy-wget "http_proxy=$http_proxy wget"
-alias -s proxy-go "http_proxy=$http_proxy go"
+alias -s proxy-wget "https_proxy=$http_proxy http_proxy=$http_proxy wget"
+alias -s proxy-go "https_proxy=$http_proxy http_proxy=$http_proxy go"
 alias -s proxy-curl "curl -x $socks5h_proxy"
 alias -s proxy-apt "apt -o Acquire::http::Proxy=$socks5h_proxy"
 alias -s proxy-pip "pip --proxy $socks5h_proxy"
 alias -s proxy-aria2c "aria2c --all-proxy=$http_proxy"
 alias -s proxy-git-lfs "git -c http.proxy=$http_proxy lfs"
-alias -s gh "all_proxy=$http_proxy command gh"
+alias -s gh "https_proxy=$http_proxy http_proxy=$http_proxy command gh"
 alias -s ssh-proxy 'ssh -R 1080:localhost:1080 -R 8800:localhost:8800'
 
 alias -s pipx-global 'PIPX_HOME=/usr/local/lib/pipx PIPX_BIN_DIR=/usr/local/bin pipx'
