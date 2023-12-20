@@ -13,15 +13,23 @@ from dotenv import load_dotenv
 import httpx
 
 # %%
-releases_path = Path("./releases.csv")
+RELEASES_PATH = "./releases.csv"
 
+releases_path = Path(RELEASES_PATH).expanduser().resolve()
 load_dotenv()
 gh_token = os.getenv("GH_TOKEN")
 
 
 # %%
 async def download(idx: int, client: httpx.AsyncClient):
+    if releases[idx] > 2:
+        # 不符合格式，直接返回
+        return
     repo, version = releases[idx]
+    if not repo:
+        # 没有repo，直接返回
+        return
+
     r = await client.get(
         f"https://api.github.com/repos/{repo}/releases/latest",
         headers={"Authorization": f"token {gh_token}"},
@@ -117,6 +125,8 @@ if __name__ == "__main__":
     amd64 = re.compile(r"(amd|x86[-_])64")
     digest_suffix = re.compile(r"\.(sha256|minisig)$")
     releases = clevercsv.read_table(releases_path)
+    # 删除注释行
+    releases = list(filter(lambda release: len(release) <= 2, releases))
 
     # %%
     # 将第一行的标题去掉，其它行作为下载列表
