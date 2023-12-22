@@ -6,6 +6,12 @@ if type -q pip
     sudo pip install -r pkglist/requirements-global.txt
 end
 
+if type -q pipx
+    for pkg in (cat ./pkglist/pipx-global.txt | grep -v '^#')
+        sudo fish -c "pipx-global install $pkg"
+    end
+end
+
 if type -q go
     go install github.com/davecheney/httpstat@latest
     go install github.com/shurcooL/markdownfmt@latest

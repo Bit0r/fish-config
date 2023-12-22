@@ -3,7 +3,7 @@
 	email = nie_wang@outlook.com
 [core]
 	editor = code -w
-	hooksPath = ~/.config/git/hooks
+	# hooksPath = ~/.config/git/hooks
 [http "https://github.com"]
 	proxy = socks5://localhost
 [credential]
@@ -13,8 +13,8 @@
 	enabled = true
 [pull]
 	ff = only
-[push]
-	recurseSubmodules = on-demand
+# [push]
+# 	recurseSubmodules = on-demand
 [diff]
 	tool = vscode
 	submodule = log
@@ -25,8 +25,8 @@
 	textconv = exiftool
 # [merge "ours"]
 # 	driver = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+# [filter "lfs"]
+# 	clean = git-lfs clean -- %f
+# 	smudge = git-lfs smudge -- %f
+# 	process = git-lfs filter-process
+# 	required = true
