@@ -87,7 +87,7 @@ end
 
 # 配置update-alternatives
 if confirm 'Do you want to configure update-alternatives?'
-    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/micro.1.gz
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1 editor.1 /usr/share/man/man1/micro.1
     #sudo update-alternatives --install /usr/lib/liblaszip.so liblaszip.so /usr/lib/x86_64-linux-gnu/liblaszip.so.8 80
     #for v in (seq 9 12)
     #    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$v $v
@@ -97,7 +97,7 @@ end
 
 # 配置apt自动更新
 if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'
-    sudo cp --backup=t config/apt/50unattended-upgrades.c /etc/apt/apt.conf.d/50unattended-upgrades
+    sudo cp --backup=t config/apt/*-upgrades /etc/apt/apt.conf.d/
 end
 
 # 配置winetricks自动更新
