@@ -28,7 +28,16 @@ select = [
 	"NPY",
 	"RUF",
 ]
-ignore = ["F401", "E402", "E501", "PTH123", "RUF001", "RUF002", "RUF003"]
+ignore = [
+	"F401",
+	"E402",
+	"E501",
+	"PTH123",
+	"PLR2004",
+	"RUF001",
+	"RUF002",
+	"RUF003",
+]
 
 [tool.ruff.format]
 line-ending = "lf"
