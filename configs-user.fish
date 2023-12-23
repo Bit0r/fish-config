@@ -32,7 +32,7 @@ end
 
 # 配置 konsole
 cp config/konsole/*.profile ~/.local/share/konsole/
-cp config/konsole/konsolerc.cfg ~/.config/konsolerc
+cp config/konsole/konsolerc ~/.config/
 
 # 配置pip
 #cp config/pip.conf ~/.config/pip/
