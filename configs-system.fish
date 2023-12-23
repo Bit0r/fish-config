@@ -52,6 +52,14 @@ sudo cp ./config/imwheel/imwheel.service /etc/systemd/user/
 sudo cp ./config/smplayer/mpv.conf /etc/mpv/
 sudo cp config/tmux.conf /etc/tmux.conf
 
+# 关闭 baloo 文件索引
+if type -q balooctl
+    sudo cp config/baloofilerc /root/.config/
+    sudo balooctl suspend
+    sudo balooctl disable
+    sudo balooctl purge
+end
+
 # 配置桌面设置
 #for app_image in CAJViewer ivySCI
 for app_image in ivySCI
@@ -117,7 +125,11 @@ end
 
 # 配置LXD
 if type -q lxd && confirm 'Do you want to configure LXD?'
+    # 配置LXD UI
     sudo snap set lxd ui.enable=true
+    sudo systemctl reload snap.lxd.daemon
+    # 创建x11配置文件
+    lxc profile create x11
     cat ./config/lxd/x11.yaml | lxc profile edit x11
     sudo snap restart --reload lxd
 end

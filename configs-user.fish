@@ -22,6 +22,14 @@ ln -sf ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
 # 复制rc文件
 cp -f config/.*rc ~/
 
+# 关闭 baloo 文件索引
+if type -q balooctl
+    cp config/baloofilerc ~/.config/
+    balooctl suspend
+    balooctl disable
+    balooctl purge
+end
+
 # 配置 konsole
 cp config/konsole/*.profile ~/.local/share/konsole/
 cp config/konsole/konsolerc.cfg ~/.config/konsolerc
