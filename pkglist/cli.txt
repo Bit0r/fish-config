@@ -19,6 +19,7 @@ hspell
 hyperfine
 imwheel
 inxi
+iotop
 #iredis
 jq
 lhasa
