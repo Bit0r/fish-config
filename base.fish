@@ -27,7 +27,9 @@ add-list 'Do you want to install office suite?' office
 add-list 'Do you want to install docker?' docker
 add-list 'Do you want to install LXD?' lxd
 add-list 'Do you want to install virtualbox?' virtualbox
+add-list 'Do you want to install libvirt?' libvirt
 add-list 'Do you want to install some games?' games
+add-list 'Do you want to install xfce?' xfce
 
 # 开始安装
 set files /dev/null

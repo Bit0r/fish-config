@@ -33,7 +33,6 @@ smplayer
 telegram-desktop
 ubuntu-restricted-extras
 yad
-virt-manager
 vokoscreen-ng
 weston
 wireshark
