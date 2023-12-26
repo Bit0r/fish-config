@@ -4,10 +4,12 @@ source include/confirm.fish
 
 # 安装基本配置
 if confirm 'Do you want to install the user-level configuration for fish?'
-    source ./fish/variables.fish
+    source ./fish/variables/normal.fish
 end
 
 if confirm 'Do you want to install the system-level configuration for fish?'
+    sudo fish -c 'source ./fish/variables/normal.fish'
+    sudo fish -c 'source ./fish/variables/root.fish'
     source ./fish/alias.fish
     source /usr/share/fish/tools/web_config/sample_prompts/disco.fish
     funcsave fish_prompt

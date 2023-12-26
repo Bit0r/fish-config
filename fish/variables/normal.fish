@@ -14,6 +14,8 @@ set -U UBUNTU_CODENAME (lsb_release -cs)
 #set -Ux ELECTRON_TRASH gio
 set -U fish_greeting
 set -U fish_features all
+set -U dirprev
+set -U dirnext
 set -U fish_user_paths \
     ~/.local/bin \
     ~/go/bin \

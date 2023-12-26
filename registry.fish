@@ -13,7 +13,7 @@ cp ./config/python/pip.conf ~/.config/pip/
 
 # 配置 go 镜像
 mkdir -p ~/.config/go/
-cp -b ./config/go/.env ~/.config/go/env
+cp -b ./config/go/env ~/.config/go/
 
 # 配置 npm 和 yarn 镜像
 cp -f config/{.npmrc,.yarnrc} ~/
