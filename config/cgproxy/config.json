@@ -1,0 +1,20 @@
+{
+	"port": 12345,
+	"program_noproxy": [
+		"xray",
+		"qv2ray"
+	],
+	"program_proxy": [],
+	"cgroup_noproxy": [
+		"/system.slice/xray.service"
+	],
+	"cgroup_proxy": [],
+	"enable_gateway": false,
+	"enable_dns": true,
+	"enable_udp": true,
+	"enable_tcp": true,
+	"enable_ipv4": true,
+	"enable_ipv6": false,
+	"table": 10007,
+	"fwmark": 39283
+}

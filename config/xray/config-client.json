@@ -24,16 +24,16 @@
 			"tag": "api"
 		},
 		{
-			"port": 1080,
 			"listen": "0.0.0.0",
+			"port": 1080,
 			"protocol": "socks",
 			"settings": {
 				"udp": true
 			}
 		},
 		{
-			"port": 8800,
 			"listen": "0.0.0.0",
+			"port": 8800,
 			"protocol": "http"
 		},
 		{
@@ -42,6 +42,8 @@
 			"port": 12345,
 			"protocol": "dokodemo-door",
 			"settings": {
+				// "address": "", //
+				// "port": 0, //
 				"network": "tcp,udp",
 				"followRedirect": true
 			},
@@ -64,6 +66,11 @@
 		{
 			"tag": "direct",
 			"protocol": "freedom",
+			// "sendThrough": "0.0.0.0", //
+			// "settings": {
+			// 	"domainStrategy": "UseIP", //
+			// 	"redirect": ":0" //
+			// },
 			"streamSettings": {
 				"sockopt": {
 					"mark": 255
@@ -73,9 +80,6 @@
 		{
 			"tag": "dns-out",
 			"protocol": "dns",
-			"settings": {
-				"address": "1.1.1.1"
-			},
 			"streamSettings": {
 				"sockopt": {
 					"mark": 255
@@ -106,7 +110,13 @@
 				"type": "field",
 				"domain": [
 					"geosite:private",
-					"geosite:cn"
+					"geosite:cn",
+					"domain:tmall.hk",
+					"domain:ieee.org",
+					"domain:ieee-dataport.org",
+					"domain:enmap.org",
+					"domain:dlr.de",
+					"domain:sectigo.com"
 				]
 			},
 			{
@@ -123,50 +133,17 @@
 				"domain": [
 					"geosite:geolocation-!cn",
 					"geosite:tld-!cn",
-					"domain:org"
+					"domain:org",
+					"domain:zophar.net",
+					"domain:einops.rocks",
+					"domain:libhunt.com"
 				]
 			},
 			{
 				"outboundTag": "proxy",
 				"type": "field",
 				"ip": [
-					"geoip:!cn",
-					"192.30.252.0/22",
-					"185.199.108.0/22",
-					"140.82.112.0/20",
-					"143.55.64.0/20",
-					"2a0a:a440::/29",
-					"2606:50c0::/32",
-					"20.201.28.151/32",
-					"20.205.243.166/32",
-					"102.133.202.242/32",
-					"20.248.137.48/32",
-					"20.207.73.82/32",
-					"20.27.177.113/32",
-					"20.200.245.247/32",
-					"20.233.54.53/32",
-					"20.201.28.152/32",
-					"20.205.243.160/32",
-					"102.133.202.246/32",
-					"20.248.137.50/32",
-					"20.207.73.83/32",
-					"20.27.177.118/32",
-					"20.200.245.248/32",
-					"20.233.54.52/32",
-					"91.108.56.0/22",
-					"91.108.4.0/22",
-					"91.108.8.0/22",
-					"91.108.16.0/22",
-					"91.108.12.0/22",
-					"149.154.160.0/20",
-					"91.105.192.0/23",
-					"91.108.20.0/22",
-					"185.76.151.0/24",
-					"2001:b28:f23d::/48",
-					"2001:b28:f23f::/48",
-					"2001:67c:4e8::/48",
-					"2001:b28:f23c::/48",
-					"2a0a:f280::/32"
+					"geoip:!cn"
 				]
 			}
 		]
