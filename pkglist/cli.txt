@@ -1,3 +1,4 @@
+apt-file
 aria2
 arj
 attr

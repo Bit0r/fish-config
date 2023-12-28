@@ -11,6 +11,9 @@ cp -b ./config/conda/.* ~/
 mkdir -p ~/.config/pip/
 cp ./config/python/pip.conf ~/.config/pip/
 
+# 配置 poetry 镜像
+set -Ux POETRY_PYPI_MIRROR_URL 'https://mirrors.aliyun.com/pypi/simple'
+
 # 配置 go 镜像
 mkdir -p ~/.config/go/
 cp -b ./config/go/env ~/.config/go/

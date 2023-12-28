@@ -1,3 +1,4 @@
 pre-commit
 mycli
 iredis
+poetry

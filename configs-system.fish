@@ -2,6 +2,9 @@
 
 source include/confirm.fish
 
+# 配置系统级环境变量
+sudo cp ./config/environment/* /etc/environment.d/
+
 # 设置软链接
 sudo ln -s /etc /usr/
 
@@ -163,6 +166,8 @@ if confirm 'Do you want to configure firewall?'
     #sudo ufw allow 8800/tcp comment 'http proxy server'
     sudo ufw allow 1714:1764/tcp comment 'KDE Connect'
     sudo ufw allow 1714:1764/udp comment 'KDE Connect'
+    sudo ufw allow 1701/tcp comment 'Weylus HTTP'
+    sudo ufw allow 9001/tcp comment 'Weylus Websocket'
     sudo ufw allow 6881:6999/tcp comment BitTorrent
     sudo ufw allow 6881:6999/udp comment DHT
     #sudo ufw allow 6800:6809/tcp comment Aria2RPC

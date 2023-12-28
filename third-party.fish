@@ -3,12 +3,21 @@ source ./include/confirm.fish
 
 if type -q pip
     pip install -r pkglist/requirements.txt
+end
+
+if sudo which pip >/dev/null
     sudo pip install -r pkglist/requirements-global.txt
 end
 
 if type -q pipx
+end
+
+if sudo which pipx >/dev/null
     for pkg in (cat ./pkglist/pipx-global.txt | grep -v '^#')
-        sudo fish -c "pipx-global install $pkg"
+        sudo fish -c "pipx install $pkg"
+    end
+    for inject in (cat ./pkglist/pipx-inject-global.txt | grep -v '^#')
+        sudo fish -c "pipx inject $inject"
     end
 end
 
@@ -21,7 +30,9 @@ if type -q fnm
     fnm install --lts
 end
 
-if type -q yarn
+if sudo which yarn >/dev/null
+    sudo yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
+else if type -q yarn
     yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
 end
 

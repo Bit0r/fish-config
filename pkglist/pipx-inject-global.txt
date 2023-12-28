@@ -1,0 +1,2 @@
+poetry poetry-plugin-export
+poetry poetry-plugin-pypi-mirror

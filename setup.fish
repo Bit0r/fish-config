@@ -8,6 +8,7 @@ if confirm 'Do you want to install the user-level configuration for fish?'
 end
 
 if confirm 'Do you want to install the system-level configuration for fish?'
+    # sudo fish -c xxx 会切换到 root 用户，并读写 root 的 fish 环境变量和用户配置
     sudo fish -c 'source ./fish/variables/normal.fish'
     sudo fish -c 'source ./fish/variables/root.fish'
     source ./fish/alias.fish

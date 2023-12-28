@@ -1,5 +1,7 @@
 attrs
 pipx
+loguru
+loguru-config
 addict
 thop
 drgn
