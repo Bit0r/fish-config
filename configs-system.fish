@@ -34,6 +34,11 @@ sudo cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
 sudo cp ./config/kde/plasma-awesome.desktop /usr/share/xsessions/
 sudo cp ./config/vnc/10-vnc.conf /etc/X11/xorg.conf.d/
 
+# 配置 Weylus
+sudo addgroup --system uinput
+sudo adduser $USER uinput
+sudo cp ./config/weylus/60-weylus.rules /etc/udev/rules.d/
+
 # 配置aria2
 sudo cp config/aria2/aria2@.service /etc/systemd/system/
 sudo cp config/aria2/aria2.conf /root/.config/aria2/
