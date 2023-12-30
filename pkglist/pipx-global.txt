@@ -1,4 +1,5 @@
 pre-commit
 mycli
 iredis
+rich-cli
 poetry

@@ -3,10 +3,10 @@
 source include/confirm.fish
 
 # 创建目录
-mkdir -p ~/.vnc
-mkdir -p ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib,discord,ruff}
-mkdir -p ~/.local/share/pandoc/{defaults,csl,css,docx}
-mkdir -p ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole}
+mkdir -p \
+    ~/.vnc \
+    ~/.config/{fish/conf.d,profile.d,git,aria2,pip,smplayer,keepassxc,matplotlib,discord,ruff,bililive} \
+    ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}}
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
 
@@ -50,6 +50,9 @@ cp config/.gitconfig ~/.config/git/config
 
 # 配置aria2
 cp ./config/aria2/aria2.conf ~/.config/aria2/
+
+# 配置bililive
+cp ./config/bililive/config.yaml ~/.config/bililive/
 
 cp ./config/smplayer/smplayer.ini ~/.config/smplayer/
 cp ./config/desktop/mat2.desktop ~/.local/share/kservices5/ServiceMenus/

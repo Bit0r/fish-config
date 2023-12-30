@@ -43,6 +43,9 @@ sudo cp ./config/weylus/60-weylus.rules /etc/udev/rules.d/
 sudo cp config/aria2/aria2@.service /etc/systemd/system/
 sudo cp config/aria2/aria2.conf /root/.config/aria2/
 
+# 配置bililive
+sudo cp ./config/bililive/bililive.service /etc/systemd/user/
+
 # 配置pip
 sudo cp ./config/python/pip.conf /etc/
 

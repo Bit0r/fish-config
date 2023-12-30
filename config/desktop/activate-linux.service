@@ -3,9 +3,8 @@ Description=Start Activate-Linux
 PartOf=graphical-session.target
 
 [Service]
-Type=oneshot
-RemainAfterExit=yes
-ExecStart=/usr/local/bin/activate-linux -d
+Type=simple
+ExecStart=/usr/bin/activate-linux
 
 [Install]
 WantedBy=graphical-session.target
