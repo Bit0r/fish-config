@@ -1,0 +1,14 @@
+{
+	"registry-mirrors": [
+		"https://hub-mirror.c.163.com",
+		"https://mirror.baidubce.com",
+		"https://docker.m.daocloud.io"
+	],
+	"runtimes": {
+		"nvidia": {
+			"path": "nvidia-container-runtime",
+			"runtimeArgs": []
+		}
+	},
+	"data-root": "/var/data/docker"
+}

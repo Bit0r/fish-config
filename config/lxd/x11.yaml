@@ -33,6 +33,14 @@ devices:
     type: proxy
   gpu:
     type: gpu
+  cuda:
+    source: /usr/local/cuda
+    path: /usr/local/cuda
+    type: disk
+  cuda-11-3:
+    source: /usr/local/cuda-11.3
+    path: /usr/local/cuda-11.3
+    type: disk
   # ssh:
   #   connect: tcp:0.0.0.0:22
   #   listen: tcp:0.0.0.0:2222
