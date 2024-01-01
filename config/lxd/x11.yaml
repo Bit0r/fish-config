@@ -33,13 +33,10 @@ devices:
     type: proxy
   gpu:
     type: gpu
-  cuda:
-    source: /usr/local/cuda
-    path: /usr/local/cuda
-    type: disk
   cuda-11-3:
-    source: /usr/local/cuda-11.3
+    source: /usr/local/cuda-11.3 # source path must be a regular file or directory, not a symlink
     path: /usr/local/cuda-11.3
+    readonly: "true"
     type: disk
   # ssh:
   #   connect: tcp:0.0.0.0:22
