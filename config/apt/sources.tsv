@@ -5,4 +5,4 @@ nodejs	https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key	deb [arch=amd64
 dvc	https://dvc.org/deb/iterative.asc	deb [arch=amd64 signed-by=$key_path] https://dvc.org/deb/ stable main
 winehq	https://dl.winehq.org/wine-builds/winehq.key	deb [arch=amd64,i386 signed-by=$key_path] http://mirrors.cernet.edu.cn/wine-builds/ubuntu/ $UBUNTU_CODENAME main
 zotero	https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg	deb [arch=amd64 signed-by=$key_path by-hash=force] https://zotero.retorque.re/file/apt-package-archive ./
-nvidia-container	https://nvidia.github.io/libnvidia-container/gpgkey	deb [signed-by=$key_path] 'https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH)'
+nvidia-container	https://nvidia.github.io/libnvidia-container/gpgkey	deb [signed-by=$key_path] 'https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH)' /
