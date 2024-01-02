@@ -24,7 +24,7 @@ cp -f config/.*rc ~/
 
 # 关闭 baloo 文件索引
 if type -q balooctl
-    cp config/baloofilerc ~/.config/
+    cp ./config/kde/baloofilerc ~/.config/
     balooctl suspend
     balooctl disable
     balooctl purge

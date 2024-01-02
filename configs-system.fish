@@ -65,7 +65,7 @@ sudo cp config/tmux.conf /etc/tmux.conf
 
 # 关闭 baloo 文件索引
 if type -q balooctl
-    sudo cp config/baloofilerc /root/.config/
+    sudo cp ./config/kde/baloofilerc /root/.config/
     sudo balooctl suspend
     sudo balooctl disable
     sudo balooctl purge
