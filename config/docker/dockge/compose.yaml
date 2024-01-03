@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  dockge:
+    image: louislam/dockge
+    restart: unless-stopped
+    ports:
+      # Host Port : Container Port
+      - 5001:5001
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+      - ~/.docker:/root/.docker
+
+      # Stacks Directory
+      # ⚠️ READ IT CAREFULLY. If you did it wrong, your data could end up writing into a WRONG PATH.
+      # ⚠️ 1. FULL path only. No relative path (MUST)
+      # ⚠️ 2. Left Stacks Path === Right Stacks Path (MUST)
+      - $DOCKGE_STACKS_DIR:$DOCKGE_STACKS_DIR
+    environment:
+      # Tell Dockge where is your stacks directory
+      - DOCKGE_STACKS_DIR

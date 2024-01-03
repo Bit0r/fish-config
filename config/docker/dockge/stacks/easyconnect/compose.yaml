@@ -1,0 +1,36 @@
+version: "3.3"
+services:
+  docker-easyconnect:
+    # privileged: true
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    tty: true
+    stdin_open: true
+    environment:
+      # - DISABLE_PKG_VERSION_XML=1
+      - EXIT=1
+      - URLWIN=1
+      - TYPE=x11
+      - DISPLAY
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - $HOME/.ecdata:/root
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
+    ports:
+      - 127.0.0.1:54530:54530
+      - 127.0.0.1:1081:1080
+      - 127.0.0.1:8888:8888
+    image: hagb/docker-easyconnect:vncless-7.6.7
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+
+networks: {}

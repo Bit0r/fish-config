@@ -1,0 +1,2 @@
+# Docker compose environment variables, used by compose.yaml
+.env
