@@ -1,0 +1,8 @@
+{
+	"diffgutter": true,
+	"hlsearch": true,
+	"mkparents": true,
+	"rmtrailingws": true,
+	"scrollbar": true,
+	"clipboard": "terminal"
+}
