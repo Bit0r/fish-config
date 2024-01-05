@@ -3,6 +3,7 @@ pipx
 loguru
 loguru-config
 addict
+pendulum
 thop
 drgn
 dynaconf[all]
@@ -24,6 +25,7 @@ typer[all]
 typer-cli
 rich
 snoop
+#ggplot
 plotnine[all]
 mplfonts
 gradio

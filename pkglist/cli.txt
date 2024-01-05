@@ -22,6 +22,7 @@ imwheel
 inxi
 iotop
 #iredis
+jbig2dec
 jq
 lhasa
 libimage-exiftool-perl
