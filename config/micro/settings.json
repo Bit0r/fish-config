@@ -6,6 +6,6 @@
 	"scrollbar": true,
 	"clipboard": "terminal",
 	"tabmovement": true,
-	"indentchar": "→",
+	"indentchar": "|",
 	"colorscheme": "atom-dark"
 }
