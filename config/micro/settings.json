@@ -4,5 +4,8 @@
 	"mkparents": true,
 	"rmtrailingws": true,
 	"scrollbar": true,
-	"clipboard": "terminal"
+	"clipboard": "terminal",
+	"tabmovement": true,
+	"indentchar": "→",
+	"colorscheme": "atom-dark"
 }

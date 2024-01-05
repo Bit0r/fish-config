@@ -13,6 +13,9 @@ set -Ux PYTORCH_CUDA_ALLOC_CONF max_split_size_mb:1024 # 设置 PyTorch 的 CUDA
 set -U UBUNTU_CODENAME (lsb_release -cs)
 #set -Ux PYTHONPATH .	# 方便调试，不适合用于生产环境
 #set -Ux ELECTRON_TRASH gio
+if [ $COLORTERM = truecolor ]
+    set -Ux MICRO_TRUECOLOR 1 # 设置 micro 的 truecolor 支持
+end
 set -U fish_greeting
 set -U fish_features all
 set -U dirprev
