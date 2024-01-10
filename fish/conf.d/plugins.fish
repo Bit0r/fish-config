@@ -6,3 +6,7 @@ if status is-interactive
     #     atuin init fish | source
     # end
 end
+
+if type -q fnm
+    fnm env | source
+end
