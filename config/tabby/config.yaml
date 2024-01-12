@@ -218,6 +218,8 @@ terminal:
   ligatures: true
   fallbackFont: Noto Mono
   focusFollowsMouse: true
+  minimumContrastRatio: 6
+  frontend: xterm
 ssh:
   warnOnClose: true
   knownHosts: []
@@ -228,8 +230,7 @@ accessibility: {}
 appearance:
   colorSchemeMode: auto
   vibrancy: true
-hacks:
-  disableGPU: true
+hacks: {}
 providerBlacklist: []
 commandBlacklist: []
 profileDefaults:
@@ -242,3 +243,4 @@ trzszPlugin:
 recoverTabs: false
 enableWelcomeTab: false
 pluginBlacklist: []
+saveOutput: {}
