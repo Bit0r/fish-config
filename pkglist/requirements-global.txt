@@ -6,7 +6,10 @@ addict
 pendulum
 thop
 drgn
-dynaconf[all]
+python-dotenv
+hydra-core
+omegaconf
+#dynaconf[all]
 #scalene
 stitching
 grequests

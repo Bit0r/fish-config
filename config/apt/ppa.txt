@@ -9,6 +9,7 @@ mozillateam/ppa
 phoerious/keepassxc
 jonmagon/kdiskmark
 flexiondotorg/nvtop
+trzsz/ppa
 ubuntuhandbook1/ffmpeg6
 alex-p/tesseract-ocr5
 #michel-slm/distrobox

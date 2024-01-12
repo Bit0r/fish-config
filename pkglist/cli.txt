@@ -31,6 +31,7 @@ linux-tools-generic
 #litecli
 lm-sensors
 lnav
+lrzsz
 lsyncd
 mat2
 micro

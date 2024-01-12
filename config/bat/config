@@ -1,0 +1,6 @@
+# Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
+# for a list of all available themes.
+--theme="GitHub"
+
+# Uncomment the following line to disable automatic paging:
+#--paging=never
