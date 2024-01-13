@@ -167,59 +167,60 @@ terminal:
   searchOptions: {}
   colorScheme:
     name: Tabby Default
-    foreground: '#cacaca'
-    background: '#171717'
-    cursor: '#bbbbbb'
+    foreground: "#cacaca"
+    background: "#171717"
+    cursor: "#bbbbbb"
     colors:
-      - '#000000'
-      - '#ff615a'
-      - '#b1e969'
-      - '#ebd99c'
-      - '#5da9f6'
-      - '#e86aff'
-      - '#82fff7'
-      - '#dedacf'
-      - '#313131'
-      - '#f58c80'
-      - '#ddf88f'
-      - '#eee5b2'
-      - '#a5c7ff'
-      - '#ddaaff'
-      - '#b7fff9'
-      - '#ffffff'
+      - "#000000"
+      - "#ff615a"
+      - "#b1e969"
+      - "#ebd99c"
+      - "#5da9f6"
+      - "#e86aff"
+      - "#82fff7"
+      - "#dedacf"
+      - "#313131"
+      - "#f58c80"
+      - "#ddf88f"
+      - "#eee5b2"
+      - "#a5c7ff"
+      - "#ddaaff"
+      - "#b7fff9"
+      - "#ffffff"
   lightColorScheme:
     name: Violet Light
-    foreground: '#536870'
-    background: '#fcf4dc'
-    cursor: '#536870'
+    foreground: "#536870"
+    background: "#fcf4dc"
+    cursor: "#536870"
     colors:
-      - '#56595c'
-      - '#c94c22'
-      - '#85981c'
-      - '#b4881d'
-      - '#2e8bce'
-      - '#d13a82'
-      - '#32a198'
-      - '#d3d0c9'
-      - '#45484b'
-      - '#bd3613'
-      - '#738a04'
-      - '#a57705'
-      - '#2176c7'
-      - '#c61c6f'
-      - '#259286'
-      - '#c9c6bd'
+      - "#56595c"
+      - "#c94c22"
+      - "#85981c"
+      - "#b4881d"
+      - "#2e8bce"
+      - "#d13a82"
+      - "#32a198"
+      - "#d3d0c9"
+      - "#45484b"
+      - "#bd3613"
+      - "#738a04"
+      - "#a57705"
+      - "#2176c7"
+      - "#c61c6f"
+      - "#259286"
+      - "#c9c6bd"
   font: Fira Code Light
   fontSize: 22
-  bell: visual
+  bell: audible
   customColorSchemes: []
   showTabProfileIcon: true
   cursor: beam
+  cursorBlink: false # fix cursor disappearing
   ligatures: true
   fallbackFont: Noto Sans Mono Light
   focusFollowsMouse: true
   minimumContrastRatio: 6
-  frontend: xterm
+  frontend: xterm # fix font rendering
 ssh:
   warnOnClose: true
   knownHosts: []
