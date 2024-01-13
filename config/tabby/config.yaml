@@ -209,14 +209,14 @@ terminal:
       - '#c61c6f'
       - '#259286'
       - '#c9c6bd'
-  font: Fira Code
+  font: Fira Code Light
   fontSize: 22
   bell: visual
   customColorSchemes: []
   showTabProfileIcon: true
   cursor: beam
   ligatures: true
-  fallbackFont: Noto Mono
+  fallbackFont: Noto Sans Mono Light
   focusFollowsMouse: true
   minimumContrastRatio: 6
   frontend: xterm
@@ -229,7 +229,7 @@ clickableLinks:
 accessibility: {}
 appearance:
   colorSchemeMode: auto
-  vibrancy: true
+  #vibrancy: true
 hacks: {}
 providerBlacklist: []
 commandBlacklist: []
