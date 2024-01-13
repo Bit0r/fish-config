@@ -1,0 +1,23 @@
+{
+	"blacklist": [],
+	"cache": true,
+	"custom": {
+		"xunyou.com": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+	},
+	"exactMatch": false,
+	"faqs": false,
+	"log": false,
+	"mode": "custom",
+	"parser": {},
+	"protected": [
+		"google.com/recaptcha",
+		"gstatic.com/recaptcha",
+		"accounts.google.com",
+		"accounts.youtube.com",
+		"gitlab.com/users/sign_in"
+	],
+	"siblings": {},
+	"userAgentData": true,
+	"whitelist": [],
+	"json-forced": false
+}

@@ -1,0 +1,33 @@
+{
+	"generalRule": {
+		"blockMinTextCount": 0,
+		"blockMinWordCount": 0,
+		"mouseHoverHoldKey": "Alt",
+		"subtitleRule.add": {
+			"autoEnableSubtitle": true
+		}
+	},
+	"inputTranslationService": "openai",
+	"isChangedAlwaysTranslatedUrls": true,
+	"modifiedBySystem": true,
+	"translationService": "google",
+	"translationServices": {
+		"openai": {
+			"APIKEY": "",
+			"apiUrl": "https://oa.api2d.net/v1/chat/completions",
+			"model": "gpt-3.5-turbo",
+			"provider": "custom"
+		}
+	},
+	"translationUrlPattern": {
+		"excludeMatches": [],
+		"matches": [
+			"www.kadaza.com",
+			"www.reuters.com",
+			"www.bloomberg.com",
+			"edition.cnn.com",
+			"www.wsj.com",
+			"www.goodreads.com"
+		]
+	}
+}
