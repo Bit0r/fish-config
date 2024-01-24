@@ -2,6 +2,10 @@
 
 source ./include/confirm.fish
 
+if fish_is_root_user
+    alias -s sudo ' '
+end
+
 # 安装基本配置
 if confirm 'Do you want to install the user-level configuration for fish?'
     source ./fish/variables/normal.fish
@@ -47,4 +51,8 @@ if confirm 'Do you want to install the system-level configuration for fish?'
 
     # 安装系统级别的 fish 脚本
     sudo install exec/* /usr/local/bin/
+end
+
+if fish_is_root_user
+    sudo mv /etc/fish/functions/sudo.fish /root/.config/fish/functions/
 end

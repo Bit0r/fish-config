@@ -15,9 +15,9 @@ cat ./config/bash/profile.d.sh >>~/.profile
 
 #ln -sf ~/anaconda3/etc/fish/conf.d/conda.fish ~/.config/fish/conf.d/
 #ln -sf ~/anaconda3/etc/profile.d/conda.sh ~/.config/profile.d/
-# 如果要使用mambaforge，取消下面两行的注释，同时注释上面两行。
-ln -sf ~/mambaforge/etc/fish/conf.d/*.fish ~/.config/fish/conf.d/
-ln -sf ~/mambaforge/etc/profile.d/*.sh ~/.config/profile.d/
+# 如果要使用miniforge，取消下面两行的注释，同时注释上面两行。
+ln -sf ~/miniforge3/etc/fish/conf.d/*.fish ~/.config/fish/conf.d/
+ln -sf ~/miniforge3/etc/profile.d/*.sh ~/.config/profile.d/
 
 # 复制rc文件
 cp -f config/.*rc ~/

@@ -30,6 +30,9 @@ sudo cp ./config/conda/.* /etc/conda/
 sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
 sudo cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
 
+# 配置thelounge
+sudo cp ./config/thelounge/config.js /etc/thelounge/
+
 # 配置X11
 sudo cp ./config/kde/plasma-awesome.desktop /usr/share/xsessions/
 sudo cp ./config/vnc/10-vnc.conf /etc/X11/xorg.conf.d/
@@ -167,6 +170,8 @@ if confirm 'Do you want to configure firewall?'
     sudo ufw limit ssh
     #sudo ufw allow http
     #sudo ufw allow https
+    sudo ufw allow 9000/tcp comment thelounge
+    sudo ufw allow 7860/tcp comment model-memory-usage
     #sudo ufw allow ipp
     #sudo ufw allow mdns
     #sudo ufw allow samba comment Samba
