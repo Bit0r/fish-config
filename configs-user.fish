@@ -24,7 +24,7 @@ cat ./config/bash/profile.d.sh >>~/.profile
 #ln -sf ~/miniforge3/etc/profile.d/*.sh ~/.config/profile.d/
 
 # 3. micromamba
-micromamba shell init -s fish ~/micromamba
+# 该配置不需要任何软链接，只需要将 micromamba 能在 PATH 中找到即可
 
 # 复制rc文件
 cp -f config/.*rc ~/
