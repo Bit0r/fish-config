@@ -13,11 +13,18 @@ mkdir -pm 700 ~/.ssh/controls
 # 创建一个用户级别的 profile.d
 cat ./config/bash/profile.d.sh >>~/.profile
 
+# NOTE: 这下面的3种配置只能选一种
+
+# 1. anaconda3
 #ln -sf ~/anaconda3/etc/fish/conf.d/conda.fish ~/.config/fish/conf.d/
 #ln -sf ~/anaconda3/etc/profile.d/conda.sh ~/.config/profile.d/
-# 如果要使用miniforge，取消下面两行的注释，同时注释上面两行。
-ln -sf ~/miniforge3/etc/fish/conf.d/*.fish ~/.config/fish/conf.d/
-ln -sf ~/miniforge3/etc/profile.d/*.sh ~/.config/profile.d/
+
+# 2. miniforge3
+#ln -sf ~/miniforge3/etc/fish/conf.d/*.fish ~/.config/fish/conf.d/
+#ln -sf ~/miniforge3/etc/profile.d/*.sh ~/.config/profile.d/
+
+# 3. micromamba
+micromamba shell init -s fish ~/micromamba
 
 # 复制rc文件
 cp -f config/.*rc ~/
