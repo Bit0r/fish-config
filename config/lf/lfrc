@@ -1,0 +1,4 @@
+#set shell fish
+set mouse true
+set sixel true
+set info time

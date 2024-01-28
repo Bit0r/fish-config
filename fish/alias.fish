@@ -16,8 +16,8 @@ alias -s ssh-proxy 'ssh -R 1080:localhost:1080 -R 8800:localhost:8800'
 
 #alias -s pipx-global 'PIPX_HOME=/usr/local/lib/pipx PIPX_BIN_DIR=/usr/local/bin pipx'
 alias -s gdb 'gdb -quiet'
-if type -q exa
-    alias -s ls 'exa -xF --group-directories-first'
+if type -q eza
+    alias -s ls 'eza -xF --group-directories-first'
     alias -s ll 'ls -lhg@'
     alias -s la 'll -a'
 end

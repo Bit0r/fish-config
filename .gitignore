@@ -1,3 +1,5 @@
+.vscode/
+
 *_tail.json
 *.msi
 *.deb

@@ -12,6 +12,7 @@ set -Ux PYTORCH_CUDA_ALLOC_CONF max_split_size_mb:1024 # 设置 PyTorch 的 CUDA
 set -Ux WANDB_MODE offline # 设置 wandb 的模式
 #set -Ux BUILDKIT_PROGRESS plain
 set -U UBUNTU_CODENAME (lsb_release -cs)
+set -U UBUNTU_NUMBER (lsb_release -rs)
 #set -Ux PYTHONPATH .	# 方便调试，不适合用于生产环境
 #set -Ux ELECTRON_TRASH gio
 if [ "$COLORTERM" = truecolor ]

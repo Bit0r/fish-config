@@ -7,7 +7,7 @@ cpulimit
 dmg2img
 dos2unix
 enca
-exa
+#exa
 ext4magic
 git
 #git-crypt

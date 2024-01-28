@@ -30,6 +30,11 @@ sudo cp ./config/conda/.* /etc/conda/
 sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
 sudo cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
 
+# 配置lf
+sudo cp ./config/lf/lfrc /etc/
+sudo ln -s /usr/share/doc/lf/examples/lfcd.fish /etc/fish/functions/
+sudo ln -s /usr/share/doc/lf/examples/lf.fish /etc/fish/completions/
+
 # 配置thelounge
 sudo cp ./config/thelounge/config.js /etc/thelounge/
 

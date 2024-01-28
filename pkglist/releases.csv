@@ -1,8 +1,10 @@
 repository,version
 boyter/scc,
 atuinsh/atuin,
+YiNNx/cmd-wrapped,
 ajeetdsouza/zoxide,
-ogham/exa,
+junegunn/fzf,
+eza-community/eza,
 austinjones/tab-rs,
 Canop/dysk,
 bootandy/dust,
