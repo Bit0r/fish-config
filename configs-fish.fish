@@ -3,7 +3,8 @@
 source ./include/confirm.fish
 
 if fish_is_root_user
-    alias -s sudo '\t'
+    # 跳过 root 用户的 sudo 命令，会产生报错但不影响使用
+    alias -s sudo ' '
 end
 
 # 安装基本配置
