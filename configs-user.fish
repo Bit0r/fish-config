@@ -42,7 +42,7 @@ cp config/konsole/*.profile ~/.local/share/konsole/
 cp config/konsole/konsolerc ~/.config/
 
 # 配置 tabby
-cp ./config/tabby/config.yml ~/.config/tabby/
+cp ./config/tabby/config.yaml ~/.config/tabby/
 
 # 配置 bat
 cp ./config/bat/config ~/.config/bat/
