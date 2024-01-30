@@ -38,6 +38,7 @@ micro
 mangohud
 ncat
 net-tools
+ngrep
 nvtop
 p7zip-rar
 progress

@@ -169,29 +169,42 @@ end
 
 # 设置防火墙
 if confirm 'Do you want to configure firewall?'
-    #sudo ufw allow in on lxdbr0
-    #sudo ufw route allow in on lxdbr0
-    #sudo ufw route allow out on lxdbr0
+    # 硬件服务
+    sudo ufw allow 9/udp comment 'Wake on LAN'
+
+    # 系统服务
     sudo ufw limit ssh
+    #sudo ufw allow 5900:5999/tcp comment VNC
+    #sudo ufw allow 3389/tcp comment RDP
     #sudo ufw allow http
     #sudo ufw allow https
-    sudo ufw allow 9000/tcp comment thelounge
-    sudo ufw allow 7860/tcp comment model-memory-usage
     #sudo ufw allow ipp
     #sudo ufw allow mdns
     #sudo ufw allow samba comment Samba
-    #sudo ufw allow 1080 comment 'socks5 proxy server'
+
+    # 容器服务
+    #sudo ufw allow in on lxdbr0
+    #sudo ufw route allow in on lxdbr0
+    #sudo ufw route allow out on lxdbr0
+
+    # 代理服务
+    #sudo ufw allow socks comment 'socks5 proxy server'
     #sudo ufw allow 8800/tcp comment 'http proxy server'
+
+    # 个人服务
     sudo ufw allow 1714:1764/tcp comment 'KDE Connect'
     sudo ufw allow 1714:1764/udp comment 'KDE Connect'
+    sudo ufw allow 24800/tcp comment Barrier
     sudo ufw allow 1701/tcp comment 'Weylus HTTP'
     sudo ufw allow 9001/tcp comment 'Weylus Websocket'
     sudo ufw allow 6881:6999/tcp comment BitTorrent
     sudo ufw allow 6881:6999/udp comment DHT
+
+    # 网络服务
     #sudo ufw allow 6800:6809/tcp comment Aria2RPC
-    #sudo ufw allow 5900:5910/tcp comment VNC
-    #sudo ufw allow 3389/tcp comment RDP
-    sudo ufw allow 24800/tcp comment Barrier
+    sudo ufw allow 9000/tcp comment thelounge
+    sudo ufw allow 7860/tcp comment model-memory-usage
     sudo ufw allow 6006/tcp comment TensorBoard
+
     sudo ufw enable
 end
