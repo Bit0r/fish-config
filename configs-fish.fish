@@ -3,7 +3,7 @@
 source ./include/confirm.fish
 
 if fish_is_root_user
-    alias -s sudo ' '
+    alias -s sudo '\t'
 end
 
 # 安装基本配置
