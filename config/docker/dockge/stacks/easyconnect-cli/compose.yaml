@@ -16,5 +16,5 @@ services:
       - CLI_OPTS # use implicit environment variables, it will use the value of host $CLI_OPTS or .env file
     ports:
       - 127.0.0.1:1081:1080
-      - 127.0.0.1:8888:8888
+      - 127.0.0.1:8801:8888
     image: hagb/docker-easyconnect:cli

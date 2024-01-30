@@ -78,6 +78,23 @@
 			}
 		},
 		{
+			"tag": "NAT-traversal",
+			"protocol": "socks",
+			"settings": {
+				"servers": [
+					{
+						"address": "127.0.0.1",
+						"port": 1081
+					}
+				]
+			},
+			"streamSettings": {
+				"sockopt": {
+					"mark": 255
+				}
+			}
+		},
+		{
 			"tag": "dns-out",
 			"protocol": "dns",
 			"streamSettings": {
@@ -98,6 +115,20 @@
 				"type": "field"
 			},
 			{
+				"outboundTag": "NAT-traversal",
+				"type": "field",
+				"ip": [
+					"172.16.72.0/21"
+				]
+			},
+			{
+				"outboundTag": "NAT-traversal",
+				"type": "field",
+				"domain": [
+					"site:cnki.net"
+				]
+			},
+			{
 				"outboundTag": "direct",
 				"type": "field",
 				"ip": [
@@ -116,7 +147,8 @@
 					"domain:ieee-dataport.org",
 					"domain:enmap.org",
 					"domain:dlr.de",
-					"domain:sectigo.com"
+					"domain:sectigo.com",
+					"domain:spicevids.com"
 				]
 			},
 			{
@@ -130,20 +162,30 @@
 			{
 				"outboundTag": "proxy",
 				"type": "field",
+				"ip": [
+					"geoip:!cn"
+				]
+			},
+			{
+				"outboundTag": "proxy",
+				"type": "field",
 				"domain": [
 					"geosite:geolocation-!cn",
 					"geosite:tld-!cn",
 					"domain:org",
 					"domain:zophar.net",
 					"domain:einops.rocks",
-					"domain:libhunt.com"
-				]
-			},
-			{
-				"outboundTag": "proxy",
-				"type": "field",
-				"ip": [
-					"geoip:!cn"
+					"domain:libhunt.com",
+					"domain:heynote.com",
+					"domain:privacytoolslist.com",
+					"domain:direnv.net",
+					"domain:apkflash.com",
+					"domain:kiwiirc.com",
+					"domain:kovidgoyal.net",
+					"domain:kdl.dev",
+					"domain:rye-up.com",
+					"domain:lesbea.com",
+					"domain:apkssl.com"
 				]
 			}
 		]

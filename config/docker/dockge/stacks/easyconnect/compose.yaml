@@ -17,12 +17,12 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
-      - $HOME/.ecdata:/root
+      - ~/.ecdata:/root
       - /tmp/.X11-unix/:/tmp/.X11-unix/
     ports:
       - 127.0.0.1:54530:54530
       - 127.0.0.1:1081:1080
-      - 127.0.0.1:8888:8888
+      - 127.0.0.1:8801:8888
     image: hagb/docker-easyconnect:vncless-7.6.7
     ipc: host
     deploy:
@@ -31,6 +31,4 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [ gpu ]
-
-networks: {}
+              capabilities: [gpu]
