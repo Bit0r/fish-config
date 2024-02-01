@@ -125,6 +125,8 @@
 				"outboundTag": "NAT-traversal",
 				"type": "field",
 				"domain": [
+					"full:zw403-1080ti", // hosts文件中的域名
+					"full:zw403-3060",
 					"site:cnki.net"
 				]
 			},
@@ -132,21 +134,22 @@
 				"outboundTag": "direct",
 				"type": "field",
 				"ip": [
-					"geoip:private",
-					"geoip:cn"
+					// "geoip:cn",
+					"geoip:private"
 				]
 			},
 			{
 				"outboundTag": "direct",
 				"type": "field",
 				"domain": [
+					// "geosite:cn",
 					"geosite:private",
-					"geosite:cn",
 					"domain:tmall.hk",
 					"domain:ieee.org",
 					"domain:ieee-dataport.org",
 					"domain:enmap.org",
 					"domain:dlr.de",
+					"domain:cocodataset.org",
 					"domain:sectigo.com",
 					"domain:spicevids.com"
 				]
