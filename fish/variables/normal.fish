@@ -3,6 +3,7 @@ set -Ux MTR_OPTIONS -b
 set -Ux EDITOR micro
 set -Ux VISUAL code
 set -Ux VOLTA_HOME ~/.volta
+set -Ux rime_dir ~/.local/share/fcitx5/rime
 set -Ux PLAN9 /usr/local/plan9
 set -Ux DOCKGE_DIR /opt/dockge # 设置 Dockge 的工作目录
 set -Ux LXD_INSECURE_TLS true

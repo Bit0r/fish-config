@@ -26,7 +26,7 @@ if confirm 'Do you want to add some third-party apt sources?'
 
         set -l key_path $keyrings_dir/$source_name.gpg
 
-        proxy-curl -fsSL $key_url | sudo gpg --dearmor -o $key_path
+        proxy-curl -fsSL (echo "echo $key_url" | source) | sudo gpg --dearmor -o $key_path
         #echo "echo $source_url" | source # for debug
         echo "echo $source_url" | source | sudo tee /etc/apt/sources.list.d/$source_name.list >/dev/null
     end

@@ -1,7 +1,8 @@
 mycli
 mydumper
 mysql-server
-nginx
+#nginx
+caddy
 iredis
 redis-server
 unit

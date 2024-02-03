@@ -1,5 +1,6 @@
 attrs
 pipx
+pipdeptree
 loguru
 loguru-config
 addict
@@ -20,6 +21,8 @@ pyupgrade
 ruff
 clevercsv[full]
 sqlitebiter[all]
+pascal-voc
+pycocotools
 ftfy
 dataset
 #fastapi[all]

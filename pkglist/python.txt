@@ -11,11 +11,11 @@ python3-networkx
 python3-opencv
 python3-pikepdf
 python3-pip
-python3-plotly
+#python3-plotly
 python3-pycallgraph
 python3-pygraphviz
 python3-pyperclip
-python3-altair
+#python3-altair
 python3-sklearn
 python3-sqlalchemy-i18n
 python3-venv

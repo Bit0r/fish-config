@@ -7,3 +7,4 @@ pandoc
 pdfarranger
 texlive
 zotero
+onlyoffice-desktopeditors

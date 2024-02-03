@@ -1,3 +1,4 @@
+gwakeonlan
 #cn.flamescion.bookworm-compatibility-mode
 com.github.ccc-app-manager
 android-adb-fastboot-tools
@@ -5,7 +6,9 @@ com.xiaomitool
 net.cnki.cajviewer
 re.cutter.spark
 winfonts
+pot
 wps-office
 org.shotcut.spark
 linuxqq
 com.qq.weixin.mejituu
+lx-music-desktop
