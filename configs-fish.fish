@@ -2,8 +2,9 @@
 
 source ./include/confirm.fish
 
-if fish_is_root_user
-    # 跳过 root 用户的 sudo 命令，会产生报错但不影响使用
+if fish_is_root_user && ! command -q sudo
+    # 如果当前用户是 root 用户，且没有 sudo 命令，那么就将 sudo 命令设置为空命令
+    # 虽然这样做不太安全且会报错，但不会影响后续的脚本执行
     alias -s sudo ' '
 end
 
@@ -54,6 +55,6 @@ if confirm 'Do you want to install the system-level configuration for fish?'
     sudo install exec/* /usr/local/bin/
 end
 
-if fish_is_root_user
+if fish_is_root_user && ! command -q sudo
     sudo mv /etc/fish/functions/sudo.fish /root/.config/fish/functions/
 end
