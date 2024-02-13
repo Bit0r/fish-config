@@ -5,7 +5,7 @@ source include/confirm.fish
 # 创建目录
 mkdir -p \
     ~/.vnc \
-    ~/.config/{fish/conf.d,profile.d,git,bat,aria2,pip,tabby,smplayer,keepassxc,matplotlib,discord,ruff,micro,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,aria2,dive,pip,tabby,smplayer,keepassxc,matplotlib,discord,ruff,micro,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}}
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
@@ -63,6 +63,9 @@ mkdir -pm 0700 ~/.ssh/ && cp ./config/ssh/ssh.conf ~/.ssh/config
 
 # 配置git
 cp config/.gitconfig ~/.config/git/config
+
+# 配置 dive
+cp ./config/dive/*.yaml ~/.config/dive/
 
 # 配置aria2
 cp ./config/aria2/aria2.conf ~/.config/aria2/

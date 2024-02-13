@@ -1,0 +1,30 @@
+# supported options are "docker" and "podman"
+container-engine: docker
+# continue with analysis even if there are errors parsing the image archive
+ignore-errors: false
+log:
+  enabled: true
+  path: ./dive.log
+  level: info
+
+diff:
+  # You can change the default files shown in the filetree (right pane). All diff types are shown by default.
+  # hide:
+  #   - added
+  #   - removed
+  #   - modified
+  #   - unmodified
+
+filetree:
+  # The default directory-collapse state
+  collapse-dir: false
+
+  # The percentage of screen width the filetree should take on the screen (must be >0 and <1)
+  pane-width: 0.8
+
+  # Show the file attributes next to the filetree
+  show-attributes: false
+
+layer:
+  # Enable showing all changes from this layer and every previous layer
+  show-aggregated-changes: false

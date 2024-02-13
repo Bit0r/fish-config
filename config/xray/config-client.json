@@ -105,7 +105,7 @@
 		}
 	],
 	"routing": {
-		"domainStrategy": "AsIs",
+		"domainStrategy": "IPIfNonMatch",
 		"rules": [
 			{
 				"inboundTag": [
@@ -117,13 +117,6 @@
 			{
 				"outboundTag": "NAT-traversal",
 				"type": "field",
-				"ip": [
-					"172.16.72.0/21"
-				]
-			},
-			{
-				"outboundTag": "NAT-traversal",
-				"type": "field",
 				"domain": [
 					"full:zw403-1080ti", // hosts文件中的域名
 					"full:zw403-3060",
@@ -131,27 +124,36 @@
 				]
 			},
 			{
-				"outboundTag": "direct",
+				"outboundTag": "NAT-traversal",
 				"type": "field",
 				"ip": [
-					// "geoip:cn",
-					"geoip:private"
+					"172.16.72.0/21"
 				]
 			},
 			{
 				"outboundTag": "direct",
 				"type": "field",
 				"domain": [
-					// "geosite:cn",
+					"geosite:cn",
 					"geosite:private",
+					"domain:gitee.io",
 					"domain:tmall.hk",
 					"domain:ieee.org",
+					"domain:gpushare.com",
 					"domain:ieee-dataport.org",
 					"domain:enmap.org",
 					"domain:dlr.de",
 					"domain:cocodataset.org",
 					"domain:sectigo.com",
 					"domain:spicevids.com"
+				]
+			},
+			{
+				"outboundTag": "direct",
+				"type": "field",
+				"ip": [
+					"geoip:cn",
+					"geoip:private"
 				]
 			},
 			{
@@ -165,21 +167,18 @@
 			{
 				"outboundTag": "proxy",
 				"type": "field",
-				"ip": [
-					"geoip:!cn"
-				]
-			},
-			{
-				"outboundTag": "proxy",
-				"type": "field",
 				"domain": [
 					"geosite:geolocation-!cn",
 					"geosite:tld-!cn",
 					"domain:org",
+					"domain:noname.pub",
+					"domain:launchpadcontent.net",
+					"domain:onlyoffice.com",
 					"domain:zophar.net",
 					"domain:einops.rocks",
 					"domain:libhunt.com",
 					"domain:heynote.com",
+					"domain:isnico.com",
 					"domain:privacytoolslist.com",
 					"domain:direnv.net",
 					"domain:apkflash.com",
@@ -190,17 +189,12 @@
 					"domain:lesbea.com",
 					"domain:apkssl.com"
 				]
-			}
-		]
-	},
-	"dns": {
-		"servers": [
-			"localhost",
+			},
 			{
-				"address": "1.1.1.1",
-				"domains": [
-					"geosite:geolocation-!cn",
-					"geosite:tld-!cn"
+				"outboundTag": "proxy",
+				"type": "field",
+				"ip": [
+					"geoip:!cn"
 				]
 			}
 		]

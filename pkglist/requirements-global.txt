@@ -1,5 +1,6 @@
 attrs
 pipx
+docker-squash
 pipdeptree
 loguru
 loguru-config
@@ -14,10 +15,9 @@ omegaconf
 #scalene
 stitching
 grequests
-aiofiles
+#aiofiles
 pysocks
-pyupgrade
-#black
+#pyupgrade
 ruff
 clevercsv[full]
 sqlitebiter[all]
@@ -28,7 +28,6 @@ dataset
 #fastapi[all]
 litestar[standard]
 typer[all]
-typer-cli
 rich
 snoop
 #ggplot
@@ -51,8 +50,9 @@ jax[cuda12_local] -f https://storage.googleapis.com/jax-releases/jax_cuda_releas
 jaxtyping
 equinox
 tensor-sensor[torch,jax]
-codecarbon
+#codecarbon
 #huggingface_hub
+xformers
 transformers[sentencepiece]
 datasets
 evaluate[template]

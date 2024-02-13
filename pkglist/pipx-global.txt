@@ -1,5 +1,6 @@
 pre-commit
 ocrmypdf
+typer-cli
 mycli
 iredis
 harlequin
