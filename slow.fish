@@ -32,10 +32,15 @@ if confirm 'Do you want to install GitHub CLI?'
     sudo apt install gh
 end
 
+if confirm 'Do you want to install fisher?'
+    proxy-curl -fsSL 'https://git.io/fisher' | source
+    fisher update
+end
+
 if confirm 'Do you want to download the software from the GitHub release?'
-    mkdir tmp/
+    mkdir ./tmp/
     cp pkglist/releases.csv tmp/
-    tmp/
+    ./tmp/
     download-releases
     sudo apt install ./*.deb
     ../

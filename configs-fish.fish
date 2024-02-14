@@ -36,6 +36,9 @@ if confirm 'Do you want to install the system-level configuration for fish?'
     # 安装 fish 的 alias
     source ./fish/alias.fish
 
+    # 安装 fish_plugins 文件
+    cp ./fish/fish_plugins ~/.config/fish/
+
     # 设置 fish 的主题
     source /usr/share/fish/tools/web_config/sample_prompts/disco.fish
     funcsave fish_prompt
