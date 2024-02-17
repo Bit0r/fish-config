@@ -14,7 +14,8 @@ sudo mkdir -p \
     /usr/share/xsessions \
     /etc/{conda,mpv,docker,mysql/conf.d,samba} \
     /etc/systemd/system/xray.service.d \
-    /usr/local/share/{applications,mime/packages}
+    /usr/local/share/{applications,mime/packages} \
+    $DOCKGE_DIR/stacks
 
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
@@ -62,6 +63,10 @@ sudo cp config/{.npmrc,.yarnrc} /etc/
 
 # 配置docker
 sudo cp ./config/docker/daemon.json /etc/docker/
+
+# 配置 dockge
+sudo cp -r ./config/docker/dockge/* $DOCKGE_DIR/
+sudo cp ./config/docker/dockge/.env $DOCKGE_DIR/
 
 # 配置 imwheel
 #sudo cp ./config/imwheel/imwheelrc /etc/X11/imwheel/
