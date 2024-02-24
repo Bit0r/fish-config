@@ -5,8 +5,8 @@ cnki2bib
 ffmpeg-python
 handcalcs
 httpx[cli,http2,socks5,brotli]
-furl
-johnnydep
+#furl
+yarl
 kaggle
 latexify-py
 memray
