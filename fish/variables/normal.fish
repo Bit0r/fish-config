@@ -1,4 +1,3 @@
-set -Ux MANGOHUD 1
 set -Ux MTR_OPTIONS -b
 set -Ux EDITOR micro
 set -Ux VISUAL code
@@ -10,7 +9,11 @@ set -Ux LXD_INSECURE_TLS true
 set -Ux PYTORCH_CUDA_ALLOC_CONF max_split_size_mb:1024 # 设置 PyTorch 的 CUDA 内存分配策略
 #set -Ux TORCH_HOME /data/torch	# 设置 PyTorch 的缓存目录
 #set -Ux HF_HOME /data/huggingface	# 设置 HuggingFace 的缓存目录
+#set -Ux DEEPLAKE_DOWNLOAD_PATH /data/deeplake # 设置 DeepLake 的下载目录
 set -Ux WANDB_MODE offline # 设置 wandb 的模式
+#set -Ux OPENAI_API_KEY (read -s)    # 设置 OpenAI 的 API 密钥
+set -Ux OPENAI_API_BASE https://api.chatkore.com/v1 # 设置 OpenAI 的 API 地址
+set -Ux OPENAI_BASE_URL $OPENAI_API_BASE
 #set -Ux BUILDKIT_PROGRESS plain
 set -U UBUNTU_CODENAME (lsb_release -cs)
 set -U UBUNTU_NUMBER (lsb_release -rs)
