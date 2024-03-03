@@ -5,7 +5,7 @@ source include/confirm.fish
 # 创建目录
 mkdir -p \
     ~/.vnc \
-    ~/.config/{fish/conf.d,profile.d,git,bat,aria2,dive,pip,tabby,smplayer,keepassxc,matplotlib,discord,ruff,micro,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,smplayer,keepassxc,matplotlib,discord,ruff,micro,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}}
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
@@ -45,7 +45,7 @@ cp config/konsole/konsolerc ~/.config/
 cp ./config/tabby/config.yaml ~/.config/tabby/
 
 # 配置 bat
-cp ./config/bat/config ~/.config/bat/
+#cp ./config/bat/config ~/.config/bat/
 
 # 配置 micro
 cp ./config/micro/settings.json ~/.config/micro/
