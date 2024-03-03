@@ -1,5 +1,6 @@
 attrs
 pipx
+pypyp
 docker-squash
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖

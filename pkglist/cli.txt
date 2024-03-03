@@ -9,6 +9,8 @@ dos2unix
 enca
 #exa
 ext4magic
+espeak-ng-espeak
+speech-dispatcher
 git
 #git-crypt
 git-filter-repo
