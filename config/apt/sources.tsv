@@ -6,7 +6,7 @@ hashicorp	https://apt.releases.hashicorp.com/gpg	deb [arch=amd64 signed-by=$key_
 #mise	https://mise.jdx.dev/gpg-key.pub	deb [signed-by=$key_path arch=amd64] https://mise.jdx.dev/deb stable main
 nodejs	https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key	deb [arch=amd64 signed-by=$key_path] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main
 #dvc	https://dvc.org/deb/iterative.asc	deb [arch=amd64 signed-by=$key_path] https://dvc.org/deb/ stable main
-winehq	https://dl.winehq.org/wine-builds/winehq.key	deb [arch=amd64,i386 signed-by=$key_path] http://mirrors.cernet.edu.cn/wine-builds/ubuntu/ $UBUNTU_CODENAME main
+winehq	https://dl.winehq.org/wine-builds/winehq.key	deb [arch=amd64,i386 signed-by=$key_path] http://mirrors.tuna.tsinghua.edu.cn/wine-builds/ubuntu/ $UBUNTU_CODENAME main
 zotero	https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg	deb [arch=amd64 signed-by=$key_path by-hash=force] https://zotero.retorque.re/file/apt-package-archive ./
 onlyoffice	https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE	deb [signed-by=$key_path] https://download.onlyoffice.com/repo/debian squeeze main
 nvidia-container	https://nvidia.github.io/libnvidia-container/gpgkey	deb [signed-by=$key_path] 'https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH)' /

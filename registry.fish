@@ -1,5 +1,8 @@
 #!/usr/bin/fish
 
+mkdir -p ~/.{cargo,m2,kaggle} \
+    ~/.config/{pip,go}
+
 # 配置 fnm 镜像
 #echo 'set -e FNM_NODE_DIST_MIRROR' >>~/.config/fish/conf.d/fnm.fish
 set -Ux FNM_NODE_DIST_MIRROR 'https://repo.huaweicloud.com/nodejs/'
@@ -8,26 +11,26 @@ set -Ux FNM_NODE_DIST_MIRROR 'https://repo.huaweicloud.com/nodejs/'
 cp -b ./config/conda/.* ~/
 
 # 配置 pip 镜像
-mkdir -p ~/.config/pip/
 cp ./config/python/pip.conf ~/.config/pip/
 
 # 配置 poetry 镜像
 set -Ux POETRY_PYPI_MIRROR_URL 'https://mirrors.aliyun.com/pypi/simple'
 
 # 配置 go 镜像
-mkdir -p ~/.config/go/
 cp -b ./config/go/env ~/.config/go/
 
 # 配置 npm 和 yarn 镜像
-cp -f config/{.npmrc,.yarnrc} ~/
+cp -f config/.{npmrc,yarnrc} ~/
 
 # 配置 rustup 镜像
 set -Ux RUSTUP_UPDATE_ROOT 'https://mirrors.cernet.edu.cn/rustup/rustup'
 set -Ux RUSTUP_DIST_SERVER 'https://mirrors.cernet.edu.cn/rustup'
 
 # 配置 cargo 镜像
-mkdir -p ~/.cargo/
 cp -b ./config/rust/cargo.cfg ~/.cargo/config
+
+# 配置 maven 镜像
+cp -b ./config/java/maven/settings.xml ~/.m2/
 
 # 配置 kaggle 代理
 if type -q kaggle
