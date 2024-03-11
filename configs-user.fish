@@ -53,6 +53,9 @@ cp ./config/micro/settings.json ~/.config/micro/
 # 配置pip
 #cp config/pip.conf ~/.config/pip/
 
+# 配置 labelme
+cp ./config/labelme/.labelmerc ~/
+
 # 配置 x0vncserver
 if type -q x0vncserver && confirm 'Do you want to configure x0vncserver?'
     cp ./config/.xprofile ~/.xprofile

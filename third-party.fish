@@ -30,6 +30,11 @@ if type -q fnm
     fnm install --lts
 end
 
+if type -q micromamba && confirm 'Do you want to install some software using micromamba?'
+    micromamba create -n labelme python pyside2 pyqt labelme
+    micromamba run -n labelme pip install -U labelme
+end
+
 if sudo which yarn >/dev/null
     sudo yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
 else if type -q yarn
