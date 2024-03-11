@@ -25,7 +25,7 @@ sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
 sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置conda
-sudo cp ./config/conda/.* /etc/conda/
+sudo cp ./config/python/conda/.* /etc/conda/
 
 # 配置Xray
 sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
@@ -186,6 +186,7 @@ if confirm 'Do you want to configure firewall?'
     #sudo ufw allow ipp
     #sudo ufw allow mdns
     #sudo ufw allow samba comment Samba
+    #sudo ufw allow 5572/tcp comment 'Rclone Web GUI'
 
     # 容器服务
     #sudo ufw allow in on lxdbr0

@@ -8,7 +8,7 @@ mkdir -p ~/.{cargo,m2,kaggle} \
 set -Ux FNM_NODE_DIST_MIRROR 'https://repo.huaweicloud.com/nodejs/'
 
 # 配置 conda 和 mamba 镜像
-cp -b ./config/conda/.* ~/
+cp -b ./config/python/conda/.* ~/
 
 # 配置 pip 镜像
 cp ./config/python/pip.conf ~/.config/pip/
