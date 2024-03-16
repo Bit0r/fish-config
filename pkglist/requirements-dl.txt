@@ -1,0 +1,29 @@
+torch
+torch_xla[tpu] -f https://storage.googleapis.com/libtpu-releases/index.html
+thop
+lovely-tensors
+torchvision
+torchaudio
+accelerate
+xformers
+deepspeed
+peft
+trl
+jax[cuda12_local] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+jaxtyping
+equinox
+eqxvision
+ftfy
+#dataset
+tensorboardX
+tensor-repr[snoop]
+tensor-sensor[torch,jax]
+pascal-voc
+pycocotools
+transformers[sentencepiece]
+datasets
+evaluate[template]
+bitsandbytes
+#codecarbon
+#huggingface_hub
+gradio

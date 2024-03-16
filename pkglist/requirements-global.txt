@@ -1,6 +1,7 @@
 attrs
 pipx
 pypyp
+stringzilla
 docker-squash
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
@@ -8,7 +9,6 @@ loguru
 loguru-config
 addict
 pendulum
-thop
 drgn
 python-dotenv
 hydra-core
@@ -16,6 +16,9 @@ omegaconf
 #dynaconf[all]
 #scalene
 stitching
+magika
+crc32c
+soundfile
 grequests
 #aiofiles
 pysocks
@@ -23,10 +26,6 @@ pysocks
 ruff
 clevercsv[full]
 sqlitebiter[all]
-pascal-voc
-pycocotools
-ftfy
-dataset
 #fastapi[all]
 litestar[standard]
 typer[all]
@@ -35,31 +34,9 @@ snoop
 #ggplot
 plotnine[all]
 mplfonts
-gradio
 onnx
 xarray[complete]
 einops
 xarray-einstats
 sympy
-torch
-tensor-repr[snoop]
-lovely-tensors
 imutils
-torchvision
-torchaudio
-tensorboard
-jax[cuda12_local] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-jaxtyping
-equinox
-tensor-sensor[torch,jax]
-#codecarbon
-#huggingface_hub
-xformers
-transformers[sentencepiece]
-datasets
-evaluate[template]
-accelerate
-#deepspeed
-bitsandbytes
-peft
-trl

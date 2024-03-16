@@ -17,19 +17,22 @@ if confirm 'Do you want to install fnm?'
     proxy-curl -fsSL 'https://fnm.vercel.app/install' | http_proxy='http://localhost:8800' bash
 end
 
-git clone 'https://github.com/iDvel/rime-ice.git' ~/.local/share/fcitx5/rime
+if confirm 'Do you want to install fcitx5-rime plugins?'
+    ~/.local/share/fcitx5/
+    proxy-aria2c -d /tmp 'https://raw.githubusercontent.com/rime/plum/master/rime-install'
+    sudo install /tmp/rime-install /usr/local/bin/
+    rime-install iDvel/rime-ice:others/recipes/full
+    rime-install BlindingDark/rime-easy-en
+    prevd
+end
 
-git clone 'https://github.com/tankwyn/WPS-Zotero.git' ./repos/WPS-Zotero
-./repos/WPS-Zotero/install.py
+if confirm 'Do you want to install WPS-Zotero?'
+    git clone 'https://github.com/tankwyn/WPS-Zotero.git' ./repos/WPS-Zotero
+    ./repos/WPS-Zotero/install.py
+end
 
-proxy-curl -fsSL https://d2lang.com/install.sh | sh -s --
-
-proxy-curl -fsSL 'https://cli.github.com/packages/githubcli-archive-keyring.gpg' | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
-
-if confirm 'Do you want to install GitHub CLI?'
-    sudo apt upgrade
-    sudo apt install gh
+if confirm 'Do you wang to install d2lang?'
+    proxy-curl -fsSL https://d2lang.com/install.sh | sh -s --
 end
 
 if confirm 'Do you want to install fisher?'

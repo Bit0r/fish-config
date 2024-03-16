@@ -8,6 +8,8 @@ dmg2img
 dos2unix
 enca
 #exa
+exfat-fuse
+exfatprogs
 ext4magic
 espeak-ng-espeak
 speech-dispatcher
@@ -28,6 +30,7 @@ jbig2dec
 jq
 lhasa
 libimage-exiftool-perl
+libnss3-tools
 linux-tools-common
 linux-tools-generic
 #litecli
