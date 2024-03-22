@@ -8,6 +8,10 @@ sudo cp ./config/environment/* /etc/environment.d/
 # 设置软链接
 sudo ln -s /etc /usr/
 
+# 配置日志文件权限
+sudo chown -R :adm /var/log
+sudo chmod -R 2775 /var/log
+
 # 创建目录
 sudo mkdir -p \
     /root/.config/aria2 \
@@ -15,10 +19,16 @@ sudo mkdir -p \
     /etc/{conda,mpv,docker,mysql/conf.d,samba} \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,mime/packages} \
+    /var/log/imaotai \
+    /srv/api \
     $DOCKGE_DIR/stacks
+sudo mkdir -m 2775 /srv/www
 
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
+
+# 配置 ssh
+sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
 
 # 配置mysql
 sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
@@ -41,7 +51,7 @@ sudo cp ./config/thelounge/config.js /etc/thelounge/
 
 # 配置X11
 sudo cp ./config/kde/plasma-awesome.desktop /usr/share/xsessions/
-sudo cp ./config/vnc/10-vnc.conf /etc/X11/xorg.conf.d/
+#sudo cp ./config/vnc/10-vnc.conf /etc/X11/xorg.conf.d/ # 该配置文件会导致无法启动x0vncserver
 
 # 配置 Weylus
 sudo addgroup --system uinput
@@ -52,8 +62,15 @@ sudo cp ./config/weylus/60-weylus.rules /etc/udev/rules.d/
 sudo cp config/aria2/aria2@.service /etc/systemd/system/
 sudo cp config/aria2/aria2.conf /root/.config/aria2/
 
+# 配置labelme
+sudo cp ./config/labelme/.labelmerc /root/
+
 # 配置bililive
 sudo cp ./config/bililive/bililive.service /etc/systemd/user/
+
+# 配置 imaotai
+sudo cp ./config/imaotai/imaotai.service /etc/systemd/system/
+sudo cp ./config/imaotai/imaotai /etc/nginx/sites-available/
 
 # 配置pip
 sudo cp ./config/python/pip.conf /etc/
@@ -110,7 +127,6 @@ if confirm 'Do you want to optimize kernel parameters?'
 end
 
 # 配置web服务目录
-sudo mkdir -m 2775 /srv/www/
 sudo chown www-data:www-data /srv/www/
 if [ -d /var/www/ ]
     sudo chown www-data:www-data /var/www/

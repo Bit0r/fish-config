@@ -14,7 +14,7 @@ if confirm 'Do you want to install ttf-mscorefonts-installer?'
 end
 
 if confirm 'Do you want to install fnm?'
-    proxy-curl -fsSL 'https://fnm.vercel.app/install' | http_proxy='http://localhost:8800' bash
+    proxy-curl -fsSL 'https://fnm.vercel.app/install' | http_proxy bash
 end
 
 if confirm 'Do you want to install fcitx5-rime plugins?'

@@ -1,1 +1,2 @@
+xhost +local:
 x0vncserver -rfbauth ~/.vnc/passwd &

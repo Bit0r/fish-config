@@ -2,6 +2,7 @@ github-cli	https://cli.github.com/packages/githubcli-archive-keyring.gpg	deb [ar
 ueberzugpp	https://download.opensuse.org/repositories/home:justkidding/xUbuntu_$UBUNTU_NUMBER/Release.key	deb [signed-by=$key_path] http://download.opensuse.org/repositories/home:/justkidding/xUbuntu_$UBUNTU_NUMBER/ /
 docker-ctop	https://azlux.fr/repo.gpg.key	deb [arch=amd64 signed-by=$key_path] http://packages.azlux.fr/debian stable main
 docker-ce-163	http://mirrors.163.com/docker-ce/linux/ubuntu/gpg	deb [arch=amd64 signed-by=$key_path] https://mirrors.163.com/docker-ce/linux/ubuntu $UBUNTU_CODENAME stable
+#bruno		deb [signed-by=/etc/apt/keyrings/bruno.gpg] http://debian.usebruno.com/ bruno stable
 caddy	https://dl.cloudsmith.io/public/caddy/stable/gpg.key	deb [signed-by=$key_path] https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main
 hashicorp	https://apt.releases.hashicorp.com/gpg	deb [arch=amd64 signed-by=$key_path] https://apt.releases.hashicorp.com $UBUNTU_CODENAME main
 #mise	https://mise.jdx.dev/gpg-key.pub	deb [signed-by=$key_path arch=amd64] https://mise.jdx.dev/deb stable main

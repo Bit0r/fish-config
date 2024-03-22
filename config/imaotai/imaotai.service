@@ -1,0 +1,14 @@
+[Unit]
+Description=imaotai后端java后端项目
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/srv/api/imaotai
+ExecStart=/usr/bin/java -jar /srv/api/imaotai/campus-modular.jar -Dspring.config.additional-location=/srv/api/imaotai/application-prod.yml
+StandardOutput=truncate:/var/log/imaotai/campus-imaotai.log
+StandardError=truncate:/var/log/imaotai/campus-imaotai.log
+
+[Install]
+WantedBy=multi-user.target

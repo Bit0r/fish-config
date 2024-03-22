@@ -114,22 +114,22 @@
 				"outboundTag": "api",
 				"type": "field"
 			},
-			{
-				"outboundTag": "NAT-traversal",
-				"type": "field",
-				"domain": [
-					"full:zw403-1080ti", // hosts文件中的域名
-					"full:zw403-3060",
-					"site:cnki.net"
-				]
-			},
-			{
-				"outboundTag": "NAT-traversal",
-				"type": "field",
-				"ip": [
-					"172.16.72.0/21"
-				]
-			},
+			// {
+			// 	"outboundTag": "NAT-traversal",
+			// 	"type": "field",
+			// 	"domain": [
+			// 		"full:zw403-1080ti", // hosts文件中的域名
+			// 		"full:zw403-3060",
+			// 		"domain:cnki.net"
+			// 	]
+			// },
+			// {
+			// 	"outboundTag": "NAT-traversal",
+			// 	"type": "field",
+			// 	"ip": [
+			// 		"172.16.72.0/21"
+			// 	]
+			// },
 			{
 				"outboundTag": "direct",
 				"type": "field",
@@ -137,6 +137,7 @@
 					"geosite:cn",
 					"geosite:private",
 					"domain:gitee.io",
+					"domain:chatkore.com",
 					"domain:tmall.hk",
 					"domain:ieee.org",
 					"domain:gpushare.com",
@@ -171,6 +172,10 @@
 					"geosite:geolocation-!cn",
 					"geosite:tld-!cn",
 					"domain:org",
+					"domain:edu",
+					"domain:hyper.ai",
+					"domain:onrender.com",
+					"domain:activeloop.ai",
 					"domain:noname.pub",
 					"domain:launchpadcontent.net",
 					"domain:onlyoffice.com",

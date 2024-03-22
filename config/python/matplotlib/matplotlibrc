@@ -1,5 +1,6 @@
 axes.unicode_minus: False
-font.serif: Noto Serif, serif
-font.sans-serif: Noto Sans, sans-serif
+font.family: sans-serif
+font.serif: Noto Serif, SimSun serif
+font.sans-serif: Noto Sans, SimHei, sans-serif
 font.fantasy: xkcd, fantasy
 font.monospace: Fria Code, monospace
