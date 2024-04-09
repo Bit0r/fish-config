@@ -1,4 +1,5 @@
 all-the-package-names
+nnrm
 typescript
 @biomejs/biome
 @slidev/cli

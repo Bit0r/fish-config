@@ -8,7 +8,7 @@ obsproject/obs-studio
 mozillateam/ppa
 phoerious/keepassxc
 jonmagon/kdiskmark
-flexiondotorg/nvtop
+#flexiondotorg/nvtop
 trzsz/ppa
 ubuntuhandbook1/ffmpeg6
 alex-p/tesseract-ocr5

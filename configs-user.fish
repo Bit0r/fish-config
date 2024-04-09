@@ -5,7 +5,7 @@ source include/confirm.fish
 # 创建目录
 mkdir -p \
     ~/.vnc \
-    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,smplayer,keepassxc,matplotlib,discord,ruff,micro,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}}
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
@@ -55,6 +55,10 @@ cp ./config/micro/settings.json ~/.config/micro/
 
 # 配置 labelme
 cp ./config/labelme/.labelmerc ~/
+
+# 配置 ImageMagick
+#cp ./config/ImageMagick/policy-open.xml ~/.config/ImageMagick/
+#ln -bs ~/.config/ImageMagick/policy-open.xml ~/.config/ImageMagick/policy.xml
 
 # 配置 x0vncserver
 if type -q x0vncserver && confirm 'Do you want to configure x0vncserver?'

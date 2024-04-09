@@ -17,6 +17,7 @@ sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
     /etc/{conda,mpv,docker,mysql/conf.d,samba} \
+    /etc/systemd/{system,user}.conf.d \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,mime/packages} \
     /var/log/imaotai \
@@ -64,6 +65,10 @@ sudo cp config/aria2/aria2.conf /root/.config/aria2/
 
 # 配置labelme
 sudo cp ./config/labelme/.labelmerc /root/
+
+# 配置 ImageMagick
+sudo cp ./config/ImageMagick/policy-open.xml /etc/ImageMagick-6/
+sudo ln -bs /etc/ImageMagick-6/policy-open.xml /etc/ImageMagick-6/policy.xml
 
 # 配置bililive
 sudo cp ./config/bililive/bililive.service /etc/systemd/user/

@@ -131,6 +131,14 @@
 			// 	]
 			// },
 			{
+				"outboundTag": "dns-out",
+				"type": "field",
+				"inboundTag": [
+					"tproxy"
+				],
+				"port": 53
+			},
+			{
 				"outboundTag": "direct",
 				"type": "field",
 				"domain": [
@@ -158,19 +166,12 @@
 				]
 			},
 			{
-				"outboundTag": "dns-out",
-				"type": "field",
-				"inboundTag": [
-					"tproxy"
-				],
-				"port": 53
-			},
-			{
 				"outboundTag": "proxy",
 				"type": "field",
 				"domain": [
 					"geosite:geolocation-!cn",
 					"geosite:tld-!cn",
+					"geosite:tiktok",
 					"domain:org",
 					"domain:edu",
 					"domain:hyper.ai",

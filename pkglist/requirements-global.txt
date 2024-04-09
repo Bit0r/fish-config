@@ -2,6 +2,7 @@ attrs
 pipx
 pypyp
 stringzilla
+nvitop
 docker-squash
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
@@ -9,7 +10,6 @@ loguru
 loguru-config
 addict
 pendulum
-drgn
 python-dotenv
 hydra-core
 omegaconf
@@ -24,11 +24,15 @@ grequests
 pysocks
 #pyupgrade
 ruff
+pathvalidate
 clevercsv[full]
 sqlitebiter[all]
 #fastapi[all]
 litestar[standard]
-typer[all]
+fire
+#typer[all]
+drgn
+pydumpling
 rich
 snoop
 #ggplot
