@@ -8,13 +8,16 @@ johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
 loguru
 loguru-config
-addict
+python-box[all]
 pendulum
 python-dotenv
 hydra-core
 omegaconf
 #dynaconf[all]
-#scalene
+rcviz
+dm-tree
+py-spy
+scalene
 stitching
 magika
 crc32c

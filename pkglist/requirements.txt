@@ -1,4 +1,5 @@
 pip
+pyforest
 bar_chart_race
 #cnki2bib
 #ddddocr

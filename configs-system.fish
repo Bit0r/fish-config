@@ -19,7 +19,7 @@ sudo mkdir -p \
     /etc/{conda,mpv,docker,mysql/conf.d,samba} \
     /etc/systemd/{system,user}.conf.d \
     /etc/systemd/system/xray.service.d \
-    /usr/local/share/{applications,mime/packages} \
+    /usr/local/share/{applications,icons,mime/packages} \
     /var/log/imaotai \
     /srv/api \
     $DOCKGE_DIR/stacks

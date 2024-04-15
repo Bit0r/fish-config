@@ -4,6 +4,8 @@
 [core]
 	editor = code -w
 	# hooksPath = ~/.config/git/hooks
+[http "https://huggingface.co"]
+	proxy = socks5://localhost
 [http "https://github.com"]
 	proxy = socks5://localhost
 [credential]

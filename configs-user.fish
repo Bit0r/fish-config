@@ -84,9 +84,11 @@ cp ./config/smplayer/smplayer.ini ~/.config/smplayer/
 cp ./config/desktop/mat2.desktop ~/.local/share/kservices5/ServiceMenus/
 cp config/keepassxc.ini ~/.config/keepassxc/
 
-# 配置python
 if type -q python
+    # 配置python
     cp ./config/python/usercustomize.py (python -m site --user-site)/
+    # 配置pyforest
+    python -m pyforest install_extensions
 end
 # 配置 matplotlib
 cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
