@@ -9,8 +9,12 @@ pipdeptree	# 需要安装，但可以查看依赖和反向依赖
 loguru
 loguru-config
 python-box[all]
+pint
+notify-py
 pendulum
 python-dotenv
+semver
+packaging
 hydra-core
 omegaconf
 #dynaconf[all]
