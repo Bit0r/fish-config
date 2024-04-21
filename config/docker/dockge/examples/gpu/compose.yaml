@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  gpu:
+    container_name: gpu
+    image: xxxx
+    stdin_open: true
+    tty: true
+    privileged: true
+    ipc: host
+    shm_size: 10g
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    volumes:
+      - ~:/root
+    # working_dir: ~
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu

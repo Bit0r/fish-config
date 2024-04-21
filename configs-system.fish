@@ -84,7 +84,7 @@ sudo cp ./config/python/pip.conf /etc/
 sudo cp config/{.npmrc,.yarnrc} /etc/
 
 # 配置docker
-sudo cp ./config/docker/daemon.json /etc/docker/
+sudo cp ./config/docker/daemon*.json /etc/docker/
 
 # 配置 dockge
 sudo cp -r ./config/docker/dockge/* $DOCKGE_DIR/

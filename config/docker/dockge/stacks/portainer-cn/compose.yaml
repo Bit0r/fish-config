@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  portainer-ce:
+    container_name: portainer-cn
+    restart: always
+    stdin_open: true
+    tty: true
+    ports:
+      - 8000:8000
+      - 9443:9443
+    environment:
+      - http_proxy=http://172.16.72.228:8800
+      - https_proxy=http://172.16.72.228:8800
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data
+    image: 6053537/portainer-ce:2.19.4
