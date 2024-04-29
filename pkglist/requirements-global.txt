@@ -1,53 +1,56 @@
-attrs
-pipx
-pypyp
-stringzilla
-nvitop
-docker-squash
+attrs	# 类属性
+pipx	# 用于安装 python 工具
+pypyp	# 用于安装 python 版本
+stringzilla	# 字符串处理
+nvitop	# 显卡监控
+docker-squash	# docker 镜像压缩
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
-loguru
+loguru	# 日志
 loguru-config
-python-box[all]
-pint
-notify-py
-pendulum
+python-box[all]	# 字典处理
+pqdict	# 优先队列字典
+pint	# 单位处理
+notify-py	# 通知
+pendulum[test]	# 时间处理
+plumbum	# 命令行
 python-dotenv
-semver
-packaging
-hydra-core
-omegaconf
+semver	# 版本处理
+packaging	# 版本处理
+hydra-core	# 配置文件
+omegaconf	# 配置文件
 #dynaconf[all]
-rcviz
-dm-tree
-py-spy
-scalene
-stitching
-magika
-crc32c
-soundfile
-grequests
+rcviz	# 递归可视化
+dm-tree	# 树结构
+py-spy	# 性能分析
+scalene	# GPU性能分析
+stitching	# 图片拼接
+magika	# 检测文件类型
+crc32c	# 校验
+soundfile	# 音频
+grequests	# 异步请求
 #aiofiles
-pysocks
+pysocks	# 代理
 #pyupgrade
-ruff
-pathvalidate
-clevercsv[full]
-sqlitebiter[all]
+ruff	# 代码检查
+pathvalidate	# 路径检查
+clevercsv[full]	# csv处理
+sqlitebiter[all]	# 数据库处理
 #fastapi[all]
-litestar[standard]
-fire
+litestar[standard]	# 后端
+fire	# 命令行
 #typer[all]
-drgn
-pydumpling
-rich
-snoop
+drgn	# 内核调试
+pydumpling	# python traceback 调试
+rich	# 输出美化
+snoop	# 调试
 #ggplot
+polars
 plotnine[all]
-mplfonts
+mplfonts	# matplotlib 字体
 onnx
 xarray[complete]
 einops
 xarray-einstats
 sympy
-imutils
+imutils	# opencv 包装库

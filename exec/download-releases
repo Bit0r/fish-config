@@ -126,7 +126,7 @@ if __name__ == "__main__":
     digest_suffix = re.compile(r"\.(sha256|minisig)$")
     releases = clevercsv.read_table(releases_path)
     # 删除注释行
-    releases = list(filter(lambda release: len(release) <= 2, releases))
+    releases = list(filter(lambda release: len(release) <= 3, releases))
 
     # %%
     # 将第一行的标题去掉，其它行作为下载列表

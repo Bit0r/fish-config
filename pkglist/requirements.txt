@@ -1,27 +1,25 @@
 pip
-pyforest
-bar_chart_race
+pyforest	# 自动导入
+bar_chart_race	# 柱状图动画
 #cnki2bib
 #ddddocr
 ffmpeg-python
-handcalcs
 httpx[cli,http2,socks5,brotli]
-vcrpy
+vcrpy	# 录制http请求
 #furl
-yarl
+yarl	# url解析
 kaggle
-latexify-py
-memray
-name-that-hash
+#handcalcs	# python公式转latex
+latexify-py	# python公式转latex
+#memray
+name-that-hash	# hash字符串类型识别
 pdf2docx
 pytablereader[all]
 pytablewriter[all]
-polars
-pqdict
 playwright
 pytest-playwright
-pywebio
+pywebio	# web交互
 rtoml
-xmltodict
+#xmltodict
 scanf
-selectolax
+selectolax	# html解析
