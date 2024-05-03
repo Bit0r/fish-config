@@ -9,6 +9,7 @@ pipdeptree	# 需要安装，但可以查看依赖和反向依赖
 loguru	# 日志
 loguru-config
 python-box[all]	# 字典处理
+jmespath	# json 查询
 pqdict	# 优先队列字典
 pint	# 单位处理
 notify-py	# 通知
@@ -20,7 +21,7 @@ packaging	# 版本处理
 hydra-core	# 配置文件
 omegaconf	# 配置文件
 #dynaconf[all]
-rcviz	# 递归可视化
+#rcviz	# 递归可视化
 dm-tree	# 树结构
 py-spy	# 性能分析
 scalene	# GPU性能分析
@@ -46,6 +47,7 @@ rich	# 输出美化
 snoop	# 调试
 #ggplot
 polars
+great_tables	# 输出精美表格
 plotnine[all]
 mplfonts	# matplotlib 字体
 onnx
@@ -53,4 +55,3 @@ xarray[complete]
 einops
 xarray-einstats
 sympy
-imutils	# opencv 包装库

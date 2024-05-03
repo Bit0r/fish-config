@@ -1,4 +1,5 @@
 fish-shell/release-3
+cappelikan/ppa
 xmake-io/xmake
 longsleep/golang-backports
 serge-rider/dbeaver-ce
