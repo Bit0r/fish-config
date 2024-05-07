@@ -21,9 +21,12 @@ sudo mkdir -p \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /var/log/imaotai \
-    /srv/api \
-    $DOCKGE_DIR/stacks
-sudo mkdir -m 2775 /srv/www
+    /srv/api
+sudo mkdir -pm 2775 /srv/www \
+    $DOCKER_COMPOSE_DIR \
+    $DOCKER_DATA_DIR
+
+sudo chown -R :docker $DOCKER_COMPOSE_DIR $DOCKER_DATA_DIR
 
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
@@ -85,10 +88,8 @@ sudo cp config/{.npmrc,.yarnrc} /etc/
 
 # 配置docker
 sudo cp ./config/docker/daemon*.json /etc/docker/
-
-# 配置 dockge
-sudo cp -r ./config/docker/dockge/* $DOCKGE_DIR/
-sudo cp ./config/docker/dockge/.env $DOCKGE_DIR/
+# 配置 docker compose 文件
+sudo cp -a ./config/docker/compose/. $DOCKER_COMPOSE_DIR/
 
 # 配置 imwheel
 #sudo cp ./config/imwheel/imwheelrc /etc/X11/imwheel/

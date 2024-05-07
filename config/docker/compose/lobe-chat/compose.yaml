@@ -1,4 +1,5 @@
 version: "3.8"
+
 services:
   lobe-chat:
     image: lobehub/lobe-chat
@@ -11,3 +12,4 @@ services:
       - OPENAI_API_KEY
       - OPENAI_PROXY_URL
       - ACCESS_CODE
+      - DEFAULT_AGENT_CONFIG

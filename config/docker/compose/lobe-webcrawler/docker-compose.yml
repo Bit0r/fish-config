@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  lobe-webcrawler:
+    image: ghcr.io/leoquote/lobe-webcrawer-self-host
+    # environment:
+    #   - BASE_URL
+    ports:
+      - 3000:3000

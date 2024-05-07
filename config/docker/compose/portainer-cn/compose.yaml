@@ -9,8 +9,8 @@ services:
       #- 8000:8000 # http 端口，但是较新的版本已经不支持了
       - 9443:9443 # https 端口
     environment:
-      - http_proxy=http://172.16.72.228:8800
-      - https_proxy=http://172.16.72.228:8800
+      - http_proxy
+      - https_proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/data

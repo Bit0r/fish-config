@@ -4,11 +4,11 @@
 		"https://mirror.baidubce.com",
 		"https://docker.m.daocloud.io"
 	],
+	// "data-root": "/var/docker/data",
 	"runtimes": {
 		"nvidia": {
 			"path": "nvidia-container-runtime",
 			"runtimeArgs": []
 		}
-	},
-	"data-root": "/var/data/docker"
+	}
 }
