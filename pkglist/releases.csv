@@ -26,6 +26,7 @@ lotabout/rargs,,xargs的替代品
 ,,,riquito/tuc,,cut的替代品
 ,,,aswinkarthik/csvdiff,,csv比较工具
 duckdb/duckdb,,嵌入式分析型数据库
+k1LoW/tbls,,数据库文档生成
 ClementTsang/bottom,,top的替代品
 Netflix/bpftop,,bpf的top
 Nukesor/pueue,,任务队列

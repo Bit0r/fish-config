@@ -10,6 +10,7 @@ loguru	# 日志
 loguru-config
 python-box[all]	# 字典处理
 jmespath	# json 查询
+transitions	# 状态机
 pqdict	# 优先队列字典
 pint	# 单位处理
 notify-py	# 通知
