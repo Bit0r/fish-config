@@ -106,6 +106,7 @@
 	],
 	"routing": {
 		"domainStrategy": "IPIfNonMatch",
+		// "domainStrategy": "AsIs",
 		"rules": [
 			{
 				"inboundTag": [
@@ -177,6 +178,7 @@
 					"domain:hyper.ai",
 					"domain:onrender.com",
 					"domain:activeloop.ai",
+					"domain:fastfiles.cloud",
 					"domain:noname.pub",
 					"domain:launchpadcontent.net",
 					"domain:onlyoffice.com",
