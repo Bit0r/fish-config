@@ -1,6 +1,6 @@
 attrs	# 类属性
 pipx	# 用于安装 python 工具
-pypyp	# 用于安装 python 版本
+pypyp	# 在命令行中运行 python
 stringzilla	# 字符串处理
 nvitop	# 显卡监控
 docker-squash	# docker 镜像压缩
@@ -44,6 +44,7 @@ fire	# 命令行
 #typer[all]
 drgn	# 内核调试
 pydumpling	# python traceback 调试
+pdbpp	# pdb 的增强版, 结合 pydumpling 使用
 rich	# 输出美化
 snoop	# 调试
 #ggplot

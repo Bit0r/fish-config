@@ -21,6 +21,7 @@ BurntSushi/ripgrep,,grep的替代品
 phiresky/ripgrep-all,,grep非纯文本文件
 chmln/sd,,sed的替代品
 lotabout/rargs,,xargs的替代品
+dprint/dprint,,格式化代码
 ,,,wfxr/csview,,csv查看器
 ,,,BurntSushi/xsv,,csv处理工具
 ,,,riquito/tuc,,cut的替代品
@@ -69,4 +70,5 @@ jgraph/drawio-desktop,,绘图工具
 charmbracelet/freeze,,终端命令转图片
 responsively-org/responsively-app-releases,,前端开发专用浏览器
 localsend/localsend,,本地文件共享
+glanceapp/glance,,聚合 rss、iframe、youtube channels 等
 auyer/Protonup-rs,,Steam Proton更新

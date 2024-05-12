@@ -1,0 +1,76 @@
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          # - type: calendar
+
+          - type: rss
+            limit: 10
+            collapse-after: 3
+            cache: 3h
+            feeds:
+              - url: https://quarto.org/docs/blog/index.xml
+              - url: https://feeds.feedburner.com/UbuntuhandbookNewsTutorialsHowtosForUbuntuLinux
+
+          - type: twitch-channels
+            channels:
+              - theprimeagen
+              - cohhcarnage
+              - christitustech
+              - blurbs
+              - asmongold
+              - jembawls
+
+      - size: full
+        widgets:
+          - type: iframe
+            source: https://tianqi.moji.com/weather/china/hunan/yuhu-district
+            height: 500
+
+          - type: hacker-news
+
+          - type: reddit
+            subreddit: selfhosted
+
+      - size: small
+        widgets:
+
+          - type: stocks
+            stocks:
+              - symbol: NVDA
+                name: NVIDIA
+              - symbol: MSFT
+                name: Microsoft
+              - symbol: AAPL
+                name: Apple
+              - symbol: GOOGL
+                name: Google
+              - symbol: AMD
+                name: AMD
+              - symbol: BTC-USD
+                name: Bitcoin
+
+  - name: Videos
+    columns:
+      - size: full
+        widgets:
+
+          - type: videos
+            channels:
+              - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+              - UCv6J_jJa8GJqFwQNgNrMuww # ServeTheHome
+              - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+
+
+server:
+  port: 2345
+  assets-path: /opt/glance/assets
+
+theme:
+  light: true
+  background-color: 28 40 77
+  primary-color: 155 100 20
+  negative-color: 0 100 60
+  contrast-multiplier: 1.1
+  text-saturation-multiplier: 0.5

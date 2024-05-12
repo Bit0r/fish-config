@@ -11,7 +11,7 @@ phoerious/keepassxc
 jonmagon/kdiskmark
 #flexiondotorg/nvtop
 trzsz/ppa
-ubuntuhandbook1/ffmpeg6
+ubuntuhandbook1/ffmpeg7
 alex-p/tesseract-ocr5
 #michel-slm/distrobox
 #ubuntugis/ubuntugis-unstable

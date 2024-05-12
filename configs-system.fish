@@ -20,6 +20,7 @@ sudo mkdir -p \
     /etc/systemd/{system,user}.conf.d \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,icons,mime/packages} \
+    /opt/glance \
     /var/log/imaotai \
     /srv/api
 sudo mkdir -pm 2775 /srv/www \
@@ -65,6 +66,10 @@ sudo cp ./config/weylus/60-weylus.rules /etc/udev/rules.d/
 # 配置aria2
 sudo cp config/aria2/aria2@.service /etc/systemd/system/
 sudo cp config/aria2/aria2.conf /root/.config/aria2/
+
+# 配置glance
+sudo cp ./config/glance/glance.service /etc/systemd/system/
+sudo cp ./config/glance/glance.yaml /etc/
 
 # 配置labelme
 sudo cp ./config/labelme/.labelmerc /root/
