@@ -31,6 +31,7 @@ sudo chown -R :docker $DOCKER_COMPOSE_DIR $DOCKER_DATA_DIR
 
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
+sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
 
 # 配置 ssh
 sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
