@@ -32,6 +32,7 @@ jq
 lhasa
 libimage-exiftool-perl
 libnss3-tools
+libpcap-dev
 linux-tools-common
 linux-tools-generic
 #litecli

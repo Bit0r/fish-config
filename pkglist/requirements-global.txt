@@ -33,6 +33,7 @@ soundfile	# 音频
 grequests	# 异步请求
 #aiofiles
 pysocks	# 代理
+scapy	# 网络包处理
 #pyupgrade
 ruff	# 代码检查
 pathvalidate	# 路径检查
