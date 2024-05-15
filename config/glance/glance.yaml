@@ -1,41 +1,21 @@
 pages:
-  - name: Home
+  - name: News
     columns:
-      - size: small
+      - size: full
         widgets:
-          # - type: calendar
+          - type: hacker-news
 
           - type: rss
-            limit: 10
+            style: horizontal-cards
+            # limit: 10
             collapse-after: 3
             cache: 3h
             feeds:
               - url: https://quarto.org/docs/blog/index.xml
               - url: https://feeds.feedburner.com/UbuntuhandbookNewsTutorialsHowtosForUbuntuLinux
 
-          - type: twitch-channels
-            channels:
-              - theprimeagen
-              - cohhcarnage
-              - christitustech
-              - blurbs
-              - asmongold
-              - jembawls
-
-      - size: full
-        widgets:
-          - type: iframe
-            source: https://tianqi.moji.com/weather/china/hunan/yuhu-district
-            height: 500
-
-          - type: hacker-news
-
-          - type: reddit
-            subreddit: selfhosted
-
       - size: small
         widgets:
-
           - type: stocks
             stocks:
               - symbol: NVDA
@@ -55,13 +35,50 @@ pages:
     columns:
       - size: full
         widgets:
-
           - type: videos
+            style: grid-cards
             channels:
-              - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
-              - UCv6J_jJa8GJqFwQNgNrMuww # ServeTheHome
-              - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+              - UCMUnInmOkrWN4gof9KlhNmQ # 老高與小茉 Mr. Gao & Ms. Mo
+              - UCgo_-fjJxnLwwwq5dSY72rg # 自说自话的总裁
+              - UCTu_hTaVf3DJMpMIyOAq2Ew # 文昭思绪飞扬
+              - UC2lbb8vjQR64C6gHqD0_4OA # 你可敢信
 
+      - size: small
+        widgets:
+          - type: twitch-top-games
+            collapse-after: 100
+
+  - name: Sites
+    columns:
+      - size: full
+        widgets:
+          - type: monitor
+            style: dynamic-columns-experimental
+            cache: 1m
+            sites:
+              - title: LobeChat
+                url: http://localhost:3210
+                icon: http://localhost:3210/favicon.ico
+
+              - title: portainer-cn
+                url: https://localhost:9443
+                icon: https://localhost:9443/1197a68684b9ff08165a.ico
+
+              - title: LXD UI
+                url: https://localhost:8443
+                icon: https://localhost:8443/ui/assets/img/favicon-32x32.png
+
+              - title: Aria2 RPC
+                url: https://localhost:6800/jsonrpc
+                icon: https://aria2.github.io/favicon.png
+
+  - name: Weather
+    columns:
+      - size: full
+        widgets:
+          - type: iframe
+            source: https://tianqi.moji.com/weather/china/hunan/yuhu-district
+            height: 700
 
 server:
   port: 2345

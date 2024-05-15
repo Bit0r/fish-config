@@ -78,6 +78,18 @@
 			}
 		},
 		{
+			"tag": "mitmproxy",
+			"protocol": "http",
+			"settings": {
+				"servers": [
+					{
+						"address": "127.0.0.1",
+						"port": 8080
+					}
+				]
+			}
+		},
+		{
 			"tag": "NAT-traversal",
 			"protocol": "socks",
 			"settings": {
@@ -108,6 +120,13 @@
 		"domainStrategy": "IPIfNonMatch",
 		// "domainStrategy": "AsIs",
 		"rules": [
+			{
+				"outboundTag": "mitmproxy",
+				"type": "field",
+				"domain": [
+					"domain:mitm.it"
+				]
+			},
 			{
 				"inboundTag": [
 					"api"

@@ -21,13 +21,12 @@ set -Ux MAMBA_ROOT_PREFIX ~/micromamba # 设置 Micromamba 的根目录
 #set -Ux LLAMA_INDEX_CACHE_DIR /data/llama-index # 设置 LLAMA 的缓存目录
 #set -Ux DEEPLAKE_DOWNLOAD_PATH /data/deeplake # 设置 DeepLake 的下载目录
 set -Ux WANDB_MODE offline # 设置 wandb 的模式
+#read -sUx WANDB_API_KEY # 设置 wandb 的 API 密钥
 #read -sUx OPENAI_API_KEY # 设置 OpenAI 的 API 密钥
 set -Ux OPENAI_API_BASE https://api.chatkore.com/v1 # 设置 OpenAI 的 API 地址
 set -Ux OPENAI_BASE_URL $OPENAI_API_BASE
 set -Ux OPENAI_LOG debug # 设置 OpenAI 的日志级别
 #set -Ux BUILDKIT_PROGRESS plain
-set -U UBUNTU_CODENAME (lsb_release -cs)
-set -U UBUNTU_NUMBER (lsb_release -rs)
 #set -Ux PYTHONPATH . # 方便调试，不适合用于生产环境
 set -Ux ELECTRON_TRASH kioclient5
 if [ "$COLORTERM" = truecolor ]

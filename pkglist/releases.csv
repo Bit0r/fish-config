@@ -38,11 +38,12 @@ Macchina-CLI/macchina,,获取系统信息
 n7olkachev/imgdiff,,逐像素图片比较
 ,,,kornelski/dssim,,语义级图片比较
 RazrFalcon/svgcleaner,,svg清理工具
+,,,ducaale/xh,,http请求工具
+usebruno/bruno,,http请求工具
 qustavo/httplab,,交互式http服务器
 mitmproxy/mitmproxy,,抓包工具
 imsnif/bandwhich,,网络带宽监控
 RustScan/RustScan,,端口扫描
-,,ducaale/xh,,http请求工具
 ogham/dog,,dns查询
 ,,,iawia002/lux,,视频下载工具
 zu1k/nali,,ip查询
@@ -74,3 +75,4 @@ responsively-org/responsively-app-releases,,前端开发专用浏览器
 localsend/localsend,,本地文件共享
 glanceapp/glance,,聚合 rss、iframe、youtube channels 等
 auyer/Protonup-rs,,Steam Proton更新
+Oxen-AI/Oxen,,数据集版本控制
