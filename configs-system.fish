@@ -16,7 +16,7 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{conda,mpv,docker,mysql/conf.d,samba} \
+    /etc/{conda,mpv,docker,mysql/conf.d,audit/rules.d,samba} \
     /etc/systemd/{system,user}.conf.d \
     /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,icons,mime/packages} \
@@ -35,6 +35,12 @@ sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
 
 # 配置 ssh
 sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
+
+# 配置 profile
+sudo cp ./config/profile.d/* /etc/profile.d/
+
+# 配置 auditd
+sudo cp ./config/audit/rules.d/* /etc/audit/rules.d/
 
 # 配置mysql
 sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/

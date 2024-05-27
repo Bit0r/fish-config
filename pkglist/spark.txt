@@ -1,6 +1,9 @@
 gwakeonlan
 #cn.flamescion.bookworm-compatibility-mode
 com.heynote.spark
+localsend
+apifox
+picgo
 com.github.ccc-app-manager
 android-adb-fastboot-tools
 com.xiaomitool

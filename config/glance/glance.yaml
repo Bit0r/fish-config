@@ -14,6 +14,37 @@ pages:
               - url: https://quarto.org/docs/blog/index.xml
               - url: https://feeds.feedburner.com/UbuntuhandbookNewsTutorialsHowtosForUbuntuLinux
 
+          - type: rss
+            style: horizontal-cards
+            limit: 500
+            title: Github Daily Trending
+            collapse-after: 3
+            cache: 3h
+
+            feeds:
+              - url: https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml
+                title: Github Daily Trending All
+
+          - type: rss
+            style: horizontal-cards
+            limit: 500
+            title: Github Weekly Trending
+            collapse-after: 3
+            cache: 3h
+            feeds:
+              - url: https://mshibanami.github.io/GitHubTrendingRSS/weekly/all.xml
+                title: Github Weekly Trending All
+
+          - type: rss
+            style: horizontal-cards
+            limit: 500
+            title: Github Monthly Trending
+            collapse-after: 3
+            cache: 3h
+            feeds:
+              - url: https://mshibanami.github.io/GitHubTrendingRSS/monthly/all.xml
+                title: Github Monthly Trending All
+
       - size: small
         widgets:
           - type: stocks
@@ -71,6 +102,10 @@ pages:
               - title: Aria2 RPC
                 url: https://localhost:6800/jsonrpc
                 icon: https://aria2.github.io/favicon.png
+
+              - title: WebRTC
+                url: http://zw403-1080ti:8888
+                icon: http://zw403-1080ti:8888/static/img/favicon-32x32.png
 
   - name: Weather
     columns:
