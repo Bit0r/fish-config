@@ -18,7 +18,6 @@ sudo mkdir -p \
     /usr/share/xsessions \
     /etc/{conda,mpv,docker,mysql/conf.d,audit/rules.d,samba} \
     /etc/systemd/{system,user}.conf.d \
-    /etc/systemd/system/xray.service.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /opt/glance \
     /var/log/imaotai \
@@ -32,6 +31,10 @@ sudo chown -R :docker $DOCKER_COMPOSE_DIR $DOCKER_DATA_DIR
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
 sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
+
+# 配置 systemd service
+sudo cp -a ./config/systemd/system/. /etc/systemd/system/
+sudo cp -a ./config/systemd/user/. /etc/systemd/user/
 
 # 配置 ssh
 sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
@@ -48,10 +51,6 @@ sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置conda
 sudo cp ./config/python/conda/.* /etc/conda/
-
-# 配置Xray
-sudo cp config/xray/xray-local.service /etc/systemd/system/xray.service.d/local.conf
-sudo cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
 
 # 配置lf
 sudo cp ./config/lf/lfrc /etc/
@@ -70,12 +69,14 @@ sudo addgroup --system uinput
 sudo adduser $USER uinput
 sudo cp ./config/weylus/60-weylus.rules /etc/udev/rules.d/
 
+# 配置 syslog
+sudo cp ./config/syslog/rsyslog.d/* /etc/rsyslog.d/
+sudo cp ./config/syslog/logrotate.d/* /etc/logrotate.d/
+
 # 配置aria2
-sudo cp config/aria2/aria2@.service /etc/systemd/system/
 sudo cp config/aria2/aria2.conf /root/.config/aria2/
 
 # 配置glance
-sudo cp ./config/glance/glance.service /etc/systemd/system/
 sudo cp ./config/glance/glance.yaml /etc/
 
 # 配置labelme
@@ -85,11 +86,7 @@ sudo cp ./config/labelme/.labelmerc /root/
 sudo cp ./config/ImageMagick/policy-open.xml /etc/ImageMagick-6/
 sudo ln -bs /etc/ImageMagick-6/policy-open.xml /etc/ImageMagick-6/policy.xml
 
-# 配置bililive
-sudo cp ./config/bililive/bililive.service /etc/systemd/user/
-
 # 配置 imaotai
-sudo cp ./config/imaotai/imaotai.service /etc/systemd/system/
 sudo cp ./config/imaotai/imaotai /etc/nginx/sites-available/
 
 # 配置pip
@@ -105,7 +102,6 @@ sudo cp -a ./config/docker/compose/. $DOCKER_COMPOSE_DIR/
 
 # 配置 imwheel
 #sudo cp ./config/imwheel/imwheelrc /etc/X11/imwheel/
-sudo cp ./config/imwheel/imwheel.service /etc/systemd/user/
 
 # 配置杂项
 sudo cp ./config/smplayer/mpv.conf /etc/mpv/
