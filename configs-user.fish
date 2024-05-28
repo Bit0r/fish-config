@@ -5,6 +5,7 @@ source include/confirm.fish
 # 创建目录
 mkdir -p \
     ~/.vnc \
+    ~/paperless-ngx \
     ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}}
 mkdir -pm 700 ~/.ssh/controls
@@ -58,6 +59,9 @@ cp ./config/macchina/macchina.toml ~/.config/macchina/
 
 # 配置 labelme
 cp ./config/labelme/.labelmerc ~/
+
+# 配置 paperless-ngx
+cp -a ./config/docker/compose/paperless-ngx/. ~/paperless-ngx/
 
 # 配置 ImageMagick
 #cp ./config/ImageMagick/policy-open.xml ~/.config/ImageMagick/

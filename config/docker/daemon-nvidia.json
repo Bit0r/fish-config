@@ -1,8 +1,10 @@
 {
+	"debug": true,
+	"log-driver": "local",
 	"registry-mirrors": [
+		"https://docker.m.daocloud.io",
 		"https://hub-mirror.c.163.com",
-		"https://mirror.baidubce.com",
-		"https://docker.m.daocloud.io"
+		"https://mirror.baidubce.com"
 	],
 	// "data-root": "/var/docker/data",
 	"runtimes": {
