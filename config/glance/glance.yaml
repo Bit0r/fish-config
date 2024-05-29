@@ -95,6 +95,10 @@ pages:
                 url: https://localhost:9443
                 icon: https://localhost:9443/1197a68684b9ff08165a.ico
 
+              - title: paperless-ngx
+                url: http://localhost:8010
+                icon: http://localhost:8010/favicon.ico
+
               - title: LXD UI
                 url: https://localhost:8443
                 icon: https://localhost:8443/ui/assets/img/favicon-32x32.png

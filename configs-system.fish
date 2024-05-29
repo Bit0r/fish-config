@@ -32,6 +32,9 @@ sudo chown -R :docker $DOCKER_COMPOSE_DIR $DOCKER_DATA_DIR
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
 sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
 
+# 配置 adduser
+sudo cp ./config/adduser/adduser.conf /etc/adduser-sudoer.conf
+
 # 配置 systemd service
 sudo cp -a ./config/systemd/system/. /etc/systemd/system/
 sudo cp -a ./config/systemd/user/. /etc/systemd/user/
