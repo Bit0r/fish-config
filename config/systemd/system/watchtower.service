@@ -1,0 +1,15 @@
+[Unit]
+Description=Watchtower - Automatically update running Docker containers
+Documentation=https://containrrr.dev/watchtower/
+Requires=docker.service
+After=docker.service
+
+[Service]
+ExecStartPre=/usr/local/bin/watchtower --run-once --cleanup --no-startup-message
+ExecStart=/usr/local/bin/watchtower --interval 3600 --cleanup --no-startup-message
+# 不能使用 Restart=always，否则会导致重复运行 ExecStartPre
+#Restart=always
+#RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

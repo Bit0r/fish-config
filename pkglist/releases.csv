@@ -52,6 +52,7 @@ fujiapple852/trippy,,traceroute替代品
 jesseduffield/lazydocker,,docker管理
 hadolint/hadolint,,dockerfile lint
 wagoodman/dive,,docker镜像分析
+containrrr/watchtower,,docker镜像更新
 H-M-H/Weylus,,无线投屏
 rami3l/pacaptr,,pacman包管理
 sirwart/ripsecrets,,查找敏感信息
