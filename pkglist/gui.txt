@@ -10,6 +10,7 @@ galternatives
 goverlay
 guestfs-tools
 gnome-themes-extra
+gsmartcontrol
 kcharselect
 kde-config-cron
 kdiskmark
