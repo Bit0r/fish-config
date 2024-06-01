@@ -1,14 +1,13 @@
-version: "3.3"
+version: "3"
 services:
-  portainer-ce:
-    image: 6053537/portainer-ce:2.19.4
-    container_name: portainer-cn
-    restart: always
-    stdin_open: true
-    tty: true
+  web-check:
+    # network_mode: host
+    container_name: Web-Check
     ports:
-      #- 8000:8000 # http 端口，但是较新的版本已经不支持了
-      - 9443:9443 # https 端口
+      - 3000:3000
+    image: lissy93/web-check
+    restart: unless-stopped
+
     environment:
       - ALL_PROXY=http://host.docker.internal:8800
       - HTTP_PROXY=http://host.docker.internal:8800
@@ -16,8 +15,5 @@ services:
       - all_proxy=http://host.docker.internal:8800
       - http_proxy=http://host.docker.internal:8800
       - https_proxy=http://host.docker.internal:8800
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./data:/data
     extra_hosts:
       - "host.docker.internal:host-gateway"

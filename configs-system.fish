@@ -16,7 +16,7 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{conda,mpv,docker,mysql/conf.d,audit/rules.d,samba} \
+    /etc/{conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba} \
     /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /opt/glance \
@@ -51,6 +51,13 @@ sudo cp ./config/audit/rules.d/* /etc/audit/rules.d/
 # 配置mysql
 sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
 sudo cp ./config/mysql/mycli.conf /etc/myclirc
+
+# 配置redis
+#sudo sd '^bind 127.0.0.1' '#bind 127.0.0.1' /etc/redis/redis.conf
+#sudo cp ./config/redis/conf.d/* /etc/redis/conf.d/
+
+# 配置postgres
+#sudo cp ./config/postgres/conf.d/* /etc/postgresql/14/main/conf.d/
 
 # 配置conda
 sudo cp ./config/python/conda/.* /etc/conda/
@@ -209,6 +216,11 @@ end
 if confirm 'Do you want to configure firewall?'
     # 硬件服务
     sudo ufw allow 9/udp comment 'Wake on LAN'
+
+    # 允许 LAN 内部访问
+    sudo ufw allow from 10.0.0.0/8 comment 'A 类私有地址'
+    sudo ufw allow from 172.16.0.0/12 comment 'B 类私有地址'
+    sudo ufw allow from 192.168.0.0/16 comment 'C 类私有地址'
 
     # 系统服务
     sudo ufw limit ssh
