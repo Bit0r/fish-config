@@ -49,6 +49,8 @@ zu1k/nali,,ip查询
 fujiapple852/trippy,,traceroute替代品
 ,,,nxtrace/NTrace-core,,traceroute替代品
 ,,,Archeb/opentrace,,traceroute替代品
+Cisco-Talos/clamav,,病毒扫描
+ivangabriele/clamav-desktop,,clamav的GUI
 jesseduffield/lazydocker,,docker管理
 hadolint/hadolint,,dockerfile lint
 wagoodman/dive,,docker镜像分析

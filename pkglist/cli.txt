@@ -13,6 +13,7 @@ exfatprogs
 ext4magic
 espeak-ng-espeak
 speech-dispatcher
+f3
 git
 #git-crypt
 git-filter-repo
