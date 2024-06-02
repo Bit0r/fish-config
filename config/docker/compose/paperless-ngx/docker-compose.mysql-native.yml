@@ -1,7 +1,8 @@
 version: "3.4"
 services:
   webserver:
-    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    # image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    image: bit0r/paperless-ngx:latest
     restart: unless-stopped
     depends_on:
       - gotenberg
