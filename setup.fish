@@ -37,6 +37,6 @@ if confirm 'Do you want to install user configs?'
 end
 
 # 安装一些下载特别耗时的软件
-if confirm 'Do you want to install some softwares that downloads very slowly?'
+if confirm 'Do you want to install some software that downloads very slowly?'
     source slow.fish
 end
