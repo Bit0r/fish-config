@@ -7,7 +7,7 @@ if confirm 'Do you want to install the software from the third-party repository?
     set files pkglist/{ppa,third-party}.txt
     set pkgs (cat $files | grep -v '^#')
     # 开始安装
-    sudo apt update
+    sudo apt -o Acquire::http::Proxy=socks5h://localhost:1080 update
     sudo apt -o Acquire::http::Proxy=socks5h://localhost:1080 install $pkgs
 end
 
