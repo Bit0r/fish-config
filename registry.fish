@@ -35,6 +35,7 @@ cp -b ./config/java/maven/settings.xml ~/.m2/
 # 配置 kaggle 代理
 if type -q kaggle
     touch ~/.kaggle/kaggle.json
+    chmod 600 ~/.kaggle/kaggle.json
     kaggle config set -n proxy -v 'http://localhost:8800'
 end
 
