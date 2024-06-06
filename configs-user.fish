@@ -2,12 +2,15 @@
 
 source include/confirm.fish
 
+set python_site (python -m site --user-site)
+
 # 创建目录
 mkdir -p \
     ~/.vnc \
     ~/paperless-ngx \
     ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
-    ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}}
+    ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
+    $python_site
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
 
@@ -93,7 +96,7 @@ cp config/keepassxc.ini ~/.config/keepassxc/
 
 if type -q python
     # 配置python
-    cp ./config/python/usercustomize.py (python -m site --user-site)/
+    cp ./config/python/usercustomize.py $python_site/
     # 配置pyforest
     python -m pyforest install_extensions
 end
