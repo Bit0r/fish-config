@@ -2,17 +2,13 @@
 import os
 from pathlib import Path
 import platform
-from pprint import pprint
 import sys
 import tempfile
-from typing import Iterable
 
 from box import Box, BoxList
-import einops as ein
 import fire
 import httpx
 from loguru import logger
-from matplotlib import pyplot as plt
 import pendulum
 from plumbum import local
 from plumbum.cmd import gpg, sudo

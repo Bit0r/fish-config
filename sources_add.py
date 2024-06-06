@@ -2,25 +2,16 @@
 import os
 from pathlib import Path
 import platform
-from pprint import pprint
-import sys
 import tempfile
-from typing import Iterable
 
-import apt
-from box import Box, BoxList
-import einops as ein
+from box import Box
 import fire
-import httpx
 from loguru import logger
-from matplotlib import pyplot as plt
-import pendulum
 from plumbum.cmd import mv, sudo
-from rich import progress
 
 
 # %%
-class ThridPartySources:
+class ThirdPartySources:
     def __init__(
         self,
         *,
@@ -73,5 +64,5 @@ class ThridPartySources:
 
 # %%
 if __name__ == "__main__":
-    thrid_party_sources = ThridPartySources()
-    fire.Fire(thrid_party_sources.add_sources)
+    third_party_sources = ThirdPartySources()
+    fire.Fire(third_party_sources.add_sources)
