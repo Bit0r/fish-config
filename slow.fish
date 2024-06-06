@@ -51,7 +51,8 @@ if confirm 'Do you want to download the software from the GitHub release?'
     mkdir ./tmp/
     cp pkglist/releases.csv tmp/
     ./tmp/
-    download-releases
+    cp /usr/local/bin/download-releases ./download-releases.py
+    python download-releases.py
     sudo apt install ./*.deb
     ../
 end
