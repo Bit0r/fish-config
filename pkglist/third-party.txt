@@ -1,0 +1,4 @@
+github-cli
+docker-ctop
+zotero
+onlyoffice-desktopeditors

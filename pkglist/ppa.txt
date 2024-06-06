@@ -1,2 +1,4 @@
+mainline
+dbeaver-ce
 firefox-esr-locale-zh-hans
 thunderbird-locale-zh-hans

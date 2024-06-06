@@ -3,3 +3,4 @@ build-essential
 gcc-multilib
 gdb
 libmpfr-dev
+xmake

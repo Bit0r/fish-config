@@ -49,7 +49,7 @@ class ThridPartySources:
             "zotero": "deb [arch=amd64 signed-by={} by-hash=force] https://zotero.retorque.re/file/apt-package-archive ./",
             "onlyoffice": "deb [signed-by={}] https://download.onlyoffice.com/repo/debian squeeze main",
             "nvidia-container": "deb [signed-by={}] https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH) /",
-            "fpf-apt-tools": f"deb [signed-by={{}}] https://packages.freedom.press/apt-tools-prod {version_codename} main",
+            # "fpf-apt-tools": f"deb [signed-by={{}}] https://packages.freedom.press/apt-tools-prod {version_codename} main",
         }
 
         self.keyrings_path = Path(keyrings_path).expanduser().resolve()

@@ -2,7 +2,14 @@
 
 source include/confirm.fish
 
-#sudo http_proxy='http://localhost:8800' apt install ttf-mscorefonts-installer
+if confirm 'Do you want to install the software from the third-party repository?'
+    # 设置包
+    set files pkglist/{ppa,third-party}.txt
+    set pkgs (cat $files | grep -v '^#')
+    # 开始安装
+    sudo apt update
+    sudo apt -o Acquire::http::Proxy=socks5h://localhost:1080 install $pkgs
+end
 
 if confirm 'Do you want to install calibre?'
     proxy-aria2c -d /tmp 'https://download.calibre-ebook.com/linux-installer.sh'
@@ -32,7 +39,7 @@ if confirm 'Do you want to install WPS-Zotero?'
 end
 
 if confirm 'Do you wang to install d2lang?'
-    proxy-curl -fsSL https://d2lang.com/install.sh | sh -s --
+    proxy-curl -fsSL https://d2lang.com/install.sh | http_proxy sh -s --
 end
 
 if confirm 'Do you want to install fisher?'

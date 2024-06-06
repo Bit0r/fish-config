@@ -3,7 +3,6 @@ awesome
 barrier
 bleachbit
 cpu-x
-dbeaver-ce
 fcitx5-rime
 fcitx5-chinese-addons
 galternatives
@@ -31,7 +30,6 @@ obs-studio
 protontricks
 q4wine
 smplayer
-telegram-desktop
 ubuntu-restricted-extras
 yad
 vokoscreen-ng
