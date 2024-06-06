@@ -1,4 +1,4 @@
-httpx[cli,http2,socks5,brotli]
+httpx[cli,http2,socks,brotli]
 python-box[all]	# 字典处理
 fire	# 命令行
 loguru	# 日志
