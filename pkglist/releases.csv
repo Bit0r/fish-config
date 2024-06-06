@@ -38,6 +38,7 @@ Macchina-CLI/macchina,,获取系统信息
 n7olkachev/imgdiff,,逐像素图片比较
 ,,,kornelski/dssim,,语义级图片比较
 RazrFalcon/svgcleaner,,svg清理工具
+ImageOptim/gifski,,gif图片生成
 ,,,ducaale/xh,,http请求工具
 qustavo/httplab,,交互式http服务器
 mitmproxy/mitmproxy,,抓包工具
