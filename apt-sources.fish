@@ -12,11 +12,15 @@ end
 
 # 添加 gpg key
 if confirm 'Do you want to add some gpg keys?'
+    pip install -r requirements.txt
+
     python keys_add.py
 end
 
 # 添加外部源
 if confirm 'Do you want to add some third-party apt sources?'
+    pip install -r requirements.txt
+
     NODE_MAJOR=20 python sources_add.py
 
     # unit
