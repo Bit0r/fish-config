@@ -34,7 +34,7 @@ python3-plumbum
 python3-pycallgraph
 python3-pygraphviz
 python3-pyperclip
-#python3-altair
+python3-altair
 python3-scalene
 python3-semver
 python3-sklearn

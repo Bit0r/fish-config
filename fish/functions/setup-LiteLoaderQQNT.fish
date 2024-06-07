@@ -3,12 +3,15 @@ function setup-LiteLoaderQQNT -d 'Setup LiteLoaderQQNT'
     set LiteLoaderQQNT_path $app_path/LiteLoaderQQNT
     set app_launcher_path $app_path/app_launcher
 
+    sudo chown -R :$USER $app_path
+    sudo chmod -R g+w $app_path
+
     if [ -d $LiteLoaderQQNT_path ]
         cd $LiteLoaderQQNT_path
         git pull
         prevd
     else
-        git clone --depth 1 https://github.com/LiteLoaderQQNT/LiteLoaderQQNT.git
+        git clone --depth 1 https://github.com/LiteLoaderQQNT/LiteLoaderQQNT.git $LiteLoaderQQNT_path
     end
 
     cd $app_launcher_path

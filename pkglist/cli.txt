@@ -26,7 +26,6 @@ hyperfine
 imwheel
 inxi
 iotop
-#iredis
 jbig2dec
 jid
 jq
@@ -36,7 +35,6 @@ libnss3-tools
 libpcap-dev
 linux-tools-common
 linux-tools-generic
-#litecli
 lm-sensors
 lnav
 lrzsz
@@ -50,16 +48,17 @@ ngrep
 #nvtop
 p7zip-rar
 progress
+proxychains4
 rar
 ripgrep
 rpm
 scdaemon
+sd
 sshpass
 termshark
-#tmux
 uml-utilities
 unace
-#universal-ctags
+universal-ctags
 unrar
 wget2
 whois

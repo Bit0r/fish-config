@@ -13,7 +13,7 @@ vcrpy	# 录制http请求
 yarl	# url解析
 kaggle
 #handcalcs	# python公式转latex
-latexify-py	# python公式转latex
+#latexify-py	# python公式转latex
 #memray
 name-that-hash	# hash字符串类型识别
 pdf2docx

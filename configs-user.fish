@@ -33,21 +33,6 @@ cat ./config/bash/profile.d.sh >>~/.profile
 # 复制rc文件
 cp -f config/.*rc ~/
 
-# 关闭 baloo 文件索引
-if type -q balooctl
-    cp ./config/kde/baloofilerc ~/.config/
-    balooctl suspend
-    balooctl disable
-    balooctl purge
-end
-
-# 配置 konsole
-cp config/konsole/*.profile ~/.local/share/konsole/
-cp config/konsole/konsolerc ~/.config/
-
-# 配置 tabby
-cp ./config/tabby/config.yaml ~/.config/tabby/
-
 # 配置 bat
 #cp ./config/bat/config ~/.config/bat/
 
@@ -70,13 +55,10 @@ cp -a ./config/docker/compose/paperless-ngx/. ~/paperless-ngx/
 #cp ./config/ImageMagick/policy-open.xml ~/.config/ImageMagick/
 #ln -bs ~/.config/ImageMagick/policy-open.xml ~/.config/ImageMagick/policy.xml
 
-# 配置 x0vncserver
-if type -q x0vncserver && confirm 'Do you want to configure x0vncserver?'
-    cp ./config/.xprofile ~/.xprofile
-end
-
 # 配置ssh
-mkdir -pm 0700 ~/.ssh/ && cp ./config/ssh/ssh.conf ~/.ssh/config
+if confirm 'Do you want to configure ssh?'
+    cp --backup=t ./config/ssh/ssh.conf ~/.ssh/config
+end
 
 # 配置git
 cp config/.gitconfig ~/.config/git/config
@@ -115,11 +97,37 @@ for suffix in csl css
     cp config/pandoc/*.$suffix ~/.local/share/pandoc/$suffix/
 end
 
+# 配置 tabby
+cp ./config/tabby/config.yaml ~/.config/tabby/
+
 # 配置discord
 cp ./config/discord/settings.json ~/.config/discord/
 
 # 配置 imwheel
 cp config/imwheel/imwheelrc ~/.imwheelrc
+
+# 关闭 baloo 文件索引
+if type -q balooctl
+    cp ./config/kde/baloofilerc ~/.config/
+    balooctl suspend
+    balooctl disable
+    balooctl purge
+end
+
+# 配置 konsole
+cp config/konsole/*.profile ~/.local/share/konsole/
+cp config/konsole/konsolerc ~/.config/
+
+# 配置 ksystemlog
+cp /usr/share/applications/org.kde.ksystemlog.desktop ~/.local/share/applications/
+sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' ~/.local/share/applications/org.kde.ksystemlog.desktop
+sd '^X-KDE-Username' '#X-KDE-Username' ~/.local/share/applications/org.kde.ksystemlog.desktop
+
+# 配置 vivaldi
+cp /usr/share/applications/vivaldi-stable.desktop ~/.local/share/applications/
+sd '^Exec=/usr/bin/vivaldi-stable' \
+    'Exec=/usr/bin/vivaldi-stable --allow-running-insecure-content --allow-outdated-plugins --allow-scripting-gallery --silent-debugger-extension-api --proxy-server=socks5://localhost' \
+    ~/.local/share/applications/vivaldi-stable.desktop
 
 # 更新mime数据库
 update-mime-database ~/.local/share/mime/
@@ -129,6 +137,11 @@ cp ./config/vnc/vnc.cfg ~/.vnc/config
 if type -q vncserver && confirm 'Do you want to configure vncserver?'
     vncpasswd
     vncserver
+end
+
+# 配置 x0vncserver
+if type -q x0vncserver && confirm 'Do you want to configure x0vncserver?'
+    cp ./config/.xprofile ~/.xprofile
 end
 
 # 配置docker代理

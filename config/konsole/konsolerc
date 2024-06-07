@@ -1,5 +1,5 @@
-[Desktop Entry]
-DefaultProfile=
+[General]
+ConfigVersion=1
 
 [KonsoleWindow]
 FocusFollowsMouse=true
@@ -8,19 +8,16 @@ UseSingleInstance=true
 
 [MainWindow]
 RestorePositionForNextInstance=false
-State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAfsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAAQsBAAADAAAGmAAAA4IAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAgAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAAAAAAD/////AAAAAAAAAAAAAAAcAHMAZQBzAHMAaQBvAG4AVABvAG8AbABiAGEAcgAAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAAWEBAAAD+wAAACIAUQB1AGkAYwBrAEMAbwBtAG0AYQBuAGQAcwBEAG8AYwBrAAAAAAD/////AAABwgEAAAMAAAaYAAADLgAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAQAAAVz/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 
-[PrintOptions]
-PrinterFriendly=true
-ScaleOutput=true
-
 [TabBar]
+CloseTabOnMiddleMouseButton=true
+NewTabBehavior=PutNewTabAfterCurrentTab
 NewTabButton=true
-TabBarVisibility=AlwaysShowTabBar
 
 [ThumbnailsSettings]
 ThumbnailCtrl=true
 
 [UiSettings]
-ColorScheme=默认
+ColorScheme=

@@ -1,4 +1,6 @@
 .vscode/
+.venv/
+tmp/
 
 *_tail.json
 *.msi

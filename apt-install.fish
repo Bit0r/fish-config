@@ -38,4 +38,4 @@ for pkg in $pkglist
     set -a files pkglist/$pkg.txt
 end
 sudo apt update
-sudo apt install (cat $files | grep -v '^#')
+sudo apt -m install (cat $files | grep -v '^#')

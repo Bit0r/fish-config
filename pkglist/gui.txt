@@ -30,6 +30,7 @@ obs-studio
 protontricks
 q4wine
 smplayer
+tigervnc-viewer
 ubuntu-restricted-extras
 yad
 vokoscreen-ng

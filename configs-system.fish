@@ -16,9 +16,10 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba} \
+    /etc/{graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba} \
     /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{applications,icons,mime/packages} \
+    /usr/local/etc/xray \
     /opt/glance \
     /var/log/imaotai \
     /srv/api
@@ -82,6 +83,18 @@ sudo cp ./config/weylus/60-weylus.rules /etc/udev/rules.d/
 # 配置 syslog
 sudo cp ./config/syslog/rsyslog.d/* /etc/rsyslog.d/
 sudo cp ./config/syslog/logrotate.d/* /etc/logrotate.d/
+
+# 配置 xray
+sudo cp ./config/xray/config.json /usr/local/etc/xray/
+
+# 配置 proxychains4
+sudo cp --backup=t ./config/proxychains/proxychains4.conf /etc/
+
+# 配置 graftcp
+sudo cp --backup=t ./config/graftcp-local/graftcp-local.conf /etc/graftcp-local/
+
+# 配置 cgproxy
+sudo cp --backup=t ./config/cgproxy/config.json /etc/cgproxy/
 
 # 配置aria2
 sudo cp config/aria2/aria2.conf /root/.config/aria2/

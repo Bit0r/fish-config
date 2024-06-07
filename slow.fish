@@ -4,7 +4,7 @@ source include/confirm.fish
 
 if confirm 'Do you want to install the software from the third-party repository?'
     # 设置包
-    set files pkglist/{ppa,third-party}.txt
+    set files pkglist/third-party.txt
     set pkgs (cat $files | grep -v '^#')
     # 开始安装
     sudo apt -o Acquire::http::Proxy=socks5h://localhost:1080 update
@@ -48,7 +48,7 @@ if confirm 'Do you want to install fisher?'
 end
 
 if confirm 'Do you want to download the software from the GitHub release?'
-    mkdir ./tmp/
+    mkdir -p ./tmp/
     cp pkglist/releases.csv ./tmp
     cp exec/download-releases ./tmp/download-releases.py
     ./tmp

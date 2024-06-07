@@ -1,4 +1,5 @@
 {
+	"comment": "For usage, see https://github.com/springzfx/cgproxy",
 	"port": 12345,
 	"program_noproxy": [
 		"xray",

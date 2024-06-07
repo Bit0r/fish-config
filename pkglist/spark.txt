@@ -1,7 +1,8 @@
-gwakeonlan
+#gwakeonlan
 #cn.flamescion.bookworm-compatibility-mode
 com.heynote.spark
 localsend
+switchhosts
 apifox
 picgo
 com.github.ccc-app-manager
@@ -10,9 +11,10 @@ com.xiaomitool
 net.cnki.cajviewer
 re.cutter.spark
 winfonts
-pot
+#pot
 wps-office
 org.shotcut.spark
 linuxqq
 com.qq.weixin.mejituu
+store.spark-app.wechat-linux-spark
 lx-music-desktop

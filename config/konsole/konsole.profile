@@ -8,17 +8,21 @@ UseFontLineChararacters=true
 CursorShape=1
 
 [General]
-Name=配置方案-1
+Name=默认配置
 Parent=FALLBACK/
-
-[Scrolling]
-HighlightScrolledLines=false
+SemanticInputClick=true
+SemanticUpDown=true
 
 [Interaction Options]
-DropUrlsAsText=false
-MouseWheelZoomEnabled=false
+AllowEscapedLinks=true
+AllowMouseTracking=true
+MiddleClickPasteMode=1
+OpenLinksByDirectClickEnabled=true
+TrimLeadingSpacesInSelectedText=true
+TrimTrailingSpacesInSelectedText=true
 UnderlineFilesEnabled=true
 
 [Terminal Features]
-BidiRenderingEnabled=true
+BidiRenderingEnabled=false
 FlowControlEnabled=false
+UrlHintsModifiers=0

@@ -2,7 +2,8 @@
 source ./include/confirm.fish
 
 if type -q pip && confirm 'Do you want to install user-level software using pip?'
-    pip install -r pkglist/requirements.txt
+    pip install -r pkglist/requirements-user.txt
+    pip install -r pkglist/requirements-system.txt
 end
 
 if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
@@ -51,8 +52,12 @@ if type -q wine
     wine msiexec /i ./wine-gecko-2.47.4-x86.msi
 end
 
+if confirm 'Do you want to install some software from ppa?'
+    sudo apt -m install (cat ./pkglist/ppa.txt | grep -v '^#')
+end
+
 if type -q aptss && confirm 'Do you want to install some software using spark-store?'
-    sudo aptss install (cat ./pkglist/spark.txt | grep -v '^#')
+    sudo aptss install -m (cat ./pkglist/spark.txt | grep -v '^#')
 end
 
 #if ! type -q client
