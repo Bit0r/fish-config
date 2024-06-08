@@ -9,6 +9,7 @@ pipdeptree	# 需要安装，但可以查看依赖和反向依赖
 loguru	# 日志
 loguru-config
 python-box[all]	# 字典处理
+more-itertools	# 迭代器
 jmespath	# json 查询
 transitions	# 状态机
 pqdict	# 优先队列字典

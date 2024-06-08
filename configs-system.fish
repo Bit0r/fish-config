@@ -182,7 +182,12 @@ end
 
 # 配置apt自动更新
 if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'
-    sudo cp --backup=t config/apt/*-upgrades /etc/apt/apt.conf.d/
+    sudo cp --backup=t ./config/apt/apt.conf.d/*-upgrades /etc/apt/apt.conf.d/
+end
+
+# 配置apt代理
+if confirm 'Do you want to configure apt proxy?'
+    sudo cp ./config/apt/apt.conf.d/12proxy /etc/apt/apt.conf.d/
 end
 
 # 配置winetricks自动更新

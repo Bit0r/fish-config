@@ -7,11 +7,12 @@ ffmpeg-python
 opencv-python	# opencv
 imutils	# opencv 包装库
 vidgear[asyncio]	# 视频流处理
-httpx[cli,http2,socks5,brotli]
+httpx[cli,http2,socks,brotli]
 vcrpy	# 录制http请求
 #furl
 yarl	# url解析
 kaggle
+PyGithub	# github api
 #handcalcs	# python公式转latex
 #latexify-py	# python公式转latex
 #memray

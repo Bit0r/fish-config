@@ -4,11 +4,13 @@ source include/confirm.fish
 
 if confirm 'Do you want to install the software from the third-party repository?'
     # 设置包
-    set files pkglist/third-party.txt
+    set files pkglist/{ppa,third-party}.txt
     set pkgs (cat $files | grep -v '^#')
+    # 设置代理
+    sudo cp ./config/apt/apt.conf.d/12proxy /etc/apt/apt.conf.d/
     # 开始安装
-    sudo apt -o Acquire::http::Proxy=socks5h://localhost:1080 update
-    sudo apt -o Acquire::http::Proxy=socks5h://localhost:1080 install $pkgs
+    sudo apt update
+    sudo apt install $pkgs
 end
 
 if confirm 'Do you want to install calibre?'
@@ -47,12 +49,15 @@ if confirm 'Do you want to install fisher?'
     fisher update
 end
 
-if confirm 'Do you want to download the software from the GitHub release?'
-    mkdir -p ./tmp/
-    cp pkglist/releases.csv ./tmp
-    cp exec/download-releases ./tmp/download-releases.py
-    ./tmp
-    python download-releases.py
-    sudo apt install ./*.deb
-    ../
+if confirm 'Do you want to intall the software from the GitHub release?'
+    if [ -f ./tmp/releases.csv ]
+        set lockfile $PWD/tmp/releases.csv
+    else
+        set lockfile $PWD/pkglist/releases.csv
+    end
+
+    python exec/download-releases \
+        --lockfile=$lockfile \
+        --output_dir=$PWD/tmp/
+    sudo apt install ./tmp/*.deb
 end

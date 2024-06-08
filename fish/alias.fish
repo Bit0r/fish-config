@@ -30,6 +30,7 @@ alias -s nvrun 'env DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY
 alias -s rsync-safe 'rsync --ignore-existing'
 
 alias -s man-vivaldi "man -H'vivaldi --no-sandbox'"
+alias -s man-browser 'man -H"$BROWSER --no-sandbox"'
 alias -s residual-config "dpkg -l | rg '^rc' | tuc -e '\s+' -f 2"
 
 set -e http_proxy

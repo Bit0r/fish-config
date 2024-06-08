@@ -1,8 +1,14 @@
 httpx[cli,http2,socks,brotli]
+python-dotenv
+PyGithub	# github api
+more-itertools	# 迭代器
 python-box[all]	# 字典处理
+pint	# 单位处理
+clevercsv	# csv处理
 fire	# 命令行
 loguru	# 日志
 loguru-config
 pendulum	# 时间处理
 plumbum	# 命令行
 rich	# 输出美化
+pydumpling	# python traceback 调试

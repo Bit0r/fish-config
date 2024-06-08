@@ -1,57 +1,37 @@
 #!/usr/bin/python
 
 # %%
-import asyncio
 import os
 from pathlib import Path
 import re
-import sys
-from typing import Iterable
 
 import clevercsv
 from dotenv import load_dotenv
+from fire import Fire
+from github import Auth, Github
+from github.GithubException import UnknownObjectException
+from github.GitReleaseAsset import GitReleaseAsset
 import httpx
+from loguru import logger
+from more_itertools import first_true
+from pint import UnitRegistry
+from pydumpling import catch_any_exception
+from rich.progress import Progress
 
 # %%
-RELEASES_PATH = "./releases.csv"
-
-releases_path = Path(RELEASES_PATH).expanduser().resolve()
+catch_any_exception()
 load_dotenv()
-gh_token = os.getenv("GH_TOKEN")
 
 
 # %%
-async def download(idx: int, client: httpx.AsyncClient):
-    if len(releases[idx]) > 3:
-        # 不符合格式，直接返回
-        return
-    repo, version, description = releases[idx]
-    if not repo:
-        # 没有repo，直接返回
-        return
+class GithubDownload:
+    def __init__(self, token: str | None = None):
+        self.token = token
 
-    r = await client.get(
-        f"https://api.github.com/repos/{repo}/releases/latest"
-        # headers={"Authorization": f"Bearer {gh_token}"},
-    )
+        self.amd64: re.Pattern = re.compile(r"(amd|x86[-_])64")
+        self.cksum_suffies = ".sha256 .minisig .asc .sig".split()
 
-    r_json = r.json()
-
-    if r.status_code != 200:
-        print(f'{repo}: {r_json["message"]}', file=sys.stderr)
-        return
-
-    # 如果已经是最新版本，则不用下载
-    tag_name = r_json["tag_name"]
-    if tag_name == version:
-        return
-
-    # 填充下载名
-    names = [None] * 6
-    for asset in r_json["assets"]:
-        name = asset["name"].casefold()
-
-        prior = 0
+    def get_asset_priority(self, asset):
         """
         0. gnu.deb
         1. musl.deb
@@ -59,80 +39,191 @@ async def download(idx: int, client: httpx.AsyncClient):
         3. musl.run
         4. gnu.zip or gnu.tar.gz
         5. musl.zip or gnu.tar.gz
-        """
 
-        name_path = Path(name)
+        6. no-amd64-gnu.deb
+        7. no-amd64-musl.deb
+        8. no-amd64-gnu.run
+        9. no-amd64-musl.run
+        10. no-amd64-gnu.zip or no-amd64-gnu.tar.gz
+        11. no-amd64-musl.zip or no-amd64-gnu.tar.gz
+
+        12. other
+        """
+        priority = 0
+
+        name_path = Path(asset.name.casefold())
         name_stem = name_path.stem.casefold()
         name_suffix = name_path.suffix.casefold()
 
-        if (
-            not amd64.search(name_stem)
-            or name_suffix in ".sha256 .minisig .asc .sig".split()
-        ):
-            # 不是amd64架构或者是校验文件，那么就不用下载
-            continue
+        if name_suffix in self.cksum_suffies:
+            # 如果是校验文件，那么就不用下载
+            return 12
 
         if name_suffix != ".deb" and "ubuntu" not in name_stem:
             # 不是deb包，也不是ubuntu的包，那么优先级下调2
-            prior += 2
-        if prior >= 2 and name_suffix != ".run":
+            priority += 2
+        if priority >= 2 and name_suffix != ".run":
             # 也不是run包，那么优先级下调2
-            prior += 2
+            priority += 2
 
         if "musl" in name_stem:
             # 是musl包，那么优先级下调1
-            prior += 1
+            priority += 1
 
-        if prior < 4 or (prior >= 4 and "linux" in name_stem):
-            # 如果优先级小于4，或者优先级大于等于4且是linux包，那么就是我们想要的包
-            names[prior] = name
+        if not self.amd64.search(name_stem):
+            # 不是amd64包，那么优先级下调6
+            priority += 6
 
-    if not any(names):
-        print(f"{repo}: no assets", file=sys.stderr)
-        return
+        if (
+            0 <= priority <= 3
+            or 6 <= priority <= 9
+            or ((4 <= priority <= 5 or 10 <= priority <= 11) and "linux" in name_stem)
+        ):
+            # 如果优先级是0-3，6-9，或者是4-5，10-11并且是linux包，那么就返回优先级
+            return priority
 
-    # 根据包名的优先级进行下载
-    for name in names:
-        if name is None:
-            continue
+        # 其他情况
+        return 12
 
-        # 使用流式传输下载
-        print(f"Downloading {name}")
-        async with client.stream(
-            "GET", f"https://github.com/{repo}/releases/latest/download/{name}"
-        ) as respose:
-            with open(name, "wb") as f:
-                async for chunk in respose.aiter_bytes():
-                    f.write(chunk)
+    def get_higest_priority_asset(
+        self, assets: list[GitReleaseAsset]
+    ) -> GitReleaseAsset | None:
+        priority_assets = [None] * 13
 
-        # 完成下载，修改发布列表
-        releases[idx][1] = tag_name
-        break
+        for asset in assets:
+            priority = self.get_asset_priority(asset)
+            priority_assets[priority] = asset
 
+        # 去掉最后一个元素，因为最后一个元素是other
+        priority_assets = priority_assets[:-1]
 
-# %%
-async def main(idxs: Iterable[int]):
-    limits = httpx.Limits(max_connections=4, max_keepalive_connections=2)
-    async with httpx.AsyncClient(
-        follow_redirects=True,
-        proxies="socks5://localhost:1080",
-        limits=limits,
-        http2=True,
-    ) as client:
-        await asyncio.gather(*(download(i, client) for i in idxs))
+        # 返回优先级最高的asset
+        return first_true(priority_assets)
+
+    def down_latest_asset(
+        self,
+        repo: str,
+        version: str | None = None,
+        *,
+        progress: Progress = None,
+        output_dir: str | Path = "./",
+    ):
+        output_dir = Path(output_dir).expanduser().resolve()
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        gh = self.gh_client
+        latest_release = gh.get_repo(repo).get_latest_release()
+        assets = latest_release.get_assets()
+        asset = self.get_higest_priority_asset(assets)
+
+        if asset is None:
+            logger.error(f"{repo}: no assets")
+            return
+
+        latest_version = latest_release.tag_name
+        if version and latest_version == version:
+            logger.info(f"{repo}: already up to date")
+            return
+
+        # 下载asset
+        logger.info(f"Downloading {asset.name}")
+        ureg = UnitRegistry()
+
+        with self.httpx_client.stream(
+            "GET", asset.browser_download_url
+        ) as response, open(output_dir / asset.name, "wb") as f:
+            if progress:
+                task = progress.add_task(f"Downloading {asset.name}", total=asset.size)
+                total_mb = (asset.size * ureg.byte).to(ureg.megabyte)
+
+            for chunk in response.iter_bytes():
+                f.write(chunk)
+
+                if progress:
+                    downloaded_mb = (response.num_bytes_downloaded * ureg.byte).to(
+                        ureg.megabyte
+                    )
+                    progress.update(
+                        task,
+                        completed=response.num_bytes_downloaded,
+                        description=f"{asset.name}: {downloaded_mb.magnitude:.2f}/{total_mb.magnitude:.2f}MB",
+                    )
+
+        # 返回最新版本号
+        return latest_version
+
+    def download_list(
+        self,
+        releases: list[list[str]],
+        *,
+        progress: Progress = None,
+        output_dir: str | Path = "./",
+    ):
+        for idx, release in enumerate(releases):
+            if len(release) > 3:
+                # 注释行
+                continue
+
+            repo, version, description = release
+
+            if not repo:
+                # 没有repo，那么就跳过
+                logger.warning(f"Line {idx + 1}: no repo")
+                continue
+
+            try:
+                new_version = self.down_latest_asset(
+                    repo, version, progress=progress, output_dir=output_dir
+                )
+            except UnknownObjectException as e:
+                logger.error(f"{repo}: {e}")
+                continue
+
+            if new_version is not None:
+                releases[idx][1] = new_version
+
+    def download_all(
+        self,
+        lockfile: str | Path = "./releases.csv",
+        *,
+        token=os.environ["GH_TOKEN"],
+        output_dir: str | Path = "./",
+    ):
+        output_dir = Path(output_dir).expanduser().resolve()
+        lockfile_path = Path(lockfile).expanduser().resolve()
+        if not lockfile_path.exists():
+            logger.error(f"{lockfile_path} not found")
+            return
+
+        token = token or self.token
+        if token is None:
+            logger.error("No GITHUB_TOKEN found")
+            return
+
+        releases = clevercsv.read_table(lockfile_path)[1:]
+
+        self.gh_client = Github(auth=Auth.Token(token))
+        limits = httpx.Limits(max_connections=4, max_keepalive_connections=2)
+        self.httpx_client = httpx.Client(
+            headers={"Authorization": f"Bearer {token}"},
+            follow_redirects=True,
+            proxies="socks5://localhost:1080",
+            limits=limits,
+            http2=True,
+        )
+
+        try:
+            with Progress(transient=True) as progress:
+                self.download_list(releases, progress=progress, output_dir=output_dir)
+        finally:
+            # 保存最新的版本号
+            releases.insert(0, ["repo", "version", "description"])
+            releases = [release for release in releases if len(release) <= 3]
+            clevercsv.write_table(releases, output_dir / lockfile_path.name)
 
 
 # %%
 if __name__ == "__main__":
     # %%
-    amd64 = re.compile(r"(amd|x86[-_])64")
-    releases = clevercsv.read_table(releases_path)
-    # 删除注释行
-    releases = list(filter(lambda release: len(release) <= 3, releases))
-
-    # %%
-    # 将第一行的标题去掉，其它行作为下载列表
-    asyncio.run(main(range(1, len(releases))))
-
-    # %%
-    clevercsv.write_table(releases, releases_path)
+    gd = GithubDownload()
+    Fire(gd.download_all)

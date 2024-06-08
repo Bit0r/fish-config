@@ -1,0 +1,6 @@
+Acquire::http::Proxy {
+	cli.github.com "socks5h://localhost:1080";
+	nvidia.github.io "socks5h://localhost:1080";
+	repo.vivaldi.com "socks5h://localhost:1080";
+	ppa.launchpadcontent.net "socks5h://localhost:1080";
+};

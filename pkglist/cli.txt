@@ -42,6 +42,7 @@ lsyncd
 mat2
 micro
 mangohud
+nala
 ncat
 net-tools
 ngrep
