@@ -1,6 +1,7 @@
 function setup-LiteLoaderQQNT -d 'Setup LiteLoaderQQNT'
     set app_path /opt/QQ/resources/app
     set LiteLoaderQQNT_path $app_path/LiteLoaderQQNT
+    set plugin_list_viewer_path $LiteLoaderQQNT_path/plugins/LL-plugin-list-viewer
     set app_launcher_path $app_path/app_launcher
 
     sudo chown -R :$USER $app_path
@@ -12,6 +13,14 @@ function setup-LiteLoaderQQNT -d 'Setup LiteLoaderQQNT'
         prevd
     else
         git clone --depth 1 https://github.com/LiteLoaderQQNT/LiteLoaderQQNT.git $LiteLoaderQQNT_path
+    end
+
+    if [ -d $plugin_list_viewer_path ]
+        cd $plugin_list_viewer_path
+        git pull
+        prevd
+    else
+        git clone https://github.com/ltxhhz/LL-plugin-list-viewer.git $plugin_list_viewer_path
     end
 
     cd $app_launcher_path
