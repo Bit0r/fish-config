@@ -37,17 +37,23 @@ class GithubDownload:
         1. musl.deb
         2. gnu.run
         3. musl.run
-        4. gnu.zip or gnu.tar.gz
-        5. musl.zip or gnu.tar.gz
+        4. gnu.AppImage
+        5. musl.AppImage
 
-        6. no-amd64-gnu.deb
-        7. no-amd64-musl.deb
-        8. no-amd64-gnu.run
-        9. no-amd64-musl.run
-        10. no-amd64-gnu.zip or no-amd64-gnu.tar.gz
-        11. no-amd64-musl.zip or no-amd64-gnu.tar.gz
+        6. gnu.zip or gnu.tar.gz
+        7. musl.zip or gnu.tar.gz
 
-        12. other
+        8. no-amd64-gnu.deb
+        9. no-amd64-musl.deb
+        10. no-amd64-gnu.run
+        11. no-amd64-musl.run
+        12. no-amd64-gnu.AppImage
+        13. no-amd64-musl.AppImage
+
+        14. no-amd64-gnu.zip or no-amd64-gnu.tar.gz
+        15. no-amd64-musl.zip or no-amd64-gnu.tar.gz
+
+        16. other
         """
         priority = 0
 
@@ -57,7 +63,7 @@ class GithubDownload:
 
         if name_suffix in self.cksum_suffies:
             # 如果是校验文件，那么就不用下载
-            return 12
+            return 16
 
         if name_suffix != ".deb" and "ubuntu" not in name_stem:
             # 不是deb包，也不是ubuntu的包，那么优先级下调2
@@ -65,30 +71,33 @@ class GithubDownload:
         if priority >= 2 and name_suffix != ".run":
             # 也不是run包，那么优先级下调2
             priority += 2
+        if priority >= 4 and name_suffix != ".appimage":
+            # 也不是AppImage包，那么优先级下调2
+            priority += 2
 
         if "musl" in name_stem:
             # 是musl包，那么优先级下调1
             priority += 1
 
         if not self.amd64.search(name_stem):
-            # 不是amd64包，那么优先级下调6
-            priority += 6
+            # 不是amd64包，那么优先级下调8
+            priority += 8
 
         if (
-            0 <= priority <= 3
-            or 6 <= priority <= 9
-            or ((4 <= priority <= 5 or 10 <= priority <= 11) and "linux" in name_stem)
+            0 <= priority <= 5
+            or 8 <= priority <= 13
+            or ((6 <= priority <= 7 or 14 <= priority <= 15) and "linux" in name_stem)
         ):
-            # 如果优先级是0-3，6-9，或者是4-5，10-11并且是linux包，那么就返回优先级
+            # 如果优先级是0-5, 8-13, 或者是6-7, 14-15并且是linux包，那么直接返回优先级
             return priority
 
         # 其他情况
-        return 12
+        return 16
 
     def get_higest_priority_asset(
         self, assets: list[GitReleaseAsset]
     ) -> GitReleaseAsset | None:
-        priority_assets = [None] * 13
+        priority_assets = [None] * 17
 
         for asset in assets:
             priority = self.get_asset_priority(asset)
