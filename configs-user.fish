@@ -121,13 +121,18 @@ cp config/konsole/konsolerc ~/.config/
 # 配置 ksystemlog
 cp /usr/share/applications/org.kde.ksystemlog.desktop ~/.local/share/applications/
 sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' ~/.local/share/applications/org.kde.ksystemlog.desktop
-sd '^X-KDE-Username' '#X-KDE-Username' ~/.local/share/applications/org.kde.ksystemlog.desktop
 
-# 配置 vivaldi
-cp /usr/share/applications/vivaldi-stable.desktop ~/.local/share/applications/
-sd '^Exec=/usr/bin/vivaldi-stable' \
-    'Exec=/usr/bin/vivaldi-stable --allow-running-insecure-content --allow-outdated-plugins --allow-scripting-gallery --silent-debugger-extension-api --proxy-server=socks5://localhost' \
-    ~/.local/share/applications/vivaldi-stable.desktop
+# 配置浏览器
+for browser in chrome-stable vivaldi-stable edge-stable
+    if not type -q $browser
+        continue
+    end
+
+    cp /usr/share/applications/$browser.desktop ~/.local/share/applications/
+    sd "^Exec=/usr/bin/$browser %U\$" \
+        "Exec=/usr/bin/$browser --allow-running-insecure-content --allow-outdated-plugins --allow-scripting-gallery --silent-debugger-extension-api --proxy-server=socks5://localhost %U" \
+        ~/.local/share/applications/$browser.desktop
+end
 
 # 更新mime数据库
 update-mime-database ~/.local/share/mime/

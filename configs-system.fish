@@ -3,7 +3,7 @@
 source include/confirm.fish
 
 # 配置系统级环境变量
-sudo cp ./config/environment/* /etc/environment.d/
+sudo cp ./config/environment/*.conf /etc/environment.d/
 
 # 设置软链接
 sudo ln -s /etc /usr/

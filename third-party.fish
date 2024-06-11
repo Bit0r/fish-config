@@ -1,13 +1,12 @@
 #!/usr/bin/fish
 source ./include/confirm.fish
 
-if type -q pip && confirm 'Do you want to install user-level software using pip?'
-    pip install -r pkglist/requirements-user.txt
-    pip install -r pkglist/requirements-system.txt
+if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
+    sudo pip install -r pkglist/requirements-system.txt
 end
 
-if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
-    sudo pip install -r pkglist/requirements-global.txt
+if type -q pip && confirm 'Do you want to install user-level software using pip?'
+    pip install -r pkglist/requirements-user.txt
 end
 
 if sudo which pipx >/dev/null && confirm 'Do you want to install system-level software using pipx?'

@@ -14,7 +14,9 @@ winfonts
 #pot
 wps-office
 org.shotcut.spark
+baidunetdisk
 linuxqq
 com.qq.weixin.mejituu
 store.spark-app.wechat-linux-spark
 lx-music-desktop
+net.rpcs3.rpcs3.spark
