@@ -12,8 +12,8 @@ function backup-browser -a browser -d "Backup browser configuration to a tarball
     end
 
     cd ~/.config/
-    tar -cavf $browser.tzst $browser/{Default,Profile*}
+    set user_data_dirs $browser/{Default,Profile*}
     prevd
 
-    mv ~/.config/$browser.tzst ./
+    tar -cavf $browser.tzst -C ~/.config/ $user_data_dirs
 end

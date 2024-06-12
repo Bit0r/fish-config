@@ -1,0 +1,2 @@
+xserver-xorg-input-synaptics
+xserver-xorg-input-multitouch

@@ -15,7 +15,7 @@ espeak-ng-espeak
 speech-dispatcher
 f3
 git
-#git-crypt
+git-crypt
 git-filter-repo
 git-lfs
 git-sizer
