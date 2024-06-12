@@ -96,6 +96,11 @@ sudo cp --backup=t ./config/graftcp-local/graftcp-local.conf /etc/graftcp-local/
 # 配置 cgproxy
 sudo cp --backup=t ./config/cgproxy/config.json /etc/cgproxy/
 
+# 配置 docker pull 代理
+if type -q docker && confirm 'Do you want to configure docker pull proxy?'
+    sudo cp -a ./config/docker/docker.service.d /etc/systemd/system/
+end
+
 # 配置aria2
 sudo cp config/aria2/aria2.conf /root/.config/aria2/
 

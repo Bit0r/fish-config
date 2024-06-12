@@ -6,7 +6,7 @@ set python_site (python -m site --user-site)
 
 # 创建目录
 mkdir -p \
-    ~/.vnc \
+    ~/.{vnc,docker} \
     ~/paperless-ngx \
     ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
@@ -151,10 +151,9 @@ if type -q x0vncserver && confirm 'Do you want to configure x0vncserver?'
     cp ./config/.xprofile ~/.xprofile
 end
 
-# 配置docker代理
-if type -q docker && confirm 'Do you want to configure docker proxy?'
-    mkdir -p ~/.docker/
-    cp -b ./config/docker/config.json
+# 配置 docker 容器代理
+if type -q docker && confirm 'Do you want to configure docker container proxy?'
+    cp -b ./config/docker/config.json ~/.docker/
 end
 
 # 添加自身到必需的组
