@@ -100,9 +100,6 @@ end
 # 配置 tabby
 cp ./config/tabby/config.yaml ~/.config/tabby/
 
-# 配置discord
-cp ./config/discord/settings.json ~/.config/discord/
-
 # 配置 imwheel
 cp config/imwheel/imwheelrc ~/.imwheelrc
 
@@ -134,7 +131,12 @@ for browser in chrome-stable vivaldi-stable edge-stable
         ~/.local/share/applications/$browser.desktop
 end
 
-# 更新mime数据库
+# 配置 discord
+cp ./config/discord/settings.json ~/.config/discord/
+cp /usr/share/applications/discord.desktop ~/.local/share/applications/
+sd '^Exec=/usr/share/discord/Discord$' 'Exec=/usr/share/discord/Discord --proxy-server=socks5://localhost' ~/.local/share/applications/discord.desktop
+
+# 更新 mime 数据库
 update-mime-database ~/.local/share/mime/
 
 # 配置vncserver
