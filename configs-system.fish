@@ -16,7 +16,7 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba} \
+    /etc/{default,graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba} \
     /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /usr/local/etc/xray \
@@ -204,6 +204,11 @@ end
 # 创建mysql管理员
 if type -q mysql && confirm 'Do you want to create a MySQL super user?'
     source mysql.fish
+end
+
+# 配置 minio
+if type -q minio
+    sudo cp ./config/minio/env /etc/default/minio
 end
 
 # 将plasma-awesome作为默认桌面
