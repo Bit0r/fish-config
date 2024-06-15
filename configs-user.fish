@@ -8,8 +8,9 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
+    ~/.local/state/clipcat \
     $python_site
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
@@ -68,6 +69,9 @@ cp ./config/dive/*.yaml ~/.config/dive/
 
 # 配置aria2
 cp ./config/aria2/aria2.conf ~/.config/aria2/
+
+# 配置 clipcat
+cp -a ./config/clipcat/. ~/.config/clipcat/
 
 # 配置bililive
 cp ./config/bililive/config.yaml ~/.config/bililive/

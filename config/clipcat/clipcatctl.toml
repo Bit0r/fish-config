@@ -1,0 +1,18 @@
+# Server endpoint.
+# clipcatctl connects to server via unix domain socket if `server_endpoint` is a file path like:
+# "/run/user/<user-id>/clipcat/grpc.sock".
+# clipcatctl connects to server via http if `server_endpoint` is a URL like: "http://127.0.0.1:45045".
+#server_endpoint = "http://172.16.75.45:45045"
+
+[log]
+# Emit log message to a log file.
+# Delete this line to disable emitting to a log file.
+file_path = "/home/bit0r/.local/state/clipcat/clipcatctl.log"
+# Emit log message to systemd-journald
+emit_journald = true
+# Emit log message to stdout.
+emit_stdout = false
+# Emit log message to stderr.
+emit_stderr = false
+# Log level
+level = "INFO"

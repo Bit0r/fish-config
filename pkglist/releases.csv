@@ -5,7 +5,8 @@ YiNNx/cmd-wrapped,,包装命令行工具
 ajeetdsouza/zoxide,,快速跳转
 junegunn/fzf,,模糊搜索
 eza-community/eza,,ls的替代品
-Slackadays/Clipboard,,终端剪贴板
+,,,Slackadays/Clipboard,,终端剪贴板
+xrelkd/clipcat,,终端剪贴板
 austinjones/tab-rs,,终端多路复用
 akavel/up,,交互式运行管道命令
 Canop/dysk,,磁盘使用情况-分区占用
