@@ -27,6 +27,8 @@ services:
       PAPERLESS_TIKA_ENDPOINT: http://tika:9998
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    labels:
+      - "com.centurylinklabs.watchtower.no-pull=true"
 
   gotenberg:
     image: gotenberg/gotenberg:7.10

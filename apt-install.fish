@@ -20,6 +20,7 @@ add-list 'Do you want to install Java?' java
 add-list 'Do you want to install Rust?' rust
 add-list 'Do you want to install some awesome cli software?' cli
 add-list 'Do you want to install some awesome gui software?' gui
+add-list 'Do you want to install some awesome kde software?' kde
 add-list 'Do you want to install the printer driver?' printer
 add-list 'Do you want to install nvidia-gui?' nvidia
 add-list 'Do you want to install some software docs?' doc

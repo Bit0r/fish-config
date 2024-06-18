@@ -10,7 +10,7 @@ mkdir -p \
     ~/paperless-ngx \
     ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
-    ~/.local/state/clipcat \
+    ~/.local/state/{aria2,clipcat} \
     $python_site
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update

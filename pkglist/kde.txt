@@ -1,0 +1,13 @@
+language-pack-kde-zh-hans
+kcharselect
+kde-config-cron
+kdiskmark
+keepassxc
+kleopatra
+kmag
+kolourpaint
+kompare
+krdc
+krfb
+krename
+krusader

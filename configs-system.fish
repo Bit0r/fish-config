@@ -209,6 +209,7 @@ end
 # 配置 minio
 if type -q minio
     sudo cp ./config/minio/env /etc/default/minio
+    sudo adduser --system minio --group
 end
 
 # 将plasma-awesome作为默认桌面

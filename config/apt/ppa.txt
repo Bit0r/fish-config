@@ -12,6 +12,7 @@ jonmagon/kdiskmark
 #flexiondotorg/nvtop
 trzsz/ppa
 ubuntuhandbook1/ffmpeg7
+ubuntuhandbook1/handbrake
 alex-p/tesseract-ocr5
 #michel-slm/distrobox
 #ubuntugis/ubuntugis-unstable
