@@ -8,7 +8,7 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,ruff,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     $python_site
@@ -79,6 +79,9 @@ cp ./config/bililive/config.yaml ~/.config/bililive/
 cp ./config/smplayer/smplayer.ini ~/.config/smplayer/
 cp ./config/desktop/mat2.desktop ~/.local/share/kservices5/ServiceMenus/
 cp config/keepassxc.ini ~/.config/keepassxc/
+
+# 配置 sqlfluff
+cp -a ./config/sqlfluff/. ~/.config/sqlfluff/
 
 if type -q python
     # 配置python

@@ -49,7 +49,7 @@ if confirm 'Do you want to install fisher?'
     fisher update
 end
 
-if confirm 'Do you want to intall the software from the GitHub release?'
+if confirm 'Do you want to install the software from the GitHub release?'
     if [ -f ./tmp/releases.csv ]
         set lockfile $PWD/tmp/releases.csv
     else

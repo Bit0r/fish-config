@@ -4,9 +4,10 @@ After=network.target
 
 [Service]
 User=%i
-Type=forking
+#Type=forking
 #ExecStart=/usr/bin/aria2c --enable-rpc --daemon --dir=/home/%i/下载
-ExecStart=/usr/bin/aria2c --enable-rpc --daemon
+#ExecStart=/usr/bin/aria2c --enable-rpc --daemon
+ExecStart=/usr/bin/aria2c --enable-rpc
 
 [Install]
 WantedBy=multi-user.target

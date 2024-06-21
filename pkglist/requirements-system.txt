@@ -36,6 +36,7 @@ grequests	# 异步请求
 pysocks	# 代理
 scapy	# 网络包处理
 #pyupgrade
+sqlfluff	# sql 格式化
 ruff	# 代码检查
 pathvalidate	# 路径检查
 clevercsv[full]	# csv处理
