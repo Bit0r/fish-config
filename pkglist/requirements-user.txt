@@ -25,6 +25,7 @@ pytablewriter[all]
 playwright
 pytest-playwright
 pywebio	# web交互
+pyarmor	# 加密
 rtoml
 #xmltodict
 scanf

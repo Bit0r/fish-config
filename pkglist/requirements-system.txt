@@ -2,8 +2,7 @@ attrs	# 类属性
 pipx	# 用于安装 python 工具
 pypyp	# 在命令行中运行 python
 stringzilla	# 字符串处理
-nvitop	# 显卡监控
-docker-squash	# docker 镜像压缩
+#nvitop	# 显卡监控
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
 loguru	# 日志
@@ -37,10 +36,8 @@ pysocks	# 代理
 scapy	# 网络包处理
 #pyupgrade
 sqlfluff	# sql 格式化
-ruff	# 代码检查
 pathvalidate	# 路径检查
 clevercsv[full]	# csv处理
-sqlitebiter[all]	# 数据库处理
 #fastapi[all]
 litestar[standard]	# 后端
 fire	# 命令行
@@ -53,6 +50,7 @@ snoop	# 调试
 #ggplot
 polars
 great_tables	# 输出精美表格
+ocrmypdf	# pdf ocr
 plotnine[all]
 mplfonts	# matplotlib 字体
 onnx

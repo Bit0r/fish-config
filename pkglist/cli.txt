@@ -22,6 +22,7 @@ git-sizer
 #gpustat
 groff
 hspell
+htop
 hyperfine
 imwheel
 inxi

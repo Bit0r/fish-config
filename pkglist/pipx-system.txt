@@ -1,24 +1,15 @@
-johnnydep
-pipdeptree
 ruff
-py-spy
-scalene
 pre-commit
-ocrmypdf
-stitching
-magika
-djlint
-docker-squash
-sqlitebiter
-mycli
-iredis
-harlequin
-pypyp
+djlint	# django lint
+docker-squash	# docker 镜像压缩
+#sqlitebiter[all]	# sqlite 数据导入
+mycli	# mysql cli
+iredis	# redis cli
+harlequin	# SQL cli
 rich-cli
-justpath
-toolong
-nvitop
+justpath	# PATH 管理
+toolong	# 日志展示
+glances[all]	# 系统监控
 poetry
-code2flow
+code2flow	# 代码流程图
 kaggle
-scapy
