@@ -33,7 +33,7 @@ class GithubDownload:
 
     def get_asset_priority(self, asset):
         """
-        0. gnu.deb
+        0. gnu.deb,*.xpi
         1. musl.deb
         2. gnu.run
         3. musl.run
@@ -65,8 +65,8 @@ class GithubDownload:
             # 如果是校验文件，那么就不用下载
             return 16
 
-        if name_suffix != ".deb" and "ubuntu" not in name_stem:
-            # 不是deb包，也不是ubuntu的包，那么优先级下调2
+        if name_suffix not in [".deb", ".xpi"] and "ubuntu" not in name_stem:
+            # 如果后缀名不是deb或者xpi，而且名字中不包含ubuntu，那么优先级下调1
             priority += 2
         if priority >= 2 and name_suffix != ".run":
             # 也不是run包，那么优先级下调2

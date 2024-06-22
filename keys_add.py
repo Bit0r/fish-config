@@ -6,13 +6,19 @@ import sys
 import tempfile
 
 from box import Box, BoxList
+from dotenv import load_dotenv
 import fire
 import httpx
 from loguru import logger
 import pendulum
 from plumbum import local
 from plumbum.cmd import gpg, sudo
+from pydumpling import catch_any_exception
 from rich import progress
+
+# %%
+catch_any_exception()
+load_dotenv()
 
 
 # %%
@@ -121,6 +127,7 @@ class GpgKeys:
         keys_hash = BoxList(self.keys_hash)
         for key in keys_hash:
             logger.info(f"Importing {key['name']} keyring...")
+            (sudo[gpg["--list-keys"]] >= "/dev/null")()
             sudo[
                 gpg[
                     "--keyserver",

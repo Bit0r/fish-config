@@ -11,4 +11,5 @@ loguru-config
 pendulum	# 时间处理
 plumbum	# 命令行
 rich	# 输出美化
+python-dotenv	# 环境变量
 pydumpling	# python traceback 调试

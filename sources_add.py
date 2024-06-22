@@ -5,9 +5,15 @@ import platform
 import tempfile
 
 from box import Box
+from dotenv import load_dotenv
 import fire
 from loguru import logger
 from plumbum.cmd import mv, sudo
+from pydumpling import catch_any_exception
+
+# %%
+catch_any_exception()
+load_dotenv()
 
 
 # %%

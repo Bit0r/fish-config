@@ -31,6 +31,7 @@ dprint/dprint,,格式化代码
 duckdb/duckdb,,嵌入式分析型数据库
 k1LoW/tbls,,数据库文档生成
 ClementTsang/bottom,,top的替代品
+Syllo/nvtop,,gpu的top
 Netflix/bpftop,,bpf的top
 Nukesor/pueue,,任务队列
 ,,,egoist/dum,,npm run的替代品
@@ -81,4 +82,11 @@ H-M-H/Weylus,,无线投屏
 glanceapp/glance,,聚合 rss、iframe、youtube channels 等
 auyer/Protonup-rs,,Steam Proton更新
 Oxen-AI/Oxen,,数据集版本控制
-,,,RPCS3/rpcs3-binaries-linux,,PS3模拟器
+RPCS3/rpcs3-binaries-linux,,PS3模拟器
+windingwind/zotero-pdf-translate,,PDF翻译
+l0o0/jasminum,,收藏中文论文
+jlegewie/zotfile,,PDF文件管理
+MuiseDestiny/zotero-reference,,PDF参考文献
+volatile-static/Chartero,,阅读时长统计
+plandes/zotsite,,导出为网站
+SiriusXT/Zotero-Scholar-Rank,,学术分区
