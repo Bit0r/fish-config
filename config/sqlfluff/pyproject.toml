@@ -1,6 +1,6 @@
 [tool.sqlfluff.core]
 templater = 'placeholder'
-exclude_rules = 'AM04,ST06'
+exclude_rules = 'AM04,RF02,ST06'
 
 [tool.sqlfluff.templater.placeholder]
 param_regex = ':\w+'

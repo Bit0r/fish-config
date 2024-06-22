@@ -29,6 +29,8 @@ alias -s cnki2bib 'cnki2bib -nod'
 alias -s nvrun 'env DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json'
 alias -s rsync-safe 'rsync --ignore-existing'
 
+alias -s purge-configs 'sudo aptitude purge ~c'
+
 alias -s man-vivaldi "man -H'vivaldi --no-sandbox'"
 alias -s man-browser 'man -H"$BROWSER --no-sandbox"'
 alias -s residual-config "dpkg -l | rg '^rc' | tuc -e '\s+' -f 2"
