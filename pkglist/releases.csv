@@ -84,9 +84,12 @@ auyer/Protonup-rs,,Steam Proton更新
 Oxen-AI/Oxen,,数据集版本控制
 RPCS3/rpcs3-binaries-linux,,PS3模拟器
 windingwind/zotero-pdf-translate,,PDF翻译
+syt2/zotero-addons,,zotero插件商店
 l0o0/jasminum,,收藏中文论文
 jlegewie/zotfile,,PDF文件管理
 MuiseDestiny/zotero-reference,,PDF参考文献
 volatile-static/Chartero,,阅读时长统计
 plandes/zotsite,,导出为网站
-SiriusXT/Zotero-Scholar-Rank,,学术分区
+northword/zotero-format-metadata,,参考文献表支持富文本
+MuiseDestiny/zotero-gpt,,gpt辅助
+redleafnew/zotero-updateifsE,,学术分区
