@@ -1,6 +1,7 @@
 attrs	# 类属性
 pipx	# 用于安装 python 工具
 pypyp	# 在命令行中运行 python
+pipreqs	# 生成 requirements.txt
 stringzilla	# 字符串处理
 #nvitop	# 显卡监控
 johnnydep	# 无须安装，可直接查看依赖

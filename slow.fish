@@ -42,6 +42,7 @@ end
 
 if confirm 'Do you wang to install d2lang?'
     proxy-curl -fsSL https://d2lang.com/install.sh | http_proxy sh -s --
+    proxy-curl -fsSL https://d2lang.com/install.sh | http_proxy sh -s -- --tala
 end
 
 if confirm 'Do you want to install fisher?'

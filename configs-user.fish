@@ -8,7 +8,7 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     $python_site
@@ -103,6 +103,9 @@ cp config/pandoc/*.yaml ~/.local/share/pandoc/defaults/
 for suffix in csl css
     cp config/pandoc/*.$suffix ~/.local/share/pandoc/$suffix/
 end
+
+# 配置d2
+cp -a ./config/d2/. ~/.config/d2/
 
 # 配置 tabby
 cp ./config/tabby/config.yaml ~/.config/tabby/

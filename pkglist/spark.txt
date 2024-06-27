@@ -12,7 +12,7 @@ net.cnki.cajviewer
 re.cutter.spark
 winfonts
 #pot
-wps-office
+wps-office-365
 org.shotcut.spark
 baidunetdisk
 linuxqq

@@ -186,6 +186,9 @@ if confirm 'Do you want to configure update-alternatives?'
     #end
 end
 
+# 配置 lib
+sudo ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
+
 # 配置apt自动更新
 if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'
     sudo cp --backup=t ./config/apt/apt.conf.d/*-upgrades /etc/apt/apt.conf.d/
