@@ -6,6 +6,7 @@ bar_chart_race	# 柱状图动画
 ffmpeg-python
 opencv-python	# opencv
 imutils	# opencv 包装库
+Pillow	# 图像处理
 scikit-image[optional]	# 图像处理
 moviepy	# 视频处理
 vidgear[asyncio]	# 视频流处理

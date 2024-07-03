@@ -28,7 +28,7 @@ if type -q fnm && confirm 'Do you want to install some software using fnm?'
 end
 
 if type -q micromamba && confirm 'Do you want to install some software using micromamba?'
-    micromamba create -n labelme python pyside2 pyqt labelme
+    micromamba create -n labelme python pyside2 pyqt
     micromamba run -n labelme pip install -U labelme
 end
 

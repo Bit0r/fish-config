@@ -1,6 +1,10 @@
+abi-tracker
 clang-format
 build-essential
 gcc-multilib
 gdb
 libmpfr-dev
+ninja-build
+cmake-extras
+meson
 xmake

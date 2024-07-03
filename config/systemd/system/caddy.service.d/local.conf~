@@ -1,0 +1,5 @@
+[Service]
+ExecStart=
+ExecStart=/usr/local/bin/caddy run --environ --config /etc/caddy/caddy.yaml --adapter yaml
+ExecReload=
+ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/caddy.yaml --adapter yaml --force

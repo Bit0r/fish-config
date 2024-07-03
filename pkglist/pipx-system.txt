@@ -1,4 +1,3 @@
-ruff
 pre-commit
 djlint	# django lint
 docker-squash	# docker 镜像压缩

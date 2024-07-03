@@ -1,5 +1,6 @@
 attrs	# 类属性
 pipx	# 用于安装 python 工具
+ruff	# python 格式化，同时也是多种库的依赖
 pypyp	# 在命令行中运行 python
 pipreqs	# 生成 requirements.txt
 stringzilla	# 字符串处理
@@ -21,8 +22,8 @@ python-dotenv
 semver	# 版本处理
 packaging	# 版本处理
 hydra-core	# 配置文件
-omegaconf	# 配置文件
-#dynaconf[all]
+#omegaconf	# 配置文件
+#dynaconf[all]	# 配置文件
 #rcviz	# 递归可视化
 dm-tree	# 树结构
 py-spy	# 性能分析
