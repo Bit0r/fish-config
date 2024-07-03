@@ -154,9 +154,16 @@ class GithubDownload:
                     )
                     progress.update(
                         task,
+                        refresh=True,
                         completed=response.num_bytes_downloaded,
                         description=f"{asset.name}: {downloaded_mb.magnitude:.2f}/{total_mb.magnitude:.2f}MB",
                     )
+
+            if progress:
+                # 增加一个空行，防止进度条和日志混在一起
+                print(file=progress.console.file)
+                # 下载完成
+                progress.remove_task(task)
 
         # 返回最新版本号
         return latest_version
@@ -222,7 +229,7 @@ class GithubDownload:
         )
 
         try:
-            with Progress(transient=True) as progress:
+            with Progress(auto_refresh=False) as progress:
                 self.download_list(releases, progress=progress, output_dir=output_dir)
         finally:
             # 保存最新的版本号
