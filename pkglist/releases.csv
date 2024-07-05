@@ -60,6 +60,7 @@ jesseduffield/lazydocker,,docker管理
 hadolint/hadolint,,dockerfile lint
 wagoodman/dive,,docker镜像分析
 containrrr/watchtower,,docker镜像更新
+google/cadvisor,,docker监控
 mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
 sirwart/ripsecrets,,查找敏感信息

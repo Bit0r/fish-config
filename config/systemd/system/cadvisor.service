@@ -1,0 +1,13 @@
+[Unit]
+Description=cAdvisor - Analyzes resource usage and performance characteristics of running containers.
+Documentation=https://github.com/google/cadvisor
+Requires=docker.service
+After=docker.service
+
+[Service]
+ExecStart=/usr/local/bin/cadvisor -port 3000
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
