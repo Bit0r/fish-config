@@ -32,9 +32,9 @@ if type -q micromamba && confirm 'Do you want to install some software using mic
     micromamba run -n labelme pip install -U labelme
 end
 
-if sudo which yarn >/dev/null && confirm 'Do you want to install some software using yarn?'
+if sudo which yarn >/dev/null && confirm 'Do you want to install some system-level software using yarn?'
     sudo yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
-else if type -q yarn && confirm 'Do you want to install some software using yarn?'
+else if type -q yarn && confirm 'Do you want to install some user-level software using yarn?'
     yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
 end
 

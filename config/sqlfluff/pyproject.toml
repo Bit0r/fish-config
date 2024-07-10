@@ -1,9 +1,16 @@
 [tool.sqlfluff.core]
 templater = 'placeholder'
-exclude_rules = 'AM04,RF02,ST06'
+exclude_rules = 'AM04,RF02,ST06,LT01'
+
+[tool.sqlfluff.indentation]
+indent_unit = "tab"
 
 [tool.sqlfluff.templater.placeholder]
-param_regex = ':\w+'
+param_regex = ':(?P<param_name>\w+)'
+usernames = "(0)"
+ids = "(0)"
+start = 0
+length = 999
 
 [tool.sqlfluff.rules.aliasing.expression]
 allow_scalar = true

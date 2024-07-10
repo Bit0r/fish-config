@@ -38,6 +38,7 @@ ignore = [
 	"RUF001",
 	"RUF002",
 	"RUF003",
+	"TRY300",
 ]
 
 [tool.ruff.format]

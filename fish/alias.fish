@@ -35,6 +35,8 @@ alias -s man-vivaldi "man -H'vivaldi --no-sandbox'"
 alias -s man-browser 'man -H"$BROWSER --no-sandbox"'
 alias -s residual-config "dpkg -l | rg '^rc' | tuc -e '\s+' -f 2"
 
+alias -s scc-china 'scc -a -d --no-min-gen --avg-wage 120000 --eaf 0.8 --overhead 0.25 --cocomo-project-type custom,0.5,1.1,1.2,0.5 --sloccount-format --currency-symbol ¥'
+
 set -e http_proxy
 set -e socks5_proxy
 set -e socks5h_proxy

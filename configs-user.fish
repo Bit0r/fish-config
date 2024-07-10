@@ -8,7 +8,7 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
     ~/.local/share/{kservices5/ServiceMenus,mime/packages,konsole,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     $python_site
@@ -83,6 +83,12 @@ cp config/keepassxc.ini ~/.config/keepassxc/
 # 配置 sqlfluff
 cp -a ./config/sqlfluff/. ~/.config/sqlfluff/
 
+# 配置 biome
+cp -a ./config/javascript/biome/. ~/.config/biome/
+
+# 配置 ruff
+cp -a ./config/python/ruff/. ~/.config/ruff/
+
 if type -q python
     # 配置python
     cp ./config/python/usercustomize.py $python_site/
@@ -91,12 +97,6 @@ if type -q python
 end
 # 配置 matplotlib
 cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
-# 配置 ruff
-cp ./config/python/ruff/* ~/.config/ruff/
-if type -q ruff
-    ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
-    sudo mv ~/.config/fish/completions/* /etc/fish/completions/
-end
 
 # 配置pandoc
 cp config/pandoc/*.yaml ~/.local/share/pandoc/defaults/

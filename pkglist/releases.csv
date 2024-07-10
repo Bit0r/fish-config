@@ -51,6 +51,7 @@ ogham/dog,,dns查询
 ,,,iawia002/lux,,视频下载工具
 zu1k/nali,,ip查询
 ,,,oldj/SwitchHosts,,hosts管理
+wzv5/pping,,支持多种协议的ping
 fujiapple852/trippy,,traceroute替代品
 ,,,nxtrace/NTrace-core,,traceroute替代品
 ,,,Archeb/opentrace,,traceroute替代品
@@ -79,6 +80,7 @@ typst/typst,,latex替代品
 nvarner/typst-lsp,,typst的lsp
 jgraph/drawio-desktop,,绘图工具
 charmbracelet/freeze,,终端命令转图片
+WerWolv/ImHex,,hex编辑器
 responsively-org/responsively-app-releases,,前端开发专用浏览器
 H-M-H/Weylus,,无线投屏
 glanceapp/glance,,聚合 rss、iframe、youtube channels 等
