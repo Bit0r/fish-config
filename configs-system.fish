@@ -235,6 +235,7 @@ end
 if type -q samba && confirm 'Do you want to configure Samba?'
     sudo cp --backup=t ./config/samba/smb.conf /etc/samba/
     sudo smbpasswd -a nobody
+    sudo smbpasswd -a $USER
     testparm # 展示配置信息
     sudo systemctl restart smbd
 end

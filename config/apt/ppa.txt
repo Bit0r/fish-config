@@ -1,5 +1,6 @@
 fish-shell/release-3
 cappelikan/ppa
+danielrichter2007/grub-customizer
 xmake-io/xmake
 longsleep/golang-backports
 serge-rider/dbeaver-ce

@@ -22,6 +22,7 @@ set -Ux MAMBA_ROOT_PREFIX ~/micromamba # 设置 Micromamba 的根目录
 #set -Ux DEEPLAKE_DOWNLOAD_PATH /data/deeplake # 设置 DeepLake 的下载目录
 set -Ux WANDB_MODE offline # 设置 wandb 的模式
 #read -sUx WANDB_API_KEY # 设置 wandb 的 API 密钥
+#set -Ux GRADIO_SERVER_PORT 6006 # 设置 Gradio 的服务器端口
 #read -sUx OPENAI_API_KEY # 设置 OpenAI 的 API 密钥
 set -Ux OPENAI_BASE_URL https://api.openai.com/v1 # 设置 OpenAI 的基础 URL
 set -Ux OPENAI_API_BASE $OPENAI_BASE_URL

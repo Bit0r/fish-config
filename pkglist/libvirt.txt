@@ -1,3 +1,7 @@
 #qemu
 qemu-system
 virt-manager
+guestfsd
+virtiofsd
+samba
+samba-vfs-modules-extra

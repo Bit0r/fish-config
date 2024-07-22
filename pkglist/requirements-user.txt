@@ -13,15 +13,15 @@ moviepy	# 视频处理
 vidgear[asyncio]	# 视频流处理
 httpx[cli,http2,socks,brotli]
 vcrpy	# 录制http请求
-#furl
-yarl	# url解析
+furl	# url解析
+#yarl	# url解析
 kaggle
 PyGithub	# github api
 #handcalcs	# python公式转latex
 #latexify-py	# python公式转latex
 #memray
 name-that-hash	# hash字符串类型识别
-pdf2docx
+#pdf2docx
 pytablereader[all]
 pytablewriter[all]
 playwright

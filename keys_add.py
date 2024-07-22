@@ -25,7 +25,7 @@ load_dotenv()
 class GpgKeys:
     def __init__(
         self,
-        client: httpx.Client = None,
+        client: httpx.Client | None = None,
         *,
         keyrings_path: str | Path = "/etc/apt/keyrings",
         proxy: str = os.environ.get("http_proxy", "socks5://localhost:1080"),

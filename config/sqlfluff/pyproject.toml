@@ -1,6 +1,6 @@
 [tool.sqlfluff.core]
 templater = 'placeholder'
-exclude_rules = 'AM04,RF02,ST06,LT01'
+exclude_rules = 'AM04,RF02,ST06,LT01,LT05'
 
 [tool.sqlfluff.indentation]
 indent_unit = "tab"
