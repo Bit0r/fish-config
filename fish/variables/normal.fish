@@ -1,3 +1,4 @@
+set -Ux VERSION_CONTROL numbered # 设置cp、mv等命令的备份方式，避免覆盖
 set -Ux MTR_OPTIONS -b
 set -Ux EDITOR micro
 set -Ux VISUAL code

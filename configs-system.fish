@@ -165,7 +165,7 @@ sudo update-apt-xapian-index
 
 # 修改内核参数
 if confirm 'Do you want to optimize kernel parameters?'
-    sudo cp config/sysctl.conf /etc/sysctl.d/local.conf
+    sudo cp -ubR ./config/sysctl.d/. /etc/sysctl.d/
 end
 
 # 配置web服务目录
