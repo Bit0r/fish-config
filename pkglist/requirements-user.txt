@@ -24,8 +24,9 @@ name-that-hash	# hash字符串类型识别
 #pdf2docx
 pytablereader[all]
 pytablewriter[all]
-playwright
-pytest-playwright
+#playwright
+#pytest-playwright
+DrissionPage	# 网络爬虫
 pywebio	# web交互
 pyarmor	# 加密
 rtoml

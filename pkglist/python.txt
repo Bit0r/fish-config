@@ -12,7 +12,7 @@ python3-clevercsv
 python3-crc32c
 python3-dm-tree
 python3-dotenv
-python3-drgn
+#python3-drgn
 python3-fire
 python3-grequests
 python3-httpx

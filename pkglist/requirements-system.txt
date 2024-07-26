@@ -44,7 +44,7 @@ clevercsv[full]	# csv处理
 litestar[standard]	# 后端
 fire	# 命令行
 #typer[all]
-drgn	# 内核调试
+#drgn	# 内核调试
 pydumpling	# python traceback 调试
 pdbpp	# pdb 的增强版, 结合 pydumpling 使用
 rich	# 输出美化

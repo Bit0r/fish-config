@@ -137,7 +137,7 @@ for browser in chrome-stable vivaldi-stable edge-stable
 
     cp /usr/share/applications/$browser.desktop ~/.local/share/applications/
     sd "^Exec=/usr/bin/$browser %U\$" \
-        "Exec=/usr/bin/$browser --allow-running-insecure-content --allow-outdated-plugins --allow-scripting-gallery --silent-debugger-extension-api --proxy-server=socks5://localhost %U" \
+        "Exec=/usr/bin/$browser --allow-running-insecure-content --allow-outdated-plugins --allow-scripting-gallery --silent-debugger-extension-api --remote-debugging-port=9222 --proxy-server=socks5://localhost %U" \
         ~/.local/share/applications/$browser.desktop
 end
 

@@ -34,6 +34,7 @@ lhasa
 libimage-exiftool-perl
 libnss3-tools
 libpcap-dev
+linux-crashdump
 linux-tools-common
 linux-tools-generic
 lm-sensors

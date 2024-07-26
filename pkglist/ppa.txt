@@ -1,4 +1,6 @@
 mainline
+grub-customizer
+python3-drgn
 dbeaver-ce
 firefox-esr
 thunderbird
