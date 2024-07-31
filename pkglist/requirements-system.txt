@@ -15,6 +15,7 @@ jmespath	# json 查询
 transitions	# 状态机
 pqdict	# 优先队列字典
 pint	# 单位处理
+sortedcontainers	# 排序容器
 notify-py	# 通知
 pendulum[test]	# 时间处理
 plumbum	# 命令行
@@ -44,6 +45,7 @@ clevercsv[full]	# csv处理
 litestar[standard]	# 后端
 fire	# 命令行
 #typer[all]
+jurigged[develoop]	# 热重载
 #drgn	# 内核调试
 pydumpling	# python traceback 调试
 pdbpp	# pdb 的增强版, 结合 pydumpling 使用

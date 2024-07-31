@@ -10,7 +10,7 @@
 	proxy = socks5://localhost
 [credential]
 	# helper = keepassxc
-	helper = store --file ~/.config/git/git-credentials
+	# helper = store --file ~/.config/git/git-credentials
 [rerere]
 	enabled = true
 [pull]

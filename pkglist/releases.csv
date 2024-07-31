@@ -59,6 +59,8 @@ Cisco-Talos/clamav,,病毒扫描
 ivangabriele/clamav-desktop,,clamav的GUI
 jesseduffield/lazydocker,,docker管理
 hadolint/hadolint,,dockerfile lint
+ktock/buildg,,dockerfile debug
+ktock/vscode-buildg,,buildg的vscode插件
 wagoodman/dive,,docker镜像分析
 containrrr/watchtower,,docker镜像更新
 google/cadvisor,,docker监控
@@ -66,6 +68,7 @@ mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
 sirwart/ripsecrets,,查找敏感信息
 ,,,Frederick888/git-credential-keepassxc,,git凭证管理
+git-ecosystem/git-credential-manager,,git凭证管理
 svenstaro/genact,,产生无意义的终端活动
 ,,,bartobri/no-more-secrets,
 ssut/payload-dumper-go,,提取payload.bin文件
