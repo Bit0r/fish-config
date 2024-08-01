@@ -1,0 +1,6 @@
+/data/home  /home      none bind 0 0
+/data/local /usr/local none bind 0 0
+/data/opt   /opt       none bind 0 0
+/data/snap  /snap      none bind 0 0
+/data/srv   /srv       none bind 0 0
+/data/var   /var       none bind 0 0
