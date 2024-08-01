@@ -32,6 +32,7 @@ add-list 'Do you want to install virtualbox?' virtualbox
 add-list 'Do you want to install libvirt?' libvirt
 add-list 'Do you want to install some games?' games
 add-list 'Do you want to install xfce?' xfce
+add-list 'Do you want to install vnc server?' vnc
 
 # 开始安装
 set files /dev/null

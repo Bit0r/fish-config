@@ -20,6 +20,7 @@ protontricks
 q4wine
 rofi
 smplayer
+synaptic
 tigervnc-viewer
 ubuntu-restricted-extras
 yad

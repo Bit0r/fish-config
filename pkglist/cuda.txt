@@ -1,0 +1,5 @@
+cuda
+nvidia-gds
+libcudnn8-dev
+libcudnn9-dev-cuda-12
+libnccl-dev
