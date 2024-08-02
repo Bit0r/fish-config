@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+from time import sleep
+
+from box import Box
+from fire import Fire
+import pandas as pd
+from plumbum import FG
+from plumbum.cmd import adduser, deluser, sudo
+
+
+class UserManager:
+    def add_user(
+        self, user, configs: str | Path | list[str] | list[Path] | None = None
+    ):
+        if isinstance(user, dict):
+            user = Box(user, default_box=True, default_box_attr="")
+            username = user.username
+            should_interactive = False
+        elif isinstance(user, str):
+            username = user
+            should_interactive = True
+
+        options = []
+
+        if configs:
+            if isinstance(configs, (str, Path)):
+                configs = [configs]
+
+            for config in configs:
+                options += ["--conf", config]
+
+        options.append(username)
+
+        cmd_adduser = sudo[adduser[*options]]
+        print(cmd_adduser)
+
+        if should_interactive:
+            cmd_adduser & FG
+        else:
+            # 构造输入，以便自动化
+            input_text = f"""{user.password}
+{user.password}
+{user.fullname}
+{user.room}
+{user.landline}
+{user.phone}
+{user.other}
+Y
+"""
+            (cmd_adduser << input_text) & FG
+
+            # 等待一段时间，以便用户添加完成
+            sleep(15)
+
+    def add_users(
+        self,
+        users: list[str] | None = None,
+        file: str | Path | None = None,
+        configs: str | Path | list[str] | list[Path] | None = None,
+    ):
+        self.validate(users, file)
+
+        if users:
+            self._add_users(users, configs)
+
+        if file:
+            users = self.read_users(file)
+            self._add_users(users, configs)
+
+    def _add_users(self, users: list[str], configs: list[str] | list[Path] | None):
+        for user in users:
+            try:
+                self.add_user(user, configs)
+            except Exception as e:
+                print(e)
+
+    def remove_user(self, user, *, purge=False):
+        options = []
+        if purge:
+            options.append("--remove-home")
+
+        username = user if isinstance(user, str) else user["username"]
+        options.append(username)
+
+        cmd_deluser = sudo[deluser[*options]]
+        print(cmd_deluser)
+
+        cmd_deluser & FG
+
+        # 等待一段时间，以便用户删除完成
+        sleep(30)
+
+    def remove_users(
+        self,
+        users: list[str] | None = None,
+        file: str | Path | None = None,
+        *,
+        purge=False,
+    ):
+        self.validate(users, file)
+
+        if users:
+            self._remove_users(users, purge=purge)
+
+        if file:
+            users = self.read_users(file)
+            self._remove_users(users, purge=purge)
+
+    def _remove_users(self, users: list[str], *, purge=False):
+        for username in users:
+            try:
+                self.remove_user(username, purge=purge)
+            except Exception as e:
+                print(e)
+
+    def validate(self, users: list[str] | None = None, file: str | Path | None = None):
+        if not (users or file):
+            msg = "users or file must be provided"
+            raise ValueError(msg)
+
+    def read_users(self, file: str | Path):
+        file_path = Path(file).expanduser().resolve()
+        match file_path.suffix.casefold():
+            case ".txt":
+                return self.read_txt(file_path)
+            case ".csv" | ".tsv" | ".ssv":
+                return self.read_csv(file_path)
+            case _:
+                msg = f"Unsupported file type: {file}"
+                raise ValueError(msg)
+
+    def read_csv(self, file: str | Path):
+        file_path = Path(file).expanduser().resolve()
+        # 读取一个有首行的 CSV 文件
+        if file_path.suffix == ".ssv":
+            df = pd.read_csv(file, sep=r"\s+")
+        else:
+            df = pd.read_csv(file)
+        return df.to_dict(orient="records")
+
+    def read_txt(self, file: str | Path):
+        users = []
+        with open(file) as f:
+            for line in f:
+                # 跳过空行和注释
+                if not line.strip() or line.startswith("#"):
+                    continue
+
+                users.append(line.strip())
+
+        return users
+
+
+if __name__ == "__main__":
+    Fire(UserManager)

@@ -1,5 +1,7 @@
-cuda
+cuda-12-5
+#cuda>=12.6的版本只能使用开源驱动，不支持闭源驱动
+cuda-drivers
 nvidia-gds
-libcudnn8-dev
-libcudnn9-dev-cuda-12
+#libcudnn8-dev
+#libcudnn9-dev-cuda-12
 libnccl-dev
