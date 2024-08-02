@@ -7,7 +7,7 @@ from box import Box
 from fire import Fire
 import pandas as pd
 from plumbum import FG
-from plumbum.cmd import adduser, deluser, sudo
+from plumbum.cmd import adduser, deluser, sudo, xdg_user_dirs_update
 
 
 class UserManager:
@@ -53,6 +53,9 @@ Y
 
             # 等待一段时间，以便用户添加完成
             sleep(15)
+
+        # 更新用户目录
+        sudo["-u", username, xdg_user_dirs_update] & FG
 
     def add_users(
         self,
