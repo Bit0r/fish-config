@@ -55,6 +55,7 @@ snoop	# 调试
 polars
 great_tables	# 输出精美表格
 ocrmypdf	# pdf ocr
+pandasgui	# pandas 可视化
 plotnine[all]
 mplfonts	# matplotlib 字体
 onnx
