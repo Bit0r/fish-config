@@ -5,4 +5,5 @@ ocrmypdf
 tesseract-ocr-chi-sim*
 pandoc
 pdfarranger
+pyspread
 texlive
