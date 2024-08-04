@@ -70,6 +70,9 @@ cp ./config/dive/*.yaml ~/.config/dive/
 # 配置aria2
 cp ./config/aria2/aria2.conf ~/.config/aria2/
 
+# 配置 hadolint
+cp -R ./config/docker/hadolint/. ~/.config/
+
 # 配置 clipcat
 cp -a ./config/clipcat/. ~/.config/clipcat/
 

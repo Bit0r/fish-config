@@ -1,27 +1,16 @@
 #!/usr/bin/env python3
-
 from pathlib import Path
-from time import sleep
 
-from box import Box
 from fire import Fire
 import pandas as pd
 from plumbum import FG
-from plumbum.cmd import adduser, deluser, sudo, xdg_user_dirs_update
+from plumbum.cmd import adduser, deluser, newusers, sudo, xdg_user_dirs_update
 
 
 class UserManager:
     def add_user(
-        self, user, configs: str | Path | list[str] | list[Path] | None = None
+        self, username, configs: str | Path | list[str] | list[Path] | None = None
     ):
-        if isinstance(user, dict):
-            user = Box(user, default_box=True, default_box_attr="")
-            username = user.username
-            should_interactive = False
-        elif isinstance(user, str):
-            username = user
-            should_interactive = True
-
         options = []
 
         if configs:
@@ -36,55 +25,38 @@ class UserManager:
         cmd_adduser = sudo[adduser[*options]]
         print(cmd_adduser)
 
-        if should_interactive:
-            cmd_adduser & FG
-        else:
-            # 构造输入，以便自动化
-            input_text = f"""{user.password}
-{user.password}
-{user.fullname}
-{user.room}
-{user.landline}
-{user.phone}
-{user.other}
-Y
-"""
-            (cmd_adduser << input_text) & FG
-
-            # 等待一段时间，以便用户添加完成
-            sleep(15)
+        cmd_adduser()
 
         # 更新用户目录
-        sudo["-u", username, xdg_user_dirs_update] & FG
+        cmd_dirs = sudo["-u", username, xdg_user_dirs_update]
+        print(cmd_dirs)
+
+        cmd_dirs & FG
 
     def add_users(
         self,
-        users: list[str] | None = None,
-        file: str | Path | None = None,
+        file: str | Path,
         configs: str | Path | list[str] | list[Path] | None = None,
     ):
-        self.validate(users, file)
+        usernames = self.read_usernames(file)
 
-        if users:
-            self._add_users(users, configs)
-
-        if file:
-            users = self.read_users(file)
-            self._add_users(users, configs)
-
-    def _add_users(self, users: list[str], configs: list[str] | list[Path] | None):
-        for user in users:
+        for username in usernames:
             try:
-                self.add_user(user, configs)
+                self.add_user(username, configs)
             except Exception as e:
                 print(e)
 
-    def remove_user(self, user, *, purge=False):
+        # 然后使用 newusers 命令批量更新用户
+        cmd_newusers = sudo[newusers[file]]
+        print(cmd_newusers)
+
+        cmd_newusers & FG
+
+    def remove_user(self, username, *, purge=False):
         options = []
         if purge:
             options.append("--remove-home")
 
-        username = user if isinstance(user, str) else user["username"]
         options.append(username)
 
         cmd_deluser = sudo[deluser[*options]]
@@ -92,68 +64,28 @@ Y
 
         cmd_deluser & FG
 
-        # 等待一段时间，以便用户删除完成
-        sleep(30)
+    def remove_users(self, file: str | Path, *, purge=False):
+        usernames = self.read_usernames(file)
 
-    def remove_users(
-        self,
-        users: list[str] | None = None,
-        file: str | Path | None = None,
-        *,
-        purge=False,
-    ):
-        self.validate(users, file)
-
-        if users:
-            self._remove_users(users, purge=purge)
-
-        if file:
-            users = self.read_users(file)
-            self._remove_users(users, purge=purge)
-
-    def _remove_users(self, users: list[str], *, purge=False):
-        for username in users:
+        for username in usernames:
             try:
                 self.remove_user(username, purge=purge)
             except Exception as e:
                 print(e)
 
-    def validate(self, users: list[str] | None = None, file: str | Path | None = None):
-        if not (users or file):
-            msg = "users or file must be provided"
+    def read_usernames(self, file: str | Path):
+        file_path = Path(file).expanduser().resolve()
+        if not file_path.is_file():
+            msg = f"File not found: {file_path}"
+            raise FileNotFoundError(msg)
+        if file_path.suffix.casefold() != ".usv":
+            msg = f"Unsupported file type: {file_path}"
             raise ValueError(msg)
 
-    def read_users(self, file: str | Path):
-        file_path = Path(file).expanduser().resolve()
-        match file_path.suffix.casefold():
-            case ".txt":
-                return self.read_txt(file_path)
-            case ".csv" | ".tsv" | ".ssv":
-                return self.read_csv(file_path)
-            case _:
-                msg = f"Unsupported file type: {file}"
-                raise ValueError(msg)
-
-    def read_csv(self, file: str | Path):
-        file_path = Path(file).expanduser().resolve()
-        # 读取一个有首行的 CSV 文件
-        if file_path.suffix == ".ssv":
-            df = pd.read_csv(file, sep=r"\s+")
-        else:
-            df = pd.read_csv(file)
-        return df.to_dict(orient="records")
-
-    def read_txt(self, file: str | Path):
-        users = []
-        with open(file) as f:
-            for line in f:
-                # 跳过空行和注释
-                if not line.strip() or line.startswith("#"):
-                    continue
-
-                users.append(line.strip())
-
-        return users
+        users = pd.read_csv(file_path, sep=":", header=None)
+        usernames = users[0]
+        usernames = usernames.to_list()
+        return usernames
 
 
 if __name__ == "__main__":
