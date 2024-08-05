@@ -1,0 +1,16 @@
+ignored:
+  - DL3006
+  - DL3008
+  - DL3027
+  - SC1008
+# label-schema:
+#   author: text
+#   contact: email
+#   created: rfc3339
+#   version: semver
+#   documentation: url
+#   git-revision: hash
+#   license: spdx
+# strict-labels: true
+trustedRegistries:
+  - "*"

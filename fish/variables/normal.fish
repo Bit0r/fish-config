@@ -30,7 +30,7 @@ set -Ux OPENAI_API_BASE $OPENAI_BASE_URL
 set -Ux OPENAI_PROXY_URL $OPENAI_API_BASE
 set -Ux OPENAI_LOG debug # 设置 OpenAI 的日志级别
 #read -sUx DASHSCOPE_API_KEY # 设置 Dashscope 的 API 密钥
-#set -Ux BUILDKIT_PROGRESS plain
+set -Ux BUILDKIT_PROGRESS plain # 设置 BuildKit 的进度条样式，一定要设置为 plain，否则容器内的日志无法正常显示
 #set -Ux PYTHONPATH . # 方便调试，不适合用于生产环境
 set -Ux ELECTRON_TRASH kioclient5
 if [ "$COLORTERM" = truecolor ]

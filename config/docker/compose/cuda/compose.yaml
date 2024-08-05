@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+  cuda:
+    container_name: cuda-bit0r
+    image: bit0r/cuda
+    stdin_open: true
+    tty: true
+    privileged: true
+    ipc: host
+    shm_size: 10g
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    init: true
+    volumes:
+      - /tmp/.X11-unix/:/tmp/.X11-unix/:ro
+      - /usr/local/bin/:/mnt/usr/local/bin/:ro
+      - ~:/root/
+      - /data/:/mnt/data/
+      - ./setup.fish:/root/setup.fish
+    # working_dir: ~
+    # command: fish /mnt/setup.fish
+    ports:
+      - 22:22001
+      - 5901:59001
+    environment:
+      - DISPLAY
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu

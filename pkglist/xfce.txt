@@ -1,1 +1,5 @@
-xfce4-goodies
+dbus-x11
+ibus-pinyin
+ibus-rime
+xfce4*
+xorg*
