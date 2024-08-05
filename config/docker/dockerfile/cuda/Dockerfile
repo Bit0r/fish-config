@@ -13,7 +13,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.cernet.edu.cn/g' /etc/apt/sources.list.
 	&& update-locale LANG="zh_CN.UTF-8" LANGUAGE="zh_CN:zh" LC_ALL="zh_CN.UTF-8" \
 	&& dpkg-reconfigure --frontend noninteractive tzdata \
 	&& apt install -y ubuntu-standard \
-	lnav micro pip bat \
+	lnav micro pip bat ripgrep \
 	python-dev-is-python3 software-properties-common \
 	ssh ssh-client \
 	fonts-noto fonts-firacode ibus-pinyin ibus-rime psmisc dbus-x11 'xorg*' 'xfce4*' '*tigervnc*' \

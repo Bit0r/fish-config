@@ -1,0 +1,21 @@
+version: "3"
+services:
+  portainer-ce:
+    image: portainer/portainer-ce:2.20.3-alpine
+    container_name: portainer
+    restart: always
+    ports:
+      #- 8000:8000 # tcp 端口，边缘代理
+      - 9443:9443 # https 端口
+    environment:
+      - ALL_PROXY=http://host.docker.internal:8800
+      - HTTP_PROXY=http://host.docker.internal:8800
+      - HTTPS_PROXY=http://host.docker.internal:8800
+      - all_proxy=http://host.docker.internal:8800
+      - http_proxy=http://host.docker.internal:8800
+      - https_proxy=http://host.docker.internal:8800
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

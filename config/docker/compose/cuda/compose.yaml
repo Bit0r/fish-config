@@ -1,8 +1,9 @@
 version: "3.3"
+name: $USER-cuda-$version
 services:
   cuda:
-    container_name: cuda-bit0r
-    image: bit0r/cuda
+    container_name: $USER-cuda-$version
+    image: bit0r/cuda:$version
     stdin_open: true
     tty: true
     privileged: true
@@ -13,7 +14,7 @@ services:
       stack: 67108864
     init: true
     volumes:
-      - /tmp/.X11-unix/:/tmp/.X11-unix/:ro
+      # - /tmp/.X11-unix/:/tmp/.X11-unix/:ro
       - /usr/local/bin/:/mnt/usr/local/bin/:ro
       - ~:/root/
       - /data/:/mnt/data/
@@ -21,8 +22,8 @@ services:
     # working_dir: ~
     # command: fish /mnt/setup.fish
     ports:
-      - 22:22001
-      - 5901:59001
+      - 2$UID:22
+      - 5$UID:5901
     environment:
       - DISPLAY
       - NVIDIA_DRIVER_CAPABILITIES=all
