@@ -12,4 +12,7 @@ service ssh start
 
 # 启动 vnc 服务
 vncserver -kill ':*'
-nohup vncserver &>/var/log/vncserver.log &
+vncserver
+
+# 进入无限循环，保持容器运行
+tail -f /dev/null

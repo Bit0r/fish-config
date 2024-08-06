@@ -23,7 +23,7 @@ services:
       - ./passwd.usv:/root/passwd.usv:ro
       - ./setup.fish:/root/setup.fish:ro
     # working_dir: ~
-    # command: fish /mnt/setup.fish
+    command: /root/setup.fish
     ports:
       - 2$UID:22
       - 5$UID:5901
