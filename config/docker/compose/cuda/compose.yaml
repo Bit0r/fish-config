@@ -5,6 +5,7 @@ services:
     image: bit0r/cuda:$tag
     stdin_open: true
     tty: true
+    restart: unless-stopped
     privileged: true
     ipc: host
     shm_size: 10g
