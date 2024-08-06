@@ -1,9 +1,8 @@
-version: "3.3"
-name: $USER-cuda-$version
+name: $USER-cuda-$tag
 services:
   cuda:
-    container_name: $USER-cuda-$version
-    image: bit0r/cuda:$version
+    container_name: $USER-cuda-$tag
+    image: bit0r/cuda:$tag
     stdin_open: true
     tty: true
     privileged: true
@@ -15,10 +14,13 @@ services:
     init: true
     volumes:
       # - /tmp/.X11-unix/:/tmp/.X11-unix/:ro
-      - /usr/local/bin/:/mnt/usr/local/bin/:ro
       - ~:/root/
       - /data/:/mnt/data/
-      - ./setup.fish:/root/setup.fish
+      - /usr/local/bin/:/mnt/usr/local/bin/:ro
+      - /etc/fish/:/etc/fish/:ro
+      - ./login.conf:/etc/ssh/sshd_config.d/login.conf:ro
+      - ./passwd.usv:/root/passwd.usv:ro
+      - ./setup.fish:/root/setup.fish:ro
     # working_dir: ~
     # command: fish /mnt/setup.fish
     ports:
