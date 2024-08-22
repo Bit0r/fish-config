@@ -135,7 +135,7 @@ class GithubDownload:
             return
 
         # 下载asset
-        logger.info(f"Downloading {asset.name}")
+        logger.info(f"{repo}: downloading {asset.name}")
         ureg = UnitRegistry()
 
         with self.httpx_client.stream(

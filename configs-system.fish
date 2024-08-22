@@ -199,6 +199,11 @@ if confirm 'Do you want to configure apt proxy?'
     sudo cp ./config/apt/apt.conf.d/12proxy /etc/apt/apt.conf.d/
 end
 
+# 配置 apt weak-key 警告
+if confirm 'Do you want to disable apt weakkey warning?'
+    sudo cp ./config/apt/apt.conf.d/80weakkey-warning /etc/apt/apt.conf.d/
+end
+
 # 配置winetricks自动更新
 if confirm 'Do you want winetricks to auto-update?'
     sudo ln -s /usr/local/bin/update_winetricks /etc/cron.weekly/

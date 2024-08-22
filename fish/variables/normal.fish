@@ -50,4 +50,6 @@ set -U fish_user_paths \
     $VOLTA_HOME/bin \
     ~/.local/share/fnm \
     ~/.yarn/bin \
-    ~/.config/composer/vendor/bin
+    ~/.config/composer/vendor/bin \
+    ~/.local/share/JetBrains/Toolbox/bin \
+    ~/.local/share/JetBrains/Toolbox/scripts
