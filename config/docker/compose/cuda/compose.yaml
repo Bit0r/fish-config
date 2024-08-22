@@ -1,6 +1,11 @@
 name: $USER-cuda-$tag
 services:
   cuda:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - ROOT_PASSWD=$ROOT_PASSWD
     container_name: $USER-cuda-$tag
     image: bit0r/cuda:$tag
     stdin_open: true
@@ -15,15 +20,15 @@ services:
     init: true
     volumes:
       # - /tmp/.X11-unix/:/tmp/.X11-unix/:ro
-      - ~:/root/
+      - ~:$HOME
       - /data/:/mnt/data/
       - /usr/local/bin/:/mnt/usr/local/bin/:ro
       - /etc/fish/:/etc/fish/:ro
       - ./login.conf:/etc/ssh/sshd_config.d/login.conf:ro
-      - ./passwd.usv:/root/passwd.usv:ro
-      - ./setup.fish:/root/setup.fish:ro
-    # working_dir: ~
-    command: /root/setup.fish
+      - ./setup.fish:/mnt/setup.fish:ro
+    user: $USER
+    working_dir: $HOME
+    command: /mnt/setup.fish
     ports:
       - 2$UID:22
       - 5$UID:5901

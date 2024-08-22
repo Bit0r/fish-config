@@ -33,10 +33,15 @@ COPY ibus.fish /etc/fish/conf.d/ibus.fish
 SHELL ["fish", "-c"]
 CMD ["fish"]
 
+# 设置 ROOT_PASSWD 环境变量
+ARG ROOT_PASSWD
+ENV ROOT_PASSWD=${ROOT_PASSWD}
+
+# 添加用户，并设置root密码
+COPY *.usv users.fish /root/
+RUN fish /root/users.fish && rm /root/users.fish && rm /root/*.usv
+
 # 暴露ssh端口
 EXPOSE 22
 # 暴露vnc端口
 EXPOSE 5900-5910
-
-# 设置工作目录
-WORKDIR /root
