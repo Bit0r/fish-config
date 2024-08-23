@@ -41,6 +41,10 @@ ENV ROOT_PASSWD=${ROOT_PASSWD}
 COPY *.usv users.fish /root/
 RUN fish /root/users.fish && rm /root/users.fish && rm /root/*.usv
 
+# 配置ssh
+COPY login.conf /etc/ssh/sshd_config.d/
+RUN mkdir -pm 755 /run/sshd
+
 # 暴露ssh端口
 EXPOSE 22
 # 暴露vnc端口

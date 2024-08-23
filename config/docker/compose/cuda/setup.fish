@@ -4,8 +4,6 @@ if [ ! -e /usr/local/bin/micromamba ]
 end
 
 # 启动 ssh 服务
-echo $ROOT_PASSWD | su -c 'mkdir -pm 755 /run/sshd'
-# chmod 755 /run/sshd
 echo $ROOT_PASSWD | su -c 'service ssh start'
 
 # 启动 vnc 服务

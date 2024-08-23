@@ -24,7 +24,6 @@ services:
       - /data/:/mnt/data/
       - /usr/local/bin/:/mnt/usr/local/bin/:ro
       - /etc/fish/:/etc/fish/:ro
-      - ./login.conf:/etc/ssh/sshd_config.d/login.conf:ro
       - ./setup.fish:/mnt/setup.fish:ro
     user: $USER
     working_dir: $HOME
