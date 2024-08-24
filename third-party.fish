@@ -1,6 +1,14 @@
 #!/usr/bin/fish
 source ./include/confirm.fish
 
+if confirm 'Do you want to install some software from ppa?'
+    sudo apt -m install (cat ./pkglist/ppa.txt | grep -v '^#')
+end
+
+if type -q aptss && confirm 'Do you want to install some software using spark-store?'
+    sudo aptss install -m (cat ./pkglist/spark.txt | grep -v '^#')
+end
+
 if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
     sudo pip install -r pkglist/requirements-system.txt
 end
@@ -21,6 +29,15 @@ end
 if type -q go && confirm 'Do you want to install some software using go?'
     go install github.com/davecheney/httpstat@latest
     go install github.com/shurcooL/markdownfmt@latest
+end
+
+if type -q xcaddy && confirm 'Do you want to install caddy using xcaddy?'
+    set -e args
+    for plugin in (cat ./pkglist/caddy-plugins.txt | grep -v '^#')
+        set -a args --with github.com/$plugin
+    end
+    xcaddy build $args
+    install caddy
 end
 
 if type -q fnm && confirm 'Do you want to install some software using fnm?'
@@ -46,14 +63,6 @@ if type -q wine && confirm 'Do you want to install some software using wine?'
     wine msiexec /i ./wine-mono-9.1.0-x86.msi
     wine msiexec /i ./wine-gecko-2.47.4-x86_64.msi
     wine msiexec /i ./wine-gecko-2.47.4-x86.msi
-end
-
-if confirm 'Do you want to install some software from ppa?'
-    sudo apt -m install (cat ./pkglist/ppa.txt | grep -v '^#')
-end
-
-if type -q aptss && confirm 'Do you want to install some software using spark-store?'
-    sudo aptss install -m (cat ./pkglist/spark.txt | grep -v '^#')
 end
 
 #if ! type -q client

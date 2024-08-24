@@ -3,6 +3,7 @@ mydumper
 mysql-server
 #nginx
 caddy
+xcaddy
 iredis
 redis-server
 #unit

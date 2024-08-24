@@ -1,5 +1,5 @@
 torch
-torch_xla[tpu] -f https://storage.googleapis.com/libtpu-releases/index.html
+#torch_xla[tpu] -f https://storage.googleapis.com/libtpu-releases/index.html
 thop	# 计算模型参数量和计算量
 lovely-tensors	# 优化tensor的显示
 torchvision
@@ -15,7 +15,7 @@ equinox
 eqxvision
 ftfy	# 修复文本编码问题
 #dataset
-aim
+#aim
 wandb
 tensorboardX
 tensor-repr[snoop]
@@ -26,7 +26,7 @@ transformers[sentencepiece]
 datasets
 evaluate[template]
 bitsandbytes
-#codecarbon
-#huggingface_hub
+codecarbon
+huggingface_hub
 gradio
-cugraph-cu12 --extra-index-url https://pypi.nvidia.com	# NetworkX的GPU加速库
+#cugraph-cu12 --extra-index-url https://pypi.nvidia.com	# NetworkX的GPU加速库
