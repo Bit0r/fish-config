@@ -215,7 +215,7 @@ if type -q mysql && confirm 'Do you want to create a MySQL super user?'
 end
 
 # 配置 minio
-if type -q minio
+if confirm 'Do you want to configure MinIO?'
     sudo cp ./config/minio/env /etc/default/minio
     sudo adduser --system minio --group
 end
