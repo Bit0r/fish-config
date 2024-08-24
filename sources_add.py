@@ -37,6 +37,7 @@ class ThirdPartySources:
             "docker-ctop": "deb [arch=amd64 signed-by={}] http://packages.azlux.fr/debian stable main",
             "docker-ce-163": f"deb [arch=amd64 signed-by={{}}] https://mirrors.163.com/docker-ce/linux/ubuntu {version_codename} stable",
             "caddy": "deb [signed-by={}] https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main",
+            "xcaddy": "deb [signed-by={}] https://dl.cloudsmith.io/public/caddy/xcaddy/deb/debian any-version main",
             # "hashicorp": f"deb [arch=amd64 signed-by={{}}] https://apt.releases.hashicorp.com {version_codename} main",
             # "mise": "deb [signed-by={} arch=amd64] https://mise.jdx.dev/deb stable main",
             "nodejs": f"deb [arch=amd64 signed-by={{}}] https://deb.nodesource.com/node_{node_major}.x nodistro main",

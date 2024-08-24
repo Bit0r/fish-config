@@ -42,6 +42,7 @@ class GpgKeys:
             "docker-ctop": "https://azlux.fr/repo.gpg.key",
             "docker-ce-163": "http://mirrors.163.com/docker-ce/linux/ubuntu/gpg",
             "caddy": "https://dl.cloudsmith.io/public/caddy/stable/gpg.key",
+            "xcaddy": "https://dl.cloudsmith.io/public/caddy/xcaddy/gpg.key",
             "hashicorp": "https://apt.releases.hashicorp.com/gpg",
             "mise": "https://mise.jdx.dev/gpg-key.pub",
             "nodejs": "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key",
