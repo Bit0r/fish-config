@@ -1,7 +1,8 @@
 [Unit]
 Description=A self-hosted dashboard that puts all your feeds in one place
 Documentation=https://github.com/glanceapp/glance
-After=network.target
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 ExecStart=/usr/local/bin/glance --config /etc/glance.yaml

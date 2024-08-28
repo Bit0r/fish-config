@@ -67,6 +67,7 @@ google/cadvisor,,docker监控
 iximiuz/cdebug,,docker容器debug
 mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
+RubyMetric/chsrc,,软件源管理
 sirwart/ripsecrets,,查找敏感信息
 ,,,Frederick888/git-credential-keepassxc,,git凭证管理
 git-ecosystem/git-credential-manager,,git凭证管理

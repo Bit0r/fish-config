@@ -1,0 +1,13 @@
+[Unit]
+Description=A self-hosted dashboard that puts all your feeds in one place
+Documentation=https://github.com/mr-karan/doggo
+Wants=network-online.target
+After=network-online.target nss-lookup.target
+
+[Service]
+ExecStart=/opt/doggo-web/doggo-web
+# 工作目录
+WorkingDirectory=/opt/doggo-web
+
+[Install]
+WantedBy=multi-user.target

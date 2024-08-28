@@ -111,6 +111,9 @@ pages:
                 url: http://zw403-1080ti:8888
                 icon: http://zw403-1080ti:8888/static/img/favicon-32x32.png
 
+              - title: doggo
+                url: http://localhost:7788
+
   - name: Weather
     columns:
       - size: full
