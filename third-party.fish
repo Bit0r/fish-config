@@ -26,6 +26,23 @@ if sudo which pipx >/dev/null && confirm 'Do you want to install system-level so
     end
 end
 
+if type -q micromamba && confirm 'Do you want to install some software using micromamba?'
+    # micromamba create -n labelme python pyside2 pyqt
+    # micromamba run -n labelme pip install -U labelme
+    micromamba create -n anylabeling python=3.10
+    micromamba run -n anylabeling pip install -U anylabeling
+end
+
+if type -q fnm && confirm 'Do you want to install some software using fnm?'
+    fnm install --lts
+end
+
+if sudo which yarn >/dev/null && confirm 'Do you want to install some system-level software using yarn?'
+    sudo yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
+else if type -q yarn && confirm 'Do you want to install some user-level software using yarn?'
+    yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
+end
+
 if type -q go && confirm 'Do you want to install some software using go?'
     go install github.com/davecheney/httpstat@latest
     go install github.com/shurcooL/markdownfmt@latest
@@ -38,21 +55,6 @@ if type -q xcaddy && confirm 'Do you want to install caddy using xcaddy?'
     end
     xcaddy build $args
     install caddy
-end
-
-if type -q fnm && confirm 'Do you want to install some software using fnm?'
-    fnm install --lts
-end
-
-if type -q micromamba && confirm 'Do you want to install some software using micromamba?'
-    micromamba create -n labelme python pyside2 pyqt
-    micromamba run -n labelme pip install -U labelme
-end
-
-if sudo which yarn >/dev/null && confirm 'Do you want to install some system-level software using yarn?'
-    sudo yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
-else if type -q yarn && confirm 'Do you want to install some user-level software using yarn?'
-    yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
 end
 
 if type -q wine && confirm 'Do you want to install some software using wine?'
