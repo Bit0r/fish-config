@@ -47,7 +47,10 @@ cp ./config/macchina/macchina.toml ~/.config/macchina/
 #cp config/pip.conf ~/.config/pip/
 
 # 配置 labelme
-cp ./config/labelme/.labelmerc ~/
+cp ./config/labelme/labelme.yaml ~/.labelmerc
+
+# 配置 anylabeling
+cp ./config/anylabeling/anylabeling.yaml ~/.anylabelingrc
 
 # 配置 paperless-ngx
 cp -a ./config/docker/compose/paperless-ngx/. ~/paperless-ngx/

@@ -1,0 +1,11 @@
+auto_save: true
+auto_use_last_label: true
+keep_prev: false
+language: zh_CN
+logger_level: info
+show_cross_line: true
+show_groups: true
+show_label_text_field: true
+show_texts: true
+sort_labels: true
+store_data: false
