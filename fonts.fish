@@ -2,16 +2,16 @@
 
 sudo apt install fontconfig
 
-sudo chmod 1777 /usr/local/share/fonts
+sudo mkdir -pm 1777 /usr/local/share/fonts/{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}
 
-mkdir -p /usr/local/share/fonts/{sim,wingdings,fancy,gb2312,YaHei,Deng}/
-
-cp fonts/Sim*.ttf /usr/local/share/fonts/sim/
-cp fonts/Wingdings*.ttf /usr/local/share/fonts/wingdings/
-cp fonts/{MTExtra, Symbol}.ttf /usr/local/share/fonts/fancy/
-cp fonts/*_GB2312.ttf /usr/local/share/fonts/gb2312/
-cp fonts/MicrosoftYaHei*.ttf /usr/local/share/fonts/YaHei/
-cp fonts/Deng*.ttf /usr/local/share/fonts/Deng/
+cp fonts/Sim*.ttf /usr/local/share/fonts/s/
+cp fonts/Wingdings*.ttf /usr/local/share/fonts/w/
+cp fonts/MTExtra.ttf /usr/local/share/fonts/m/
+cp fonts/Symbol.ttf /usr/local/share/fonts/s/
+cp fonts/仿宋_GB2312.ttf /usr/local/share/fonts/f/
+cp fonts/楷体_GB2312.ttf /usr/local/share/fonts/k/
+cp fonts/MicrosoftYaHei*.ttf /usr/local/share/fonts/m/
+cp fonts/Deng*.ttf /usr/local/share/fonts/d/
 
 fc-cache -fv
 

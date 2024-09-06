@@ -1,6 +1,7 @@
 axes.unicode_minus: False
 font.family: sans-serif
-font.serif: Noto Serif, SimSun serif
-font.sans-serif: Noto Sans, SimHei, sans-serif
-font.fantasy: xkcd, fantasy
+font.serif: LXGW WenKai, Noto Serif CJK SC, Noto Serif, SimSun serif
+font.sans-serif: Noto Sans CJK SC, Noto Sans, SimHei, sans-serif
+#font.cursive: cursive
+font.fantasy: Alimama DaoLiTi, DingTalk JinBuTi, xkcd, fantasy
 font.monospace: Fria Code, monospace
