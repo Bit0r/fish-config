@@ -1,15 +1,6 @@
-set users bit0r \
-    dai_haohua \
-    hu_kaiyu \
-    pan_yh \
-    wu_zhiming \
-    xu_yuting \
-    zhang_jun \
-    zhao_siliang \
-    zhou_min \
-    liu_qipeng
+#!/usr/bin/env fish
 
-for user in $users
+for user in (lsusers)
     set -l uid (id -u $user)
     # echo $user\tssh:2$uid\tvnc:5$uid
     # sudo -u $user UID=$uid docker compose config

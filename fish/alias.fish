@@ -22,6 +22,7 @@ if type -q eza
     alias -s ll 'ls -lhg@'
     alias -s la 'll -a'
 end
+alias -s lsusers "members -s users | string split ' '"
 alias -s logout 'loginctl terminate-user'
 alias -s unar 'unar -k skip'
 alias -s readelf 'readelf -W'

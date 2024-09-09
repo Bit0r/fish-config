@@ -9,7 +9,11 @@ from plumbum.cmd import adduser, deluser, newusers, sudo, xdg_user_dirs_update
 
 class UserManager:
     def add_user(
-        self, username, configs: str | Path | list[str] | list[Path] | None = None
+        self,
+        username,
+        configs: str | Path | list[str] | list[Path] | None = None,
+        *,
+        interactive=False,
     ):
         options = []
 
@@ -25,13 +29,16 @@ class UserManager:
         cmd_adduser = sudo[adduser[*options]]
         print(cmd_adduser)
 
-        cmd_adduser()
+        if interactive:
+            cmd_adduser & FG
+        else:
+            cmd_adduser()
 
         # 更新用户目录
         cmd_dirs = sudo["-u", username, xdg_user_dirs_update]
         print(cmd_dirs)
 
-        cmd_dirs & FG
+        cmd_dirs()
 
     def add_users(
         self,
