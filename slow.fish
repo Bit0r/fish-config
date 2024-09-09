@@ -30,7 +30,7 @@ if confirm 'Do you want to install fcitx5-rime plugins?'
     mkdir -p ~/.local/share/fcitx5/
     ~/.local/share/fcitx5/
     proxy-aria2c -d /tmp 'https://raw.githubusercontent.com/rime/plum/master/rime-install'
-    sudo install /tmp/rime-install /usr/local/bin/
+    install /tmp/rime-install
     rime-install iDvel/rime-ice:others/recipes/full
     rime-install BlindingDark/rime-easy-en
     prevd
