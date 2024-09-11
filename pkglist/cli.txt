@@ -44,6 +44,7 @@ lsyncd
 mat2
 micro
 mangohud
+members
 nala
 ncat
 net-tools
