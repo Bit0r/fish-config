@@ -1,0 +1,20 @@
+[Unit]
+Description=Portainer container
+Documentation=https://docs.portainer.io
+Requires=docker.service
+After=docker.service
+
+[Service]
+User=%i
+ExecStart=/opt/portainer/portainer -d ${HOME}/.local/lib/portainer
+WorkingDirectory=/opt/portainer
+Restart=always
+RestartSec=30
+Environment="HTTP_PROXY=http://localhost:8800"
+Environment="HTTPS_PROXY=http://localhost:8800"
+Environment="FTP_PROXY=http://localhost:8800"
+Environment="NO_PROXY=localhost,127.0.0.1"
+#Environment=SYSTEMD_LOG_LEVEL=debug
+
+[Install]
+WantedBy=multi-user.target

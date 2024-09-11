@@ -11,6 +11,7 @@ mkdir -p \
     ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
     ~/.local/share/{applications,kservices5/ServiceMenus,mime/packages,konsole,fcitx5,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
+    ~/.local/lib/portainer \
     $python_site
 mkdir -pm 700 ~/.ssh/controls
 #xdg-user-dirs-update
