@@ -93,7 +93,8 @@ pages:
 
               - title: portainer-cn
                 url: https://localhost:9443
-                icon: https://localhost:9443/1197a68684b9ff08165a.ico
+                icon: https://localhost:9443/favicon.ico
+                allow-insecure: true
 
               - title: paperless-ngx
                 url: http://localhost:8010
@@ -102,9 +103,10 @@ pages:
               - title: LXD UI
                 url: https://localhost:8443
                 icon: https://localhost:8443/ui/assets/img/favicon-32x32.png
+                allow-insecure: true
 
               - title: Aria2 RPC
-                url: https://localhost:6800/jsonrpc
+                url: http://localhost:6800/jsonrpc
                 icon: https://aria2.github.io/favicon.png
 
               - title: WebRTC

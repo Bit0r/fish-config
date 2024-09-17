@@ -15,9 +15,10 @@ function setup-LiteLoaderQQNT -d 'Setup LiteLoaderQQNT'
         git clone --depth 1 https://github.com/LiteLoaderQQNT/LiteLoaderQQNT.git $LiteLoaderQQNT_path
     end
 
-    rm -rf $plugins_path/list-viewer{,.zip}
-    proxy-aria2c -d $plugins_path https://github.com/ltxhhz/LL-plugin-list-viewer/releases/download/v1.3.5/list-viewer.zip
-    unar -o $plugins_path $plugins_path/list-viewer.zip
+    if [ ! -d $plugins_path/list-viewer/ ]
+        proxy-aria2c -d $plugins_path https://github.com/ltxhhz/LL-plugin-list-viewer/releases/download/v1.3.5/list-viewer.zip
+        unar -o $plugins_path $plugins_path/list-viewer.zip
+    end
 
     cd $app_launcher_path
 
