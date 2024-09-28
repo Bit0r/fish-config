@@ -40,5 +40,5 @@ wget 'https://github.com/XTLS/Xray-install/raw/main/install-release.sh'
 chmod +x install-release.sh
 ./install-release.sh -u root
 
-cp config/config-server.json /usr/local/etc/xray/config.json
-cp config/xray/xray-logrotate.cfg /etc/logrotate.d/xray
+cp ./config/xray/config-server.json /usr/local/etc/xray/config.json
+cp ./config/syslog/logrotate.d/xray /etc/logrotate.d/

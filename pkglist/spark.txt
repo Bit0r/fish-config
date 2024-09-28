@@ -17,6 +17,9 @@ org.shotcut.spark
 baidunetdisk
 linuxqq
 com.qq.weixin.mejituu
+appimage2deb
 store.spark-app.wechat-linux-spark
+spark-store-submitter
+store.spark-app.feedback
 lx-music-desktop
 net.rpcs3.rpcs3.spark

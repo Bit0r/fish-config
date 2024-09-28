@@ -20,16 +20,6 @@ function setup-LiteLoaderQQNT -d 'Setup LiteLoaderQQNT'
         unar -o $plugins_path $plugins_path/list-viewer.zip
     end
 
-    cd $app_launcher_path
-
-    if rg -qF LiteLoaderQQNT index.js
-        echo 'index.js 已经引入 LiteLoaderQQNT，跳过。'
-    else
-        echo 'require("../LiteLoaderQQNT");' >index.js.tmp
-        cat index.js >>index.js.tmp
-        sudo mv index.js.tmp index.js
-        echo 'index.js 引入 LiteLoaderQQNT 完成。'
-    end
-
-    prevd
+    echo "require('$LiteLoaderQQNT_path')" >$app_launcher_path/LiteLoaderQQNT.js
+    sd '"main":\s*".+"' '"main": "./app_launcher/LiteLoaderQQNT.js"' $app_path/package.json
 end

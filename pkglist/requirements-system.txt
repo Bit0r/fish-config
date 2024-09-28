@@ -61,5 +61,6 @@ mplfonts	# matplotlib 字体
 onnx
 xarray[complete]
 einops
+einop
 xarray-einstats
 sympy
