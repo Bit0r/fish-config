@@ -31,6 +31,7 @@ dprint/dprint,,格式化代码
 ,,,aswinkarthik/csvdiff,,csv比较工具
 duckdb/duckdb,,嵌入式分析型数据库
 k1LoW/tbls,,数据库文档生成
+supabase/cli,,supabase的cli
 ClementTsang/bottom,,top的替代品
 Syllo/nvtop,,gpu的top
 Netflix/bpftop,,bpf的top
@@ -70,12 +71,10 @@ mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
 RubyMetric/chsrc,,软件源管理
 sirwart/ripsecrets,,查找敏感信息
-,,,Frederick888/git-credential-keepassxc,,git凭证管理
 git-ecosystem/git-credential-manager,,git凭证管理
 svenstaro/genact,,产生无意义的终端活动
 ,,,bartobri/no-more-secrets,
 ssut/payload-dumper-go,,提取payload.bin文件
-,,,kevin2li/PDF-Guru,,pdf工具
 getzola/zola,,静态网站生成器
 jgm/pandoc,,文档转换
 lierdakil/pandoc-crossref,,pandoc的交叉引用

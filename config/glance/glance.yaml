@@ -116,6 +116,10 @@ pages:
               - title: doggo
                 url: http://localhost:7788
 
+              - title: cAdvisor
+                url: http://localhost:3100
+                icon: http://localhost:3100/favicon.ico
+
   - name: Weather
     columns:
       - size: full

@@ -5,7 +5,7 @@ Requires=docker.service
 After=docker.service
 
 [Service]
-ExecStart=/usr/local/bin/cadvisor -port 3000
+ExecStart=/usr/local/bin/cadvisor -port 3100
 Restart=always
 RestartSec=30
 

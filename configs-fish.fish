@@ -26,11 +26,17 @@ if confirm 'Do you want to install the user-level configuration for fish?'
     if type -q fnm
         fnm completions --shell fish >~/.config/fish/completions/fnm.fish
     end
+    if type -q pnpm
+        pnpm completion fish >~/.config/fish/completions/pnpm.fish
+    end
     if type -q watchtower
         watchtower completion fish >~/.config/fish/completions/watchtower.fish
     end
     if type -q mcli
         mcli --autocompletion
+    end
+    if type -q supabase
+        supabase completion fish >~/.config/fish/completions/supabase.fish
     end
 end
 

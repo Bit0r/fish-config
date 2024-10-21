@@ -9,8 +9,11 @@
 [http "https://github.com"]
 	proxy = socks5://localhost
 [credential]
+	helper = manager
 	# helper = keepassxc
 	# helper = store --file ~/.config/git/git-credentials
+[init]
+	defaultBranch = main
 [rerere]
 	enabled = true
 [pull]
