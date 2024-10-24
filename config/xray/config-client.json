@@ -117,8 +117,8 @@
 		}
 	],
 	"routing": {
-		"domainStrategy": "IPIfNonMatch",
-		// "domainStrategy": "AsIs",
+		// "domainStrategy": "IPIfNonMatch",
+		"domainStrategy": "AsIs",
 		"rules": [
 			{
 				"outboundTag": "mitmproxy",
@@ -161,6 +161,28 @@
 			{
 				"outboundTag": "direct",
 				"type": "field",
+				"ip": [
+					"geoip:cn",
+					"geoip:private"
+				]
+			},
+			{
+				"outboundTag": "proxy",
+				"type": "field",
+				"ip": [
+					"geoip:!cn"
+				]
+			},
+			{
+				"outboundTag": "proxy",
+				"type": "field",
+				"domain": [
+					"geosite:tiktok"
+				]
+			},
+			{
+				"outboundTag": "direct",
+				"type": "field",
 				"domain": [
 					"geosite:cn",
 					"geosite:private",
@@ -174,17 +196,8 @@
 					"domain:ieee-dataport.org",
 					"domain:enmap.org",
 					"domain:dlr.de",
-					"domain:cocodataset.org",
 					"domain:sectigo.com",
 					"domain:spicevids.com"
-				]
-			},
-			{
-				"outboundTag": "direct",
-				"type": "field",
-				"ip": [
-					"geoip:cn",
-					"geoip:private"
 				]
 			},
 			{
@@ -193,10 +206,13 @@
 				"domain": [
 					"geosite:geolocation-!cn",
 					"geosite:tld-!cn",
-					"geosite:tiktok",
 					"domain:org",
 					"domain:edu",
+					"domain:heymusic.ai",
+					"domain:blitz.works",
 					"domain:hyper.ai",
+					"domain:marc.info",
+					"domain:vivaldi.com",
 					"domain:fastfiles.cloud",
 					"domain:g2plot-vue.opd.cool",
 					"domain:onrender.com",
@@ -218,13 +234,6 @@
 					"domain:rye-up.com",
 					"domain:lesbea.com",
 					"domain:apkssl.com"
-				]
-			},
-			{
-				"outboundTag": "proxy",
-				"type": "field",
-				"ip": [
-					"geoip:!cn"
 				]
 			}
 		]
