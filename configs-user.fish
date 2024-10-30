@@ -14,6 +14,8 @@ mkdir -p \
     ~/.local/lib/portainer \
     $python_site
 mkdir -pm 700 ~/.ssh/controls
+
+#rm ~/.local/share/user-places.xbel
 #xdg-user-dirs-update
 
 # 创建一个用户级别的 profile.d
