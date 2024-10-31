@@ -117,7 +117,7 @@
 		}
 	],
 	"routing": {
-		// "domainStrategy": "IPIfNonMatch",
+		// 由于开启了geoip:!cn，所以必须使用AsIs，不然会导致国内网站无法访问
 		"domainStrategy": "AsIs",
 		"rules": [
 			{
@@ -163,21 +163,18 @@
 				"type": "field",
 				"ip": [
 					"geoip:cn",
-					"geoip:private"
+					"geoip:private",
+					"geoip:cloudflare",
+					"geoip:cloudfront",
+					"geoip:fastly"
 				]
 			},
 			{
 				"outboundTag": "proxy",
 				"type": "field",
 				"ip": [
+					// 如果不使用geoip:!cn，则无法进行git push操作
 					"geoip:!cn"
-				]
-			},
-			{
-				"outboundTag": "proxy",
-				"type": "field",
-				"domain": [
-					"geosite:tiktok"
 				]
 			},
 			{
@@ -186,60 +183,36 @@
 				"domain": [
 					"geosite:cn",
 					"geosite:private",
-					"domain:stripe.com",
-					"domain:cloudflare.com",
-					"domain:gitee.io",
-					"domain:clarivate.com",
-					"domain:clarivate.net",
-					"domain:udemy.com",
-					"domain:udemycdn.com",
-					"domain:litix.io",
-					"domain:cookielaw.org",
-					"domain:chatkore.com",
-					"domain:tmall.hk",
-					"domain:ieee.org",
-					"domain:gpushare.com",
-					"domain:ieee-dataport.org",
-					"domain:enmap.org",
-					"domain:dlr.de",
-					"domain:sectigo.com",
-					"domain:spicevids.com"
+					"geosite:cloudflare",
+					//"geosite:cloudfront",
+					"geosite:fastly"
 				]
 			},
 			{
 				"outboundTag": "proxy",
 				"type": "field",
 				"domain": [
-					"geosite:geolocation-!cn",
-					"geosite:tld-!cn",
-					"domain:org",
-					"domain:edu",
-					"domain:heymusic.ai",
-					"domain:blitz.works",
-					"domain:hyper.ai",
-					"domain:marc.info",
-					"domain:vivaldi.com",
-					"domain:fastfiles.cloud",
-					"domain:g2plot-vue.opd.cool",
-					"domain:onrender.com",
-					"domain:activeloop.ai",
-					"domain:noname.pub",
+					"geosite:gfw",
+					"domain:gov",
+					//"domain:org",
+					//"domain:edu",
+					// "domain:cloudflareinsights.com",
+					// "domain:dnb.com",
+					"domain:fiverr.com",
+					"domain:fiverrcdn.com",
+					"domain:zadarma.com",
+					"domain:bootstrapcdn.com",
+					"domain:pwabuilder.com",
+					"domain:semantic-ui.com",
+					"domain:lobehub.com",
+					"domain:codepen.io",
+					"domain:tinyurl.com",
+					"domain:digitalnomadlc.com",
 					"domain:launchpadcontent.net",
-					"domain:onlyoffice.com",
-					"domain:zophar.net",
-					"domain:einops.rocks",
-					"domain:libhunt.com",
-					"domain:heynote.com",
-					"domain:isnico.com",
-					"domain:privacytoolslist.com",
-					"domain:direnv.net",
-					"domain:apkflash.com",
-					"domain:kiwiirc.com",
-					"domain:kovidgoyal.net",
-					"domain:kdl.dev",
-					"domain:rye-up.com",
-					"domain:lesbea.com",
-					"domain:apkssl.com"
+					"domain:northwestregisteredagent.com",
+					"domain:cdpn.io",
+					"domain:corporatetools.com",
+					"domain:corporatedirect.com"
 				]
 			}
 		]

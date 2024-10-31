@@ -23,7 +23,8 @@
 [diff]
 	tool = vscode
 	submodule = log
-	ignoreAllSpace = true
+	# 不能忽略空白，因为如果一个文件有非常多的空白，那么这个文件的git diff就会非常大
+	#ignoreAllSpace = true
 [difftool "vscode"]
 	cmd = code -w -d $LOCAL $REMOTE
 [diff "exif"]
