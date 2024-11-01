@@ -27,7 +27,7 @@ lotabout/rargs,,xargs的替代品
 dprint/dprint,,格式化代码
 ,,,wfxr/csview,,csv查看器
 ,,,BurntSushi/xsv,,csv处理工具
-,,,riquito/tuc,,cut的替代品
+riquito/tuc,,cut的替代品
 ,,,aswinkarthik/csvdiff,,csv比较工具
 duckdb/duckdb,,嵌入式分析型数据库
 k1LoW/tbls,,数据库文档生成
