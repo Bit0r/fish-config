@@ -12,6 +12,10 @@
 			},
 			"complexity": {
 				"noForEach": "off"
+			},
+			"suspicious": {
+				"noExplicitAny": "off",
+				"noAssignInExpressions": "off"
 			}
 		}
 	},
