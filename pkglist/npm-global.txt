@@ -3,6 +3,7 @@ yarn-completions
 nnrm
 typescript
 @biomejs/biome
+@antfu/ni
 @slidev/cli
 crontab-ui
 ungit

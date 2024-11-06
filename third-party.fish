@@ -37,10 +37,10 @@ if type -q fnm && confirm 'Do you want to install some software using fnm?'
     fnm install --lts
 end
 
-if sudo which yarn >/dev/null && confirm 'Do you want to install some system-level software using yarn?'
-    sudo yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
-else if type -q yarn && confirm 'Do you want to install some user-level software using yarn?'
-    yarn global add (cat ./pkglist/yarn-global.txt | grep -v '^#')
+if sudo which ni >/dev/null && confirm 'Do you want to install some system-level software using ni?'
+    sudo ni -g (cat ./pkglist/npm-global.txt | grep -v '^#')
+else if type -q ni && confirm 'Do you want to install some user-level software using ni?'
+    ni -g (cat ./pkglist/npm-global.txt | grep -v '^#')
 end
 
 if type -q go && confirm 'Do you want to install some software using go?'
