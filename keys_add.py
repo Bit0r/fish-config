@@ -40,7 +40,7 @@ class GpgKeys:
             "github-cli": "https://cli.github.com/packages/githubcli-archive-keyring.gpg",
             "ueberzugpp": f"https://download.opensuse.org/repositories/home:justkidding/xUbuntu_{version_id}/Release.key",
             "docker-ctop": "https://azlux.fr/repo.gpg.key",
-            "docker-ce-163": "http://mirrors.163.com/docker-ce/linux/ubuntu/gpg",
+            "docker-ce": "https://repo.huaweicloud.com/docker-ce/linux/ubuntu/gpg",
             "caddy": "https://dl.cloudsmith.io/public/caddy/stable/gpg.key",
             "xcaddy": "https://dl.cloudsmith.io/public/caddy/xcaddy/gpg.key",
             "hashicorp": "https://apt.releases.hashicorp.com/gpg",

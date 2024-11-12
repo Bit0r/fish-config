@@ -35,7 +35,7 @@ class ThirdPartySources:
             "github-cli": "deb [arch=amd64 signed-by={}] https://cli.github.com/packages stable main",
             # "ueberzugpp": f"deb [signed-by={{}}] http://download.opensuse.org/repositories/home:/justkidding/xUbuntu_{version_id}/ /",
             "docker-ctop": "deb [arch=amd64 signed-by={}] http://packages.azlux.fr/debian stable main",
-            "docker-ce-163": f"deb [arch=amd64 signed-by={{}}] https://mirrors.163.com/docker-ce/linux/ubuntu {version_codename} stable",
+            "docker-ce": f"deb [arch=amd64 signed-by={{}}] https://repo.huaweicloud.com/docker-ce/linux/ubuntu {version_codename} stable",
             "caddy": "deb [signed-by={}] https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main",
             "xcaddy": "deb [signed-by={}] https://dl.cloudsmith.io/public/caddy/xcaddy/deb/debian any-version main",
             # "hashicorp": f"deb [arch=amd64 signed-by={{}}] https://apt.releases.hashicorp.com {version_codename} main",
