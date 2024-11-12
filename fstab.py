@@ -142,5 +142,4 @@ class Fstab:
 
 
 if __name__ == "__main__":
-    fstab = Fstab(fstab_dir="./config/fstab.d")
-    Fire(fstab.write_fstab)
+    Fire(Fstab)
