@@ -139,16 +139,10 @@ cp /usr/share/applications/org.kde.ksystemlog.desktop ~/.local/share/application
 sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' ~/.local/share/applications/org.kde.ksystemlog.desktop
 
 # 配置浏览器
-for browser in chrome-stable vivaldi-stable edge-stable
-    if not type -q $browser
-        continue
-    end
-
-    cp /usr/share/applications/$browser.desktop ~/.local/share/applications/
-    sd "^Exec=/usr/bin/$browser %U\$" \
-        "Exec=/usr/bin/$browser --allow-running-insecure-content --allow-outdated-plugins --allow-scripting-gallery --silent-debugger-extension-api --remote-debugging-port=9222 --proxy-server=socks5://localhost %U" \
-        ~/.local/share/applications/$browser.desktop
+for browser in vivaldi-stable edge-stable
+    update-browser-desktop $browser
 end
+update-browser-desktop google-chrome google-chrome-stable
 
 # 配置 discord
 cp ./config/discord/settings.json ~/.config/discord/
