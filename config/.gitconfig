@@ -4,14 +4,14 @@
 [core]
 	editor = code -w
 	# hooksPath = ~/.config/git/hooks
-[http "https://huggingface.co"]
-	proxy = socks5://localhost
-[http "https://github.com"]
-	proxy = socks5://localhost
+[http]
+	# 必须设置端口，否则可能会导致无法推送
+	proxy = socks5://localhost:1080
 [credential]
 	helper = manager
 	# helper = keepassxc
 	# helper = store --file ~/.config/git/git-credentials
+	credentialStore = secretservice
 [init]
 	defaultBranch = main
 [rerere]
