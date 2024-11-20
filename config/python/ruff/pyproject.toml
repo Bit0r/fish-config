@@ -42,11 +42,22 @@ ignore = [
 	"RUF002",
 	"RUF003",
 	"TRY300",
+	"W191",
+	"E111",
+	"E114",
+	"E117",
 ]
 
 [tool.ruff.format]
 line-ending = "lf"
-skip-magic-trailing-comma = true
+quote-style = "single"
+docstring-code-format = true
+# 必须设为 false，否则会导致 isort 无法正常工作
+skip-magic-trailing-comma = false
 
 [tool.ruff.lint.isort]
+length-sort = true
+combine-as-imports = true
+force-wrap-aliases = true
 force-sort-within-sections = true
+required-imports = ["from __future__ import annotations"]

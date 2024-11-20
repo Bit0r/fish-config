@@ -37,7 +37,7 @@ Syllo/nvtop,,gpu的top
 Netflix/bpftop,,bpf的top
 Nukesor/pueue,,任务队列
 ,,,egoist/dum,,npm run的替代品
-lotabout/skim,,模糊搜索
+skim-rs/skim,,模糊搜索
 Macchina-CLI/macchina,,获取系统信息
 n7olkachev/imgdiff,,逐像素图片比较
 ,,,kornelski/dssim,,语义级图片比较
