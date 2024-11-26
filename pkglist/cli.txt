@@ -14,6 +14,7 @@ ext4magic
 espeak-ng-espeak
 speech-dispatcher
 f3
+fzf
 git
 git-crypt
 git-filter-repo
@@ -49,7 +50,7 @@ nala
 ncat
 net-tools
 ngrep
-#nvtop
+nvtop
 p7zip-rar
 progress
 proxychains4
