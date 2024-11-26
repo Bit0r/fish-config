@@ -5,6 +5,12 @@ if confirm 'Do you want to install some software from ppa?'
     sudo apt -m install (cat ./pkglist/ppa.txt | grep -v '^#')
 end
 
+if type -q gcc && type -q make && confirm 'Do you want to install git-credential-libsecret?'
+    set libsecret_path /usr/share/doc/git/contrib/credential/libsecret/
+    sudo make -C $libsecret_path
+    sudo ln -s $libsecret_path/git-credential-libsecret /usr/local/bin/
+end
+
 if type -q aptss && confirm 'Do you want to install some software using spark-store?'
     sudo aptss install -m (cat ./pkglist/spark.txt | grep -v '^#')
 end
