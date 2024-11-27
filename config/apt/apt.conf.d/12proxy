@@ -4,4 +4,5 @@ Acquire::http::Proxy {
 	repo.vivaldi.com "socks5h://localhost:1080";
 	cloudsmith.io "socks5h://localhost:1080";
 	ppa.launchpadcontent.net "socks5h://localhost:1080";
+	microsoft.com "socks5h://localhost:1080";
 };
