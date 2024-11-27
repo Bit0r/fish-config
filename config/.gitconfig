@@ -13,6 +13,10 @@
 	helper = oauth
 	# 在没有浏览器的远程服务器上使用
 	#helper = oauth -device
+
+	# git credential manager(GCM)，另一个登录验证工具。
+	#helper = manager
+	#credentialStore = secretservice
 [init]
 	defaultBranch = main
 [rerere]
