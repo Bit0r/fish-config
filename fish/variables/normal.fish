@@ -8,6 +8,7 @@ set -Ux BROWSER_PATH /usr/bin/$BROWSER
 set -Ux CHROME_PATH $BROWSER_PATH
 set -Ux CHROMIUM_PATH $CHROME_PATH
 set -Ux PUPPETEER_EXECUTABLE_PATH $CHROMIUM_PATH
+set -Ux DENO_INSTALL ~/.deno
 set -Ux VOLTA_HOME ~/.volta
 set -Ux rime_frontend fcitx5-rime
 #set -Ux rime_dir ~/.local/share/fcitx5/rime
@@ -15,7 +16,9 @@ set -Ux PLAN9 /usr/local/plan9
 set -Ux CRON_DB_PATH ~/.config/crontab-ui
 set -Ux DOCKER_COMPOSE_DIR /srv/docker/compose # 设置 Docker Compose 的工作目录
 set -Ux DOCKER_DATA_DIR /var/lib/docker # 设置 Docker 的数据目录
+set -Ux YAMLFIX_CONFIG_PATH /etc/yamlfix/ # 设置 yamlfix 的配置文件路径
 set -Ux LXD_INSECURE_TLS true
+set -Ux NODE_OPTIONS '--max-old-space-size=20480' # 设置 Node.js 的内存限制
 set -Ux PYTORCH_CUDA_ALLOC_CONF max_split_size_mb:1024 # 设置 PyTorch 的 CUDA 内存分配策略
 #set -Ux TORCH_HOME /data/torch# 设置 PyTorch 的缓存目录
 #set -Ux MAMBA_ROOT_PREFIX ~/micromamba # 设置 Micromamba 的根目录
@@ -47,6 +50,7 @@ set -U fish_user_paths \
     /usr/local/cuda/bin \
     /usr/local/go/bin \
     ~/.cargo/bin \
+    $DENO_INSTALL/bin \
     $VOLTA_HOME/bin \
     ~/.local/share/fnm \
     ~/.yarn/bin \

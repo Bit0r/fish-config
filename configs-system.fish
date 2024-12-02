@@ -16,7 +16,7 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/aria2 \
     /usr/share/xsessions \
-    /etc/{default,graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba} \
+    /etc/{default,graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,yamlfix} \
     /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /usr/local/etc/xray \
@@ -62,6 +62,9 @@ sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置conda
 sudo cp ./config/python/conda/.* /etc/conda/
+
+# 配置 yamlfix
+sudo cp ./config/yamlfix/pyproject.toml /etc/yamlfix/
 
 # 配置lf
 sudo cp ./config/lf/lfrc /etc/

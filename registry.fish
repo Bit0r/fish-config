@@ -22,6 +22,11 @@ cp -b ./config/go/env ~/.config/go/
 # 配置 npm 和 yarn 镜像
 cp -f config/.{npmrc,yarnrc} ~/
 
+# 配置 nrm 镜像
+if type -q nrm
+    nrm add huawei https://mirrors.huaweicloud.com/repository/npm/ https://mirrors.huaweicloud.com/home
+end
+
 # 配置 rustup 镜像
 set -Ux RUSTUP_UPDATE_ROOT 'https://mirrors.cernet.edu.cn/rustup/rustup'
 set -Ux RUSTUP_DIST_SERVER 'https://mirrors.cernet.edu.cn/rustup'

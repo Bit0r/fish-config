@@ -1,6 +1,7 @@
 attrs	# 类属性
 pipx	# 用于安装 python 工具
 ruff	# python 格式化，同时也是多种库的依赖
+yamlfix	# yaml 格式化
 pypyp	# 在命令行中运行 python
 pipreqs	# 生成 requirements.txt
 stringzilla	# 字符串处理

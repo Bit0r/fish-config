@@ -23,7 +23,7 @@ class ThirdPartySources:
     def __init__(
         self,
         *,
-        node_major: str = os.environ.get('NODE_MAJOR', '20'),
+        node_major: str = os.environ.get('NODE_MAJOR', '22'),
         keyrings_path: str | Path = '/etc/apt/keyrings',
     ):
         # %%
