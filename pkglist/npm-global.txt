@@ -8,6 +8,7 @@ all-the-package-names
 yarn-completions
 typescript
 @biomejs/biome
+nuxthub
 @slidev/cli
 crontab-ui
 ungit

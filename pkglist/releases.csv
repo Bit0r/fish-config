@@ -1,5 +1,6 @@
 repository,version,description
 boyter/scc,,统计代码行数
+direnv/direnv,,环境变量管理
 atuinsh/atuin,,shell历史记录
 YiNNx/cmd-wrapped,,包装命令行工具
 ajeetdsouza/zoxide,,快速跳转

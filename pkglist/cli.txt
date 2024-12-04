@@ -4,6 +4,7 @@ arj
 attr
 cmatrix
 cpulimit
+direnv
 dmg2img
 dos2unix
 enca

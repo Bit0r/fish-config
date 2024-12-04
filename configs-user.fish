@@ -8,7 +8,7 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,direnv,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
     ~/.local/share/{applications,kservices5/ServiceMenus,mime/packages,konsole,fcitx5,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     ~/.local/lib/portainer \
@@ -39,6 +39,9 @@ cp -f config/.*rc ~/
 
 # 配置 bat
 #cp ./config/bat/config ~/.config/bat/
+
+# 配置 direnv
+cp ./config/direnv/direnv.toml ~/.config/direnv/
 
 # 配置 micro
 cp ./config/micro/settings.json ~/.config/micro/
