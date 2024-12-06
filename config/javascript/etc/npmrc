@@ -1,0 +1,9 @@
+registry=https://registry.npmmirror.com/
+# 用户二进制文件安装目录
+global-bin-dir=/usr/local/bin
+
+# 最好不要打开这个选项，因为npm包要下载大量小文件，大量的路由分流会导致下载速度变慢
+#proxy=http://localhost:8800
+
+# 必须设置，否则无法 pnpm run build
+shamefully-hoist=true

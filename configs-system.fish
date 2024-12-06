@@ -134,7 +134,7 @@ sudo cp ./config/imaotai/imaotai /etc/nginx/sites-available/
 sudo cp ./config/python/pip.conf /etc/
 
 # 配置npm和yarn
-sudo cp config/{.npmrc,.yarnrc} /etc/
+sudo cp ./config/javascript/etc/* /etc/
 
 # 配置docker
 sudo cp ./config/docker/daemon*.json /etc/docker/

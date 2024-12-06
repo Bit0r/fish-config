@@ -1,0 +1,6 @@
+# fallback when no lock found
+# default "prompt"
+defaultAgent=pnpm
+
+# for global installs
+globalAgent=pnpm

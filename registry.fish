@@ -20,7 +20,7 @@ set -Ux POETRY_PYPI_MIRROR_URL 'https://mirrors.aliyun.com/pypi/simple'
 cp -b ./config/go/env ~/.config/go/
 
 # 配置 npm 和 yarn 镜像
-cp -f config/.{npmrc,yarnrc} ~/
+cp -f config/javascript/.*rc ~/
 
 # 配置 nrm 镜像
 if type -q nrm

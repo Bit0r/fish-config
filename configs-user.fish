@@ -52,6 +52,9 @@ cp ./config/macchina/macchina.toml ~/.config/macchina/
 # 配置pip
 #cp config/pip.conf ~/.config/pip/
 
+# 配置 npm
+cp ./config/javascript/.*rc ~/
+
 # 配置 labelme
 cp ./config/labelme/labelme.yaml ~/.labelmerc
 
