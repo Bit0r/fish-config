@@ -4,8 +4,6 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-User=%i
-Type=simple
 ExecStart=/usr/local/bin/bililive -c %h/.config/bililive/config.yaml
 WorkingDirectory=%h/视频/bililive
 Restart=on-failure

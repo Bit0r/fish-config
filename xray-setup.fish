@@ -3,16 +3,14 @@ apt install unar xz-utils lnav micro pip bat language-pack-zh-hans python-dev-is
 echo 'net.ipv4.tcp_congestion_control=bbr
 net.core.default_qdisc=fq' >/etc/sysctl.d/local.conf
 
-ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
-update-locale LANG="zh_CN.UTF-8" LANGUAGE="zh_CN:zh" LC_ALL="zh_CN.UTF-8"
+sudo timedatectl set-timezone Asia/Shanghai
+sudo cp ./config/locale/locale.conf /etc/locale.conf
 
 #sudo passwd $USER # 修改密码
 #chsh -s /usr/bin/fish # 修改默认shell
 set -U fish_greeting
 
 cp functions/cat.fish /etc/fish/functions/
-alias -s ls 'exa --group-directories-first -aF'
 
 set -Ux EDITOR micro
 update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/micro.1.gz

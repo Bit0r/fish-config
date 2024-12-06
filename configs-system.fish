@@ -29,6 +29,13 @@ sudo mkdir -pm 2775 /srv/www \
 
 sudo chown -R :docker $DOCKER_COMPOSE_DIR $DOCKER_DATA_DIR
 
+# 配置地区
+if confirm 'Do you want to configure locale?'
+    sudo timedatectl set-timezone Asia/Shanghai
+    sudo cp ./config/locale/locale.conf /etc/locale.conf
+    rm ~/.config/plasma-localerc
+end
+
 # 配置 sudo
 #sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
 sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
@@ -89,6 +96,9 @@ sudo cp ./config/syslog/logrotate.d/* /etc/logrotate.d/
 
 # 配置 xray
 sudo cp ./config/xray/config.json /usr/local/etc/xray/
+
+# 配置 caddy
+sudo setcap cap_net_bind_service=+ep (type -p caddy)
 
 # 配置 proxychains4
 sudo cp --backup=t ./config/proxychains/proxychains4.conf /etc/
