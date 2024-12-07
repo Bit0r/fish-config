@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+from fire import Fire
+from rich import print
+from plumbum.cmd import dig
+
+
+def dig_color(*args):
+    """
+    Execute dig command with colored output, using different colors for different parts.
+
+    Args:
+        args (list, optional): Additional arguments for dig command. Defaults to None.
+    """
+
+    def print_by_color(line: str, color_templates: list[str]):
+        cols = line.split()
+        colored_cols = []
+        for idx, col in enumerate(cols):
+            if idx < len(color_templates):
+                colored_cols.append(color_templates[idx].format(col))
+            else:
+                colored_cols.append(col)
+        print(' '.join(colored_cols))
+
+    try:
+        # Run dig command and capture its output
+        output = dig[*args]()
+
+        # Split output into lines
+        lines = output.split('\n')
+
+        for line in lines:
+            if line.startswith(';;'):
+                # Header/section lines in cyan
+                print(f'[cyan]{line}[/cyan]')
+            elif line.startswith('; '):
+                # Comment lines in magenta
+                print(f'[magenta]{line}[/magenta]')
+            elif line.startswith(';'):
+                # Footer lines in yellow
+                # Data lines in different colors
+                color_templates = [
+                    '[blue]{:<37}[/blue]',
+                    '[yellow]{:<2}[/yellow]',  # 指令没有 TTL
+                    '[magenta]{:<5}[/magenta]',
+                    '[cyan]{:<32}[/cyan]',
+                    '[red]{:<32}[/red]',
+                    '[white]{:<8}[/white]',
+                    '[purple]{:<8}[/purple]',
+                    '[orange1]{:<8}[/orange1]',
+                    '[sea_green2]{:<8}[/sea_green2]',
+                    '[dark_green]{:<8}[/dark_green]',
+                    '[dark_sea_green]{:<8}[/dark_sea_green]',
+                    '[dark_orange]{:<8}[/dark_orange]',
+                ]
+                print_by_color(line, color_templates)
+            else:
+                # Data lines in different colors
+                color_templates = [
+                    '[blue]{:<32}[/blue]',
+                    '[green]{:<4}[/green]',
+                    '[yellow]{:<2}[/yellow]',
+                    '[magenta]{:<5}[/magenta]',
+                    '[cyan]{:<32}[/cyan]',
+                    '[red]{:<32}[/red]',
+                    '[white]{:<8}[/white]',
+                    '[purple]{:<8}[/purple]',
+                    '[orange1]{:<8}[/orange1]',
+                    '[sea_green2]{:<8}[/sea_green2]',
+                    '[dark_green]{:<8}[/dark_green]',
+                    '[dark_sea_green]{:<8}[/dark_sea_green]',
+                    '[dark_orange]{:<8}[/dark_orange]',
+                ]
+                print_by_color(line, color_templates)
+
+    except Exception as e:
+        print(f'[red]Error executing dig: {e}[/red]')
+
+
+if __name__ == '__main__':
+    Fire(dig_color)
