@@ -1,22 +1,24 @@
 #!/usr/bin/python
 
 # %%
-import os
-from pathlib import Path
-import re
+from __future__ import annotations
 
-import clevercsv
-from dotenv import load_dotenv
+import os
+import re
+from pathlib import Path
+
 from fire import Fire
-from github import Auth, Github
-from github.GithubException import UnknownObjectException
-from github.GitReleaseAsset import GitReleaseAsset
-import httpx
-from loguru import logger
-from more_itertools import first_true
 from pint import UnitRegistry
+import httpx
+from dotenv import load_dotenv
+from github import Auth, Github
+from loguru import logger
+import clevercsv
 from pydumpling import catch_any_exception
 from rich.progress import Progress
+from more_itertools import first_true
+from github.GithubException import UnknownObjectException
+from github.GitReleaseAsset import GitReleaseAsset
 
 # %%
 catch_any_exception()
@@ -28,8 +30,8 @@ class GithubDownload:
     def __init__(self, token: str | None = None):
         self.token = token
 
-        self.amd64: re.Pattern = re.compile(r"(amd|x86[-_])64")
-        self.cksum_suffies = ".sha256 .minisig .asc .sig".split()
+        self.amd64: re.Pattern = re.compile(r'(amd|x86[-_])64')
+        self.cksum_suffies = '.sha256 .minisig .asc .sig'.split()
 
     def get_asset_priority(self, asset):
         """
@@ -65,17 +67,17 @@ class GithubDownload:
             # 如果是校验文件，那么就不用下载
             return 16
 
-        if name_suffix not in [".deb", ".xpi", ".vsix"] and "ubuntu" not in name_stem:
+        if name_suffix not in ['.deb', '.xpi', '.vsix'] and 'ubuntu' not in name_stem:
             # 如果后缀名不是deb或xpi或vsix，而且名字中不包含ubuntu，那么优先级下调1
             priority += 2
-        if priority >= 2 and name_suffix != ".run":
+        if priority >= 2 and name_suffix != '.run':
             # 也不是run包，那么优先级下调2
             priority += 2
-        if priority >= 4 and name_suffix != ".appimage":
+        if priority >= 4 and name_suffix != '.appimage':
             # 也不是AppImage包，那么优先级下调2
             priority += 2
 
-        if "musl" in name_stem:
+        if 'musl' in name_stem:
             # 是musl包，那么优先级下调1
             priority += 1
 
@@ -86,7 +88,7 @@ class GithubDownload:
         if (
             0 <= priority <= 5
             or 8 <= priority <= 13
-            or ((6 <= priority <= 7 or 14 <= priority <= 15) and "linux" in name_stem)
+            or ((6 <= priority <= 7 or 14 <= priority <= 15) and 'linux' in name_stem)
         ):
             # 如果优先级是0-5, 8-13, 或者是6-7, 14-15并且是linux包，那么直接返回优先级
             return priority
@@ -115,7 +117,7 @@ class GithubDownload:
         version: str | None = None,
         *,
         progress: Progress = None,
-        output_dir: str | Path = "./",
+        output_dir: str | Path = './',
     ):
         output_dir = Path(output_dir).expanduser().resolve()
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -126,23 +128,23 @@ class GithubDownload:
         asset = self.get_highest_priority_asset(assets)
 
         if asset is None:
-            logger.error(f"{repo}: no assets")
+            logger.error(f'{repo}: no assets')
             return
 
         latest_version = latest_release.tag_name
         if version and latest_version == version:
-            logger.info(f"{repo}: already up to date")
+            logger.info(f'{repo}: already up to date')
             return
 
         # 下载asset
-        logger.info(f"{repo}: downloading {asset.name}")
+        logger.info(f'{repo}: downloading {asset.name}')
         ureg = UnitRegistry()
 
         with self.httpx_client.stream(
-            "GET", asset.browser_download_url
-        ) as response, open(output_dir / asset.name, "wb") as f:
+            'GET', asset.browser_download_url
+        ) as response, open(output_dir / asset.name, 'wb') as f:
             if progress:
-                task = progress.add_task(f"Downloading {asset.name}", total=asset.size)
+                task = progress.add_task(f'Downloading {asset.name}', total=asset.size)
                 total_mb = (asset.size * ureg.byte).to(ureg.megabyte)
 
             for chunk in response.iter_bytes():
@@ -156,7 +158,7 @@ class GithubDownload:
                         task,
                         refresh=True,
                         completed=response.num_bytes_downloaded,
-                        description=f"{asset.name}: {downloaded_mb.magnitude:.2f}/{total_mb.magnitude:.2f}MB",
+                        description=f'{asset.name}: {downloaded_mb.magnitude:.2f}/{total_mb.magnitude:.2f}MB',
                     )
 
             if progress:
@@ -173,7 +175,7 @@ class GithubDownload:
         releases: list[list[str]],
         *,
         progress: Progress = None,
-        output_dir: str | Path = "./",
+        output_dir: str | Path = './',
     ):
         for idx, release in enumerate(releases):
             if len(release) > 3:
@@ -184,7 +186,7 @@ class GithubDownload:
 
             if not repo:
                 # 没有repo，那么就跳过
-                logger.warning(f"Line {idx + 1}: no repo")
+                logger.warning(f'Line {idx + 1}: no repo')
                 continue
 
             try:
@@ -192,7 +194,7 @@ class GithubDownload:
                     repo, version, progress=progress, output_dir=output_dir
                 )
             except UnknownObjectException as e:
-                logger.error(f"{repo}: {e}")
+                logger.error(f'{repo}: {e}')
                 continue
 
             if new_version is not None:
@@ -200,20 +202,20 @@ class GithubDownload:
 
     def download_all(
         self,
-        lockfile: str | Path = "./releases.csv",
+        lockfile: str | Path = './releases.csv',
         *,
-        token=os.environ["GH_TOKEN"],
-        output_dir: str | Path = "./",
+        token=os.environ['GH_TOKEN'],
+        output_dir: str | Path = './',
     ):
         output_dir = Path(output_dir).expanduser().resolve()
         lockfile_path = Path(lockfile).expanduser().resolve()
         if not lockfile_path.exists():
-            logger.error(f"{lockfile_path} not found")
+            logger.error(f'{lockfile_path} not found')
             return
 
         token = token or self.token
         if token is None:
-            logger.error("No GITHUB_TOKEN found")
+            logger.error('No GITHUB_TOKEN found')
             return
 
         releases = clevercsv.read_table(lockfile_path)[1:]
@@ -221,9 +223,9 @@ class GithubDownload:
         self.gh_client = Github(auth=Auth.Token(token))
         limits = httpx.Limits(max_connections=4, max_keepalive_connections=2)
         self.httpx_client = httpx.Client(
-            headers={"Authorization": f"Bearer {token}"},
+            headers={'Authorization': f'Bearer {token}'},
             follow_redirects=True,
-            proxies="socks5://localhost:1080",
+            proxies='socks5://localhost:1080',
             limits=limits,
             http2=True,
         )
@@ -233,13 +235,13 @@ class GithubDownload:
                 self.download_list(releases, progress=progress, output_dir=output_dir)
         finally:
             # 保存最新的版本号
-            releases.insert(0, ["repository", "version", "description"])
+            releases.insert(0, ['repository', 'version', 'description'])
             releases = [release for release in releases if len(release) <= 3]
             clevercsv.write_table(releases, output_dir / lockfile_path.name)
 
 
 # %%
-if __name__ == "__main__":
+if __name__ == '__main__':
     # %%
     gd = GithubDownload()
     Fire(gd.download_all)

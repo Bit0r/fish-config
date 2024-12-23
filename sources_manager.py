@@ -48,6 +48,8 @@ class ThirdPartySources:
             'onlyoffice': 'deb [signed-by={}] https://download.onlyoffice.com/repo/debian squeeze main',
             # "nvidia-container": "deb [signed-by={}] https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH) /",
             # "fpf-apt-tools": f"deb [signed-by={{}}] https://packages.freedom.press/apt-tools-prod {version_codename} main",
+            'stripe': 'deb [signed-by={}] https://packages.stripe.dev/stripe-cli-debian-local stable main',
+            'ngrok': 'deb [signed-by={}] https://ngrok-agent.s3.amazonaws.com buster main',
         }
 
         self.keyrings_path = Path(keyrings_path).expanduser().resolve()

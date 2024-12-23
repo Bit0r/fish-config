@@ -1,0 +1,27 @@
+{
+	"debug": true,
+	"server_port": ":9090",
+	"api_key": "sk-123456",
+	"load_balancing": "random",
+	"proxy": {
+		"type": "socks5",
+		"strategy": "default",
+		"socks5_proxy": "socks5://localhost:1080"
+	},
+	"services": {
+		"openai": [
+			{
+				"models": [
+					"gpt-4o",
+					"gpt-4o-mini"
+				],
+				"enabled": true,
+				"limit": {},
+				"use_proxy": true,
+				"credentials": {
+					"api_key": ""
+				}
+			}
+		]
+	}
+}

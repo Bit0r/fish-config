@@ -50,6 +50,8 @@ class GpgKeys:
             'zotero': 'https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg',
             'onlyoffice': 'https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE',
             'nvidia-container': 'https://nvidia.github.io/libnvidia-container/gpgkey',
+            'stripe': 'https://packages.stripe.dev/api/security/keypair/stripe-cli-gpg/public',
+            'ngrok': 'https://ngrok-agent.s3.amazonaws.com/ngrok.asc',
         }
         self.keys_hash = [
             {

@@ -2,3 +2,4 @@ caddy-dns/cloudflare
 abiosoft/caddy-yaml
 caddyserver/nginx-adapter
 greenpau/caddy-trace
+mohammed90/caddy-ngrok-listener

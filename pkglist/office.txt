@@ -1,5 +1,6 @@
 bibclean
 img2pdf
+klatexformula
 #mutool
 ocrmypdf
 tesseract-ocr-chi-sim*
