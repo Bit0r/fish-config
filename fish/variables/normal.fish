@@ -37,6 +37,7 @@ set -Ux OPENAI_LOG debug # 设置 OpenAI 的日志级别
 set -Ux BUILDKIT_PROGRESS plain # 设置 BuildKit 的进度条样式，一定要设置为 plain，否则容器内的日志无法正常显示
 #set -Ux PYTHONPATH . # 方便调试，不适合用于生产环境
 set -Ux ELECTRON_TRASH kioclient5
+#set -Ux COLORTERM truecolor # 设置终端的颜色支持
 if [ "$COLORTERM" = truecolor ]
     set -Ux MICRO_TRUECOLOR 1 # 设置 micro 的 truecolor 支持
 end

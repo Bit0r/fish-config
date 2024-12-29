@@ -52,6 +52,8 @@ RustScan/RustScan,,端口扫描
 ,,,ogham/dog,,dns查询
 mr-karan/doggo,,dns查询
 ,,,iawia002/lux,,视频下载工具
+yt-dlp/yt-dlp,,youtube下载工具
+aandrew-me/ytDownloader,,yt-dlp的GUI
 zu1k/nali,,ip查询
 ,,,oldj/SwitchHosts,,hosts管理
 wzv5/pping,,支持多种协议的ping

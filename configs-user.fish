@@ -145,10 +145,12 @@ cp /usr/share/applications/org.kde.ksystemlog.desktop ~/.local/share/application
 sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' ~/.local/share/applications/org.kde.ksystemlog.desktop
 
 # 配置浏览器
-for browser in vivaldi-stable edge-stable
+for browser in vivaldi-stable
     update-browser-desktop $browser
 end
-update-browser-desktop google-chrome google-chrome-stable
+for browser in google-chrome microsoft-edge
+    update-browser-desktop $browser $browser-stable
+end
 
 # 配置 discord
 cp ./config/discord/settings.json ~/.config/discord/

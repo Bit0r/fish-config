@@ -1,0 +1,17 @@
+[Unit]
+Description=Alist service
+Documentation=https://alist.nn.ci/zh
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/alist
+ExecStart=/opt/alist/alist server
+KillMode=process
+Environment="HTTP_PROXY=http://localhost:8800"
+Environment="HTTPS_PROXY=http://localhost:8800"
+Environment="ALL_PROXY=http://localhost:8800"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,7 @@
 attrs	# 类属性
 pipx	# 用于安装 python 工具
 ruff	# python 格式化，同时也是多种库的依赖
+runlike	# 导出 Docker Container 的运行命令
 yamlfix	# yaml 格式化
 config-formatter	# 配置文件格式化
 pypyp	# 在命令行中运行 python
@@ -28,7 +29,8 @@ hydra-core	# 配置文件
 #omegaconf	# 配置文件
 #dynaconf[all]	# 配置文件
 #rcviz	# 递归可视化
-dm-tree	# 树结构
+dm-tree	# 树形数组
+treelib	# 树数据类型
 py-spy	# 性能分析
 scalene	# GPU性能分析
 stitching	# 图片拼接

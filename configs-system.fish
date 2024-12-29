@@ -146,7 +146,8 @@ sudo cp -a ./config/docker/compose/. $DOCKER_COMPOSE_DIR/
 
 # 配置杂项
 sudo cp ./config/smplayer/mpv.conf /etc/mpv/
-sudo cp config/tmux.conf /etc/tmux.conf
+sudo cp ./config/tmux.conf /etc/
+sudo cp ./config/yt-dlp.conf /etc/
 
 # 关闭 baloo 文件索引
 if type -q balooctl
