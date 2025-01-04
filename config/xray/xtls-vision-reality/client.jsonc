@@ -1,7 +1,8 @@
-// NOTE: 使用 -confdir 时，该文件应该排在 config.json 之后，文件名称最好叫 tail-xxx.json
-//       这样既可以最后加载配置，又可以将 outbound 添加到 outbounds 数组的最后
-//       详见：https://xtls.github.io/config/features/multiple.html#多文件启动
-//       https://xtls.github.io/config/features/multiple.html#数组
+/*
+NOTE: 使用 -confdir 时，该文件应该排在 config.json 之后，文件名称最好叫 tail-xxx.json
+这样既可以最后加载配置，又可以将 outbound 添加到 outbounds 数组的最后
+详见：https://xtls.github.io/config/features/multiple.html
+*/
 {
 	"outbounds": [
 		{

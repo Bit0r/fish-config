@@ -1,0 +1,13 @@
+example.com {
+	# Match the original path
+	@xrws {
+		header Upgrade websocket
+		header Connection *Upgrade*
+		path /path #与 VLESS+WebSocket 应用中 path 对应
+	}
+	reverse_proxy @xrws 127.0.0.1:2222 #转发给本机 VLESS+WebSocket 监听进程
+
+	# Serve static files from the root directory
+	root * /var/www/html
+	file_server
+}

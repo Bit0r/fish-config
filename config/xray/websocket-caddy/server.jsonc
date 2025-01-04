@@ -1,0 +1,32 @@
+{
+	"inbounds": [
+		{
+			"listen": "127.0.0.1",
+			"port": 2222,
+			"protocol": "vless",
+			"settings": {
+				"clients": [
+					{
+						"id": "" // 填写你的 UUID
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "" //修改为自己的路径
+				}
+			},
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls",
+					"quic"
+				],
+				"routeOnly": true
+			}
+		}
+	]
+}

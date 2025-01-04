@@ -1,0 +1,39 @@
+/*
+NOTE: 使用 -confdir 时，该文件应该排在 config.json 之后，文件名称最好叫 tail-xxx.json
+这样既可以最后加载配置，又可以将 outbound 添加到 outbounds 数组的最后
+详见：https://xtls.github.io/config/features/multiple.html
+*/
+{
+	"outbounds": [
+		{
+			"protocol": "vless",
+			"settings": {
+				"vnext": [
+					{
+						"address": "", //填写你的服务器域名或IP（发起请求时无需解析域名）
+						"port": 443,
+						"users": [
+							{
+								"id": "", //填写你的 UUID
+								"encryption": "none"
+							}
+						]
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "/path?ed=2560", // 与服务端一致，建议增加 ?ed=2560 以启用 0-RTT 降低延迟
+					"host": "" // 若 "address": "" 中填的是 VPS 的 IP，此处必须填 Nginx 配置中 server_name 的值
+				},
+				"security": "tls",
+				"tlsSettings": {
+					"serverName": "", // 填写你的服务器域名
+					"fingerprint": "chrome"
+				}
+			},
+			"tag": "proxy"
+		}
+	]
+}

@@ -1,0 +1,13 @@
+example.com {
+	# Match the original path
+	reverse_proxy /path/* 127.0.0.1:2222 {
+		flush_interval -1
+		transport http {
+			versions h2c
+		}
+	}
+
+	# Serve static files from the root directory
+	root * /var/www/html
+	file_server
+}
