@@ -4,6 +4,7 @@ danielrichter2007/grub-customizer
 michel-slm/kernel-utils
 xmake-io/xmake
 longsleep/golang-backports
+maxmind/ppa
 serge-rider/dbeaver-ce
 #maarten-fonville/android-studio
 rvm/smplayer

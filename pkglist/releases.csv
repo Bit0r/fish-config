@@ -49,8 +49,6 @@ qustavo/httplab,,交互式http服务器
 mitmproxy/mitmproxy,,抓包工具
 imsnif/bandwhich,,网络带宽监控
 RustScan/RustScan,,端口扫描
-,,,ogham/dog,,dns查询
-mr-karan/doggo,,dns查询
 ,,,iawia002/lux,,视频下载工具
 yt-dlp/yt-dlp,,youtube下载工具
 aandrew-me/ytDownloader,,yt-dlp的GUI
@@ -72,7 +70,7 @@ google/cadvisor,,docker监控
 iximiuz/cdebug,,docker容器debug
 mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
-RubyMetric/chsrc,,软件源管理
+,,,RubyMetric/chsrc,,软件源管理
 sirwart/ripsecrets,,查找敏感信息
 ,,,git-ecosystem/git-credential-manager,,git凭证管理
 git-credential-oauth,,git凭证管理

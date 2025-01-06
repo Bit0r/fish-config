@@ -1,12 +1,13 @@
 {
+	"tabsize": 2,
 	"diffgutter": true,
 	"hlsearch": true,
 	"mkparents": true,
 	"rmtrailingws": true,
 	"scrollbar": true,
-	"clipboard": "terminal",
+	//"clipboard": "terminal",
 	"tabmovement": true,
 	"indentchar": "|",
-	// "colorscheme": "bubblegum" // 亮色主题
+	//"colorscheme": "bubblegum" // 亮色主题
 	"colorscheme": "atom-dark"
 }
