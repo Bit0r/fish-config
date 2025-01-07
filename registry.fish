@@ -32,7 +32,7 @@ set -Ux RUSTUP_UPDATE_ROOT 'https://mirrors.cernet.edu.cn/rustup/rustup'
 set -Ux RUSTUP_DIST_SERVER 'https://mirrors.cernet.edu.cn/rustup'
 
 # 配置 cargo 镜像
-cp -b ./config/rust/cargo.cfg ~/.cargo/config
+cp -b ./config/rust/cargo.toml ~/.cargo/
 
 # 配置 maven 镜像
 cp -b ./config/java/maven/settings.xml ~/.m2/

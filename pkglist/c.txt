@@ -1,4 +1,5 @@
 abi-tracker
+clang
 clang-format
 build-essential
 gcc-multilib

@@ -34,6 +34,7 @@ jbig2dec
 jid
 jq
 lhasa
+libelf-dev
 libimage-exiftool-perl
 libnss3-tools
 libpcap-dev
