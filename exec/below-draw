@@ -11,93 +11,168 @@ from pathlib import Path
 
 from fire import Fire
 from pint import UnitRegistry
+import numpy as np
 import pandas as pd
 from pandasgui import show
 
-# %%
-# 创建一个 UnitRegistry 实例
-ureg = UnitRegistry()
-
 
 # %%
-def parse_memory(memory_str, unit='MB'):
-    """将内存字符串转换为指定单位的数值"""
+class BelowDrawer:
+    def __init__(self):
+        self.ureg = UnitRegistry()
 
-    # 将K换成k，https://github.com/hgrecco/pint/issues/1232
-    memory_str = memory_str.replace('K', 'k')
-    q = ureg(memory_str, case_sensitive=True)
-    # 返回该单位下的数值
-    return q.to(unit).magnitude
+    def parse_memory(self, memory_str, unit='MB'):
+        """将内存字符串转换为指定单位的数值"""
+        if pd.isna(memory_str):
+            return np.nan
 
+        # 将K换成k，https://github.com/hgrecco/pint/issues/1232
+        memory_str = memory_str.replace('K', 'k')
+        q = self.ureg(memory_str, case_sensitive=True)
+        # 返回该单位下的数值
+        return q.to(unit).magnitude
 
-# %%
-def parse_pages_per_second(page_str):
-    """将 'pages/s' 字符串转换为数值"""
+    @staticmethod
+    def parse_pages_per_second(page_str):
+        """将 'pages/s' 字符串转换为数值"""
+        if pd.isna(page_str):
+            return np.nan
 
-    return int(page_str.split()[0])
+        return int(page_str.split()[0])
 
+    def convert_system(self, df: pd.DataFrame):
+        """转换系统数据"""
 
-# %%
-def convert_system(df: pd.DataFrame):
-    """转换系统数据"""
+        # 将 'Kernel Version', 'OS Release', 'Hostname' 列转换为分类数据类型
+        for col in 'Hostname,Kernel Version,OS Release'.split(','):
+            df[col] = df[col].astype('category')
 
-    # 将 'Datetime' 列转换为日期时间对象
-    df['Datetime'] = pd.to_datetime(df['Datetime'])
+        # 将 'Timestamp', 'Boot Time Epoch' 列转换为日期时间对象
+        for col in 'Timestamp,Boot Time Epoch'.split(','):
+            df[col] = pd.to_datetime(df[col], unit='s')
 
-    # 将 'Kernel Version', 'OS Release', 'Hostname' 列转换为分类数据类型
-    for col in 'Hostname,Kernel Version,OS Release'.split(','):
-        df[col] = df[col].astype('category')
+        for col in 'Usage,User,System'.split(','):
+            # 直接移除百分号并转换为浮点数，因为缺失值已在读取时处理
+            df[col] = df[col].str.rstrip('%').astype('float') / 100
 
-    # 将 'Timestamp', 'Boot Time Epoch' 列转换为日期时间对象
-    for col in 'Timestamp,Boot Time Epoch'.split(','):
-        df[col] = pd.to_datetime(df[col], unit='s')
+        # 将内存字符串转换为pint对象
+        for col in 'Total,Free'.split(','):
+            df[col] = df[col].apply(self.parse_memory)
 
-    # 删除百分号并将相应列转换为浮点类型
-    for col in 'Usage,User,System'.split(','):
-        df[col] = df[col].str.rstrip('%').astype('float') / 100.0
+        # 将速率转换为 'kB/s'
+        for col in 'Page In,Page Out,Swap In,Swap Out'.split(','):
+            df[f'{col}(kB/s)'] = df[col].apply(self.parse_memory, unit='kB/s')
+            # 删除原始列
+            df = df.drop(col, axis=1)
 
-    # 将内存字符串转换为pint对象
-    for col in 'Total,Free'.split(','):
-        df[col] = df[col].apply(parse_memory)
+        # 应用函数转换 'pages/s' 列
+        columns_to_parse = (
+            'Pgsteal Kswapd,Pgsteal Direct,Pgscan Kswapd,Pgscan Direct'.split(',')
+        )
+        for column in columns_to_parse:
+            df[f'{column}(pages/s)'] = df[column].apply(self.parse_pages_per_second)
+            # 删除原始列
+            df = df.drop(column, axis=1)
 
-    # 将速率转换为 'kB/s'
-    for col in 'Page In,Page Out,Swap In,Swap Out'.split(','):
-        df[f'{col}(kB/s)'] = df[col].apply(parse_memory, unit='kB/s')
+        return df
+
+    def convert_process(self, df: pd.DataFrame):
+        """转换进程数据"""
+
+        # 将 'Comm', 'State', 'Cgroup' 列转换为分类数据类型
+        for col in 'Comm,State,Cgroup'.split(','):
+            df[col] = df[col].astype('category')
+
+        # 将 'Timestamp' 列转换为日期时间对象
+        df['Timestamp'] = pd.to_datetime(df['Timestamp'], unit='s')
+
+        # 将 'Uptime(sec)' 列转换为日期持续时间对象
+        df['Uptime'] = pd.to_timedelta(df['Uptime(sec)'], unit='s')
         # 删除原始列
-        df = df.drop(col, axis=1)
+        df = df.drop('Uptime(sec)', axis=1)
 
-    # 应用函数转换 'pages/s' 列
-    columns_to_parse = (
-        'Pgsteal Kswapd,Pgsteal Direct,Pgscan Kswapd,Pgscan Direct'.split(',')
-    )
-    for column in columns_to_parse:
-        df[f'{column}(pages/s)'] = df[column].apply(parse_pages_per_second)
+        # 将 CPU 列转换为浮点数
+        df['CPU'] = df['CPU'].str.rstrip('%').astype('float') / 100
+
+        # 将 RSS 列转换为 'MB'
+        df['RSS(MB)'] = df['RSS'].apply(self.parse_memory)
         # 删除原始列
-        df = df.drop(column, axis=1)
+        df = df.drop('RSS', axis=1)
 
-    return df
+        # 将 Read, Write 列转换为 'kB/s'
+        for col in 'Reads,Writes'.split(','):
+            df[f'{col}(kB/s)'] = df[col].apply(self.parse_memory, unit='kB/s')
+            # 删除原始列
+            df = df.drop(col, axis=1)
 
+        # 将 Cmdline, Exe Path 列转换为string
+        for col in 'Cmdline,Exe Path'.split(','):
+            df[col] = df[col].astype('string')
 
-# %%
-def draw_below(dump_file: Path | str = './dump.csv', dump_type='system'):
-    dump_file = Path(dump_file).expanduser().resolve()
+        return df
 
-    # 读取数据
-    df = pd.read_csv(dump_file)
+    def draw_dump(self, dump_file: Path | str = './dump.tsv', dump_type='system'):
+        dump_file = Path(dump_file).expanduser().resolve()
 
-    # 删除不需要的最后一列
-    df = df.drop(df.columns[-1], axis=1)
+        # 读取数据，将 '?' 识别为缺失值，将 'Datetime' 列转换为日期时间对象
+        df = pd.read_csv(dump_file, sep='\t', parse_dates=['Datetime'], na_values=['?'])
 
-    # 转换数据
-    match dump_type:
-        case 'system':
-            df = convert_system(df)
-        case 'process':
-            pass
+        # 删除不需要的最后一列
+        df = df.drop(df.columns[-1], axis=1)
 
-    show(df)
+        # 转换数据
+        match dump_type:
+            case 'system':
+                df = self.convert_system(df)
+            case 'process':
+                df = self.convert_process(df)
+
+        show({dump_file.name: df})
+
+    def draw_dumps(
+        self,
+        *dump_files: Path | str,
+        dump_types='system,process',
+    ):
+        dump_files = [
+            Path(dump_file).expanduser().resolve() for dump_file in dump_files
+        ]
+
+        # 读取数据，将 '?' 识别为缺失值
+        df_dict = {
+            dump_file.name: pd.read_csv(
+                dump_file,
+                sep='\t',
+                parse_dates=['Datetime'],
+                na_values=['?'],
+            )
+            for dump_file in dump_files
+        }
+
+        # 删除不需要的最后一列
+        df_dict = {
+            name: df.drop(df.columns[-1], axis=1) for name, df in df_dict.items()
+        }
+
+        # 转换数据
+        # for dump_type, df in zip(dump_types.split(','), df_dict):
+        #     match dump_type:
+        #         case 'system':
+        #             df = self.convert_system(df)
+        #         case 'process':
+        #             df = self.convert_process(df)
+
+        # 转换数据
+        for dump_type, (name, df) in zip(dump_types.split(','), df_dict.items()):
+            match dump_type:
+                case 'system':
+                    df_dict[name] = self.convert_system(df)
+                case 'process':
+                    df_dict[name] = self.convert_process(df)
+
+        show(**df_dict)
 
 
 # %%
 if __name__ == '__main__':
-    Fire(draw_below)
+    Fire(BelowDrawer)
