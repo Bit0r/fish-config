@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+# %%
+from __future__ import annotations
+
+import os
+
+# https://github.com/adamerose/PandasGUI/issues/220
+os.environ.setdefault('APPDATA', '')
+from pprint import pprint
+from pathlib import Path
+
+from fire import Fire
+from pint import UnitRegistry
+import pandas as pd
+from pandasgui import show
+
+# %%
+# 创建一个 UnitRegistry 实例
+ureg = UnitRegistry()
+
+
+# %%
+def parse_memory(memory_str, unit='MB'):
+    """将内存字符串转换为指定单位的数值"""
+
+    # 将K换成k，https://github.com/hgrecco/pint/issues/1232
+    memory_str = memory_str.replace('K', 'k')
+    q = ureg(memory_str, case_sensitive=True)
+    # 返回该单位下的数值
+    return q.to(unit).magnitude
+
+
+# %%
+def parse_pages_per_second(page_str):
+    """将 'pages/s' 字符串转换为数值"""
+
+    return int(page_str.split()[0])
+
+
+# %%
+def convert_system(df: pd.DataFrame):
+    """转换系统数据"""
+
+    # 将 'Datetime' 列转换为日期时间对象
+    df['Datetime'] = pd.to_datetime(df['Datetime'])
+
+    # 将 'Kernel Version', 'OS Release', 'Hostname' 列转换为分类数据类型
+    for col in 'Hostname,Kernel Version,OS Release'.split(','):
+        df[col] = df[col].astype('category')
+
+    # 将 'Timestamp', 'Boot Time Epoch' 列转换为日期时间对象
+    for col in 'Timestamp,Boot Time Epoch'.split(','):
+        df[col] = pd.to_datetime(df[col], unit='s')
+
+    # 删除百分号并将相应列转换为浮点类型
+    for col in 'Usage,User,System'.split(','):
+        df[col] = df[col].str.rstrip('%').astype('float') / 100.0
+
+    # 将内存字符串转换为pint对象
+    for col in 'Total,Free'.split(','):
+        df[col] = df[col].apply(parse_memory)
+
+    # 将速率转换为 'kB/s'
+    for col in 'Page In,Page Out,Swap In,Swap Out'.split(','):
+        df[f'{col}(kB/s)'] = df[col].apply(parse_memory, unit='kB/s')
+        # 删除原始列
+        df = df.drop(col, axis=1)
+
+    # 应用函数转换 'pages/s' 列
+    columns_to_parse = (
+        'Pgsteal Kswapd,Pgsteal Direct,Pgscan Kswapd,Pgscan Direct'.split(',')
+    )
+    for column in columns_to_parse:
+        df[f'{column}(pages/s)'] = df[column].apply(parse_pages_per_second)
+        # 删除原始列
+        df = df.drop(column, axis=1)
+
+    return df
+
+
+# %%
+def draw_below(dump_file: Path | str = './dump.csv', dump_type='system'):
+    dump_file = Path(dump_file).expanduser().resolve()
+
+    # 读取数据
+    df = pd.read_csv(dump_file)
+
+    # 删除不需要的最后一列
+    df = df.drop(df.columns[-1], axis=1)
+
+    # 转换数据
+    match dump_type:
+        case 'system':
+            df = convert_system(df)
+        case 'process':
+            pass
+
+    show(df)
+
+
+# %%
+if __name__ == '__main__':
+    Fire(draw_below)

@@ -1,5 +1,6 @@
 attrs	# 类属性
 pipx	# 用于安装 python 工具
+pex	# 打包 python 环境
 ruff	# python 格式化，同时也是多种库的依赖
 runlike	# 导出 Docker Container 的运行命令
 yamlfix	# yaml 格式化

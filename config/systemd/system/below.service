@@ -3,7 +3,7 @@ Description=below system monitor recording daemon
 After=time-sync.target
 
 [Service]
-ExecStart=/usr/bin/below record --interval-s 30 --store-size-limit 3221225472 --compress --dict-compress-chunk-size 16
+ExecStart=/usr/local/bin/below record --interval-s 30 --store-size-limit 3221225472 --compress --dict-compress-chunk-size 16
 # Enable backtraces in errors
 Environment=RUST_LIB_BACKTRACE=1
 Restart=on-failure
