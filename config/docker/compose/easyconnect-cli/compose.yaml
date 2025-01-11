@@ -7,14 +7,13 @@ services:
       - NET_ADMIN
     tty: true
     stdin_open: true
-    volumes:
-      - ~/.easyconn:/root/.easyconn
     environment:
       - EC_VER=7.6.7
       - EXIT=1
       # - CLI_OPTS=-d <vpnaddress> -u <username> -p <password>
       - CLI_OPTS # use implicit environment variables, it will use the value of host $CLI_OPTS or .env file
     ports:
+      - 127.0.0.1:54530:54530
       - 127.0.0.1:1081:1080
       - 127.0.0.1:8801:8888
     image: hagb/docker-easyconnect:cli

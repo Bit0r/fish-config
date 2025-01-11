@@ -53,6 +53,7 @@ class GpgKeys:
             'stripe': 'https://packages.stripe.dev/api/security/keypair/stripe-cli-gpg/public',
             'ngrok': 'https://ngrok-agent.s3.amazonaws.com/ngrok.asc',
             'goaccess': 'https://deb.goaccess.io/gnugpg.key',
+            'grafana': 'https://packages.grafana.com/gpg.key',
         }
         self.keys_hash = [
             {

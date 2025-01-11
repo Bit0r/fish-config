@@ -37,6 +37,10 @@ cat ./config/bash/profile.d.sh >>~/.profile
 # 复制rc文件
 cp -f config/.*rc ~/
 
+# 配置 mimeapps 文件
+touch ~/.config/mimeapps.list
+ln -sf ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
+
 # 配置 bat
 #cp ./config/bat/config ~/.config/bat/
 

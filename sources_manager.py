@@ -51,6 +51,7 @@ class ThirdPartySources:
             'stripe': 'deb [signed-by={}] https://packages.stripe.dev/stripe-cli-debian-local stable main',
             'ngrok': 'deb [signed-by={}] https://ngrok-agent.s3.amazonaws.com buster main',
             'goaccess': f'deb [arch=amd64 signed-by={{}}] https://deb.goaccess.io/ {version_codename} main',
+            'grafana': 'deb [signed-by={}] https://mirrors.aliyun.com/grafana/debian stable main',
         }
 
         self.keyrings_path = Path(keyrings_path).expanduser().resolve()
