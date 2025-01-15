@@ -6,6 +6,7 @@ from __future__ import annotations
 import os
 import re
 from pathlib import Path
+import mimetypes
 
 from fire import Fire
 from pint import UnitRegistry
@@ -22,7 +23,7 @@ from github.GitReleaseAsset import GitReleaseAsset
 
 # %%
 catch_any_exception()
-load_dotenv()
+load_dotenv(override=True)
 
 
 # %%
@@ -30,83 +31,90 @@ class GithubDownload:
     def __init__(self, token: str | None = None):
         self.token = token
 
-        self.amd64: re.Pattern = re.compile(r'(amd|x86[-_])64')
-        self.cksum_suffies = '.sha256 .minisig .asc .sig'.split()
+        self.amd64 = re.compile(r'(amd|x86[-_])64')
+        self.non_linux = re.compile(
+            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|apple|win|bsd'
+        )
+        # 最低优先级为19
+        self.lowest_priority = 19
 
     def get_asset_priority(self, asset):
         """
-        0. gnu.deb,*.xpi
-        1. musl.deb
-        2. gnu.run
-        3. musl.run
-        4. gnu.AppImage
-        5. musl.AppImage
+        0. amd64-gnu.deb,*.xpi,*.vsix
+        1. amd64-musl.deb
 
-        6. gnu.zip or gnu.tar.gz
-        7. musl.zip or gnu.tar.gz
+        2. amd64-gnu.run
+        3. amd64-musl.run
 
-        8. no-amd64-gnu.deb
-        9. no-amd64-musl.deb
-        10. no-amd64-gnu.run
-        11. no-amd64-musl.run
-        12. no-amd64-gnu.AppImage
-        13. no-amd64-musl.AppImage
+        4. amd64-gnu.AppImage
+        5. amd64-musl.AppImage
 
-        14. no-amd64-gnu.zip or no-amd64-gnu.tar.gz
-        15. no-amd64-musl.zip or no-amd64-gnu.tar.gz
+        6. amd64-gnu.zip or amd64-gnu.tar.gz
+        7. amd64-musl.zip or amd64-gnu.tar.gz
 
-        16. other
+        8. amd64-gnu
+        9. amd64-musl
+
+        10. gnu.deb
+        11. musl.deb
+
+        12. gnu.run
+        13. musl.run
+
+        14. gnu.AppImage
+        15. musl.AppImage
+
+        16. gnu.zip or gnu.tar.gz
+        17. musl.zip or gnu.tar.gz
+
+        18. cli
+
+        19. others
         """
         priority = 0
 
-        name_path = Path(asset.name.casefold())
-        name_stem = name_path.stem.casefold()
-        name_suffix = name_path.suffix.casefold()
+        name = asset.name.casefold()
+        suffix = Path(name).suffix
+        mimetype = mimetypes.guess_type(name)[0]
 
-        if name_suffix in self.cksum_suffies:
-            # 如果是校验文件，那么就不用下载
-            return 16
+        if self.non_linux.search(name):
+            # 如果名字中包含非Linux的关键词，那么优先级最低
+            return self.lowest_priority
 
-        if name_suffix not in ['.deb', '.xpi', '.vsix'] and 'ubuntu' not in name_stem:
-            # 如果后缀名不是deb或xpi或vsix，而且名字中不包含ubuntu，那么优先级下调1
+        if not (suffix in ['.deb', '.xpi', '.vsix'] or 'ubuntu' in name):
+            # 如果后缀名不是deb或xpi或vsix，而且名字中不包含ubuntu，那么优先级下调2
             priority += 2
-        if priority >= 2 and name_suffix != '.run':
+        if priority == 2 and suffix != '.run':
             # 也不是run包，那么优先级下调2
             priority += 2
-        if priority >= 4 and name_suffix != '.appimage':
+        if priority == 4 and suffix != '.appimage':
             # 也不是AppImage包，那么优先级下调2
             priority += 2
+        if priority == 6 and not (mimetype and mimetype.split('/')[0] == 'application'):
+            # 如果没有mimetype，或者mimetype不是application，那么优先级下调2
+            priority += 2
 
-        if 'musl' in name_stem:
+        if 'musl' in name:
             # 是musl包，那么优先级下调1
             priority += 1
 
-        if not self.amd64.search(name_stem):
-            # 不是amd64包，那么优先级下调8
-            priority += 8
+        if not self.amd64.search(name):
+            # 不是amd64包，那么优先级下调10
+            priority += 10
 
-        if (
-            0 <= priority <= 5
-            or 8 <= priority <= 13
-            or ((6 <= priority <= 7 or 14 <= priority <= 15) and 'linux' in name_stem)
-        ):
-            # 如果优先级是0-5, 8-13, 或者是6-7, 14-15并且是linux包，那么直接返回优先级
-            return priority
-
-        # 其他情况
-        return 16
+        return priority
 
     def get_highest_priority_asset(
         self, assets: list[GitReleaseAsset]
     ) -> GitReleaseAsset | None:
-        priority_assets = [None] * 17
+        priority_assets = [None] * self.lowest_priority
 
         for asset in assets:
             priority = self.get_asset_priority(asset)
+            if priority >= self.lowest_priority:
+                # 优先级太低，那么就不用下载
+                continue
             priority_assets[priority] = asset
-
-        # 去掉最后一个元素，因为最后一个元素是other
-        priority_assets = priority_assets[:-1]
 
         # 返回优先级最高的asset
         return first_true(priority_assets)
@@ -140,9 +148,10 @@ class GithubDownload:
         logger.info(f'{repo}: downloading {asset.name}')
         ureg = UnitRegistry()
 
-        with self.httpx_client.stream(
-            'GET', asset.browser_download_url
-        ) as response, open(output_dir / asset.name, 'wb') as f:
+        with (
+            self.httpx_client.stream('GET', asset.browser_download_url) as response,
+            open(output_dir / asset.name, 'wb') as f,
+        ):
             if progress:
                 task = progress.add_task(f'Downloading {asset.name}', total=asset.size)
                 total_mb = (asset.size * ureg.byte).to(ureg.megabyte)
