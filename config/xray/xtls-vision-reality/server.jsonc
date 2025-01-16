@@ -9,7 +9,12 @@
 					{
 						"id": "", // 长度为 1-30 字节的任意字符串，或执行 xray uuid 生成
 						"flow": "xtls-rprx-vision" // 流控类型
-					}
+					} /* ,
+					{
+						"id": "", // 长度为 1-30 字节的任意字符串，或执行 xray uuid 生成
+						"email": "forward@xray.com", // 邮箱地址，用于在路由规则中分流
+						"flow": "xtls-rprx-vision" // 流控类型
+					} */
 				],
 				"decryption": "none"
 			},

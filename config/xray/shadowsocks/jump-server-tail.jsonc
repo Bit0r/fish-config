@@ -1,0 +1,21 @@
+{
+	"outbounds": [
+		{
+			// 使用 ss 转发到下一个代理
+			"protocol": "shadowsocks",
+			"settings": {
+				"servers": [
+					{
+						"address": "", // 目标主机地址
+						"port": 8388, // 目标主机端口
+						"method": "2022-blake3-aes-128-gcm",
+						"password": "", // 与目标主机中的密码保持一致
+						"uot": true,
+						"UoTVersion": 2
+					}
+				]
+			},
+			"tag": "forward"
+		}
+	]
+}

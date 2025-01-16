@@ -10,6 +10,20 @@
 		"rules": [
 			{
 				"type": "field",
+				// 根据不同的用户，转发到不同的代理
+				"user": [
+					"forward@xray.com" // 入站的用户，需要在跳板主机的 clients 中配置一样的 email
+				],
+				"domain": [
+					"geosite:tiktok",
+					"domain:check.myclientip.com",
+					"domain:check.adspower.com",
+					"domain:ip-scan.adspower.net"
+				],
+				"outboundTag": "forward"
+			},
+			{
+				"type": "field",
 				"ip": [
 					"geoip:cn",
 					"geoip:private"

@@ -1,0 +1,23 @@
+{
+	"inbounds": [
+		{
+			"listen": "0.0.0.0",
+			"port": 8388,
+			"protocol": "shadowsocks",
+			"settings": {
+				"network": "tcp,udp",
+				"method": "2022-blake3-aes-128-gcm",
+				"password": "" // 使用 openssl rand -base64 16 生成密码
+			},
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls",
+					"quic"
+				],
+				"routeOnly": true
+			}
+		}
+	]
+}
