@@ -33,7 +33,7 @@ class GithubDownload:
 
         self.amd64 = re.compile(r'(amd|x86[-_])64')
         self.non_linux = re.compile(
-            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|apple|win|bsd'
+            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|\bmac\b|apple|win|bsd'
         )
         # 最低优先级为19
         self.lowest_priority = 19
