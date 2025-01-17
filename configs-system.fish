@@ -14,7 +14,7 @@ sudo chmod -R 2775 /var/log
 
 # 创建目录
 sudo mkdir -p \
-    /root/.config/aria2 \
+    /root/.config/{aria2,below} \
     /usr/share/xsessions \
     /etc/{default,graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,yamlfix} \
     /etc/systemd/{system,user}.conf.d \
@@ -147,10 +147,17 @@ sudo cp -a ./config/docker/compose/. $DOCKER_COMPOSE_DIR/
 # 配置 imwheel
 #sudo cp ./config/imwheel/imwheelrc /etc/X11/imwheel/
 
-# 配置杂项
+# 配置 mpv
 sudo cp ./config/smplayer/mpv.conf /etc/mpv/
+
+# 配置 tmux
 sudo cp ./config/tmux.conf /etc/
+
+# 配置 yt-dlp
 sudo cp ./config/yt-dlp.conf /etc/
+
+# 配置 below
+sudo cp ./config/below/belowrc.toml /root/.config/below/belowrc
 
 # 关闭 baloo 文件索引
 if type -q balooctl

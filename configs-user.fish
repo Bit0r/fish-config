@@ -8,7 +8,7 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,direnv,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,below,direnv,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
     ~/.local/share/{applications,kservices5/ServiceMenus,mime/packages,konsole,fcitx5,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     ~/.local/lib/portainer \
@@ -85,6 +85,9 @@ cp ./config/dive/*.yaml ~/.config/dive/
 
 # 配置aria2
 cp ./config/aria2/aria2.conf ~/.config/aria2/
+
+# 配置 below
+cp ./config/below/belowrc.toml ~/.config/below/belowrc
 
 # 配置 hadolint
 cp -R ./config/docker/hadolint/. ~/.config/

@@ -1,0 +1,3 @@
+[view]
+collapse_cgroups = true
+default_view = "process"
