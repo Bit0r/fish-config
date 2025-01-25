@@ -1,0 +1,58 @@
+{
+	debug # 启用调试日志
+
+	storage file_system {
+		root /var/lib/caddy
+	}
+
+	log {
+		output file /var/log/caddy/caddy.jsonl {
+			mode 640
+			roll_size 10MiB
+			roll_keep 30
+			roll_keep_for 30d
+		}
+		# 即使是用 console 格式输出，内容也是 json 格式，所以还不如直接输出 json
+		format json {
+			time_format iso8601
+		}
+		level DEBUG
+	}
+}
+
+# PHP站点配置
+{$CADDY_DOMAIN} {
+	# 下面是3种服务配置
+
+	# Node.js 服务
+	reverse_proxy :3000
+
+	# 静态文件服务或者PHP文件服务
+	root * /srv/www/web
+	# PHP FPM 配置
+	php_fastcgi unix//run/php/php8.3-fpm.sock
+
+	# 文件服务
+	file_server {
+		# 启用目录列表
+		browse {
+			# 允许符号链接
+			reveal_symlinks
+		}
+	}
+
+	# 日志配置
+	log {
+		output file /var/log/caddy/php.jsonl {
+			mode 640
+			roll_size 10MiB
+			roll_keep 100
+			roll_keep_for 90d
+		}
+		# 即使是用 console 格式输出，内容也是 json 格式，所以还不如直接输出 json
+		format json {
+			time_format iso8601
+		}
+		level DEBUG
+	}
+}
