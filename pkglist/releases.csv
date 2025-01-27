@@ -51,7 +51,6 @@ mitmproxy/mitmproxy,,抓包工具
 imsnif/bandwhich,,网络带宽监控
 RustScan/RustScan,,端口扫描
 ,,,iawia002/lux,,视频下载工具
-yt-dlp/yt-dlp,,youtube下载工具
 aandrew-me/ytDownloader,,yt-dlp的GUI
 zu1k/nali,,ip查询
 ,,,oldj/SwitchHosts,,hosts管理

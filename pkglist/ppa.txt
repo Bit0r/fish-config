@@ -1,3 +1,4 @@
+yt-dlp
 mainline
 grub-customizer
 python3-drgn

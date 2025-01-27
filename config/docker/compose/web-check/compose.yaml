@@ -4,7 +4,7 @@ services:
     # network_mode: host
     container_name: Web-Check
     ports:
-      - 3000:3000
+      - 3400:3000
     image: lissy93/web-check
     restart: unless-stopped
 
