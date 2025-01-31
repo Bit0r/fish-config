@@ -5,6 +5,7 @@ localsend
 switchhosts
 apifox
 picgo
+draw.io
 com.github.ccc-app-manager
 android-adb-fastboot-tools
 com.xiaomitool

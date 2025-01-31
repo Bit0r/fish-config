@@ -1,4 +1,5 @@
 gh
 docker-ctop
+xpipe
 zotero
 onlyoffice-desktopeditors

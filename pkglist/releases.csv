@@ -9,7 +9,6 @@ eza-community/eza,,ls的替代品
 Slackadays/Clipboard,,终端剪贴板
 xrelkd/clipcat,,终端剪贴板
 austinjones/tab-rs,,终端多路复用
-xpipe-io/xpipe,,连接管理工具
 akavel/up,,交互式运行管道命令
 Canop/dysk,,磁盘使用情况-分区占用
 bootandy/dust,,磁盘使用情况-du的替代品
@@ -85,7 +84,7 @@ Y2Z/monolith,,网页转pdf
 quarto-dev/quarto-cli,,可使用python代码的文档生成
 typst/typst,,latex替代品
 nvarner/typst-lsp,,typst的lsp
-jgraph/drawio-desktop,,绘图工具
+,,,jgraph/drawio-desktop,使用spark安装,绘图工具
 charmbracelet/freeze,,终端命令转图片
 WerWolv/ImHex,,hex编辑器
 koodo-reader/koodo-reader,,epub阅读器

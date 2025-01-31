@@ -12,6 +12,7 @@ mkdir -p \
     ~/.local/share/{applications,kservices5/ServiceMenus,mime/packages,konsole,fcitx5,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     ~/.local/lib/portainer \
+    ~/.wine/drive_c/users/$USER/AppData/Roaming/'Microsoft Games/Rise of Nations' \
     $python_site
 mkdir -pm 700 ~/.ssh/controls
 
@@ -150,6 +151,9 @@ cp config/konsole/konsolerc ~/.config/
 # 配置 ksystemlog
 cp /usr/share/applications/org.kde.ksystemlog.desktop ~/.local/share/applications/
 sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' ~/.local/share/applications/org.kde.ksystemlog.desktop
+
+# 配置 wine
+cp -a ./config/wine/rise2.ini ~/.wine/drive_c/users/$USER/AppData/Roaming/'Microsoft Games/Rise of Nations/'
 
 # 配置浏览器
 for browser in vivaldi-stable

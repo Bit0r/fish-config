@@ -46,6 +46,7 @@ class GpgKeys:
             'hashicorp': 'https://apt.releases.hashicorp.com/gpg',
             'mise': 'https://mise.jdx.dev/gpg-key.pub',
             'nodejs': 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
+            'xpipe': 'https://xpipe.io/signatures/crschnick.gpg',
             'winehq': 'https://dl.winehq.org/wine-builds/winehq.key',
             'zotero': 'https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg',
             'onlyoffice': 'https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE',
