@@ -48,6 +48,7 @@ class GpgKeys:
             'nodejs': 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
             'xpipe': 'https://xpipe.io/signatures/crschnick.gpg',
             'winehq': 'https://dl.winehq.org/wine-builds/winehq.key',
+            'waydroid': 'https://repo.waydro.id/waydroid.gpg',
             'zotero': 'https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg',
             'onlyoffice': 'https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE',
             'nvidia-container': 'https://nvidia.github.io/libnvidia-container/gpgkey',

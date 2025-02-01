@@ -45,6 +45,7 @@ class ThirdPartySources:
             'nodejs': f'deb [arch=amd64 signed-by={{}}] https://deb.nodesource.com/node_{node_major}.x nodistro main',
             'xpipe': 'deb [signed-by={}] https://apt.xpipe.io/ stable main',
             'winehq': f'deb [arch=amd64,i386 signed-by={{}}] http://mirrors.tuna.tsinghua.edu.cn/wine-builds/ubuntu/ {version_codename} main',
+            'waydroid': f'deb [signed-by={{}}] https://repo.waydro.id/ {version_codename} main',
             'zotero': 'deb [arch=amd64 signed-by={} by-hash=force] https://zotero.retorque.re/file/apt-package-archive ./',
             'onlyoffice': 'deb [signed-by={}] https://download.onlyoffice.com/repo/debian squeeze main',
             # "nvidia-container": "deb [signed-by={}] https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH) /",

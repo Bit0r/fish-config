@@ -1,0 +1,11 @@
+{
+	"ai:model": "gpt-4o",
+	"ai:baseurl": "http://localhost:9090/v1",
+	"ai:apitoken": "sk-123456",
+	"autoupdate:channel": "latest",
+	"conn:askbeforewshinstall": false,
+	"term:copyonselect": false,
+	"term:allowbracketedpaste": true,
+	"term:fontsize": 18,
+	"term:fontfamily": "Fira Code Light, Noto Sans Mono CJK SC Light, monospace"
+}
