@@ -1,7 +1,8 @@
+pandoc
 #gwakeonlan
 #cn.flamescion.bookworm-compatibility-mode
 com.heynote.spark
-localsend
+#localsend
 switchhosts
 apifox
 picgo

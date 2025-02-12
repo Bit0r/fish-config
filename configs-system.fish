@@ -174,6 +174,9 @@ for app_image in ivySCI
     sudo cp config/desktop/$app_image.desktop /usr/local/share/applications/
 end
 #sudo cp config/caj-viewer.xml /usr/local/share/mime/packages/
+sudo ln -s /opt/**/cake_wallet /usr/local/bin/
+sudo ln -s /opt/**/cakewallet_icon_1024.png /usr/local/share/icons/
+sudo cp config/desktop/CakeWallet.desktop /usr/local/share/applications/
 
 # 配置snap
 sudo snap set system snapshots.automatic.retention=no

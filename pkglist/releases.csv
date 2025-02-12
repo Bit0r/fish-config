@@ -9,6 +9,7 @@ eza-community/eza,,ls的替代品
 Slackadays/Clipboard,,终端剪贴板
 xrelkd/clipcat,,终端剪贴板
 austinjones/tab-rs,,终端多路复用
+wavetermdev/waveterm,,现代终端
 akavel/up,,交互式运行管道命令
 Canop/dysk,,磁盘使用情况-分区占用
 bootandy/dust,,磁盘使用情况-du的替代品
@@ -65,6 +66,7 @@ ktock/buildg,,dockerfile debug
 ktock/vscode-buildg,,buildg的vscode插件
 wagoodman/dive,,docker镜像分析
 containrrr/watchtower,,docker镜像更新
+devzhi/imgx,,docker镜像传输
 google/cadvisor,,docker监控
 iximiuz/cdebug,,docker容器debug
 mamba-org/micromamba-releases,,conda的替代品
@@ -77,7 +79,7 @@ svenstaro/genact,,产生无意义的终端活动
 ,,,bartobri/no-more-secrets,
 ssut/payload-dumper-go,,提取payload.bin文件
 getzola/zola,,静态网站生成器
-jgm/pandoc,,文档转换
+,,使用spark安装,jgm/pandoc,,文档转换
 lierdakil/pandoc-crossref,,pandoc的交叉引用
 rust-lang/mdBook,,静态文档生成
 Y2Z/monolith,,网页转pdf

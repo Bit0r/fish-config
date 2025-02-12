@@ -7,6 +7,8 @@ yamlfix	# yaml 格式化
 config-formatter	# 配置文件格式化
 pypyp	# 在命令行中运行 python
 pipreqs	# 生成 requirements.txt
+toolz	# 函数式编程
+chardet	# 字符编码检测
 stringzilla	# 字符串处理
 #nvitop	# 显卡监控
 johnnydep	# 无须安装，可直接查看依赖

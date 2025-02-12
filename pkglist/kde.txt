@@ -1,6 +1,6 @@
-language-pack-kde-zh-hans
 kcharselect
 kde-config-cron
+kde-config-flatpak
 kdiskmark
 keepassxc
 kleopatra
@@ -8,6 +8,8 @@ kmag
 kolourpaint
 kompare
 krdc
-krfb
 krename
+krfb
 krusader
+language-pack-kde-zh-hans
+plasma-discover-backend-flatpak
