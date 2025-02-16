@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 
 mkdir -p ~/.{cargo,m2,kaggle} \
-    ~/.config/{pip,go}
+    ~/.config/{pip,uv,go}
 
 # 配置 fnm 镜像
 #echo 'set -e FNM_NODE_DIST_MIRROR' >>~/.config/fish/conf.d/fnm.fish
@@ -12,6 +12,9 @@ cp -b ./config/python/conda/.* ~/
 
 # 配置 pip 镜像
 cp ./config/python/pip.conf ~/.config/pip/
+
+# 配置 uv 镜像
+cp ./config/python/uv/* ~/.config/uv/
 
 # 配置 poetry 镜像
 set -Ux POETRY_PYPI_MIRROR_URL 'https://mirrors.aliyun.com/pypi/simple'

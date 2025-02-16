@@ -73,5 +73,6 @@ unrar
 wget2
 whois
 wmctrl
+xxhash
 zhcon
 zstd

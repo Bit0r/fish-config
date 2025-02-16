@@ -8,7 +8,7 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,below,direnv,crontab-ui,aria2,clipcat,dive,pip,tstruct,tabby,waveterm,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
+    ~/.config/{fish/conf.d,profile.d,git,bat,below,direnv,crontab-ui,aria2,clipcat,dive,pip,uv,tstruct,tabby,waveterm,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
     ~/.local/share/{applications,kservices5/ServiceMenus,mime/packages,konsole,fcitx5,pandoc/{defaults,csl,css,docx}} \
     ~/.local/state/{aria2,clipcat} \
     ~/.local/lib/portainer \
@@ -111,6 +111,9 @@ cp -a ./config/javascript/biome/. ~/.config/biome/
 
 # 配置 ruff
 cp -a ./config/python/ruff/. ~/.config/ruff/
+
+# 配置 uv
+cp ./config/python/uv/* ~/.config/uv/
 
 if type -q python
     # 配置python

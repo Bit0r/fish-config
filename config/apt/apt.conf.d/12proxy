@@ -1,4 +1,5 @@
 Acquire::http::Proxy {
+	github.com "socks5h://localhost:1080";
 	cli.github.com "socks5h://localhost:1080";
 	objects.githubusercontent.com "socks5h://localhost:1080";
 	apt.xpipe.io "socks5h://localhost:1080";

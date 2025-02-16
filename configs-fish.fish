@@ -20,6 +20,12 @@ if confirm 'Do you want to install the user-level configuration for fish?'
     if type -q ruff
         ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
     end
+    if type -q uv
+        uv generate-shell-completion fish >~/.config/fish/completions/uv.fish
+    end
+    if type -q uvx
+        uvx --generate-shell-completion fish >~/.config/fish/completions/uvx.fish
+    end
     if type -q pipx
         register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
     end
@@ -65,6 +71,11 @@ if confirm 'Do you want to install the system-level configuration for fish?'
 
     # 安装系统级别的 fish 补全
     sudo mv ~/.config/fish/completions/* /etc/fish/completions/
+
+    # 安装特殊的 fish 补全
+    if type -q tabtab && type -q yarn && type -q fd
+        ln -s (fd -H yarn.fish ~/.local/share/) ~/.config/fish/completions/
+    end
 
     # 安装系统级别的 fish 脚本
     sudo install exec/* /usr/local/bin/

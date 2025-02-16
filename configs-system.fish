@@ -16,7 +16,7 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/{aria2,below} \
     /usr/share/xsessions \
-    /etc/{default,graftcp-local,cgproxy,conda,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,yamlfix} \
+    /etc/{default,graftcp-local,cgproxy,conda,uv,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,yamlfix} \
     /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /usr/local/etc/xray \
@@ -69,6 +69,9 @@ sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置conda
 sudo cp ./config/python/conda/.* /etc/conda/
+
+# 配置uv
+sudo cp ./config/python/uv/* /etc/uv/
 
 # 配置 yamlfix
 sudo cp ./config/yamlfix/pyproject.toml /etc/yamlfix/
@@ -270,6 +273,13 @@ if type -q samba && confirm 'Do you want to configure Samba?'
     sudo smbpasswd -a $USER
     testparm # 展示配置信息
     sudo systemctl restart smbd
+end
+
+# 配置 kyanos
+if type -q kyanos && confirm 'Do you want to configure Kyanos?'
+    set kyanos_path (type kyanos)
+    sudo setcap cap_bpf,cap_sys_admin+ep $kyanos_path
+    sudo chmod u+s $kyanos_path
 end
 
 # 配置libvirt

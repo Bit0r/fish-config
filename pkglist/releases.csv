@@ -13,6 +13,7 @@ wavetermdev/waveterm,,现代终端
 akavel/up,,交互式运行管道命令
 Canop/dysk,,磁盘使用情况-分区占用
 bootandy/dust,,磁盘使用情况-du的替代品
+Metaphorme/ezcheck,,文件校验
 pkolaczk/fclones,,查找重复文件
 sharkdp/fd,,查找文件
 marcusbuffett/pipe-rename,,在文本编辑器中批量重命名文件
@@ -47,7 +48,8 @@ ImageOptim/gifski,,gif图片生成
 ,,,ducaale/xh,,http请求工具
 qustavo/httplab,,交互式http服务器
 hookdeck/hookdeck-cli,,webhook工具
-mitmproxy/mitmproxy,,抓包工具
+hengyoush/kyanos,,ebpf抓包
+mitmproxy/mitmproxy,,代理抓包
 imsnif/bandwhich,,网络带宽监控
 RustScan/RustScan,,端口扫描
 ,,,iawia002/lux,,视频下载工具

@@ -15,6 +15,7 @@ language-selector-gnome
 luckybackup
 markdownpart
 nmapsi4
+mpv
 obs-studio
 protontricks
 q4wine

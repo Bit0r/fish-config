@@ -1,0 +1,7 @@
+index = [
+	{ url = "https://mirrors.cloud.tencent.com/pypi/simple", default = true },
+	{ url = "https://mirrors.aliyun.com/pypi/simple" },
+	{ url = "https://repo.huaweicloud.com/repository/pypi/simple" },
+	{ url = "https://mirrors.cernet.edu.cn/pypi/web/simple" },
+	# {url="https://pypi.org/simple"},
+]
