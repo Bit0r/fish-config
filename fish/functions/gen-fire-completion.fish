@@ -3,7 +3,7 @@ function gen-fire-completion -a command_name is_system -d "Generate completion f
     if [ -f $command_name ]
         set command_path $command_name
         # 如果是完整路径，那么就取basename
-        set command_name (basename $command_name)
+        set command_name (path basename $command_name)
     else
         # 如果不是完整路径，那么就在PATH中查找
         set command_path (type -P $command_name)
