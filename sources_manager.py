@@ -44,6 +44,7 @@ class ThirdPartySources:
             # "mise": "deb [signed-by={} arch=amd64] https://mise.jdx.dev/deb stable main",
             'nodejs': f'deb [arch=amd64 signed-by={{}}] https://deb.nodesource.com/node_{node_major}.x nodistro main',
             'xpipe': 'deb [signed-by={}] https://apt.xpipe.io/ stable main',
+            'windsurf': 'deb [signed-by={} arch=amd64] https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main',
             'winehq': f'deb [arch=amd64,i386 signed-by={{}}] http://mirrors.tuna.tsinghua.edu.cn/wine-builds/ubuntu/ {version_codename} main',
             'waydroid': f'deb [signed-by={{}}] https://repo.waydro.id/ {version_codename} main',
             'zotero': 'deb [arch=amd64 signed-by={} by-hash=force] https://zotero.retorque.re/file/apt-package-archive ./',
@@ -72,7 +73,7 @@ class ThirdPartySources:
             # 移动到 sources.list.d 文件夹
             sudo[mv[tmp_source_path, sources_path / f'{name}.list']]()
 
-            logger.info(f"Add {name} source to {sources_path / f'{name}.list'}")
+            logger.info(f'Add {name} source to {sources_path / f"{name}.list"}')
 
 
 # %%

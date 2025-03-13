@@ -1,4 +1,4 @@
-fish-shell/release-3
+fish-shell/release-4
 cappelikan/ppa
 tomtomtom/yt-dlp
 danielrichter2007/grub-customizer

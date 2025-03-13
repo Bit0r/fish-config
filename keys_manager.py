@@ -47,6 +47,7 @@ class GpgKeys:
             'mise': 'https://mise.jdx.dev/gpg-key.pub',
             'nodejs': 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
             'xpipe': 'https://xpipe.io/signatures/crschnick.gpg',
+            'windsurf': 'https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg',
             'winehq': 'https://dl.winehq.org/wine-builds/winehq.key',
             'waydroid': 'https://repo.waydro.id/waydroid.gpg',
             'zotero': 'https://raw.githubusercontent.com/retorquere/zotero-deb/master/zotero-archive-keyring.gpg',
@@ -110,9 +111,10 @@ class GpgKeys:
                 headers = dict(self.client.headers)
 
             # 流式下载二进制文件，同时使用 conditional get，避免重复下载
-            with self.client.stream('GET', url, headers=headers) as r, open(
-                tmp_key_path, 'wb'
-            ) as f:
+            with (
+                self.client.stream('GET', url, headers=headers) as r,
+                open(tmp_key_path, 'wb') as f,
+            ):
                 if r.status_code == httpx.codes.NOT_MODIFIED:
                     logger.warning(f'{key} keyring is up to date.')
                     continue
@@ -130,7 +132,7 @@ class GpgKeys:
     def recv_keys(self):
         keys_hash = BoxList(self.keys_hash)
         for key in keys_hash:
-            logger.info(f"Importing {key['name']} keyring...")
+            logger.info(f'Importing {key["name"]} keyring...')
 
             # 生成gpg密钥目录
             cmd = sudo[gpg['--list-keys']] >= '/dev/null'
