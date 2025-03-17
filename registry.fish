@@ -31,8 +31,8 @@ if type -q nrm
 end
 
 # 配置 rustup 镜像
-set -Ux RUSTUP_UPDATE_ROOT 'https://mirrors.cernet.edu.cn/rustup/rustup'
-set -Ux RUSTUP_DIST_SERVER 'https://mirrors.cernet.edu.cn/rustup'
+set -Ux RUSTUP_UPDATE_ROOT https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+set -Ux RUSTUP_DIST_SERVER https://mirrors.tuna.tsinghua.edu.cn/rustup
 
 # 配置 cargo 镜像
 cp -b ./config/rust/cargo.toml ~/.cargo/

@@ -5,7 +5,7 @@ source ./include/confirm.fish
 if fish_is_root_user && ! command -q sudo
     # 如果当前用户是 root 用户，且没有 sudo 命令，那么就将 sudo 命令设置为空命令
     # 虽然这样做不太安全且会报错，但不会影响后续的脚本执行
-    alias -s sudo 'eval '
+    alias -s sudo command
 end
 
 # 安装基本配置

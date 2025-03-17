@@ -6,7 +6,7 @@
 	# hooksPath = ~/.config/git/hooks
 [http]
 	# 必须设置端口，否则可能会导致无法推送
-	proxy = socks5://localhost:1080
+	proxy = socks5h://localhost:1080
 [credential]
 	helper = libsecret
 	#helper = store --file ~/.config/git/git-credentials
