@@ -9,4 +9,5 @@ Acquire::http::Proxy {
 	ppa.launchpadcontent.net "socks5h://localhost:1080";
 	microsoft.com "socks5h://localhost:1080";
 	windsurf-stable.codeiumdata.com "socks5h://localhost:1080";
+	zotero.retorque.re "socks5h://localhost:1080";
 };

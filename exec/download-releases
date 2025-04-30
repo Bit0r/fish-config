@@ -234,7 +234,7 @@ class GithubDownload:
         self.httpx_client = httpx.Client(
             headers={'Authorization': f'Bearer {token}'},
             follow_redirects=True,
-            proxies='socks5://localhost:1080',
+            proxy='socks5://localhost:1080',
             limits=limits,
             http2=True,
         )

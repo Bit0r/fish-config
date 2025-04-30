@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazydocker.json
+customCommands:
+  images:
+    - name: 运行并进入镜像
+      command: docker run -it --rm {{ .Image.Name }}:{{ .Image.Tag
+        }} /bin/bash
+      attach: true
+      description: 运行选定的镜像并进入交互式终端

@@ -1,4 +1,4 @@
-pnpm
+#pnpm
 yarn
 nnrm
 @antfu/ni
@@ -7,8 +7,13 @@ np
 all-the-package-names
 yarn-completions
 typescript
+node-modules-inspector
+shadcn-vue
 @biomejs/biome
-nuxthub
+#nuxthub
+nuxi
 @slidev/cli
 crontab-ui
 ungit
+@browsermcp/mcp
+@agentdeskai/browser-tools-mcp

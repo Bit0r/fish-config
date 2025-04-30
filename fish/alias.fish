@@ -12,6 +12,7 @@ alias -s proxy-git-lfs "git -c http.proxy=$http_proxy lfs"
 alias -s proxy-curl "curl -x $socks5h_proxy"
 alias -s proxy-aria2c "aria2c --all-proxy=$http_proxy"
 alias -s gh "HTTP_PROXY=$http_proxy HTTPS_PROXY=$http_proxy command gh"
+alias -s shadcn-vue 'proxychains shadcn-vue'
 alias -s ssh-proxy 'ssh -R 1080:localhost:1080 -R 8800:localhost:8800 -N'
 alias -s ssh-google 'ssh -L 53682:localhost:53682 -N'
 

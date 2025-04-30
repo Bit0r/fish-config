@@ -34,6 +34,7 @@ riquito/tuc,,cut的替代品
 duckdb/duckdb,,嵌入式分析型数据库
 k1LoW/tbls,,数据库文档生成
 supabase/cli,,supabase的cli
+supabase-community/postgres-language-server,,postgresql的lsp
 ClementTsang/bottom,,top的替代品
 Syllo/nvtop,,gpu的top
 Netflix/bpftop,,bpf的top
