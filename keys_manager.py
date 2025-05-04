@@ -46,6 +46,7 @@ class GpgKeys:
             'hashicorp': 'https://apt.releases.hashicorp.com/gpg',
             'mise': 'https://mise.jdx.dev/gpg-key.pub',
             'nodejs': 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
+            'postgresql': 'https://mirrors.aliyun.com/postgresql/repos/apt/ACCC4CF8.asc',
             'xpipe': 'https://xpipe.io/signatures/crschnick.gpg',
             'windsurf': 'https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg',
             'winehq': 'https://dl.winehq.org/wine-builds/winehq.key',
@@ -85,49 +86,63 @@ class GpgKeys:
         self.recv_keys()
 
     def download_urls(self):
-        tmp_path = Path(tempfile.gettempdir()).resolve()
+        for key_name, url in self.keys_url.items():  # Reverted variable name
+            logger.info(f'Importing {key_name} keyring...')
+            keyring_path = self.keyrings_path / f'{key_name}.gpg'
+            tmp_key_path = self._download_keyring(url, key_name)
 
-        for key, url in self.keys_url.items():
-            logger.info(f'Importing {key} keyring...')
+            if not tmp_key_path:
+                continue
 
-            # 临时存储密钥文件
-            tmp_key_path = tmp_path / f'{key}.gpg'
-            # keyring 文件路径
-            keyring_path = self.keyrings_path / f'{key}.gpg'
-
-            if keyring_path.exists():
-                # 获取keyring文件的最后修改时间
-                keyring_mtime = keyring_path.stat().st_mtime
-
-                # 将时间戳转化为 If-Modified-Since 格式
-                keyring_mtime = pendulum.from_timestamp(keyring_mtime)
-                keyring_mtime = keyring_mtime.in_tz('GMT')
-                keyring_mtime = keyring_mtime.to_rfc1123_string()
-
-                headers = {'If-Modified-Since': keyring_mtime} | dict(
-                    self.client.headers
-                )
-            else:
-                headers = dict(self.client.headers)
-
-            # 流式下载二进制文件，同时使用 conditional get，避免重复下载
-            with (
-                self.client.stream('GET', url, headers=headers) as r,
-                open(tmp_key_path, 'wb') as f,
-            ):
-                if r.status_code == httpx.codes.NOT_MODIFIED:
-                    logger.warning(f'{key} keyring is up to date.')
-                    continue
-
-                r.raise_for_status()
-                for chunk in r.iter_bytes():
-                    f.write(chunk)
             # 使用 gpg 导入密钥
             cmd = sudo[
                 gpg['--yes', '--dearmor', '-o', str(keyring_path), str(tmp_key_path)]
             ]
             logger.debug(f'Running command: {cmd}')
             cmd()
+            # 删除临时文件
+            tmp_key_path.unlink()
+
+    def _download_keyring(self, url: str, key_name: str) -> Path | None:
+        # 临时存储密钥文件
+        target_keyring_path = self.keyrings_path / f'{key_name}.gpg'
+        tmp_path = Path(tempfile.gettempdir()).resolve()
+        tmp_key_path = tmp_path / f'{key_name}.gpg'
+
+        if target_keyring_path.exists():  # Check existence of target path
+            # 获取keyring文件的最后修改时间
+            keyring_mtime = target_keyring_path.stat().st_mtime  # Use target path
+
+            # 将时间戳转化为 If-Modified-Since 格式
+            keyring_mtime = pendulum.from_timestamp(keyring_mtime)
+            keyring_mtime = keyring_mtime.in_tz('GMT')
+            keyring_mtime = keyring_mtime.to_rfc1123_string()
+
+            headers = {'If-Modified-Since': keyring_mtime} | dict(self.client.headers)
+        else:
+            headers = dict(self.client.headers)
+
+        # 流式下载二进制文件，同时使用 conditional get，避免重复下载
+        try:
+            with (
+                self.client.stream('GET', url, headers=headers) as r,
+                open(tmp_key_path, 'wb') as f,
+            ):
+                if r.status_code == httpx.codes.NOT_MODIFIED:
+                    logger.warning(f'{key_name} keyring is up to date.')
+                    return None
+
+                r.raise_for_status()
+                for chunk in r.iter_bytes():
+                    f.write(chunk)
+
+            # 返回下载的临时文件路径
+            return tmp_key_path
+        except Exception as e:
+            logger.error(f'Failed to download {key_name} keyring: {e}')
+            if tmp_key_path.exists():
+                tmp_key_path.unlink()
+            return None
 
     def recv_keys(self):
         keys_hash = BoxList(self.keys_hash)

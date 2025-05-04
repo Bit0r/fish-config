@@ -3,6 +3,8 @@ djlint	# django lint
 docker-squash	# docker 镜像压缩
 #sqlitebiter[all]	# sqlite 数据导入
 mycli	# mysql cli
+pgcli	# postgres cli
+litecli	# sqlite cli
 iredis	# redis cli
 harlequin	# SQL cli
 rich-cli

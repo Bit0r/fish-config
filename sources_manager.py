@@ -43,6 +43,7 @@ class ThirdPartySources:
             # "hashicorp": f"deb [arch=amd64 signed-by={{}}] https://apt.releases.hashicorp.com {version_codename} main",
             # "mise": "deb [signed-by={} arch=amd64] https://mise.jdx.dev/deb stable main",
             'nodejs': f'deb [arch=amd64 signed-by={{}}] https://deb.nodesource.com/node_{node_major}.x nodistro main',
+            'postgresql': f'deb [signed-by={{}}] https://mirrors.aliyun.com/postgresql/repos/apt {version_codename}-pgdg main',
             'xpipe': 'deb [signed-by={}] https://apt.xpipe.io/ stable main',
             'windsurf': 'deb [signed-by={} arch=amd64] https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main',
             'winehq': f'deb [arch=amd64,i386 signed-by={{}}] http://mirrors.tuna.tsinghua.edu.cn/wine-builds/ubuntu/ {version_codename} main',
