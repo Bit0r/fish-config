@@ -1,7 +1,9 @@
-fonts-firacode
-fonts-linuxlibertine
-fonts-dejavu
-fonts-liberation
 fonts-crosextra-carlito
-fonts-takao-gothic
+fonts-dejavu
+fonts-firacode
+fonts-liberation
+fonts-linuxlibertine
+fonts-lmodern
 fonts-opensymbol
+fonts-stix
+fonts-takao-gothic

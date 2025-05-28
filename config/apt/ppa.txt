@@ -3,6 +3,7 @@ cappelikan/ppa
 tomtomtom/yt-dlp
 danielrichter2007/grub-customizer
 michel-slm/kernel-utils
+lakinduakash/lwh
 xmake-io/xmake
 longsleep/golang-backports
 maxmind/ppa

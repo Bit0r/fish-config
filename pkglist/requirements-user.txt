@@ -12,6 +12,8 @@ scikit-image[optional]	# 图像处理
 moviepy	# 视频处理
 vidgear[asyncio]	# 视频流处理
 httpx[cli,http2,socks,brotli]
+fastmcp	# mcp协议
+fastrtc[vad,tts]	# webrtc协议
 vcrpy	# 录制http请求
 furl	# url解析
 #yarl	# url解析

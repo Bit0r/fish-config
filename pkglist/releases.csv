@@ -19,12 +19,15 @@ sharkdp/fd,,查找文件
 marcusbuffett/pipe-rename,,在文本编辑器中批量重命名文件
 ,,,yaa110/nomino,,批量重命名文件
 sharkdp/bat,,cat的替代品
-zyedidia/micro,,文本编辑器
+,,,zyedidia/micro,,文本编辑器
+microsoft/edit,,微软的文本编辑器
 ,,,ynqa/jnv,,交互式json过滤器
 ,,,PaulJuliusMartinez/jless,,json查看器
+yshavit/mdq,,markdown查询工具
 BurntSushi/ripgrep,,grep的替代品
 phiresky/ripgrep-all,,grep非纯文本文件
 chmln/sd,,sed的替代品
+abhimanyu003/sttr,,字符串转换工具
 lotabout/rargs,,xargs的替代品
 dprint/dprint,,格式化代码
 ,,,wfxr/csview,,csv查看器
@@ -62,6 +65,7 @@ wzv5/pping,,支持多种协议的ping
 nxtrace/NTrace-core,,traceroute替代品
 Archeb/opentrace,,traceroute替代品
 Cisco-Talos/clamav,,病毒扫描
+Zouuup/landrun,,应用沙箱
 ivangabriele/clamav-desktop,,clamav的GUI
 jesseduffield/lazydocker,,docker管理
 hadolint/hadolint,,dockerfile lint
@@ -100,6 +104,7 @@ auyer/Protonup-rs,,Steam Proton更新
 mtkennerly/ludusavi,,Steam 存档管理
 Oxen-AI/Oxen,,数据集版本控制
 RPCS3/rpcs3-binaries-linux,,PS3模拟器
+ayangweb/BongoCat,,桌面打字的小猫
 windingwind/zotero-pdf-translate,,PDF翻译
 syt2/zotero-addons,,zotero插件商店
 l0o0/jasminum,,收藏中文论文

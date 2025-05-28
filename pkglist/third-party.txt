@@ -3,3 +3,4 @@ docker-ctop
 xpipe
 zotero
 onlyoffice-desktopeditors
+linux-wifi-hotspot

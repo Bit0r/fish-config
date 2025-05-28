@@ -42,8 +42,16 @@ if confirm 'Do you want to install fcitx5-rime plugins?'
 end
 
 if confirm 'Do you want to install WPS-Zotero?'
-    git clone 'https://github.com/tankwyn/WPS-Zotero.git' ./repos/WPS-Zotero
-    ./repos/WPS-Zotero/install.py
+    if [ -d ./repos/Zotero-WPSJS ]
+        # 如果目录存在，则更新
+        git -C ./repos/Zotero-WPSJS pull
+    else
+        git clone https://gitee.com/wangrui5015/Zotero-WPSJS.git ./repos/Zotero-WPSJS
+    end
+
+    ./repos/Zotero-WPSJS/Linux/
+    python install.py
+    prevd
 end
 
 if confirm 'Do you wang to install d2lang?'

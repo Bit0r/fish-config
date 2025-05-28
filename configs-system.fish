@@ -218,6 +218,7 @@ end
 
 # 配置 lib
 sudo ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
+sudo ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2 /usr/lib/x86_64-linux-gnu/libxml.so.2
 
 # 配置apt自动更新
 if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'

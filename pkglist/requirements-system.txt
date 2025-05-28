@@ -6,6 +6,8 @@ runlike	# 导出 Docker Container 的运行命令
 yamlfix	# yaml 格式化
 config-formatter	# 配置文件格式化
 pypyp	# 在命令行中运行 python
+deepdiff[optimize]	# 深度比较
+nbdime	# Jupyter Notebook 的对比工具
 pipreqs	# 生成 requirements.txt
 toolz	# 函数式编程
 chardet	# 字符编码检测
@@ -51,6 +53,7 @@ clevercsv[full]	# csv处理
 #fastapi[all]
 litestar[standard]	# 后端
 fire	# 命令行
+atuin-graph	# 命令行历史可视化
 #typer[all]
 jurigged[develoop]	# 热重载
 #drgn	# 内核调试
@@ -64,6 +67,7 @@ great_tables	# 输出精美表格
 ocrmypdf	# pdf ocr
 pandasgui	# pandas 可视化
 plotnine[all]
+fastplotlib[notebook,imgui]	# 可视化
 mplfonts	# matplotlib 字体
 onnx
 xarray[complete]
