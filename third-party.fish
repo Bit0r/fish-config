@@ -35,7 +35,7 @@ end
 if type -q micromamba && confirm 'Do you want to install some software using micromamba?'
     # micromamba create -n labelme python pyside2 pyqt
     # micromamba run -n labelme pip install -U labelme
-    micromamba create -n anylabeling python=3.10
+    micromamba create -n anylabeling python=3.12
     micromamba run -n anylabeling pip install -U anylabeling-gpu
 end
 

@@ -283,6 +283,12 @@ if type -q kyanos && confirm 'Do you want to configure Kyanos?'
     sudo chmod u+s $kyanos_path
 end
 
+# 配置 cproxy
+if type -q cproxy && confirm 'Do you want to configure cproxy?'
+    set cproxy_path (type cproxy)
+    sudo chmod u+s $cproxy_path
+end
+
 # 配置libvirt
 if type -q virsh && confirm 'Do you want to configure libvirt?'
     sudo cp --backup=t ./config/libvirt/qemu/*.xml /etc/libvirt/qemu/

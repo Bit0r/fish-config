@@ -54,6 +54,7 @@ qustavo/httplab,,交互式http服务器
 hookdeck/hookdeck-cli,,webhook工具
 hengyoush/kyanos,,ebpf抓包
 mitmproxy/mitmproxy,,代理抓包
+NOBLES5E/cproxy,,透明代理
 imsnif/bandwhich,,网络带宽监控
 RustScan/RustScan,,端口扫描
 ,,,iawia002/lux,,视频下载工具
@@ -82,6 +83,7 @@ rami3l/pacaptr,,pacman包管理
 sirwart/ripsecrets,,查找敏感信息
 ,,,git-ecosystem/git-credential-manager,,git凭证管理
 hickford/git-credential-oauth,,git凭证管理
+jesseduffield/lazygit,,git的TUI
 svenstaro/genact,,产生无意义的终端活动
 ,,,bartobri/no-more-secrets,
 ssut/payload-dumper-go,,提取payload.bin文件

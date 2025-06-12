@@ -9,6 +9,7 @@ dmg2img
 dos2unix
 enca
 espeak-ng-espeak
+#etckeeper
 #exa
 exfat-fuse
 exfatprogs

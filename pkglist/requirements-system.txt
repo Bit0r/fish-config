@@ -12,6 +12,7 @@ pipreqs	# 生成 requirements.txt
 toolz	# 函数式编程
 chardet	# 字符编码检测
 stringzilla	# 字符串处理
+natsort[fast,icu]	# 自然排序
 #nvitop	# 显卡监控
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖

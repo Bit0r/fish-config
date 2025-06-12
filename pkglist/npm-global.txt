@@ -9,6 +9,7 @@ yarn-completions
 typescript
 node-modules-inspector
 shadcn-vue
+@alova/wormhole
 @biomejs/biome
 #nuxthub
 nuxi
