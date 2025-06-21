@@ -60,6 +60,7 @@ p7zip-rar
 progress
 proxychains4
 rar
+reptyr
 ripgrep
 rpm
 scdaemon

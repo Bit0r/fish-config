@@ -1,4 +1,5 @@
 jorgebucaran/fisher
+## 这两个插件有可能干扰终端功能，尤其是ssh-agent会导致wsh无法正常工作
 #patrickf1/fzf.fish
-Grokon/ssh-agent.fish
+#Grokon/ssh-agent.fish
 g-plane/pnpm-shell-completion

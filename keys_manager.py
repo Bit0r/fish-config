@@ -46,6 +46,7 @@ class GpgKeys:
             'hashicorp': 'https://apt.releases.hashicorp.com/gpg',
             'mise': 'https://mise.jdx.dev/gpg-key.pub',
             'nodejs': 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
+            'redis': 'https://packages.redis.io/gpg',
             'postgresql': 'https://mirrors.aliyun.com/postgresql/repos/apt/ACCC4CF8.asc',
             'xpipe': 'https://xpipe.io/signatures/crschnick.gpg',
             'windsurf': 'https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg',

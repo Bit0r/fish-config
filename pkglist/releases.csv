@@ -73,6 +73,7 @@ hadolint/hadolint,,dockerfile lint
 ktock/buildg,,dockerfile debug
 ktock/vscode-buildg,,buildg的vscode插件
 wagoodman/dive,,docker镜像分析
+anchore/syft,,docker镜像软件物料清单
 containrrr/watchtower,,docker镜像更新
 devzhi/imgx,,docker镜像传输
 google/cadvisor,,docker监控
