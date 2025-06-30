@@ -14,6 +14,7 @@ handbrake
 language-selector-gnome
 luckybackup
 markdownpart
+metadata-cleaner
 nmapsi4
 mpv
 obs-studio

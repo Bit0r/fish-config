@@ -49,19 +49,21 @@ n7olkachev/imgdiff,,逐像素图片比较
 ,,,kornelski/dssim,,语义级图片比较
 RazrFalcon/svgcleaner,,svg清理工具
 ImageOptim/gifski,,gif图片生成
+,,,iawia002/lux,,视频下载工具
+aandrew-me/ytDownloader,,yt-dlp的GUI
 ,,,ducaale/xh,,http请求工具
 qustavo/httplab,,交互式http服务器
 hookdeck/hookdeck-cli,,webhook工具
+fatedier/frp,,内网穿透
 hengyoush/kyanos,,ebpf抓包
 mitmproxy/mitmproxy,,代理抓包
 NOBLES5E/cproxy,,透明代理
 imsnif/bandwhich,,网络带宽监控
-RustScan/RustScan,,端口扫描
-,,,iawia002/lux,,视频下载工具
-aandrew-me/ytDownloader,,yt-dlp的GUI
+bee-san/RustScan,,端口扫描
 zu1k/nali,,ip查询
 ,,,oldj/SwitchHosts,,hosts管理
 wzv5/pping,,支持多种协议的ping
+theopfr/somo,,netstat替代品
 ,,,fujiapple852/trippy,,traceroute替代品
 nxtrace/NTrace-core,,traceroute替代品
 Archeb/opentrace,,traceroute替代品
@@ -69,11 +71,13 @@ Cisco-Talos/clamav,,病毒扫描
 Zouuup/landrun,,应用沙箱
 ivangabriele/clamav-desktop,,clamav的GUI
 jesseduffield/lazydocker,,docker管理
+jwilder/dockerize,,docker化工具
 hadolint/hadolint,,dockerfile lint
 ktock/buildg,,dockerfile debug
 ktock/vscode-buildg,,buildg的vscode插件
 wagoodman/dive,,docker镜像分析
 anchore/syft,,docker镜像软件物料清单
+justone/dockviz,,docker可视化
 containrrr/watchtower,,docker镜像更新
 devzhi/imgx,,docker镜像传输
 google/cadvisor,,docker监控
@@ -99,7 +103,8 @@ nvarner/typst-lsp,,typst的lsp
 ,,,jgraph/drawio-desktop,使用spark安装,绘图工具
 charmbracelet/freeze,,终端命令转图片
 WerWolv/ImHex,,hex编辑器
-koodo-reader/koodo-reader,,epub阅读器
+CherryHQ/cherry-studio,,AI客户端
+,,,koodo-reader/koodo-reader,,epub阅读器
 responsively-org/responsively-app-releases,,前端开发专用浏览器
 H-M-H/Weylus,,无线投屏
 glanceapp/glance,,聚合 rss、iframe、youtube channels 等

@@ -11,6 +11,7 @@ rich-cli
 justpath	# PATH 管理
 toolong	# 日志展示
 glances[all]	# 系统监控
+isd-tui	# SystemD 管理
 poetry
 code2flow	# 代码流程图
 kaggle

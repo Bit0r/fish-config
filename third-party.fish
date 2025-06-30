@@ -43,10 +43,18 @@ if type -q fnm && confirm 'Do you want to install some software using fnm?'
     fnm install --lts
 end
 
+set -l cmd corepack install -g npm yarn pnpm
+if sudo which corepack >/dev/null && confirm 'Do you want to use corepack to install some system-level package managers?'
+    sudo $cmd
+else if type -q corepack && confirm 'Do you want to use corepack to install some user-level package managers?'
+    $cmd
+end
+
+set -l cmd ni -g (cat ./pkglist/npm-global.txt | grep -v '^#')
 if sudo which ni >/dev/null && confirm 'Do you want to install some system-level software using ni?'
-    sudo ni -g (cat ./pkglist/npm-global.txt | grep -v '^#')
+    sudo $cmd
 else if type -q ni && confirm 'Do you want to install some user-level software using ni?'
-    ni -g (cat ./pkglist/npm-global.txt | grep -v '^#')
+    $cmd
 end
 
 if type -q go && confirm 'Do you want to install some software using go?'

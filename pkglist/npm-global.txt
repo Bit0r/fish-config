@@ -1,5 +1,3 @@
-#pnpm
-yarn
 nnrm
 @antfu/ni
 npm-fork
@@ -16,5 +14,7 @@ nuxi
 @slidev/cli
 crontab-ui
 ungit
+@anthropic-ai/claude-code
+@google/gemini-cli
 @browsermcp/mcp
 @agentdeskai/browser-tools-mcp

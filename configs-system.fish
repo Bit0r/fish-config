@@ -16,7 +16,7 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/{aria2,below} \
     /usr/share/xsessions \
-    /etc/{default,graftcp-local,cgproxy,conda,uv,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,yamlfix} \
+    /etc/{default,graftcp-local,cgproxy,conda,uv,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,frp,yamlfix} \
     /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{applications,icons,mime/packages} \
     /usr/local/etc/xray \

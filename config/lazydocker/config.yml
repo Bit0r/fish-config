@@ -1,8 +1,16 @@
 # yaml-language-server: $schema=https://json.schemastore.org/lazydocker.json
+gui:
+  returnImmediately: true
+
 customCommands:
+  containers:
+    - name: 使用cdebug进行调试
+      command: cdebug exec -it {{.Container.Name}}
+      attach: true
+      description: 使用cdebug工具进入容器进行调试
   images:
     - name: 运行并进入镜像
-      command: docker run -it --rm {{ .Image.Name }}:{{ .Image.Tag
-        }} /bin/bash
+      command: docker run -it --rm {{.Image.Name}}:{{.Image.Tag}}
+        /bin/bash
       attach: true
       description: 运行选定的镜像并进入交互式终端

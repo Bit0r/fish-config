@@ -2,6 +2,7 @@ attrs	# 类属性
 pipx	# 用于安装 python 工具
 pex	# 打包 python 环境
 ruff	# python 格式化，同时也是多种库的依赖
+mat2	# 清除文件元数据
 runlike	# 导出 Docker Container 的运行命令
 yamlfix	# yaml 格式化
 config-formatter	# 配置文件格式化
@@ -13,6 +14,7 @@ toolz	# 函数式编程
 chardet	# 字符编码检测
 stringzilla	# 字符串处理
 natsort[fast,icu]	# 自然排序
+fastnanoid	# nanoid
 #nvitop	# 显卡监控
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
@@ -48,11 +50,12 @@ grequests	# 异步请求
 pysocks	# 代理
 scapy	# 网络包处理
 #pyupgrade
-sqlfluff	# sql 格式化
+#sqlfluff	# sql 格式化
 pathvalidate	# 路径检查
 clevercsv[full]	# csv处理
 #fastapi[all]
 litestar[standard]	# 后端
+redis[hiredis]	# redis 客户端
 fire	# 命令行
 atuin-graph	# 命令行历史可视化
 #typer[all]
