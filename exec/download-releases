@@ -4,6 +4,11 @@
 from __future__ import annotations
 
 import os
+
+# 如果不需要使用代理，可以将下面注释
+os.environ |= dict.fromkeys(
+    'ALL_PROXY HTTP_PROXY HTTPS_PROXY'.split(), 'socks5://localhost:1080'
+)
 import re
 from pathlib import Path
 import mimetypes
@@ -18,6 +23,7 @@ import clevercsv
 from pydumpling import catch_any_exception
 from rich.progress import Progress
 from more_itertools import first_true
+from github.PaginatedList import PaginatedList
 from github.GithubException import UnknownObjectException
 from github.GitReleaseAsset import GitReleaseAsset
 
@@ -104,9 +110,7 @@ class GithubDownload:
 
         return priority
 
-    def get_highest_priority_asset(
-        self, assets: list[GitReleaseAsset]
-    ) -> GitReleaseAsset | None:
+    def get_highest_priority_asset(self, assets: PaginatedList[GitReleaseAsset]):
         priority_assets = [None] * self.lowest_priority
 
         for asset in assets:
@@ -124,7 +128,7 @@ class GithubDownload:
         repo: str,
         version: str | None = None,
         *,
-        progress: Progress = None,
+        progress: Progress | None = None,
         output_dir: str | Path = './',
     ):
         output_dir = Path(output_dir).expanduser().resolve()
@@ -183,7 +187,7 @@ class GithubDownload:
         self,
         releases: list[list[str]],
         *,
-        progress: Progress = None,
+        progress: Progress | None = None,
         output_dir: str | Path = './',
     ):
         for idx, release in enumerate(releases):
@@ -234,7 +238,6 @@ class GithubDownload:
         self.httpx_client = httpx.Client(
             headers={'Authorization': f'Bearer {token}'},
             follow_redirects=True,
-            proxy='socks5://localhost:1080',
             limits=limits,
             http2=True,
         )

@@ -42,6 +42,7 @@ ignore = [
 	"RUF002",
 	"RUF003",
 	"TRY300",
+	"SIM905",
 	"W191",
 	"E111",
 	"E114",
@@ -60,4 +61,4 @@ length-sort = true
 combine-as-imports = true
 force-wrap-aliases = true
 force-sort-within-sections = true
-required-imports = ["from __future__ import annotations"]
+# required-imports = ["from __future__ import annotations"]
