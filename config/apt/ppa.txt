@@ -1,6 +1,7 @@
 fish-shell/release-4
 cappelikan/ppa
 tomtomtom/yt-dlp
+yannubuntu/boot-repair
 danielrichter2007/grub-customizer
 michel-slm/kernel-utils
 lakinduakash/lwh

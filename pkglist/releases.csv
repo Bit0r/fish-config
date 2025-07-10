@@ -25,6 +25,7 @@ microsoft/edit,,微软的文本编辑器
 ,,,PaulJuliusMartinez/jless,,json查看器
 yshavit/mdq,,markdown查询工具
 BurntSushi/ripgrep,,grep的替代品
+ast-grep/ast-grep,,抽象语法树grep工具
 phiresky/ripgrep-all,,grep非纯文本文件
 chmln/sd,,sed的替代品
 abhimanyu003/sttr,,字符串转换工具
@@ -67,7 +68,7 @@ theopfr/somo,,netstat替代品
 ,,,fujiapple852/trippy,,traceroute替代品
 nxtrace/NTrace-core,,traceroute替代品
 Archeb/opentrace,,traceroute替代品
-Cisco-Talos/clamav,,病毒扫描
+,,,Cisco-Talos/clamav,,病毒扫描
 Zouuup/landrun,,应用沙箱
 tamasfe/taplo,,toml的lsp
 ivangabriele/clamav-desktop,,clamav的GUI
@@ -83,6 +84,8 @@ containrrr/watchtower,,docker镜像更新
 devzhi/imgx,,docker镜像传输
 google/cadvisor,,docker监控
 iximiuz/cdebug,,docker容器debug
+tensorchord/envd,,基于Docker的AI开发环境搭建工具
+ContainerSSH/ContainerSSH,,自动创建远程容器
 mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
 ,,,RubyMetric/chsrc,,软件源管理
@@ -113,6 +116,7 @@ auyer/Protonup-rs,,Steam Proton更新
 mtkennerly/ludusavi,,Steam 存档管理
 Oxen-AI/Oxen,,数据集版本控制
 RPCS3/rpcs3-binaries-linux,,PS3模拟器
+royshil/obs-backgroundremoval,,OBS背景移除
 ayangweb/BongoCat,,桌面打字的小猫
 windingwind/zotero-pdf-translate,,PDF翻译
 syt2/zotero-addons,,zotero插件商店

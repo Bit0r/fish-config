@@ -16,7 +16,7 @@ if type -q aptss && confirm 'Do you want to install some software using spark-st
 end
 
 if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
-    sudo pip install -r pkglist/requirements-system.txt
+    sudo pip install -Ir pkglist/requirements-system.txt
 end
 
 if type -q pip && confirm 'Do you want to install user-level software using pip?'
@@ -25,10 +25,11 @@ end
 
 if sudo which pipx >/dev/null && confirm 'Do you want to install system-level software using pipx?'
     for pkg in (cat ./pkglist/pipx-system.txt | grep -v '^#')
-        sudo fish -c "pipx install $pkg"
+        sudo rm /usr/local/bin/$pkg
+        sudo pipx install --global $pkg
     end
     for inject in (cat ./pkglist/pipx-inject-system.txt | grep -v '^#')
-        sudo fish -c "pipx inject $inject"
+        sudo pipx inject --global $inject
     end
 end
 

@@ -16,7 +16,6 @@ alias -s shadcn-vue 'proxychains shadcn-vue'
 alias -s ssh-proxy 'ssh -R 1080:localhost:1080 -R 8800:localhost:8800 -N'
 alias -s ssh-google 'ssh -L 53682:localhost:53682 -N'
 
-#alias -s pipx-global 'PIPX_HOME=/usr/local/lib/pipx PIPX_BIN_DIR=/usr/local/bin pipx'
 alias -s gdb 'gdb -quiet'
 if type -q eza
     alias -s ls 'eza -xF --group-directories-first'

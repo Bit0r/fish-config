@@ -1,0 +1,10 @@
+version: "3"
+services:
+    maxkb:
+        image: registry.fit2cloud.com/maxkb/maxkb
+        restart: always
+        ports:
+            - 3444:8080
+        volumes:
+            - ~/.maxkb:/var/lib/postgresql/data
+            - ~/.python-packages:/opt/maxkb/app/sandbox/python-packages

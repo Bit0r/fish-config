@@ -1,6 +1,7 @@
 yt-dlp
 mainline
 grub-customizer
+boot-repair
 python3-drgn
 dbeaver-ce
 firefox-esr

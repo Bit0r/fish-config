@@ -15,7 +15,7 @@ chardet	# 字符编码检测
 stringzilla	# 字符串处理
 natsort[fast,icu]	# 自然排序
 fastnanoid	# nanoid
-#nvitop	# 显卡监控
+nvitop	# 显卡监控
 johnnydep	# 无须安装，可直接查看依赖
 pipdeptree	# 需要安装，但可以查看依赖和反向依赖
 loguru	# 日志

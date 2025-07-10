@@ -1,17 +1,29 @@
 pre-commit
-djlint	# django lint
-docker-squash	# docker 镜像压缩
-#sqlitebiter[all]	# sqlite 数据导入
-mycli	# mysql cli
-pgcli	# postgres cli
-litecli	# sqlite cli
-iredis	# redis cli
-harlequin	# SQL cli
+# django lint
+djlint
+# docker 镜像压缩
+docker-squash
+# sqlite 数据导入
+#sqlitebiter[all]
+# mysql cli
+mycli
+# postgres cli
+pgcli
+# sqlite cli
+litecli
+# redis cli
+iredis
+# SQL cli
+harlequin
 rich-cli
-justpath	# PATH 管理
-toolong	# 日志展示
-glances[all]	# 系统监控
-isd-tui	# SystemD 管理
+# PATH 管理
+justpath
+# 日志展示
+toolong
+# 系统监控
+glances[all]
+# SystemD 管理
+isd-tui
 poetry
-code2flow	# 代码流程图
-kaggle
+# 代码流程图
+code2flow

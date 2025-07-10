@@ -4,6 +4,7 @@ Acquire::http::Proxy {
 	objects.githubusercontent.com "socks5h://localhost:1080";
 	apt.xpipe.io "socks5h://localhost:1080";
 	nvidia.github.io "socks5h://localhost:1080";
+	vivaldi.com "socks5h://localhost:1080";
 	repo.vivaldi.com "socks5h://localhost:1080";
 	cloudsmith.io "socks5h://localhost:1080";
 	ppa.launchpadcontent.net "socks5h://localhost:1080";

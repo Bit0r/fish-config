@@ -1,0 +1,7 @@
+version: "3"
+services:
+    bilitickerbuy:
+        ports:
+            - 7860:7860
+        container_name: bilitickerbuy_container
+        image: bilitickerbuy
