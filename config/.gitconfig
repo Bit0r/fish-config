@@ -3,6 +3,7 @@
 	email = nie_wang@outlook.com
 [core]
 	editor = code -w
+	pager = ov -F
 	# hooksPath = ~/.config/git/hooks
 [http]
 	# 必须设置端口，否则可能会导致无法推送

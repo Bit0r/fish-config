@@ -1,2 +1,5 @@
 [mysql]
 safe-updates
+
+[client]
+pager="ov -C --skip-lines 1 --header 1 -d'|'"

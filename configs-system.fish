@@ -14,11 +14,29 @@ sudo chmod -R 2775 /var/log
 
 # 创建目录
 sudo mkdir -p \
-    /root/.config/{aria2,below} \
+    /root/.config/{aria2,below,bat} \
     /usr/share/xsessions \
-    /etc/{default,graftcp-local,cgproxy,conda,uv,mpv,docker,mysql/conf.d,redis/conf.d,audit/rules.d,samba,frp,yamlfix} \
+    /etc/{
+        default,
+        graftcp-local,
+        cgproxy,
+        conda,
+        uv,
+        mpv,
+        docker,
+        mysql/conf.d,
+        redis/conf.d,
+        audit/rules.d,
+        samba,
+        frp,
+        yamlfix
+    } \
     /etc/systemd/{system,user}.conf.d \
-    /usr/local/share/{applications,icons,mime/packages} \
+    /usr/local/share/{
+        applications,
+        icons,
+        mime/packages
+    } \
     /usr/local/etc/xray \
     /opt/glance \
     /var/log/imaotai \
@@ -49,6 +67,9 @@ sudo cp -a ./config/systemd/user/. /etc/systemd/user/
 
 # 配置 ssh
 sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
+
+# 配置 bat
+sudo cp ./config/bat/config /root/.config/bat/
 
 # 配置 profile
 sudo cp ./config/profile.d/* /etc/profile.d/
@@ -207,9 +228,13 @@ end
 
 # 配置update-alternatives
 if confirm 'Do you want to configure update-alternatives?'
-    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1 editor.1 /usr/share/man/man1/micro.1
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/warp-terminal 80
+    #sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 60 --slave /usr/share/man/man1/editor.1 editor.1 /usr/share/man/man1/micro.1
+    sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/msedit 80
+    sudo update-alternatives --install /usr/bin/pager pager /usr/bin/ov 80
+
+    #sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/warp-terminal 80
     #sudo update-alternatives --install /usr/lib/liblaszip.so liblaszip.so /usr/lib/x86_64-linux-gnu/liblaszip.so.8 80
+
     #for v in (seq 9 12)
     #    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$v $v
     #    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-$v $v

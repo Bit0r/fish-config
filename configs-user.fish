@@ -8,8 +8,43 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{fish/conf.d,profile.d,git,bat,below,direnv,crontab-ui,aria2,clipcat,dive,pip,uv,tstruct,tabby,waveterm,ImageMagick,smplayer,keepassxc,matplotlib,discord,sqlfluff,ruff,biome,micro,macchina,bililive} \
-    ~/.local/share/{applications,kservices5/ServiceMenus,mime/packages,konsole,fcitx5,pandoc/{defaults,csl,css,docx}} \
+    ~/.config/{
+        fish/conf.d,
+        profile.d,
+        git,
+        bat,
+        below,
+        direnv,
+        crontab-ui,
+        aria2,
+        clipcat,
+        dive,
+        pip,
+        uv,
+        tstruct,
+        tabby,
+        waveterm,
+        ImageMagick,
+        smplayer,
+        keepassxc,
+        matplotlib,
+        discord,
+        sqlfluff,
+        pgcli,
+        ruff,
+        biome,
+        micro,
+        macchina,
+        bililive
+    } \
+    ~/.local/share/{
+        applications,
+        kservices5/ServiceMenus,
+        mime/packages,
+        konsole,
+        fcitx5,
+        pandoc/{defaults,csl,css,docx}
+    } \
     ~/.local/state/{aria2,clipcat} \
     ~/.local/lib/portainer \
     ~/.wine/drive_c/users/$USER/AppData/Roaming/'Microsoft Games/Rise of Nations' \
@@ -43,7 +78,7 @@ touch ~/.config/mimeapps.list
 ln -sf ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
 
 # 配置 bat
-#cp ./config/bat/config ~/.config/bat/
+cp ./config/bat/config ~/.config/bat/
 
 # 配置 direnv
 cp ./config/direnv/direnv.toml ~/.config/direnv/
@@ -105,6 +140,9 @@ cp config/keepassxc.ini ~/.config/keepassxc/
 
 # 配置 sqlfluff
 cp -a ./config/sqlfluff/. ~/.config/sqlfluff/
+
+# 配置 pgcli
+cp ./config/postgres/pgcli.conf ~/.config/pgcli/config
 
 # 配置 biome
 cp -a ./config/javascript/biome/. ~/.config/biome/

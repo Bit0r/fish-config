@@ -12,7 +12,7 @@ set -U fish_greeting
 
 cp functions/cat.fish /etc/fish/functions/
 
-set -Ux EDITOR micro
+set -Ux EDITOR msedit
 update-alternatives --install /usr/bin/editor editor /usr/bin/micro 80 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/micro.1.gz
 
 ufw limit ssh

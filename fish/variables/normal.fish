@@ -1,7 +1,9 @@
 #set -Ux UID (id -u) # 设置当前用户的 UID
 set -Ux VERSION_CONTROL numbered # 设置cp、mv等命令的备份方式，避免覆盖
 set -Ux MTR_OPTIONS -b
-set -Ux EDITOR micro
+set -Ux PAGER ov
+set -Ux MANPAGER "ov --section-delimiter '^[^\s]' --section-header"
+set -Ux EDITOR msedit
 set -Ux VISUAL code
 set -Ux BROWSER vivaldi
 set -Ux BROWSER_PATH /usr/bin/$BROWSER
