@@ -11,42 +11,22 @@ end
 # 安装基本配置
 if confirm 'Do you want to install the user-level configuration for fish?'
     source ./fish/variables/normal.fish
-    if type -q tab
-        tab --completion fish >~/.config/fish/completions/tab.fish
-    end
-    if type -q atuin
-        atuin gen-completions -s fish -o ~/.config/fish/completions/
-    end
-    if type -q ruff
-        ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
-    end
-    if type -q uv
-        uv generate-shell-completion fish >~/.config/fish/completions/uv.fish
-    end
-    if type -q uvx
-        uvx --generate-shell-completion fish >~/.config/fish/completions/uvx.fish
-    end
-    if type -q pipx
-        register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
-    end
-    if type -q fnm
-        fnm completions --shell fish >~/.config/fish/completions/fnm.fish
-    end
-    if type -q pnpm
-        pnpm completion fish >~/.config/fish/completions/pnpm.fish
-    end
-    if type -q deno
-        deno completions fish >~/.config/fish/completions/deno.fish
-    end
-    if type -q watchtower
-        watchtower completion fish >~/.config/fish/completions/watchtower.fish
-    end
-    if type -q mcli
-        mcli --autocompletion
-    end
-    if type -q supabase
-        supabase completion fish >~/.config/fish/completions/supabase.fish
-    end
+
+    alias fish_command_not_found true
+    tab --completion fish >~/.config/fish/completions/tab.fish
+    atuin gen-completions -s fish -o ~/.config/fish/completions/
+    ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
+    uv generate-shell-completion fish >~/.config/fish/completions/uv.fish
+    uvx --generate-shell-completion fish >~/.config/fish/completions/uvx.fish
+    register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
+    fnm completions --shell fish >~/.config/fish/completions/fnm.fish
+    pnpm completion fish >~/.config/fish/completions/pnpm.fish
+    deno completions fish >~/.config/fish/completions/deno.fish
+    watchtower completion fish >~/.config/fish/completions/watchtower.fish
+    mcli --autocompletion
+    supabase completion fish >~/.config/fish/completions/supabase.fish
+    trip --generate fish >~/.config/fish/completions/trip.fish
+    functions -e fish_command_not_found
 end
 
 if confirm 'Do you want to install the system-level configuration for fish?'

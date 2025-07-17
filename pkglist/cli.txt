@@ -2,6 +2,7 @@ apt-file
 aria2
 arj
 attr
+chntpw
 cmatrix
 cpulimit
 direnv

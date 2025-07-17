@@ -26,3 +26,8 @@ if confirm 'Do you want to add some third-party apt sources?'
     # unit
     #sudo cp config/unit.list /etc/apt/sources.list.d/
 end
+
+# flatpak 换源
+if confirm 'Do you want to change flatpak source?'
+    sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub --homepage=https://mirrors.ustc.edu.cn --title="中国科学技术大学镜像"
+end

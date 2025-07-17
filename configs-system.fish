@@ -23,6 +23,7 @@ sudo mkdir -p \
         conda,
         uv,
         mpv,
+        procs,
         docker,
         mysql/conf.d,
         redis/conf.d,
@@ -163,6 +164,9 @@ sudo cp ./config/python/pip.conf /etc/
 # 配置npm和yarn
 sudo cp ./config/javascript/etc/* /etc/
 
+# 配置 procs
+sudo cp ./config/procs/* /etc/procs/
+
 # 配置docker
 sudo cp ./config/docker/daemon*.json /etc/docker/
 # 配置 docker compose 文件
@@ -302,14 +306,17 @@ if type -q samba && confirm 'Do you want to configure Samba?'
 end
 
 # 配置 kyanos
-if type -q kyanos && confirm 'Do you want to configure Kyanos?'
+if type -q kyanos
     set kyanos_path (type kyanos)
     sudo setcap cap_bpf,cap_sys_admin+ep $kyanos_path
     sudo chmod u+s $kyanos_path
 end
 
+# 配置 trippy
+trip --generate-man | gzip | sudo tee /usr/local/share/man/man1/trip.1.gz >/dev/null
+
 # 配置 cproxy
-if type -q cproxy && confirm 'Do you want to configure cproxy?'
+if type -q cproxy
     set cproxy_path (type cproxy)
     sudo chmod u+s $cproxy_path
 end

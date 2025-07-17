@@ -4,6 +4,4 @@ sd '^protected-mode yes' 'protected-mode no' /etc/redis/redis.conf
 sd '^bind-address' '#bind-address' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # 创建数据库
-if type -q mysql
-    sudo mysql <mysql.sql
-end
+sudo mysql <mysql.sql

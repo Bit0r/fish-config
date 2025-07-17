@@ -3,5 +3,7 @@ docker-ctop
 xpipe
 zotero
 onlyoffice-desktopeditors
-## 该包会和Ubuntu自带的Wifi管理冲突，造成无法连接Wifi
+# 该包会和Ubuntu自带的Wifi管理冲突，造成无法连接Wifi
 #linux-wifi-hotspot
+# 鼠标手势，和 libinput-gestures 冲突
+touchegg

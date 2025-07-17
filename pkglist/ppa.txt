@@ -1,7 +1,9 @@
 yt-dlp
 mainline
-grub-customizer
+# grub-customizer 可能与 boot-repair 产生冲突
+#grub-customizer
 boot-repair
+criu
 python3-drgn
 dbeaver-ce
 firefox-esr

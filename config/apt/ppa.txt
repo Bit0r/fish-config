@@ -3,12 +3,16 @@ cappelikan/ppa
 tomtomtom/yt-dlp
 yannubuntu/boot-repair
 danielrichter2007/grub-customizer
+criu/ppa
 michel-slm/kernel-utils
 lakinduakash/lwh
+# 可选安装，不过源内自带的版本较老，而ppa的版本较新
+#ubuntuhandbook1/libinput
+touchegg/stable
 xmake-io/xmake
 longsleep/golang-backports
 maxmind/ppa
-serge-rider/dbeaver-ce
+#serge-rider/dbeaver-ce
 #maarten-fonville/android-studio
 rvm/smplayer
 obsproject/obs-studio

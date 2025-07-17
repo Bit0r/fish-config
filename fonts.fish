@@ -15,6 +15,4 @@ cp fonts/Deng*.ttf /usr/local/share/fonts/d/
 
 fc-cache -fv
 
-if type -q mplfonts
-    sudo mplfonts init
-end
+sudo mplfonts init

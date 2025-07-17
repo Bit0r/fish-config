@@ -15,6 +15,10 @@ if type -q aptss && confirm 'Do you want to install some software using spark-st
     sudo aptss install -m (cat ./pkglist/spark.txt | grep -v '^#')
 end
 
+if type -q flatpak && confirm 'Do you want to install some software using flatpak?'
+    flatpak install (cat ./pkglist/flatpak.txt | grep -v '^#')
+end
+
 if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
     sudo pip install -Ir pkglist/requirements-system.txt
 end

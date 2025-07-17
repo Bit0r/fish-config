@@ -13,11 +13,6 @@ if confirm 'Do you want to install the software from the third-party repository?
     sudo apt install $pkgs
 end
 
-if confirm 'Do you want to install calibre?'
-    proxy-aria2c -d /tmp 'https://download.calibre-ebook.com/linux-installer.sh'
-    sudo http_proxy='http://localhost:8800' sh /tmp/linux-installer.sh
-end
-
 if confirm 'Do you want to install dysk?'
     proxy-aria2c -d /tmp 'https://dystroy.org/dysk/download/x86_64-linux/dysk'
     install /tmp/dysk
@@ -61,7 +56,7 @@ end
 
 if confirm 'Do you want to install fisher?'
     proxy-curl -fsSL 'https://git.io/fisher' | source
-    fisher update
+    http_proxy fisher update
 end
 
 if confirm 'Do you want to install the software from the GitHub release?'
