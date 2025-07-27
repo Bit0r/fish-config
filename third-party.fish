@@ -86,6 +86,19 @@ if type -q wine && confirm 'Do you want to install some software using wine?'
     wine msiexec /i ./wine-gecko-2.47.4-x86.msi
 end
 
+if confirm 'Do you want to install WPS-Zotero?'
+    if [ -d ./repos/Zotero-WPSJS ]
+        # 如果目录存在，则更新
+        git -C ./repos/Zotero-WPSJS pull
+    else
+        git clone https://gitee.com/wangrui5015/Zotero-WPSJS.git ./repos/Zotero-WPSJS
+    end
+
+    ./repos/Zotero-WPSJS/Linux/
+    python install.py
+    prevd
+end
+
 #if ! type -q client
 #    aria2c -d /tmp 'http://218.77.121.111/DownloadXml/ClientPkgs/64ac0526-0589-4ec9-9142-06db38ef3da2/HN-linux-clientV2-64.tar.gz'
 #    sudo unar -o /opt /tmp/HN-linux-clientV2-64.tar.gz

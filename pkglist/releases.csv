@@ -1,8 +1,7 @@
 repository,version,description
-boyter/scc,,统计代码行数
 direnv/direnv,,环境变量管理
 atuinsh/atuin,,shell历史记录
-YiNNx/cmd-wrapped,,包装命令行工具
+YiNNx/cmd-wrapped,,查看shell历史记录的统计
 ajeetdsouza/zoxide,,快速跳转
 junegunn/fzf,,模糊搜索
 eza-community/eza,,ls的替代品
@@ -17,9 +16,8 @@ Metaphorme/ezcheck,,文件校验
 pkolaczk/fclones,,查找重复文件
 sharkdp/fd,,查找文件
 marcusbuffett/pipe-rename,,在文本编辑器中批量重命名文件
-,,,yaa110/nomino,,批量重命名文件
 sharkdp/bat,,cat的替代品
-,,,zyedidia/micro,,文本编辑器
+noborus/ov,,现代化的 pager
 microsoft/edit,,微软的文本编辑器
 ,,,ynqa/jnv,,交互式json过滤器
 ,,,PaulJuliusMartinez/jless,,json查看器
@@ -40,19 +38,16 @@ k1LoW/tbls,,数据库文档生成
 supabase/cli,,supabase的cli
 supabase-community/postgres-language-server,,postgresql的lsp
 ClementTsang/bottom,,top的替代品
+,,必须手动编译安装,facebookincubator/below,,具有记录和重放功能的top
 Syllo/nvtop,,gpu的top
 Netflix/bpftop,,bpf的top
 Nukesor/pueue,,任务队列
-,,,egoist/dum,,npm run的替代品
 skim-rs/skim,,模糊搜索
 Macchina-CLI/macchina,,获取系统信息
 n7olkachev/imgdiff,,逐像素图片比较
-,,,kornelski/dssim,,语义级图片比较
 RazrFalcon/svgcleaner,,svg清理工具
 ImageOptim/gifski,,gif图片生成
-,,,iawia002/lux,,视频下载工具
 aandrew-me/ytDownloader,,yt-dlp的GUI
-,,,ducaale/xh,,http请求工具
 qustavo/httplab,,交互式http服务器
 hookdeck/hookdeck-cli,,webhook工具
 fatedier/frp,,内网穿透
@@ -62,7 +57,7 @@ NOBLES5E/cproxy,,透明代理
 imsnif/bandwhich,,网络带宽监控
 bee-san/RustScan,,端口扫描
 zu1k/nali,,ip查询
-,,,oldj/SwitchHosts,,hosts管理
+,,使用spark安装,oldj/SwitchHosts,,hosts管理
 wzv5/pping,,支持多种协议的ping
 theopfr/somo,,netstat替代品
 fujiapple852/trippy,,traceroute替代品
@@ -88,11 +83,15 @@ mamba-org/micromamba-releases,,conda的替代品
 rami3l/pacaptr,,pacman包管理
 ,,,RubyMetric/chsrc,,软件源管理
 sirwart/ripsecrets,,查找敏感信息
+boyter/scc,,统计代码行数
 ,,,git-ecosystem/git-credential-manager,,git凭证管理
 hickford/git-credential-oauth,,git凭证管理
 jesseduffield/lazygit,,git的TUI
+tummychow/git-absorb,,git commit --fixup替代品
+evilmartians/lefthook,,git hook 管理器
+sondr3/git-ignore,,gitignore 模板
+sinclairtarget/git-who,,统计仓库的作者
 svenstaro/genact,,产生无意义的终端活动
-,,,bartobri/no-more-secrets,
 ssut/payload-dumper-go,,提取payload.bin文件
 getzola/zola,,静态网站生成器
 ,,使用spark安装,jgm/pandoc,,文档转换
@@ -102,11 +101,11 @@ Y2Z/monolith,,网页转pdf
 quarto-dev/quarto-cli,,可使用python代码的文档生成
 typst/typst,,latex替代品
 nvarner/typst-lsp,,typst的lsp
-,,,jgraph/drawio-desktop,使用spark安装,绘图工具
+,,使用spark安装,jgraph/drawio-desktop,,绘图工具
 charmbracelet/freeze,,终端命令转图片
 WerWolv/ImHex,,hex编辑器
 CherryHQ/cherry-studio,,AI客户端
-,,,koodo-reader/koodo-reader,,epub阅读器
+,,使用spark安装,koodo-reader/koodo-reader,,epub阅读器
 responsively-org/responsively-app-releases,,前端开发专用浏览器
 H-M-H/Weylus,,无线投屏
 glanceapp/glance,,聚合 rss、iframe、youtube channels 等

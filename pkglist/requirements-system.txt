@@ -9,6 +9,7 @@ config-formatter	# 配置文件格式化
 pypyp	# 在命令行中运行 python
 deepdiff[optimize]	# 深度比较
 nbdime	# Jupyter Notebook 的对比工具
+mercury	# 将 Notebook 转化为网页应用
 pipreqs	# 生成 requirements.txt
 toolz	# 函数式编程
 chardet	# 字符编码检测
@@ -28,7 +29,7 @@ pqdict	# 优先队列字典
 pint	# 单位处理
 sortedcontainers	# 排序容器
 notify-py	# 通知
-pendulum[test]	# 时间处理
+whenever	# 时间处理
 plumbum	# 命令行
 python-dotenv
 semver	# 版本处理
@@ -79,3 +80,4 @@ einops
 einop
 xarray-einstats
 sympy
+perspective-python	# 数据可视化

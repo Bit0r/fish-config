@@ -27,6 +27,6 @@ synaptic
 tigervnc-viewer
 ubuntu-restricted-extras
 yad
-vokoscreen-ng
+#vokoscreen-ng
 weston
 wireshark

@@ -1,0 +1,9 @@
+version: "3"
+services:
+    opengauss:
+        privileged: true
+        environment:
+            - GS_PASSWORD=openGauss@123
+        ports:
+            - 5433:5432
+        image: opengauss:6.0.2

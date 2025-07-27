@@ -12,7 +12,7 @@ from fire import Fire
 import httpx
 from dotenv import load_dotenv
 from loguru import logger
-import pendulum
+from whenever import Instant
 from pydumpling import catch_any_exception
 from plumbum.cmd import gpg, sudo
 
@@ -115,11 +115,11 @@ class GpgKeys:
             keyring_mtime = target_keyring_path.stat().st_mtime  # Use target path
 
             # 将时间戳转化为 If-Modified-Since 格式
-            keyring_mtime = pendulum.from_timestamp(keyring_mtime)
-            keyring_mtime = keyring_mtime.in_tz('GMT')
-            keyring_mtime = keyring_mtime.to_rfc1123_string()
+            if_modified_since = Instant.from_timestamp(keyring_mtime).format_rfc2822()
 
-            headers = {'If-Modified-Since': keyring_mtime} | dict(self.client.headers)
+            headers = {'If-Modified-Since': if_modified_since} | dict(
+                self.client.headers
+            )
         else:
             headers = dict(self.client.headers)
 

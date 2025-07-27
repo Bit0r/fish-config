@@ -8,7 +8,7 @@ clevercsv	# csv处理
 fire	# 命令行
 loguru	# 日志
 loguru-config
-pendulum	# 时间处理
+whenever	# 时间处理
 plumbum	# 命令行
 rich	# 输出美化
 python-dotenv	# 环境变量

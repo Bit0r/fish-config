@@ -1,4 +1,5 @@
 enter_accept = false
+# ctrl_n_shortcuts = true
 
 [sync]
 records = true

@@ -26,6 +26,12 @@ if confirm 'Do you want to install fnm?'
     proxy-curl -fsSL 'https://fnm.vercel.app/install' | http_proxy bash
 end
 
+# if confirm 'Do you want to install Grit?'
+#     proxy-curl -fsSL 'https://docs.grit.io/install' | http_proxy bash
+#     http_proxy grit install --app gouda
+#     http_proxy grit install --app workflow-runner
+# end
+
 if confirm 'Do you want to install fcitx5-rime plugins?'
     mkdir -p ~/.local/share/fcitx5/
     ~/.local/share/fcitx5/
@@ -33,19 +39,6 @@ if confirm 'Do you want to install fcitx5-rime plugins?'
     install /tmp/rime-install
     rime-install iDvel/rime-ice:others/recipes/full
     rime-install BlindingDark/rime-easy-en
-    prevd
-end
-
-if confirm 'Do you want to install WPS-Zotero?'
-    if [ -d ./repos/Zotero-WPSJS ]
-        # 如果目录存在，则更新
-        git -C ./repos/Zotero-WPSJS pull
-    else
-        git clone https://gitee.com/wangrui5015/Zotero-WPSJS.git ./repos/Zotero-WPSJS
-    end
-
-    ./repos/Zotero-WPSJS/Linux/
-    python install.py
     prevd
 end
 

@@ -7,6 +7,8 @@ alias -s socks5_proxy "ALL_PROXY=$socks5_proxy HTTP_PROXY=$socks5_proxy HTTPS_PR
 alias -s socks5h_proxy "ALL_PROXY=$socks5h_proxy HTTP_PROXY=$socks5h_proxy HTTPS_PROXY=$socks5h_proxy"
 
 alias -s lnav-xray 'lnav /var/log/xray/*.log'
+
+alias -s proxy-sudo "sudo ALL_PROXY=$http_proxy HTTP_PROXY=$http_proxy HTTPS_PROXY=$http_proxy"
 alias -s proxy-go "HTTP_PROXY=$http_proxy HTTPS_PROXY=$http_proxy go"
 alias -s proxy-git-lfs "git -c http.proxy=$http_proxy lfs"
 alias -s proxy-curl "curl -x $socks5h_proxy"

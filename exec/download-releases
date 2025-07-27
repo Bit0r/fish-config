@@ -234,7 +234,7 @@ class GithubDownload:
         releases = clevercsv.read_table(lockfile_path)[1:]
 
         self.gh_client = Github(auth=Auth.Token(token))
-        limits = httpx.Limits(max_connections=4, max_keepalive_connections=2)
+        limits = httpx.Limits(max_connections=8, max_keepalive_connections=4)
         self.httpx_client = httpx.Client(
             headers={'Authorization': f'Bearer {token}'},
             follow_redirects=True,

@@ -1,4 +1,4 @@
-pre-commit
+#pre-commit
 # grub2 主题预览
 grub2-theme-preview
 # django lint

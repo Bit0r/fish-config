@@ -16,6 +16,7 @@ winfonts
 #pot
 wps-office-365
 org.shotcut.spark
+losslesscut.spark
 baidunetdisk
 linuxqq
 com.qq.weixin.mejituu
