@@ -1,7 +1,12 @@
-#qemu
+qemu
 qemu-system
+qemu-vhost-user-gpu
 virt-manager
-guestfsd
-virtiofsd
+libvirt
+libvirt-dbus
+guestfs*
+libguestfs*
+virtiofs*
 samba
+samba-tool
 samba-vfs-modules-extra

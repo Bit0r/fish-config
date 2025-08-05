@@ -1,6 +1,8 @@
 #!/usr/bin/fish
 
-sudo apt install fontconfig
+if type -q apt
+    sudo apt install fontconfig
+end
 
 sudo mkdir -pm 1777 /usr/local/share/fonts/{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}
 

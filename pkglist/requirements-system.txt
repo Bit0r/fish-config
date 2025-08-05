@@ -58,7 +58,7 @@ clevercsv[full]	# csv处理
 litestar[standard]	# 后端
 redis[hiredis]	# redis 客户端
 fire	# 命令行
-atuin-graph	# 命令行历史可视化
+#atuin-graph	# 命令行历史可视化
 #typer[all]
 jurigged[develoop]	# 热重载
 #drgn	# 内核调试
@@ -70,14 +70,14 @@ snoop	# 调试
 polars
 great_tables	# 输出精美表格
 ocrmypdf	# pdf ocr
-pandasgui	# pandas 可视化
+#pandasgui	# pandas 可视化
 plotnine[all]
 fastplotlib[notebook,imgui]	# 可视化
 mplfonts	# matplotlib 字体
 onnx
 xarray[complete]
 einops
-einop
+einop	# https://github.com/cgarciae/einop
 xarray-einstats
 sympy
 perspective-python	# 数据可视化

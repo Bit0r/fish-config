@@ -8,47 +8,48 @@ set python_site (python -m site --user-site)
 mkdir -p \
     ~/.{vnc,docker} \
     ~/paperless-ngx \
-    ~/.config/{
-        fish/conf.d,
-        profile.d,
-        git,
-        bat,
-        below,
-        direnv,
-        crontab-ui,
-        aria2,
-        clipcat,
-        dive,
-        pip,
-        uv,
-        tstruct,
-        tabby,
-        waveterm,
-        ImageMagick,
-        smplayer,
-        keepassxc,
-        matplotlib,
-        discord,
-        sqlfluff,
-        pgcli,
-        ruff,
-        biome,
-        micro,
-        macchina,
-        bililive
+    ~/.config/{ \
+        fish/conf.d, \
+        profile.d, \
+        git, \
+        bat, \
+        below, \
+        direnv, \
+        crontab-ui, \
+        aria2, \
+        clipcat, \
+        dive, \
+        pip, \
+        uv, \
+        tstruct, \
+        tabby, \
+        waveterm, \
+        ImageMagick, \
+        smplayer, \
+        keepassxc, \
+        matplotlib, \
+        discord, \
+        sqlfluff, \
+        pgcli, \
+        ruff, \
+        biome, \
+        micro, \
+        macchina, \
+        bililive \
     } \
-    ~/.local/share/{
-        applications,
-        kservices5/ServiceMenus,
-        mime/packages,
-        konsole,
-        fcitx5,
-        pandoc/{defaults,csl,css,docx}
+    ~/.local/share/{ \
+        applications, \
+        kservices5/ServiceMenus, \
+        mime/packages, \
+        konsole, \
+        fcitx5, \
+        pandoc/{defaults,csl,css,docx} \
     } \
     ~/.local/state/{aria2,clipcat} \
     ~/.local/lib/portainer \
     ~/.wine/drive_c/users/$USER/AppData/Roaming/'Microsoft Games/Rise of Nations' \
     $python_site
+
 mkdir -pm 700 ~/.ssh/controls
 
 #rm ~/.local/share/user-places.xbel

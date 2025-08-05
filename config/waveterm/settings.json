@@ -7,5 +7,5 @@
 	"term:copyonselect": false,
 	"term:allowbracketedpaste": true,
 	"term:fontsize": 18,
-	"term:fontfamily": "Fira Code Light, Noto Sans Mono CJK SC Light, monospace"
+	"term:fontfamily": "Maple Mono NF, Fira Code, Noto Sans Mono CJK SC, monospace"
 }

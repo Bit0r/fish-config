@@ -1,10 +1,17 @@
 bibclean
+d2
+drawio
 img2pdf
 klatexformula
 #mutool
 ocrmypdf
 tesseract-ocr-chi-sim*
+mdBook
 pandoc
+pandoc-crossref
 pdfarranger
 pyspread
+quarto
 texlive
+typst
+zola

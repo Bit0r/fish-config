@@ -16,32 +16,34 @@ sudo chmod -R 2775 /var/log
 sudo mkdir -p \
     /root/.config/{aria2,below,bat} \
     /usr/share/xsessions \
-    /etc/{
-        default,
-        graftcp-local,
-        cgproxy,
-        conda,
-        uv,
-        mpv,
-        procs,
-        docker,
-        mysql/conf.d,
-        redis/conf.d,
-        audit/rules.d,
-        samba,
-        frp,
-        yamlfix
+    /etc/{ \
+        default, \
+        graftcp-local, \
+        cgproxy, \
+        conda, \
+        uv, \
+        mpv, \
+        procs, \
+        docker, \
+        goaccess, \
+        mysql/conf.d, \
+        redis/conf.d, \
+        audit/rules.d, \
+        samba, \
+        frp, \
+        yamlfix \
     } \
     /etc/systemd/{system,user}.conf.d \
-    /usr/local/share/{
-        applications,
-        icons,
-        mime/packages
+    /usr/local/share/{ \
+        applications, \
+        icons, \
+        mime/packages \
     } \
     /usr/local/etc/xray \
     /opt/glance \
     /var/log/imaotai \
     /srv/api
+
 sudo mkdir -pm 2775 /srv/www \
     $DOCKER_COMPOSE_DIR \
     $DOCKER_DATA_DIR
@@ -67,7 +69,9 @@ sudo cp -a ./config/systemd/system/. /etc/systemd/system/
 sudo cp -a ./config/systemd/user/. /etc/systemd/user/
 
 # 配置 ssh
-sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
+if type -q apt
+    sudo ln -s /usr/bin/ksshaskpass /usr/lib/ssh/ssh-askpass
+end
 
 # 配置 bat
 sudo cp ./config/bat/config /root/.config/bat/
@@ -99,9 +103,11 @@ sudo cp ./config/python/uv/* /etc/uv/
 sudo cp ./config/yamlfix/pyproject.toml /etc/yamlfix/
 
 # 配置lf
-sudo cp ./config/lf/lfrc /etc/
-sudo ln -s /usr/share/doc/lf/examples/lfcd.fish /etc/fish/functions/
-sudo ln -s /usr/share/doc/lf/examples/lf.fish /etc/fish/completions/
+if type -q apt
+    sudo cp ./config/lf/lfrc /etc/
+    sudo ln -s /usr/share/doc/lf/examples/lfcd.fish /etc/fish/functions/
+    sudo ln -s /usr/share/doc/lf/examples/lf.fish /etc/fish/completions/
+end
 
 # 配置thelounge
 sudo cp ./config/thelounge/config.js /etc/thelounge/
@@ -230,6 +236,17 @@ if [ -d /var/www/ ]
     sudo chmod 2775 /var/www/
 end
 
+# 将 python3 链接到 python
+if ! type -q python && confirm 'Do you want to soft link python3 to python?'
+    sudo ln -s /usr/bin/python3 /usr/local/bin/python
+end
+
+# 配置 lib
+if confirm 'Do you want to soft link some library files?'
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2 /usr/lib/x86_64-linux-gnu/libxml.so.2
+end
+
 # 配置update-alternatives
 if confirm 'Do you want to configure update-alternatives?'
     #sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 60 --slave /usr/share/man/man1/editor.1 editor.1 /usr/share/man/man1/micro.1
@@ -245,22 +262,18 @@ if confirm 'Do you want to configure update-alternatives?'
     #end
 end
 
-# 配置 lib
-sudo ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
-sudo ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2 /usr/lib/x86_64-linux-gnu/libxml.so.2
-
 # 配置apt自动更新
 if type -q unattended-upgrades && confirm 'Do you want to configure apt auto upgrade?'
     sudo cp --backup=t ./config/apt/apt.conf.d/*-upgrades /etc/apt/apt.conf.d/
 end
 
 # 配置apt代理
-if confirm 'Do you want to configure apt proxy?'
+if type -q apt && confirm 'Do you want to configure apt proxy?'
     sudo cp ./config/apt/apt.conf.d/12proxy /etc/apt/apt.conf.d/
 end
 
 # 配置 apt weak-key 警告
-if confirm 'Do you want to disable apt weakkey warning?'
+if type -q apt && confirm 'Do you want to disable apt weakkey warning?'
     sudo cp ./config/apt/apt.conf.d/80weakkey-warning /etc/apt/apt.conf.d/
 end
 
@@ -313,7 +326,7 @@ if type -q kyanos
 end
 
 # 配置 trippy
-trip --generate-man | gzip | sudo tee /usr/local/share/man/man1/trip.1.gz >/dev/null
+#trip --generate-man | gzip | sudo tee /usr/local/share/man/man1/trip.1.gz >/dev/null
 
 # 配置 cproxy
 if type -q cproxy
@@ -328,7 +341,7 @@ if type -q virsh && confirm 'Do you want to configure libvirt?'
 end
 
 # 设置防火墙
-if confirm 'Do you want to configure firewall?'
+if type -q ufw && confirm 'Do you want to configure firewall?'
     # 硬件服务
     sudo ufw allow 9/udp comment 'Wake on LAN'
 

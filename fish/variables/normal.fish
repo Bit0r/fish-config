@@ -3,6 +3,7 @@ set -Ux VERSION_CONTROL numbered # 设置cp、mv等命令的备份方式，避�
 set -Ux MTR_OPTIONS -b
 set -Ux PAGER ov
 set -Ux MANPAGER "ov --section-delimiter '^[^\s]' --section-header"
+#set -Ux SUDO_EDITOR msedit
 set -Ux EDITOR msedit
 set -Ux VISUAL code
 set -Ux BROWSER vivaldi

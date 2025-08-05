@@ -1,0 +1,4 @@
+# xray-core
+https://download.opensuse.org/repositories/home:xtexChooser:Factory/openSUSE_Tumbleweed/home:xtexChooser:Factory.repo
+# zotero
+https://download.opensuse.org/repositories/home:MasterPatricko/openSUSE_Tumbleweed/home:MasterPatricko.repo

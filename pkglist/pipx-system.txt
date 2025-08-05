@@ -8,24 +8,24 @@ docker-squash
 # sqlite 数据导入
 #sqlitebiter[all]
 # mysql cli
-mycli
+#mycli
 # postgres cli
 pgcli
 # sqlite cli
 litecli
 # redis cli
-iredis
+#iredis
 # SQL cli
 harlequin
-rich-cli
+#rich-cli
 # PATH 管理
 justpath
 # 日志展示
 toolong
 # 系统监控
-glances[all]
+#glances[all]
 # SystemD 管理
 isd-tui
-poetry
+#poetry
 # 代码流程图
 code2flow

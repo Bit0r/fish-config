@@ -1,2 +1,14 @@
+cadvisor
+cdebug
 docker-ce
+docker-compose
+docker-stable
 #distrobox
+dockerize
+dockviz
+envd
+hadolint
+imgx
+landrun
+lazydocker
+watchtower

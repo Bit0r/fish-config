@@ -36,18 +36,13 @@ load_dotenv(override=True)
 class GithubDownload:
     def __init__(self, token: str | None = None):
         self.token = token
-
-        self.amd64 = re.compile(r'(amd|x86[-_])64')
-        self.non_linux = re.compile(
-            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|\bmac\b|apple|win|bsd'
-        )
         # 最低优先级为19
         self.lowest_priority = 19
 
     def get_asset_priority(self, asset):
         """
-        0. amd64-gnu.deb,*.xpi,*.vsix
-        1. amd64-musl.deb
+        0. amd64-gnu.<deb|rpm>,*.xpi,*.vsix
+        1. amd64-musl.<deb|rpm>
 
         2. amd64-gnu.run
         3. amd64-musl.run
@@ -83,13 +78,31 @@ class GithubDownload:
         suffix = Path(name).suffix
         mimetype = mimetypes.guess_type(name)[0]
 
-        if self.non_linux.search(name):
+        if re.search(
+            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|\bmac\b|apple|win|bsd',
+            name,
+        ):
             # 如果名字中包含非Linux的关键词，那么优先级最低
             return self.lowest_priority
 
-        if not (suffix in ['.deb', '.xpi', '.vsix'] or 'ubuntu' in name):
-            # 如果后缀名不是deb或xpi或vsix，而且名字中不包含ubuntu，那么优先级下调2
+        if not (
+            (
+                Path('/usr/bin/apt').exists()
+                and (suffix in ['.deb', '.xpi', '.vsix'] or 'ubuntu' in name)
+            )
+            or (
+                Path('/usr/bin/zypper').exists()
+                and (
+                    suffix in ['.rpm', '.xpi', '.vsix']
+                    or re.search(r'centos|redhat|rhel', name)
+                )
+            )
+        ):
+            # 1. 如果是 ubuntu，而且后缀名是 .deb 或文件名中有 ubuntu 字样，则保持不变
+            # 2. 如果是 opensuse，而且后缀名有 .rpm 或文件名中有 centos 等字样，则保持不变
+            # 3. 否则优先级下降两级
             priority += 2
+
         if priority == 2 and suffix != '.run':
             # 也不是run包，那么优先级下调2
             priority += 2
@@ -104,7 +117,7 @@ class GithubDownload:
             # 是musl包，那么优先级下调1
             priority += 1
 
-        if not self.amd64.search(name):
+        if not re.search(r'(amd|x86[-_])64', name):
             # 不是amd64包，那么优先级下调10
             priority += 10
 

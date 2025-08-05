@@ -30,7 +30,7 @@ add-list 'Do you want to install docker?' docker
 add-list 'Do you want to install LXD?' lxd
 add-list 'Do you want to install virtualbox?' virtualbox
 add-list 'Do you want to install libvirt?' libvirt
-add-list 'Do you want to install some games?' games
+add-list 'Do you want to install some games?' game
 add-list 'Do you want to install xfce?' xfce
 add-list 'Do you want to install vnc server?' vnc
 
@@ -39,5 +39,12 @@ set files /dev/null
 for pkg in $pkglist
     set -a files pkglist/$pkg.txt
 end
-sudo apt update
-sudo apt -m install (cat $files | grep -v '^#')
+set pkgs (cat $files | grep -v '^#')
+
+if type -q apt
+    sudo apt update
+    sudo apt -m install $pkgs
+else if type -q zypper
+    sudo zypper refresh
+    sudo zypper -i install -l $pkgs
+end

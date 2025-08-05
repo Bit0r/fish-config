@@ -12,21 +12,21 @@ end
 if confirm 'Do you want to install the user-level configuration for fish?'
     source ./fish/variables/normal.fish
 
-    alias fish_command_not_found true
+    # alias fish_command_not_found true
     tab --completion fish >~/.config/fish/completions/tab.fish
-    atuin gen-completions -s fish -o ~/.config/fish/completions/
-    ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
-    uv generate-shell-completion fish >~/.config/fish/completions/uv.fish
-    uvx --generate-shell-completion fish >~/.config/fish/completions/uvx.fish
+    # atuin gen-completions -s fish -o ~/.config/fish/completions/
+    # ruff generate-shell-completion fish >~/.config/fish/completions/ruff.fish
+    # uv generate-shell-completion fish >~/.config/fish/completions/uv.fish
+    # uvx --generate-shell-completion fish >~/.config/fish/completions/uvx.fish
     register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
-    fnm completions --shell fish >~/.config/fish/completions/fnm.fish
-    pnpm completion fish >~/.config/fish/completions/pnpm.fish
-    deno completions fish >~/.config/fish/completions/deno.fish
+    # fnm completions --shell fish >~/.config/fish/completions/fnm.fish
+    # pnpm completion fish >~/.config/fish/completions/pnpm.fish
+    # deno completions fish >~/.config/fish/completions/deno.fish
     watchtower completion fish >~/.config/fish/completions/watchtower.fish
     mcli --autocompletion
     supabase completion fish >~/.config/fish/completions/supabase.fish
-    trip --generate fish >~/.config/fish/completions/trip.fish
-    functions -e fish_command_not_found
+    # trip --generate fish >~/.config/fish/completions/trip.fish
+    # functions -e fish_command_not_found
 end
 
 if confirm 'Do you want to install the system-level configuration for fish?'

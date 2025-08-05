@@ -2,7 +2,7 @@
 
 source include/confirm.fish
 
-if confirm 'Do you want to install the software from the third-party repository?'
+if type -q apt && confirm 'Do you want to install the software from the third-party repository?'
     # 设置包
     set files pkglist/{ppa,third-party}.txt
     set pkgs (cat $files | grep -v '^#')
@@ -10,7 +10,7 @@ if confirm 'Do you want to install the software from the third-party repository?
     sudo cp ./config/apt/apt.conf.d/12proxy /etc/apt/apt.conf.d/
     # 开始安装
     sudo apt update
-    sudo apt install $pkgs
+    sudo apt -m install $pkgs
 end
 
 if confirm 'Do you want to install dysk?'
@@ -62,5 +62,10 @@ if confirm 'Do you want to install the software from the GitHub release?'
     python exec/download-releases \
         --lockfile=$lockfile \
         --output_dir=$PWD/tmp/
-    sudo apt install ./tmp/*.deb
+
+    if type -q apt
+        sudo apt install ./tmp/*.deb
+    else if type -q zypper
+        sudo zypper install ./tmp/*.rpm
+    end
 end

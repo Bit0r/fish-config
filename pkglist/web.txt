@@ -7,3 +7,6 @@ xcaddy
 iredis
 redis-server
 #unit
+postgresql
+pspg
+pgcli

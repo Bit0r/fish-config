@@ -1,14 +1,14 @@
 #!/usr/bin/fish
 source ./include/confirm.fish
 
-if confirm 'Do you want to install some software from ppa?'
-    sudo apt -m install (cat ./pkglist/ppa.txt | grep -v '^#')
-end
-
-if type -q gcc && type -q make && confirm 'Do you want to install git-credential-libsecret?'
+if type -q apt && type -q gcc && type -q make && confirm 'Do you want to install git-credential-libsecret?'
     set libsecret_path /usr/share/doc/git/contrib/credential/libsecret/
     sudo make -C $libsecret_path
     sudo ln -s $libsecret_path/git-credential-libsecret /usr/local/bin/
+end
+
+if confirm 'Do you want to install some third-party fonts?'
+    source fonts.fish
 end
 
 if type -q aptss && confirm 'Do you want to install some software using spark-store?'
@@ -19,21 +19,30 @@ if type -q flatpak && confirm 'Do you want to install some software using flatpa
     flatpak install (cat ./pkglist/flatpak.txt | grep -v '^#')
 end
 
-if sudo which pip >/dev/null && confirm 'Do you want to install system-level software using pip?'
+if sudo which pip &>/dev/null && confirm 'Do you want to install system-level python packages using pip?'
     sudo pip install -Ir pkglist/requirements-system.txt
+else if type -q pip && confirm 'Do you want to install basic user-level python packages using pip?'
+    pip install -r pkglist/requirements-system.txt
 end
 
-if type -q pip && confirm 'Do you want to install user-level software using pip?'
+if type -q pip && confirm 'Do you want to install extra user-level python packages using pip?'
     pip install -r pkglist/requirements-user.txt
 end
 
-if sudo which pipx >/dev/null && confirm 'Do you want to install system-level software using pipx?'
+if sudo which pipx &>/dev/null && confirm 'Do you want to install system-level software using pipx?'
     for pkg in (cat ./pkglist/pipx-system.txt | grep -v '^#')
         sudo rm /usr/local/bin/$pkg
         sudo pipx install --global $pkg
     end
     for inject in (cat ./pkglist/pipx-inject-system.txt | grep -v '^#')
         sudo pipx inject --global $inject
+    end
+end
+
+if sudo which uv &>/dev/null && confirm 'Do you want to install system-level software using uv tool?'
+    for pkg in (cat ./pkglist/pipx-system.txt | grep -v '^#')
+        sudo rm /usr/local/bin/$pkg
+        sudo UV_PYTHON_INSTALL_DIR=/opt/uv/python UV_TOOL_BIN_DIR=/usr/local/bin UV_TOOL_DIR=/opt/uv/venv uv tool install --link-mode clone $pkg
     end
 end
 
@@ -49,14 +58,14 @@ if type -q fnm && confirm 'Do you want to install some software using fnm?'
 end
 
 set -l cmd corepack install -g npm yarn pnpm
-if sudo which corepack >/dev/null && confirm 'Do you want to use corepack to install some system-level package managers?'
+if sudo which corepack &>/dev/null && confirm 'Do you want to use corepack to install some system-level package managers?'
     sudo $cmd
 else if type -q corepack && confirm 'Do you want to use corepack to install some user-level package managers?'
     $cmd
 end
 
 set -l cmd ni -g (cat ./pkglist/npm-global.txt | grep -v '^#')
-if sudo which ni >/dev/null && confirm 'Do you want to install some system-level software using ni?'
+if sudo which ni &>/dev/null && confirm 'Do you want to install some system-level software using ni?'
     sudo $cmd
 else if type -q ni && confirm 'Do you want to install some user-level software using ni?'
     $cmd

@@ -1,4 +1,5 @@
-libssl-dev
+libssl*
 lld
 pkg-config
+rust
 rustc

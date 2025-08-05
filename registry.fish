@@ -51,3 +51,8 @@ end
 if type -q lxc
     lxc remote add mirror-images https://mirrors.cernet.edu.cn/lxc-images/ --protocol=simplestreams --public
 end
+
+# flatpak 换源
+if type -q flatpak
+    sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub --homepage=https://mirrors.ustc.edu.cn --title="中国科学技术大学镜像"
+end
