@@ -8,6 +8,7 @@ bat
 below
 bottom
 bpftop
+bpftrace
 chntpw
 cmatrix
 cpulimit
@@ -26,6 +27,7 @@ exfat-fuse
 exfatprogs
 ext4magic
 f3
+fatrace
 fclones
 fd
 fzf
@@ -40,6 +42,8 @@ git-ignore
 git-lfs
 git-sizer
 git-who
+jujutsu
+jujutsu-fzf
 #gpustat
 groff
 hspell
@@ -56,6 +60,8 @@ lazygit
 lefthook
 libelf*
 libicu*
+libinput-tools
+libinput-debug-gui
 libimage-exiftool-perl
 libnss3-tools
 libpcap*
@@ -66,6 +72,7 @@ linux-tools-generic
 lm-sensors
 lnav
 lrzip
+lsof
 lsyncd
 mangohud
 mat2
@@ -74,6 +81,7 @@ micro
 nala
 ncat
 net-tools
+nfpm
 ngrep
 nvtop
 p7zip-rar
@@ -90,11 +98,14 @@ scc
 scdaemon
 sd
 speech-dispatcher
+starship
 sshpass
 syft
 taplo
 termshark
+tree-sitter*
 trippy
+udtrace
 uml-utilities
 unace
 universal-ctags

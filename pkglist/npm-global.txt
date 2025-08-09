@@ -4,7 +4,7 @@ npm-fork
 np
 all-the-package-names
 yarn-completions
-typescript
+#typescript-go
 node-modules-inspector
 shadcn-vue
 @alova/wormhole

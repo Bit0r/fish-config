@@ -87,7 +87,7 @@ sirwart/ripsecrets,,查找敏感信息
 ,,包管理安装,boyter/scc,,统计代码行数
 ,,,git-ecosystem/git-credential-manager,,git凭证管理
 ,,包管理安装,hickford/git-credential-oauth,,git凭证管理
-jesseduffield/lazygit,,git的TUI
+,,包管理安装,jesseduffield/lazygit,,git的TUI
 ,,包管理安装,tummychow/git-absorb,,git commit --fixup替代品
 evilmartians/lefthook,,git hook 管理器
 sondr3/git-ignore,,gitignore 模板

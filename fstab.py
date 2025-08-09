@@ -3,8 +3,8 @@ from tempfile import NamedTemporaryFile
 
 from box import Box, BoxList
 from fire import Fire
-from plumbum.cmd import cp, sudo
 from pydumpling import catch_any_exception
+from plumbum.cmd import cp, sudo
 
 catch_any_exception()
 
@@ -12,11 +12,11 @@ catch_any_exception()
 class Fstab:
     def __init__(
         self,
-        fstab_path: str | Path | None = "/etc/fstab",
+        fstab_path: str | Path | None = '/etc/fstab',
         fstab_dir: str | Path | None = None,
     ):
         if not (fstab_path or fstab_dir):
-            msg = "Either fstab_path or fstab_dir must be provided"
+            msg = 'Either fstab_path or fstab_dir must be provided'
             raise ValueError(msg)
 
         self.fstabs = BoxList()
@@ -24,7 +24,7 @@ class Fstab:
         if fstab_path:
             self.fstab_path = Path(fstab_path).expanduser().resolve()
             if not self.fstab_path.exists():
-                msg = f"fstab_path {self.fstab_path} does not exist"
+                msg = f'fstab_path {self.fstab_path} does not exist'
                 raise FileNotFoundError(msg)
 
             self.fstabs.append(self.read_fstab(self.fstab_path))
@@ -32,7 +32,7 @@ class Fstab:
         if fstab_dir:
             self.fstab_dir = Path(fstab_dir).expanduser().resolve()
             if not self.fstab_dir.exists():
-                msg = f"fstab_dir {self.fstab_dir} does not exist"
+                msg = f'fstab_dir {self.fstab_dir} does not exist'
                 raise FileNotFoundError(msg)
 
             for file in self.fstab_dir.iterdir():
@@ -58,7 +58,7 @@ class Fstab:
     def read_fstab(self, fstab_path: str | Path):
         fstab_path = Path(fstab_path).expanduser().resolve()
         if not fstab_path.exists():
-            msg = f"fstab_path {fstab_path} does not exist"
+            msg = f'fstab_path {fstab_path} does not exist'
             raise FileNotFoundError(msg)
 
         with open(fstab_path) as f:
@@ -69,17 +69,17 @@ class Fstab:
 
         for line in fstab:
             line = line.strip()
-            if not line or line.startswith("#"):
+            if not line or line.startswith('#'):
                 comments.append(line)
             else:
                 table.append(line.split())
 
-        fstab = {"comments": comments, "table": table}
+        fstab = {'comments': comments, 'table': table}
         return Box(fstab)
 
     def write_fstab(
         self,
-        fstab_path: str | Path = "./fstab",
+        fstab_path: str | Path = './fstab',
         *,
         should_backup=True,
         should_sudo=True,
@@ -87,12 +87,12 @@ class Fstab:
         fstab_path = Path(fstab_path).expanduser().resolve()
         fstab_path.parent.mkdir(parents=True, exist_ok=True)
 
-        with NamedTemporaryFile("w", delete=False) as f:
+        with NamedTemporaryFile('w', delete=False) as f:
             print(self, file=f)
             temp_fstab_path = Path(f.name)
 
-        backup_arg = "--backup=t" if should_backup else ""
-        cmd = cp["-a", backup_arg, temp_fstab_path, fstab_path]
+        backup_arg = '--backup=t' if should_backup else ''
+        cmd = cp['-a', backup_arg, temp_fstab_path, fstab_path]
 
         if should_sudo:
             cmd = sudo[cmd]
@@ -122,24 +122,24 @@ class Fstab:
             fstab_row = []
 
             for idx, field in enumerate(row):
-                fstab_row.append(f"{field:<{min_widths[idx]}}")
+                fstab_row.append(f'{field:<{min_widths[idx]}}')
 
-            fstab_row = " ".join(fstab_row)
+            fstab_row = ' '.join(fstab_row)
 
             lines.append(fstab_row)
 
-        return "\n".join(lines)
+        return '\n'.join(lines)
 
     def __str__(self):
         fstab_strs = []
         for fstab in self.fstabs:
-            comments_str = "\n".join(fstab.comments)
+            comments_str = '\n'.join(fstab.comments)
             table_str = self.pretty_table(fstab.table)
-            fstab_str = f"{comments_str}\n{table_str}"
+            fstab_str = f'{comments_str}\n{table_str}'
             fstab_strs.append(fstab_str)
-        fstabs_str = "\n".join(fstab_strs)
+        fstabs_str = '\n'.join(fstab_strs)
         return fstabs_str
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     Fire(Fstab)

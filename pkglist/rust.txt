@@ -1,5 +1,5 @@
 libssl*
-lld
-pkg-config
-rust
-rustc
+#pkg-config
+#rust
+#rustc
+rustup

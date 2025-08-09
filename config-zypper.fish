@@ -11,7 +11,7 @@ end
 # 修改vivaldi.repo使用代理
 if confirm 'Do you want to set a proxy for the repository?'
     set proxy_url http://localhost:8800
-    for repo in vivaldi home_xtexChooser_Factory home_MasterPatricko
+    for repo in vivaldi home_Psheng home_MasterPatricko
         zypper-set-proxy $repo $proxy_url
     end
 end

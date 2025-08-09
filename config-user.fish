@@ -78,6 +78,9 @@ cp -f config/.*rc ~/
 touch ~/.config/mimeapps.list
 ln -sf ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
 
+# 配置 starship
+cp ./config/starship/starship.toml ~/.config/
+
 # 配置 bat
 cp ./config/bat/config ~/.config/bat/
 
@@ -137,7 +140,7 @@ cp ./config/bililive/config.yaml ~/.config/bililive/
 
 cp ./config/smplayer/smplayer.ini ~/.config/smplayer/
 cp ./config/desktop/mat2.desktop ~/.local/share/kservices5/ServiceMenus/
-cp config/keepassxc.ini ~/.config/keepassxc/
+cp ./config/keepassxc/* ~/.config/keepassxc/
 
 # 配置 sqlfluff
 cp -a ./config/sqlfluff/. ~/.config/sqlfluff/

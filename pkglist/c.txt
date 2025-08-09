@@ -1,6 +1,7 @@
 abi-tracker
 clang
 clang-format
+lld
 build-essential
 gcc-multilib
 gdb

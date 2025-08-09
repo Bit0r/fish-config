@@ -7,3 +7,4 @@ fonts-lmodern
 fonts-opensymbol
 fonts-stix
 fonts-takao-gothic
+fonts-maple-mono

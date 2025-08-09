@@ -1,0 +1,16 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[directory]
+truncation_symbol = ".../"
+
+[status]
+map_symbol = true
+pipestatus = true
+disabled = false
+
+[cmd_duration]
+show_notifications = true
+
+[time]
+use_12hr = true
+disabled = false
