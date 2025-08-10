@@ -15,7 +15,7 @@ akavel/up,,交互式运行管道命令
 Metaphorme/ezcheck,,文件校验
 ,,包管理安装,pkolaczk/fclones,,查找重复文件
 ,,包管理安装,sharkdp/fd,,查找文件
-marcusbuffett/pipe-rename,,在文本编辑器中批量重命名文件
+,,用renameutils代替,marcusbuffett/pipe-rename,,在文本编辑器中批量重命名文件
 ,,包管理安装,sharkdp/bat,,cat的替代品
 noborus/ov,,现代化的 pager
 microsoft/edit,,微软的终端文本编辑器

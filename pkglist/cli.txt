@@ -40,6 +40,7 @@ git-crypt
 git-filter-repo
 git-ignore
 git-lfs
+git-review
 git-sizer
 git-who
 jujutsu
