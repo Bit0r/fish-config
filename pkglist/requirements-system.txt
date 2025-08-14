@@ -10,6 +10,7 @@ pypyp	# 在命令行中运行 python
 deepdiff[optimize]	# 深度比较
 nbdime	# Jupyter Notebook 的对比工具
 mercury	# 将 Notebook 转化为网页应用
+markitdown-mcp	# 将所有文件转为markdown
 pipreqs	# 生成 requirements.txt
 toolz	# 函数式编程
 chardet	# 字符编码检测

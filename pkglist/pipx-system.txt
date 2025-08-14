@@ -29,3 +29,5 @@ isd-tui
 #poetry
 # 代码流程图
 code2flow
+# pandoc 的 mcp
+mcp-pandoc

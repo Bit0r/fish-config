@@ -8,6 +8,7 @@ ocrmypdf
 tesseract-ocr-chi-sim*
 mdBook
 pandoc
+pandoc-cli
 pandoc-crossref
 pdfarranger
 pyspread
