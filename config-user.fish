@@ -239,6 +239,10 @@ end
 # 添加自身到必需的组
 if confirm 'Do you want to add yourself to some groups?'
     for group in shadow lpadmin mysql postgres redis ssl-cert www-data staff adm systemd-journal whoopsie wireshark docker kvm input uinput users lp sambashare
-        sudo adduser $USER $group
+        if type -q adduser
+            sudo adduser $USER $group
+        else
+            sudo usermod -aG $group $USER
+        end
     end
 end

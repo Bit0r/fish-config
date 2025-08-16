@@ -7,6 +7,7 @@ atuin
 bat
 below
 bottom
+bpftool
 bpftop
 bpftrace
 chntpw

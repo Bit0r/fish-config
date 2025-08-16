@@ -1,11 +1,8 @@
 {
+	//"$schema": "https://www.schemastore.org/dockerd.json",
 	"debug": true,
-	"log-driver": "local",
-	"registry-mirrors": [
-		"https://docker.m.daocloud.io",
-		"https://hub-mirror.c.163.com",
-		"https://mirror.baidubce.com"
-	],
+	"log-driver": "syslog",
+	"registry-mirrors": [],
 	// "data-root": "/var/docker/data",
 	"runtimes": {
 		"nvidia": {

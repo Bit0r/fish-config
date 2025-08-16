@@ -39,6 +39,61 @@ class GithubDownload:
         # 最低优先级为19
         self.lowest_priority = 19
 
+        # 确定基础发行版
+        self.base_distro = self.__get_base_distro()
+
+    @staticmethod
+    def __get_base_distro():
+        """
+        获取基础发行版
+        """
+        if Path('/usr/bin/apt').exists():
+            return 'debian'
+        elif Path('/usr/bin/dnf').exists():
+            return 'redhat'
+        elif Path('/usr/bin/zypper').exists():
+            return 'opensuse'
+        else:
+            return 'unknown'
+
+    @staticmethod
+    def __get_libc_type(name):
+        """
+        获取libc类型
+        """
+        return 'musl' if 'musl' in name else 'gnu'
+
+    @staticmethod
+    def __get_arch_type(name):
+        """
+        获取指令集类型
+        """
+        return 'amd64' if re.search(r'(amd|x(86[-_])?)64', name) else 'unknown'
+
+    @staticmethod
+    def __get_package_type(name):
+        """
+        获取包类型
+        """
+        suffix = Path(name).suffix
+        if suffix == '.deb' or re.search(r'ubuntu|debian', name):
+            return 'debian'
+        elif suffix == '.rpm' or re.search(r'centos|redhat|rhel|opensuse', name):
+            return 'redhat'
+        elif re.fullmatch(r'.(xpi|vsix)', suffix):
+            return 'extension'
+        elif re.search(
+            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|\bmac\b|apple|win|bsd',
+            name,
+        ):
+            return 'non-linux'
+        elif suffix == '.run':
+            return 'run'
+        elif suffix == '.appimage':
+            return 'appimage'
+        else:
+            return 'unknown'
+
     def get_asset_priority(self, asset):
         """
         0. amd64-gnu.<deb|rpm>,*.xpi,*.vsix
@@ -75,49 +130,46 @@ class GithubDownload:
         priority = 0
 
         name = asset.name.casefold()
-        suffix = Path(name).suffix
         mimetype = mimetypes.guess_type(name)[0]
 
-        if re.search(
-            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|\bmac\b|apple|win|bsd',
-            name,
+        # 确定包类型
+        package_type = self.__get_package_type(name)
+
+        # 确定libc类型
+        libc_type = self.__get_libc_type(name)
+
+        # 确定指令集类型
+        arch_type = self.__get_arch_type(name)
+
+        # 1. 如果是包类型未知，则优先级下降2
+        # 2. 如果包管理和包类型类型匹配，或者为跨平台的软件插件，则优先级保持不变
+        # 3. 如果包类型和包管理不匹配，或是非linux包，则直接返回最低优先级
+        if package_type == 'unknown':
+            priority += 2
+        elif (
+            package_type == self.base_distro
+            or (self.base_distro == 'opensuse' and package_type == 'redhat')
+            or package_type == 'extension'
         ):
-            # 如果名字中包含非Linux的关键词，那么优先级最低
+            pass
+        elif package_type != self.base_distro or package_type == 'non-linux':
             return self.lowest_priority
 
-        if not (
-            (
-                Path('/usr/bin/apt').exists()
-                and (suffix in ['.deb', '.xpi', '.vsix'] or 'ubuntu' in name)
-            )
-            or (
-                Path('/usr/bin/zypper').exists()
-                and (
-                    suffix in ['.rpm', '.xpi', '.vsix']
-                    or re.search(r'centos|redhat|rhel', name)
-                )
-            )
-        ):
-            # 1. 如果是 ubuntu，而且后缀名是 .deb 或文件名中有 ubuntu 字样，则保持不变
-            # 2. 如果是 opensuse，而且后缀名有 .rpm 或文件名中有 centos 等字样，则保持不变
-            # 3. 否则优先级下降两级
-            priority += 2
-
-        if priority == 2 and suffix != '.run':
+        if priority == 2 and package_type != 'run':
             # 也不是run包，那么优先级下调2
             priority += 2
-        if priority == 4 and suffix != '.appimage':
+        if priority == 4 and package_type != 'appimage':
             # 也不是AppImage包，那么优先级下调2
             priority += 2
         if priority == 6 and not (mimetype and mimetype.split('/')[0] == 'application'):
             # 如果没有mimetype，或者mimetype不是application，那么优先级下调2
             priority += 2
 
-        if 'musl' in name:
+        if libc_type == 'musl':
             # 是musl包，那么优先级下调1
             priority += 1
 
-        if not re.search(r'(amd|x86[-_])64', name):
+        if arch_type != 'amd64':
             # 不是amd64包，那么优先级下调10
             priority += 10
 

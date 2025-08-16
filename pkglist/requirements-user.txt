@@ -33,6 +33,7 @@ DrissionPage	# 网络爬虫
 pywebio	# web交互
 pyarmor	# 加密
 rtoml
+rustimport	# 导入rust代码模块
 #xmltodict
 scanf
 selectolax	# html解析
