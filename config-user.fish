@@ -179,7 +179,7 @@ cp -a ./config/d2/. ~/.config/d2/
 cp ./config/tabby/config.yaml ~/.config/tabby/
 
 # 配置 waveterm
-cp ./config/waveterm/settings.json ~/.config/waveterm/
+cp -RT ./config/waveterm/ ~/.config/waveterm/
 
 # 配置 imwheel
 cp config/imwheel/imwheelrc ~/.imwheelrc

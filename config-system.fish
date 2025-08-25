@@ -202,15 +202,12 @@ if type -q balooctl
 end
 
 # 配置桌面设置
-#for app_image in CAJViewer ivySCI
-for app_image in ivySCI
-    sudo ln -s /opt/$app_image/$app_image.AppImage /usr/local/bin/$app_image
-    sudo cp config/desktop/$app_image.desktop /usr/local/share/applications/
+for app_image in CakeWallet zen-browser
+    sudo cp ./config/desktop/$app_image.desktop /usr/local/share/applications/
 end
 #sudo cp config/caj-viewer.xml /usr/local/share/mime/packages/
 sudo ln -s /opt/**/cake_wallet /usr/local/bin/
 sudo ln -s /opt/**/cakewallet_icon_1024.png /usr/local/share/icons/
-sudo cp config/desktop/CakeWallet.desktop /usr/local/share/applications/
 
 # 配置snap
 sudo snap set system snapshots.automatic.retention=no
