@@ -132,16 +132,16 @@ sudo cp ./config/xray/config.json /usr/local/etc/xray/
 sudo setcap cap_net_bind_service=+ep (type -p caddy)
 
 # 配置 goaccess
-sudo cp -b ./config/goaccess/* /etc/goaccess/
+sudo cp ./config/goaccess/* /etc/goaccess/
 
-# 配置 proxychains4
-sudo cp --backup=t ./config/proxychains/proxychains4.conf /etc/
+# 配置 proxychains-ng
+sudo cp ./config/proxychains/proxychains.conf /etc/
 
 # 配置 graftcp
-sudo cp --backup=t ./config/graftcp-local/graftcp-local.conf /etc/graftcp-local/
+sudo cp ./config/graftcp-local/graftcp-local.conf /etc/graftcp-local/
 
 # 配置 cgproxy
-sudo cp --backup=t ./config/cgproxy/config.json /etc/cgproxy/
+sudo cp ./config/cgproxy/config.json /etc/cgproxy/
 
 # 配置 docker pull 代理
 if type -q docker && confirm 'Do you want to configure docker pull proxy?'
@@ -159,7 +159,7 @@ sudo cp ./config/labelme/.labelmerc /root/
 
 # 配置 ImageMagick
 sudo cp ./config/ImageMagick/policy-open.xml /etc/ImageMagick-6/
-sudo ln -bs /etc/ImageMagick-6/policy-open.xml /etc/ImageMagick-6/policy.xml
+sudo ln -s /etc/ImageMagick-6/policy-open.xml /etc/ImageMagick-6/policy.xml
 
 # 配置 imaotai
 sudo cp ./config/imaotai/imaotai /etc/nginx/sites-available/
@@ -277,7 +277,7 @@ end
 
 # 将plasma-awesome作为默认桌面
 if type -q awesome && type -q startplasma-x11 && confirm 'Do you want to use plasma-awesome as default desktop?'
-    sudo cp --backup=t ./config/kde/sddm.conf /etc/sddm.conf
+    sudo cp ./config/kde/sddm.conf /etc/sddm.conf
 end
 
 # 配置LXD
@@ -293,7 +293,7 @@ end
 
 # 配置samba
 if type -q samba && confirm 'Do you want to configure Samba?'
-    sudo cp --backup=t ./config/samba/smb.conf /etc/samba/
+    sudo cp ./config/samba/smb.conf /etc/samba/
     sudo smbpasswd -a nobody
     sudo smbpasswd -a $USER
     testparm # 展示配置信息
@@ -302,7 +302,7 @@ end
 
 # 配置 kyanos
 if type -q kyanos
-    set kyanos_path (type kyanos)
+    set kyanos_path (type -p kyanos)
     sudo setcap cap_bpf,cap_sys_admin+ep $kyanos_path
     sudo chmod u+s $kyanos_path
 end
@@ -312,14 +312,14 @@ end
 
 # 配置 cproxy
 if type -q cproxy
-    set cproxy_path (type cproxy)
+    set cproxy_path (type -p cproxy)
     sudo chmod u+s $cproxy_path
 end
 
 # 配置libvirt
 if type -q virsh && confirm 'Do you want to configure libvirt?'
-    sudo cp --backup=t ./config/libvirt/qemu/*.xml /etc/libvirt/qemu/
-    sudo cp --backup=t ./config/libvirt/storge/*.xml /etc/libvirt/storage/
+    sudo cp ./config/libvirt/qemu/*.xml /etc/libvirt/qemu/
+    sudo cp ./config/libvirt/storge/*.xml /etc/libvirt/storage/
 end
 
 # 设置防火墙

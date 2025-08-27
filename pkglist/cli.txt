@@ -90,6 +90,7 @@ nvtop
 p7zip-rar
 progress
 proxychains4
+proxychains-ng
 pueue
 rar
 renameutils
