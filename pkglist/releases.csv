@@ -47,7 +47,8 @@ Macchina-CLI/macchina,,获取系统信息
 n7olkachev/imgdiff,,逐像素图片比较
 ,,包管理安装,RazrFalcon/svgcleaner,,svg清理工具
 ImageOptim/gifski,,gif图片生成
-aandrew-me/ytDownloader,,yt-dlp的GUI
+,,直接使用cli,aandrew-me/ytDownloader,,yt-dlp的GUI
+putyy/resd-mini,,视频下载工具
 qustavo/httplab,,交互式http服务器
 hookdeck/hookdeck-cli,,webhook工具
 fatedier/frp,,内网穿透
@@ -58,7 +59,7 @@ evilsocket/opensnitch,,应用级防火墙
 imsnif/bandwhich,,网络带宽监控
 ,,包管理安装,bee-san/RustScan,,端口扫描
 zu1k/nali,,ip查询
-,,使用spark安装,oldj/SwitchHosts,,hosts管理
+oldj/SwitchHosts,,hosts管理
 wzv5/pping,,支持多种协议的ping
 theopfr/somo,,netstat替代品
 ,,包管理安装,fujiapple852/trippy,,traceroute替代品
@@ -94,6 +95,7 @@ sondr3/git-ignore,,gitignore 模板
 ,,,sinclairtarget/git-who,,统计仓库的作者
 svenstaro/genact,,产生无意义的终端活动
 ssut/payload-dumper-go,,提取payload.bin文件
+Picocrypt-NG/Picocrypt-NG,,文件加密工具
 ,,包管理安装,getzola/zola,,静态网站生成器
 ,,使用spark安装,jgm/pandoc,,文档转换
 lierdakil/pandoc-crossref,,pandoc的交叉引用
@@ -108,7 +110,7 @@ heyman/heynote,,程序员的草稿本
 CherryHQ/cherry-studio,,AI客户端
 koodo-reader/koodo-reader,,epub阅读器
 lyswhut/lx-music-desktop,,音乐播放器
-responsively-org/responsively-app-releases,,前端开发专用浏览器
+,,,responsively-org/responsively-app-releases,,前端开发专用浏览器
 H-M-H/Weylus,,无线投屏
 glanceapp/glance,,聚合 rss、iframe、youtube channels 等
 ,,使用ProtonPlus代替,auyer/Protonup-rs,,Steam Proton更新

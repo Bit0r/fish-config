@@ -1,5 +1,6 @@
 {
     "ai:preset": "ai@gemini",
+    "autoupdate:enabled": false,
     "app:showoverlayblocknums": false,
     "conn:askbeforewshinstall": false,
     "term:copyonselect": false,

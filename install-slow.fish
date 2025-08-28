@@ -63,9 +63,25 @@ if confirm 'Do you want to install the software from the GitHub release?'
         --lockfile=$lockfile \
         --output_dir=$PWD/tmp/
 
+    ./tmp/
     if type -q apt
-        sudo apt install ./tmp/*.deb
+        if type -q alien
+            # 将所有rpm转为deb，并删除原始的rpm
+            for pkg in ./*.rpm
+                sudo alien $pkg
+                rm $pkg
+            end
+        end
+        sudo apt install ./*.deb
     else if type -q zypper
-        sudo zypper install ./tmp/*.rpm
+        if type -q alien
+            # 将所有deb转为rpm，并删除原始的deb
+            for pkg in ./*.deb
+                sudo alien -r $pkg
+                rm $pkg
+            end
+        end
+        sudo zypper install ./*.rpm
     end
+    ../
 end

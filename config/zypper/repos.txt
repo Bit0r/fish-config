@@ -2,3 +2,5 @@
 https://download.opensuse.org/repositories/home:Psheng/openSUSE_Tumbleweed/home:Psheng.repo
 # zotero
 https://download.opensuse.org/repositories/home:MasterPatricko/openSUSE_Tumbleweed/home:MasterPatricko.repo
+# alien
+https://download.opensuse.org/repositories/system:packagemanager/openSUSE_Tumbleweed/system:packagemanager.repo

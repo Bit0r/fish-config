@@ -3,7 +3,7 @@ source include/confirm.fish
 
 # 添加ppa
 if confirm 'Do you want to add some OBS?'
-    for repo in (cat ./config/zypper/obs.txt | grep -v '^#')
+    for repo in (cat ./config/zypper/repos.txt | grep -v '^#')
         sudo zypper addrepo -p 200 $repo
     end
 end

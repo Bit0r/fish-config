@@ -36,8 +36,8 @@ load_dotenv(override=True)
 class GithubDownload:
     def __init__(self, token: str | None = None):
         self.token = token
-        # 最低优先级为19
-        self.lowest_priority = 19
+        # 最低优先级为23
+        self.lowest_priority = 23
 
         # 确定基础发行版
         self.base_distro = self.__get_base_distro()
@@ -76,14 +76,15 @@ class GithubDownload:
         获取包类型
         """
         suffix = Path(name).suffix
+        mimetype = mimetypes.guess_type(name)[0]
         if suffix == '.deb' or re.search(r'ubuntu|debian', name):
             return 'debian'
         elif suffix == '.rpm' or re.search(r'centos|redhat|rhel|opensuse', name):
             return 'redhat'
-        elif re.fullmatch(r'.(xpi|vsix)', suffix):
+        elif re.fullmatch(r'\.(xpi|vsix)', suffix):
             return 'extension'
         elif re.search(
-            r'.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|osx|\bmac\b|apple|win|bsd',
+            r'\.(exe|msi|dmg|sha256|sig|asc)|darwin|macos|[\b_](osx|mac|apple)[\b_]|win|bsd',
             name,
         ):
             return 'non-linux'
@@ -91,6 +92,8 @@ class GithubDownload:
             return 'run'
         elif suffix == '.appimage':
             return 'appimage'
+        elif mimetype and mimetype.split('/')[0] == 'application':
+            return 'application'
         else:
             return 'unknown'
 
@@ -99,38 +102,42 @@ class GithubDownload:
         0. amd64-gnu.<deb|rpm>,*.xpi,*.vsix
         1. amd64-musl.<deb|rpm>
 
-        2. amd64-gnu.run
-        3. amd64-musl.run
+        2. amd64-gnu.~<deb|rpm>
+        3. amd64-musl.~<deb|rpm>
 
-        4. amd64-gnu.AppImage
-        5. amd64-musl.AppImage
+        4. amd64-gnu.run
+        5. amd64-musl.run
 
-        6. amd64-gnu.zip or amd64-gnu.tar.gz
-        7. amd64-musl.zip or amd64-gnu.tar.gz
+        6. amd64-gnu.AppImage
+        7. amd64-musl.AppImage
 
-        8. amd64-gnu
-        9. amd64-musl
+        8. amd64-gnu.zip or amd64-gnu.tar.gz
+        9. amd64-musl.zip or amd64-gnu.tar.gz
 
-        10. gnu.deb
-        11. musl.deb
+        10. amd64-gnu
+        11. amd64-musl
 
-        12. gnu.run
-        13. musl.run
+        12. gnu.<deb|rpm>
+        13. musl.<deb|rpm>
 
-        14. gnu.AppImage
-        15. musl.AppImage
+        14. gnu.~<deb|rpm>
+        15. musl.~<deb|rpm>
 
-        16. gnu.zip or gnu.tar.gz
-        17. musl.zip or gnu.tar.gz
+        16. gnu.run
+        17. musl.run
 
-        18. cli
+        18. gnu.AppImage
+        19. musl.AppImage
 
-        19. others
+        20. gnu.zip or gnu.tar.gz
+        21. musl.zip or gnu.tar.gz
+
+        22. cli
+
+        23. others
         """
-        priority = 0
 
         name = asset.name.casefold()
-        mimetype = mimetypes.guess_type(name)[0]
 
         # 确定包类型
         package_type = self.__get_package_type(name)
@@ -141,37 +148,33 @@ class GithubDownload:
         # 确定指令集类型
         arch_type = self.__get_arch_type(name)
 
-        # 1. 如果是包类型未知，则优先级下降2
-        # 2. 如果包管理和包类型类型匹配，或者为跨平台的软件插件，则优先级保持不变
-        # 3. 如果包类型和包管理不匹配，或是非linux包，则直接返回最低优先级
-        if package_type == 'unknown':
-            priority += 2
-        elif (
-            package_type == self.base_distro
-            or (self.base_distro == 'opensuse' and package_type == 'redhat')
-            or package_type == 'extension'
+        if package_type == 'extension':
+            # 扩展包优先级最高
+            return 0
+        elif package_type == self.base_distro or (
+            self.base_distro == 'opensuse' and package_type == 'redhat'
         ):
-            pass
-        elif package_type != self.base_distro or package_type == 'non-linux':
-            return self.lowest_priority
-
-        if priority == 2 and package_type != 'run':
-            # 也不是run包，那么优先级下调2
-            priority += 2
-        if priority == 4 and package_type != 'appimage':
-            # 也不是AppImage包，那么优先级下调2
-            priority += 2
-        if priority == 6 and not (mimetype and mimetype.split('/')[0] == 'application'):
-            # 如果没有mimetype，或者mimetype不是application，那么优先级下调2
-            priority += 2
+            # 匹配基础发行版的包优先级最高
+            priority = 0
+        elif package_type in ['debian', 'redhat']:
+            # 不匹配基础发行版的包需要使用alien转换，优先级下降2
+            priority = 2
+        else:
+            priority = {
+                'run': 4,
+                'appimage': 6,
+                'application': 8,
+                'unknown': 10,
+                'non-linux': self.lowest_priority,
+            }[package_type]
 
         if libc_type == 'musl':
             # 是musl包，那么优先级下调1
             priority += 1
 
         if arch_type != 'amd64':
-            # 不是amd64包，那么优先级下调10
-            priority += 10
+            # 不是amd64包，那么优先级下调12
+            priority += 12
 
         return priority
 
