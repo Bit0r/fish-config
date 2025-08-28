@@ -29,5 +29,4 @@ bitsandbytes
 codecarbon
 huggingface_hub
 gradio
-#cugraph-cu12 --extra-index-url https://pypi.nvidia.com	# NetworkX的GPU加速库
 embedding-atlas	# 嵌入可视化

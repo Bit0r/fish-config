@@ -65,8 +65,8 @@ sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
 sudo cp ./config/adduser/adduser.conf /etc/adduser-sudoer.conf
 
 # 配置 systemd service
-sudo cp -a ./config/systemd/system/. /etc/systemd/system/
-sudo cp -a ./config/systemd/user/. /etc/systemd/user/
+sudo cp -aT ./config/systemd/system/ /etc/systemd/system/
+sudo cp -aT ./config/systemd/user/ /etc/systemd/user/
 
 # 配置 ssh
 if type -q apt
@@ -176,7 +176,7 @@ sudo cp ./config/procs/* /etc/procs/
 # 配置docker
 sudo cp ./config/docker/daemon*.json /etc/docker/
 # 配置 docker compose 文件
-sudo cp -a ./config/docker/compose/. $DOCKER_COMPOSE_DIR/
+sudo cp -aT ./config/docker/compose/ $DOCKER_COMPOSE_DIR/
 
 # 配置 imwheel
 #sudo cp ./config/imwheel/imwheelrc /etc/X11/imwheel/
@@ -223,7 +223,7 @@ sudo update-apt-xapian-index
 
 # 修改内核参数
 if confirm 'Do you want to optimize kernel parameters?'
-    sudo cp -ubR ./config/sysctl.d/. /etc/sysctl.d/
+    sudo cp -ubRT ./config/sysctl.d/ /etc/sysctl.d/
 end
 
 # 配置web服务目录

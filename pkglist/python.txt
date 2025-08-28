@@ -19,7 +19,6 @@ python3-httpx
 python3-jmespath
 python3-loguru
 python3-mysql.connector
-python3-networkx
 python3-omegaconf
 python3-onnx
 python3-opencv

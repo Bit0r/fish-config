@@ -106,7 +106,7 @@ cp ./config/labelme/labelme.yaml ~/.labelmerc
 cp ./config/anylabeling/anylabeling.yaml ~/.anylabelingrc
 
 # 配置 paperless-ngx
-cp -a ./config/docker/compose/paperless-ngx/. ~/paperless-ngx/
+cp -RT ./config/docker/compose/paperless-ngx/ ~/paperless-ngx/
 
 # 配置 ImageMagick
 #cp ./config/ImageMagick/policy-open.xml ~/.config/ImageMagick/
@@ -130,10 +130,10 @@ cp ./config/aria2/aria2.conf ~/.config/aria2/
 cp ./config/below/belowrc.toml ~/.config/below/belowrc
 
 # 配置 hadolint
-cp -R ./config/docker/hadolint/. ~/.config/
+cp -RT ./config/docker/hadolint/ ~/.config/
 
 # 配置 clipcat
-cp -a ./config/clipcat/. ~/.config/clipcat/
+cp -RT ./config/clipcat/ ~/.config/clipcat/
 
 # 配置bililive
 cp ./config/bililive/config.yaml ~/.config/bililive/
@@ -143,16 +143,16 @@ cp ./config/desktop/mat2.desktop ~/.local/share/kservices5/ServiceMenus/
 cp ./config/keepassxc/* ~/.config/keepassxc/
 
 # 配置 sqlfluff
-cp -a ./config/sqlfluff/. ~/.config/sqlfluff/
+cp -RT ./config/sqlfluff/ ~/.config/sqlfluff/
 
 # 配置 pgcli
 cp ./config/postgres/pgcli.conf ~/.config/pgcli/config
 
 # 配置 biome
-cp -a ./config/javascript/biome/. ~/.config/biome/
+cp -RT ./config/javascript/biome/ ~/.config/biome/
 
 # 配置 ruff
-cp -a ./config/python/ruff/. ~/.config/ruff/
+cp -RT ./config/python/ruff/ ~/.config/ruff/
 
 # 配置 uv
 cp ./config/python/uv/* ~/.config/uv/
@@ -173,7 +173,7 @@ for suffix in csl css
 end
 
 # 配置d2
-cp -a ./config/d2/. ~/.config/d2/
+cp -RT ./config/d2/ ~/.config/d2/
 
 # 配置 tabby
 cp ./config/tabby/config.yaml ~/.config/tabby/
@@ -210,6 +210,9 @@ end
 for browser in google-chrome microsoft-edge
     update-browser-desktop $browser $browser-stable
 end
+
+# 配置 pyspread
+cp -RnT $python_site/pyspread/share/ ~/.local/share/
 
 # 配置 discord
 cp ./config/discord/settings.json ~/.config/discord/

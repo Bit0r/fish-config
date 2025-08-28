@@ -12,7 +12,10 @@ scikit-image[optional]	# 图像处理
 moviepy	# 视频处理
 vidgear[asyncio]	# 视频流处理
 httpx[cli,http2,socks,brotli]
+#fastapi[all]
+litestar[standard]	# 后端
 fastmcp	# mcp协议
+markitdown-mcp	# 将所有文件转为markdown
 fastrtc[vad,tts]	# webrtc协议
 grip	# 预览README
 vcrpy	# 录制http请求
@@ -34,6 +37,8 @@ pywebio	# web交互
 pyarmor	# 加密
 rtoml
 rustimport	# 导入rust代码模块
+rustworkx[all]	# rust编写的图算法库
+great_tables	# 输出精美表格
 #xmltodict
 scanf
 selectolax	# html解析

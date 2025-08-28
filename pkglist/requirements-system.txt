@@ -10,7 +10,6 @@ pypyp	# 在命令行中运行 python
 deepdiff[optimize]	# 深度比较
 nbdime	# Jupyter Notebook 的对比工具
 mercury	# 将 Notebook 转化为网页应用
-markitdown-mcp	# 将所有文件转为markdown
 pipreqs	# 生成 requirements.txt
 toolz	# 函数式编程
 chardet	# 字符编码检测
@@ -31,7 +30,7 @@ pint	# 单位处理
 sortedcontainers	# 排序容器
 notify-py	# 通知
 whenever	# 时间处理
-plumbum	# 命令行
+plumbum	# 调用命令行工具
 python-dotenv
 semver	# 版本处理
 packaging	# 版本处理
@@ -55,8 +54,6 @@ scapy	# 网络包处理
 #sqlfluff	# sql 格式化
 pathvalidate	# 路径检查
 clevercsv[full]	# csv处理
-#fastapi[all]
-litestar[standard]	# 后端
 redis[hiredis]	# redis 客户端
 fire	# 命令行
 #atuin-graph	# 命令行历史可视化
@@ -68,9 +65,8 @@ pdbpp	# pdb 的增强版, 结合 pydumpling 使用
 rich	# 输出美化
 snoop	# 调试
 #ggplot
-polars
-great_tables	# 输出精美表格
 ocrmypdf	# pdf ocr
+polars
 #pandasgui	# pandas 可视化
 plotnine[all]
 fastplotlib[notebook,imgui]	# 可视化
