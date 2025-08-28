@@ -18,8 +18,10 @@ sudo mkdir -p \
     /usr/share/xsessions \
     /etc/{ \
         default, \
+        envs, \
         graftcp-local, \
         cgproxy, \
+        distrobox, \
         conda, \
         uv, \
         mpv, \
@@ -50,6 +52,9 @@ sudo mkdir -pm 2775 /srv/www \
 
 sudo chown -R :docker $DOCKER_COMPOSE_DIR $DOCKER_DATA_DIR
 
+# 复制软件包可读取的环境变量配置
+sudo cp ./config/environment/*.env /etc/envs/
+
 # 配置地区
 if confirm 'Do you want to configure locale?'
     sudo timedatectl set-timezone Asia/Shanghai
@@ -78,6 +83,9 @@ sudo cp ./config/bat/config /root/.config/bat/
 
 # 配置 profile
 sudo cp ./config/profile.d/* /etc/profile.d/
+
+# 配置 distrobox
+sudo cp -RT ./config/distrobox/ /etc/distrobox/
 
 # 配置 auditd
 sudo cp ./config/audit/rules.d/* /etc/audit/rules.d/

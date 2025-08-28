@@ -12,6 +12,9 @@ end
 if confirm 'Do you want to install the user-level configuration for fish?'
     source ./fish/variables/normal.fish
 
+    mkdir -p ~/.config/fish/completions/
+    cp ./fish/completions/*.fish ~/.config/fish/completions/
+
     # alias fish_command_not_found true
     tab --completion fish >~/.config/fish/completions/tab.fish
     # atuin gen-completions -s fish -o ~/.config/fish/completions/
@@ -27,6 +30,7 @@ if confirm 'Do you want to install the user-level configuration for fish?'
     supabase completion fish >~/.config/fish/completions/supabase.fish
     # trip --generate fish >~/.config/fish/completions/trip.fish
     somo generate-completions fish >~/.config/fish/completions/somo.fish
+    sttr completion fish >~/.config/fish/completions/sttr.fish
     codex completion fish >~/.config/fish/completions/codex.fish
     # functions -e fish_command_not_found
 end
