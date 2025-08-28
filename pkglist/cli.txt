@@ -25,6 +25,7 @@ espeak-ng-espeak
 #etckeeper
 #exa
 eza
+execstack
 exfat-fuse
 exfatprogs
 ext4magic

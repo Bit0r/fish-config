@@ -1,5 +1,5 @@
 avahi-discover
-awesome
+#awesome
 barrier
 bleachbit
 cpu-x
@@ -21,6 +21,7 @@ metadata-cleaner
 nmapsi4
 mpv
 obs-studio
+obs-backgroundremoval
 q4wine
 rofi
 smplayer

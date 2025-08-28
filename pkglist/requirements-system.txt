@@ -29,6 +29,7 @@ pqdict	# 优先队列字典
 pint	# 单位处理
 sortedcontainers	# 排序容器
 notify-py	# 通知
+watchfiles	# 监视文件变化
 whenever	# 时间处理
 plumbum	# 调用命令行工具
 python-dotenv

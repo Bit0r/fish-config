@@ -15,9 +15,11 @@ sudo chmod -R 2775 /var/log
 # 创建目录
 sudo mkdir -p \
     /root/.config/{aria2,below,bat} \
+    /usr/{data,obs-plugins} \
     /usr/share/xsessions \
     /etc/{ \
         default, \
+        systemd/{system,user}.conf.d, \
         envs, \
         graftcp-local, \
         cgproxy, \
@@ -35,7 +37,6 @@ sudo mkdir -p \
         frp, \
         yamlfix \
     } \
-    /etc/systemd/{system,user}.conf.d \
     /usr/local/share/{ \
         applications, \
         icons, \
@@ -252,6 +253,12 @@ if confirm 'Do you want to soft link some library files?'
     sudo ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2 /usr/lib/x86_64-linux-gnu/libxml.so.2
 end
 
+# 配置 obs
+if type -q zypper && confirm 'Do you want to soft link obs plugins directory?'
+    ln -sT /usr/share/obs/obs-plugins /usr/data/obs-plugins
+    ln -sT /usr/lib64/obs-plugins /usr/obs-plugins/64bit
+end
+
 # 配置update-alternatives
 if confirm 'Do you want to configure update-alternatives?'
     #sudo update-alternatives --install /usr/bin/editor editor /usr/bin/micro 60 --slave /usr/share/man/man1/editor.1 editor.1 /usr/share/man/man1/micro.1
@@ -317,6 +324,9 @@ end
 
 # 配置 trippy
 #trip --generate-man | gzip | sudo tee /usr/local/share/man/man1/trip.1.gz >/dev/null
+
+# 配置 touchegg
+systemctl enable --now touchegg
 
 # 配置 cproxy
 if type -q cproxy

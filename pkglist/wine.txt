@@ -1,0 +1,14 @@
+wine
+#wine-stable
+wine-binfmt
+vkd3d*
+libvkd3d*
+typelib*
+dxvk*
+mingw32*
+mingw64*
+ntsync*
+protontricks
+ProtonPlus
+q4wine
+lutris

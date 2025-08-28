@@ -7,6 +7,8 @@ YiNNx/cmd-wrapped,,查看shell历史记录的统计
 ,,包管理安装,eza-community/eza,,ls的替代品
 Slackadays/Clipboard,,终端剪贴板
 xrelkd/clipcat,,终端剪贴板
+TimothyYe/skm,,ssh密钥管理
+moul/assh,,ssh的智能包装器
 austinjones/tab-rs,,终端多路复用
 wavetermdev/waveterm,,现代终端
 akavel/up,,交互式运行管道命令
@@ -106,6 +108,7 @@ quarto-dev/quarto-cli,,可使用python代码的文档生成
 jgraph/drawio-desktop,,绘图工具
 charmbracelet/freeze,,终端命令转图片
 ,,包管理安装,WerWolv/ImHex,,hex编辑器
+TheAssassin/AppImageLauncher,,AppImage启动器
 heyman/heynote,,程序员的草稿本
 CherryHQ/cherry-studio,,AI客户端
 koodo-reader/koodo-reader,,epub阅读器
@@ -118,6 +121,7 @@ mtkennerly/ludusavi,,Steam 存档管理
 Oxen-AI/Oxen,,数据集版本控制
 liriliri/aya,,安卓ADB工具
 RPCS3/rpcs3-binaries-linux,,PS3模拟器
+iamscottxu/obs-rtspserver,,OBS支持RTSP协议
 ,,包管理安装,royshil/obs-backgroundremoval,,OBS背景移除
 ayangweb/BongoCat,,桌面打字的小猫
 syt2/zotero-addons,,zotero插件商店

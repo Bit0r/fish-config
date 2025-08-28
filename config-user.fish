@@ -35,7 +35,8 @@ mkdir -p \
         biome, \
         micro, \
         macchina, \
-        bililive \
+        bililive, \
+        obs-studio/plugin_config/obs-backgroundremoval \
     } \
     ~/.local/share/{ \
         applications, \
@@ -239,13 +240,36 @@ if type -q docker && confirm 'Do you want to configure docker container proxy?'
     cp -b ./config/docker/config.json ~/.docker/
 end
 
-# 添加自身到必需的组
-if confirm 'Do you want to add yourself to some groups?'
-    for group in shadow lpadmin mysql postgres redis ssl-cert www-data staff adm systemd-journal whoopsie wireshark docker kvm input uinput users lp sambashare
-        if type -q adduser
-            sudo adduser $USER $group
-        else
-            sudo usermod -aG $group $USER
-        end
+# 添加自身到必需的组，找出系统中实际存在的用户组
+set groups
+for group in \
+    groups_to_add \
+    lpadmin \
+    mysql \
+    postgres \
+    redis \
+    ssl-cert \
+    www-data \
+    staff \
+    adm \
+    systemd-journal \
+    whoopsie \
+    wireshark \
+    docker \
+    kvm \
+    input \
+    uinput \
+    users \
+    lp \
+    sambashare
+    if getent group $group >/dev/null
+        set -a groups $group
     end
+end
+
+if confirm "Do you want to add yourself to follow groups?\n$groups"
+    # 将用户组列表转换成逗号分隔的字符串
+    set groups_csv (string join ',' $groups)
+    # 一次性添加到所有组
+    sudo usermod -aG $groups_csv $USER
 end

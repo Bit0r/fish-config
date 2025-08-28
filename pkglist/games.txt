@@ -2,5 +2,3 @@ fceux
 mame
 pcsx2
 ludusavi
-protontricks
-ProtonPlus
