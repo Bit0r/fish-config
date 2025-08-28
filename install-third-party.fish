@@ -112,5 +112,5 @@ end
 #    aria2c -d /tmp 'http://218.77.121.111/DownloadXml/ClientPkgs/64ac0526-0589-4ec9-9142-06db38ef3da2/HN-linux-clientV2-64.tar.gz'
 #    sudo unar -o /opt /tmp/HN-linux-clientV2-64.tar.gz
 #    sudo chmod -R 777 /opt/linux-clientV2.0-64/
-#    sudo cp config/surfing /etc/cron.d/
+#    sudo cp config/天翼校园/cron/surfing /etc/cron.d/
 #end

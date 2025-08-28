@@ -194,10 +194,10 @@ sudo cp -aT ./config/docker/compose/ $DOCKER_COMPOSE_DIR/
 sudo cp ./config/smplayer/mpv.conf /etc/mpv/
 
 # 配置 tmux
-sudo cp ./config/tmux.conf /etc/
+sudo cp ./config/tmux/tmux.conf /etc/
 
 # 配置 yt-dlp
-sudo cp ./config/yt-dlp.conf /etc/
+sudo cp ./config/yt-dlp/yt-dlp.conf /etc/
 
 # 配置 below
 sudo cp ./config/below/belowrc.toml /root/.config/below/belowrc

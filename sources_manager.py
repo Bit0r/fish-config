@@ -40,6 +40,7 @@ class ThirdPartySources:
             'docker-ce': f'deb [arch=amd64 signed-by={{}}] https://repo.huaweicloud.com/docker-ce/linux/ubuntu {version_codename} stable',
             'caddy': 'deb [signed-by={}] https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main',
             'xcaddy': 'deb [signed-by={}] https://dl.cloudsmith.io/public/caddy/xcaddy/deb/debian any-version main',
+            # 'nginx-unit': f'deb [signed-by={{}}] https://packages.nginx.org/unit/ubuntu/ {version_codename} unit',
             # "hashicorp": f"deb [arch=amd64 signed-by={{}}] https://apt.releases.hashicorp.com {version_codename} main",
             # "mise": "deb [signed-by={} arch=amd64] https://mise.jdx.dev/deb stable main",
             'nodejs': f'deb [arch=amd64 signed-by={{}}] https://deb.nodesource.com/node_{node_major}.x nodistro main',

@@ -1,4 +1,5 @@
 fceux
 mame
 pcsx2
+rpcs3
 ludusavi

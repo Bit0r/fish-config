@@ -37,7 +37,4 @@ if confirm 'Do you want to add some third-party apt sources?'
     pip install -Ur requirements.txt
 
     NODE_MAJOR=22 python sources_manager.py add_sources
-
-    # unit
-    #sudo cp config/unit.list /etc/apt/sources.list.d/
 end

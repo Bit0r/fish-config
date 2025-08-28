@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+ALL_PROXY=http://localhost:8800 \
+    HTTP_PROXY=http://localhost:8800 \
+    HTTPS_PROXY=http://localhost:8800 \
+    /usr/local/libexec/codex \
+    $argv
