@@ -88,6 +88,9 @@ cp ./config/bat/config ~/.config/bat/
 # 配置 direnv
 cp ./config/direnv/direnv.toml ~/.config/direnv/
 
+# 配置 edir
+cp ./config/edir/edir-flags.conf ~/.config/
+
 # 配置 micro
 cp ./config/micro/settings.json ~/.config/micro/
 
@@ -243,7 +246,6 @@ end
 # 添加自身到必需的组，找出系统中实际存在的用户组
 set groups
 for group in \
-    groups_to_add \
     lpadmin \
     mysql \
     postgres \
@@ -256,6 +258,7 @@ for group in \
     whoopsie \
     wireshark \
     docker \
+    video \
     kvm \
     input \
     uinput \

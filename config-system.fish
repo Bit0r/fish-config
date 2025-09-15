@@ -21,6 +21,7 @@ sudo mkdir -p \
         default, \
         systemd/{system,user}.conf.d, \
         envs, \
+        kmscon, \
         graftcp-local, \
         cgproxy, \
         distrobox, \
@@ -249,8 +250,20 @@ end
 
 # 配置 lib
 if confirm 'Do you want to soft link some library files?'
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2 /usr/lib/x86_64-linux-gnu/libxml.so.2
+    if type -q zypper
+        sudo ln -s /usr/lib64 /usr/lib/x86_64-linux-gnu
+    end
+    if type -q apt && type -q wps
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.6 /usr/lib/x86_64-linux-gnu/libtiff.so.5
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2 /usr/lib/x86_64-linux-gnu/libxml.so.2
+    end
+end
+
+# 配置 kmscon
+sudo cp -uRT ./config/kmscon/ /etc/kmscon/
+if type -q kmscon && confirm 'Do you want to enable kmscon in tty3?'
+    sudo systemctl disable getty@tty3
+    sudo systemctl enable kmscon@tty3
 end
 
 # 配置 obs

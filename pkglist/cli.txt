@@ -22,7 +22,7 @@ dust
 dysk
 enca
 espeak-ng-espeak
-#etckeeper
+etckeeper
 #exa
 eza
 execstack
@@ -50,7 +50,6 @@ jujutsu
 jujutsu-fzf
 #gpustat
 groff
-hspell
 htop
 hyperfine
 imwheel
@@ -67,6 +66,7 @@ libicu*
 libinput-tools
 libinput-debug-gui
 libimage-exiftool-perl
+perl-Image-ExifTool
 libnss3-tools
 libpcap*
 libsecret*
@@ -89,6 +89,7 @@ net-tools
 nfpm
 ngrep
 nvtop
+openssl-1_1
 p7zip-rar
 progress
 proxychains4
@@ -122,5 +123,7 @@ wmctrl
 xxhash
 xsv
 zhcon
+fbterm
+kmscon
 zoxide
 zstd

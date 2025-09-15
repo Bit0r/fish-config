@@ -1,12 +1,14 @@
 bibclean
 d2
 drawio
+qpdf
 img2pdf
 klatexformula
 #mutool
 ocrmypdf
 tesseract-ocr-chi-sim*
 mdBook
+hspell
 pandoc
 pandoc-cli
 pandoc-crossref

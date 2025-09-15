@@ -1,3 +1,5 @@
+# 在编辑器中进行文件操作
+edir
 #pre-commit
 # grub2 主题预览
 grub2-theme-preview

@@ -2,11 +2,12 @@
 set -Ux VERSION_CONTROL numbered # 设置cp、mv等命令的备份方式，避免覆盖
 set -Ux MTR_OPTIONS -b
 set -Ux PAGER ov
-set -Ux SYSTEMD_PAGERSECURE true
 set -Ux MANPAGER "ov --section-delimiter '^[^\s]' --section-header"
-#set -Ux SUDO_EDITOR msedit
+set -Ux SYSTEMD_PAGERSECURE true
 set -Ux EDITOR msedit
 set -Ux VISUAL code
+#set -Ux SUDO_EDITOR msedit
+set -Ux EDIR_EDITOR 'code -w'
 set -Ux BROWSER vivaldi
 set -Ux BROWSER_PATH /usr/bin/$BROWSER
 set -Ux CHROME_PATH $BROWSER_PATH
