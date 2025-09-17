@@ -12,6 +12,7 @@ mkdir -p \
         fish/conf.d, \
         profile.d, \
         git, \
+        jj, \
         bat, \
         below, \
         direnv, \
@@ -123,6 +124,9 @@ end
 
 # 配置git
 cp config/.gitconfig ~/.config/git/config
+
+# 配置jj
+cp -uRT ./config/jj/ ~/.config/jj/
 
 # 配置 dive
 cp ./config/dive/*.yaml ~/.config/dive/
