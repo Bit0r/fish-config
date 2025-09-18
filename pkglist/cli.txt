@@ -91,6 +91,7 @@ ngrep
 nvtop
 openssl-1_1
 p7zip-rar
+procs
 progress
 proxychains4
 proxychains-ng

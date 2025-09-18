@@ -30,7 +30,7 @@ pint	# 单位处理
 sortedcontainers	# 排序容器
 notify-py	# 通知
 watchfiles	# 监视文件变化
-whenever	# 时间处理
+whenever	# 日期时间处理
 plumbum	# 调用命令行工具
 python-dotenv
 semver	# 版本处理
@@ -65,6 +65,7 @@ pydumpling	# python traceback 调试
 pdbpp	# pdb 的增强版, 结合 pydumpling 使用
 rich	# 输出美化
 snoop	# 调试
+pyrasite	# 进程注入, 实际上 vscode 也能 attach 进程, 可以作为一个备用方案
 #ggplot
 ocrmypdf	# pdf ocr
 polars

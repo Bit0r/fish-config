@@ -31,6 +31,9 @@ alias -s readelf 'readelf -W'
 alias -s cnki2bib 'cnki2bib -nod'
 alias -s nvrun 'env DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json'
 alias -s rsync-safe 'rsync --ignore-existing'
+# Fire的bool flag必须在前面：https://github.com/google/python-fire/blob/master/docs/guide.md#boolean-arguments
+alias -s fscode "fscode --is_exchange --editor='code -w'"
+#alias -s fscode "fscode --is_exchange --editor='code -w' --create='new' --remove='del' --move='mov'"
 
 alias -s tup 'sudo zypper refresh && sudo zypper dup --no-allow-vendor-change'
 alias -s purge-configs 'sudo aptitude purge ~c'

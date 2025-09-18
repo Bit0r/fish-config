@@ -20,6 +20,7 @@ sudo mkdir -p \
     /etc/{ \
         default, \
         systemd/{system,user}.conf.d, \
+        modules-load.d, \
         envs, \
         kmscon, \
         graftcp-local, \
@@ -233,6 +234,7 @@ sudo update-apt-xapian-index
 
 # 修改内核参数
 if confirm 'Do you want to optimize kernel parameters?'
+    sudo cp -ubRT ./config/modules-load.d/ /etc/modules-load.d/
     sudo cp -ubRT ./config/sysctl.d/ /etc/sysctl.d/
 end
 
