@@ -341,7 +341,10 @@ end
 #trip --generate-man | gzip | sudo tee /usr/local/share/man/man1/trip.1.gz >/dev/null
 
 # 配置 touchegg
-systemctl enable --now touchegg
+sudo systemctl enable --now touchegg
+
+# 配置 plocate
+sudo systemctl enable --now plocate-updatedb.timer
 
 # 配置 cproxy
 if type -q cproxy

@@ -2,6 +2,7 @@ avahi-discover
 #awesome
 barrier
 bleachbit
+cage
 cpu-x
 clamtk
 fcitx5-rime
@@ -32,6 +33,5 @@ touchegg
 ubuntu-restricted-extras
 vokoscreen-ng
 vokoscreenNG
-weston
 wireshark
 yad

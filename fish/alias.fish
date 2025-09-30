@@ -34,6 +34,7 @@ alias -s rsync-safe 'rsync --ignore-existing'
 # Fire的bool flag必须在前面：https://github.com/google/python-fire/blob/master/docs/guide.md#boolean-arguments
 alias -s fscode "fscode --is_exchange --editor='code -w'"
 #alias -s fscode "fscode --is_exchange --editor='code -w' --create='new' --remove='del' --move='mov'"
+alias -s xclip 'xclip -selection clipboard'
 
 alias -s tup 'sudo zypper refresh && sudo zypper dup --no-allow-vendor-change'
 alias -s purge-configs 'sudo aptitude purge ~c'

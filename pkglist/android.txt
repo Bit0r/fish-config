@@ -1,0 +1,6 @@
+fastboot
+android-tools
+adb
+scrcpy
+qtscrcpy
+waydroid
