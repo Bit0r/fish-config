@@ -90,6 +90,7 @@ nfpm
 ngrep
 nvtop
 openssl-1_1
+opi
 p7zip-rar
 procs
 progress
@@ -102,6 +103,8 @@ reptyr
 ripgrep
 ripsecrets
 rpm
+rpm-build
+rpmdevtools
 scc
 scdaemon
 sd

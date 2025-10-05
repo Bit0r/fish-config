@@ -66,8 +66,7 @@ if confirm 'Do you want to configure locale?'
 end
 
 # 配置 sudo
-#sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
-sudo cp ./config/sudo/sudoers.d/umask /etc/sudoers.d/
+sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
 
 # 配置 adduser
 sudo cp ./config/adduser/adduser.conf /etc/adduser-sudoer.conf

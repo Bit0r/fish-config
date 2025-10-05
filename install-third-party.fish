@@ -29,6 +29,10 @@ if type -q pip && confirm 'Do you want to install extra user-level python packag
     pip install -r pkglist/requirements-user.txt
 end
 
+if type -q pip && confirm 'Do you want to install django-related python packages using pip?'
+    pip install -r pkglist/requirements-django.txt
+end
+
 if sudo which pipx &>/dev/null && confirm 'Do you want to install system-level software using pipx?'
     for pkg in (cat ./pkglist/pipx-system.txt | grep -v '^#')
         sudo rm /usr/local/bin/$pkg

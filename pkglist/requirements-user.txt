@@ -35,6 +35,8 @@ pytablewriter[all]
 DrissionPage	# 网络爬虫
 pywebio	# web交互
 pyarmor	# 加密
+pygambit	# 博弈论库
+mesa[rec]	# ABM库
 rtoml
 rustimport	# 导入rust代码模块
 rustworkx[all]	# rust编写的图算法库

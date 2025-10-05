@@ -1,0 +1,59 @@
+# development tools ----
+django-extensions	# This is a repository for collecting global custom management extensions for the Django Framework.
+easydjango-project	# EasyDjango is a command-line tool for quickly setting up a new Django project with customizable options, including app creation, templates, static files, and superuser setup.
+django-debug-toolbar	# A configurable set of panels that display various debug information about the current request/response.
+django-silk	# Silky smooth profiling for Django
+django-easy-audit	# Yet another Django audit log app, hopefully the simplest one.
+# django-auditlog	# A Django app that keeps a log of changes made to an object.
+# django-simple-history	# Store model history and view/revert changes from admin site.
+# django-reversion	# django-reversion is an extension to the Django web framework that provides version control for model instances.
+django-hijack	# With Django Hijack, admins can log in and work on behalf of other users without having to know their credentials.
+
+# models ----
+django-taggit	# Simple tagging for django
+django-polymorphic	# Improved Django model inheritance with automatic downcasting
+django-import-export	# Django application and library for importing and exporting data with admin integration.
+django-data-browser	# Django app for user friendly querying of Django models
+djangoql	# Advanced search language for Django
+django-dbbackup	# Backup and restore your Django database and media
+django-pandas	# Tools for working with pandas in your Django projects
+django-admin-charts	# Create beautiful configurable charts from your models and display them on the django-admin index page or on django-admin-tools dashboard.
+
+# views ----
+django-filter	# A generic system for filtering Django QuerySets based on user selections
+django-cors-headers	# Django app for handling the server headers required for Cross-Origin Resource Sharing (CORS)
+# django-extra-views	# Django's class-based generic views are awesome, let's have more of them.
+django-hosts	# Dynamic and static host resolving for Django. Maps hostnames to URLconfs.
+
+# templates
+django-bootstrap5
+django-crispy-forms	# The best way to have DRY Django forms.
+crispy-bootstrap5	# Bootstrap5 template pack for django-crispy-forms
+django-components	# Create simple reusable template components in Django.
+django-autocomplete-light	# A fresh approach to autocomplete implementations, specially for Django.
+django-smart-selects	# chained and grouped selects for django forms
+django-tables2	# An app for creating HTML tables
+django-formtools	# A set of high-level abstractions for Django forms
+django-pwa	# Looks like an app, feels like an app, but IS NOT an app.
+
+# server ----
+dramatiq	# A fast and reliable background task processing library for Python 3.
+# channels	# Developer-friendly asynchrony for Django
+huey	# a little task queue for python
+django-push-notifications	# Send push notifications to mobile devices through GCM or APNS in Django.
+django-imagekit	# Automated image processing for Django. Currently v4.0
+django-fsm-2	# Django friendly finite state machine support
+django-prometheus	# Export Django monitoring metrics for Prometheus.io
+django-waffle	# A feature flipper for Django
+django-spirit	# Spirit is a modern Python/Django forum
+django-cleanup	# Automatically deletes old file for FileField and ImageField. It also deletes files on models instance deletion.
+django-split-settings	# Organize Django settings into multiple files and directories.
+django-crontab	# dead simple crontab powered job scheduling for django.
+django-sslserver	# A SSL-enabled development server for Django
+
+# security ----
+django-defender	# A simple super fast django reusable app that blocks people from brute forcing login attempts
+django-hide	# Django package to hide from wappalyzer
+django-recaptcha
+django-allauth	# Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+django-admin-honeypot	# A fake Django admin login screen page.
