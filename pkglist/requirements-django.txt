@@ -13,6 +13,7 @@ django-hijack	# With Django Hijack, admins can log in and work on behalf of othe
 django-taggit	# Simple tagging for django
 django-polymorphic	# Improved Django model inheritance with automatic downcasting
 django-import-export	# Django application and library for importing and exporting data with admin integration.
+django-import-export-extensions	# Extension for the popular `django-import-export` package
 django-data-browser	# Django app for user friendly querying of Django models
 djangoql	# Advanced search language for Django
 django-dbbackup	# Backup and restore your Django database and media

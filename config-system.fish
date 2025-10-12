@@ -83,6 +83,9 @@ end
 # 配置 bat
 sudo cp ./config/bat/config /root/.config/bat/
 
+# 配置 rar
+sudo cp ./config/.rarrc /etc/
+
 # 配置 profile
 sudo cp ./config/profile.d/* /etc/profile.d/
 

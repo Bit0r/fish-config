@@ -1,5 +1,5 @@
-switches= -scF
-switches_a = -m2 -rr -oh2
+switches = -scF -ts
+switches_a = -se -rr5 -oh -oi2 -qo+
 
 # -se适用于压缩大量小文件的场景，将相同后缀名小文件视为一个数据流
 # -v<size>[k|b|M|m|G|g]设置分卷压缩，-v4g表示每个压缩文件的大小为4g。小写字母2为底数，大写字母10为底数。1m=1<<20byte，1M=1e6byte
@@ -10,5 +10,7 @@ switches_a = -m2 -rr -oh2
 # -rr[N]设置恢复数据的冗余度，默认为-rr=-rr3p，-rr5p表示冗余度为5%
 # -oh保留硬链接
 # -oi2自动分析相同的文件，然后保留一个副本，同时打印出相同文件的信息
+# -qo+ 添加快速打开元数据，显著提高预览速度
 # -p设置压缩文件的密码
 # -sc<charset>[objects]设置字符集，-scF表示使用UTF-8字符集
+# -ts 保留所有时间
