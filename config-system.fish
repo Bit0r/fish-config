@@ -33,6 +33,7 @@ sudo mkdir -p \
         docker, \
         goaccess, \
         mysql/conf.d, \
+        my.cnf.d, \
         redis/conf.d, \
         audit/rules.d, \
         samba, \
@@ -96,7 +97,8 @@ sudo cp -RT ./config/distrobox/ /etc/distrobox/
 sudo cp ./config/audit/rules.d/* /etc/audit/rules.d/
 
 # 配置mysql
-sudo cp ./config/mysql/mysql.cnf /etc/mysql/conf.d/
+sudo cp ./config/mysql/*.cnf /etc/mysql/conf.d/
+sudo cp ./config/mysql/*.cnf /etc/my.cnf.d/
 sudo cp ./config/mysql/mycli.conf /etc/myclirc
 
 # 配置redis
@@ -346,6 +348,7 @@ end
 sudo systemctl enable --now touchegg
 
 # 配置 plocate
+sudo sd '^RUN_UPDATEDB_AS=nobody' 'RUN_UPDATEDB_AS=root' /etc/sysconfig/locate
 sudo systemctl enable --now plocate-updatedb.timer
 
 # 配置 cproxy

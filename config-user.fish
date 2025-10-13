@@ -32,6 +32,7 @@ mkdir -p \
         discord, \
         sqlfluff, \
         pgcli, \
+        ptpython, \
         ruff, \
         biome, \
         micro, \
@@ -171,8 +172,12 @@ if type -q python
     # 配置pyforest
     python -m pyforest install_extensions
 end
+
 # 配置 matplotlib
 cp -b ./config/python/matplotlib/* ~/.config/matplotlib/
+
+# 配置 ptpython
+cp ./config/python/ptpython/* ~/.config/ptpython/
 
 # 配置pandoc
 cp config/pandoc/*.yaml ~/.local/share/pandoc/defaults/

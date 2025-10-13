@@ -3,3 +3,12 @@ safe-updates
 
 [client]
 pager="ov -C --skip-lines 1 --header 1 -d'|'"
+
+[mysqld]
+# 跳过认证，用于强制修改密码。但一般不使用该方法，而是使用下面的方法：
+# 1. `systemctl set-environment MYSQLD_OPTS="--skip-grant-tables --skip-networking"` 临时跳过
+# 2. `systemctl unset-environment MYSQLD_OPTS` 恢复
+# skip-grant-tables
+
+# 支持使用root身份直接登陆
+plugin-load-add=auth_socket.so
