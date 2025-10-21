@@ -2,6 +2,7 @@
 pipx
 cython3
 ipython3
+ptpython
 jupyter
 cairosvg
 python-dev-is-python3

@@ -1,4 +1,4 @@
-function update-browser-desktop -a desktop_stem bin_name debug_port -d 'Update desktop entry'
+function update-browser-desktop -a desktop_stem debug_port -d 'Update desktop entry'
     set desktop_path /usr/share/applications/$desktop_stem.desktop
     # 如果.desktop文件不存在则跳过
     if [ ! -f $desktop_path ]
@@ -14,17 +14,12 @@ function update-browser-desktop -a desktop_stem bin_name debug_port -d 'Update d
     set proxy_arg '--proxy-server=socks5://localhost'
     set debug_arg '--remote-debugging-port='$debug_port
 
-    # 如果没有bin_name，则设为desktop_stem
-    if [ -z $bin_name ]
-        set bin_name $desktop_stem
-    end
-
     # 更新.desktop文件
-    sd "^Exec=/usr/bin/$bin_name %U\$" \
-        "Exec=/usr/bin/$bin_name $proxy_arg $debug_arg $args %U" \
+    sd '^Exec=/usr/bin/([\w\-]+) (%\w)$' \
+        "Exec=/usr/bin/\$1 $proxy_arg $debug_arg $args \$2" \
         $desktop_path
     # 隐私模式
-    sd "^Exec=/usr/bin/$bin_name --incognito\$" \
-        "Exec=/usr/bin/$bin_name --incognito $proxy_arg $debug_arg $args" \
+    sd '^Exec=/usr/bin/([\w\-]+) --incognito$' \
+        "Exec=/usr/bin/\$1 $proxy_arg $debug_arg $args --incognito" \
         $desktop_path
 end

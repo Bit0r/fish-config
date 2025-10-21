@@ -209,28 +209,31 @@ end
 cp config/konsole/*.profile ~/.local/share/konsole/
 cp config/konsole/konsolerc ~/.config/
 
-# 配置 ksystemlog
-cp /usr/share/applications/org.kde.ksystemlog.desktop ~/.local/share/applications/
-sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' ~/.local/share/applications/org.kde.ksystemlog.desktop
-
 # 配置 wine
 cp -a ./config/wine/rise2.ini ~/.wine/drive_c/users/$USER/AppData/Roaming/'Microsoft Games/Rise of Nations/'
 
+# 配置 ksystemlog
+set desktop_name org.kde.ksystemlog.desktop
+cat /usr/share/applications/$desktop_name \
+    | sd '^X-KDE-SubstituteUID' '#X-KDE-SubstituteUID' >~/.local/share/applications/$desktop_name
+
 # 配置浏览器
-for browser in vivaldi-stable
+for browser in vivaldi-stable google-chrome microsoft-edge
     update-browser-desktop $browser
 end
-for browser in google-chrome microsoft-edge
-    update-browser-desktop $browser $browser-stable
-end
+
+# 配置 google-earth
+set desktop_name google-earth-pro.desktop
+cat /opt/google/earth/pro/$desktop_name \
+    | sd '^Exec=/(.+)$' 'Exec=ALL_PROXY=socks5://localhost:1080 HTTP_PROXY=socks5://localhost:1080 HTTPS_PROXY=socks5://localhost:1080 /$1' >~/.local/share/applications/$desktop_name
 
 # 配置 pyspread
 cp -RnT $python_site/pyspread/share/ ~/.local/share/
 
 # 配置 discord
 cp ./config/discord/settings.json ~/.config/discord/
-cp /usr/share/applications/discord.desktop ~/.local/share/applications/
-sd '^Exec=/usr/share/discord/Discord$' 'Exec=/usr/share/discord/Discord --proxy-server=socks5://localhost' ~/.local/share/applications/discord.desktop
+cat /usr/share/applications/discord.desktop \
+    | sd '^Exec=(/usr/share/discord/Discord)$' 'Exec=$1 --proxy-server=socks5://localhost' >~/.local/share/applications/discord.desktop
 
 # 更新 mime 数据库
 update-mime-database ~/.local/share/mime/

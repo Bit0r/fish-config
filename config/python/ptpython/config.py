@@ -1,3 +1,5 @@
+import os
+
 from ptpython.repl import PythonRepl
 from ptpython.layout import CompletionVisualisation
 
@@ -60,6 +62,12 @@ def configure(repl: PythonRepl):
     # Enable open-in-editor. Pressing C-x C-e in emacs mode or 'v' in
     # Vi navigation mode will open the input in the current editor.
     repl.enable_open_in_editor = True
+
+    # Editor
+    os.environ |= {
+        'VISUAL': 'code -w',
+        'EDITOR': 'msedit',
+    }
 
     # Enable system prompt. Pressing meta-! will display the system prompt.
     # Also enables Control-Z suspend.

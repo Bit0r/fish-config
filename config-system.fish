@@ -348,7 +348,7 @@ end
 sudo systemctl enable --now touchegg
 
 # 配置 plocate
-sudo sd '^RUN_UPDATEDB_AS=nobody' 'RUN_UPDATEDB_AS=root' /etc/sysconfig/locate
+sudo sd '^RUN_UPDATEDB_AS=nobody$' 'RUN_UPDATEDB_AS=root' /etc/sysconfig/locate
 sudo systemctl enable --now plocate-updatedb.timer
 
 # 配置 cproxy
