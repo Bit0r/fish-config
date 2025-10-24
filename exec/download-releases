@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 # %%
-from __future__ import annotations
-
 import os
+
+from notifypy import Notify
 
 # 如果不需要使用代理，可以将下面注释
 os.environ |= dict.fromkeys(
@@ -310,14 +310,28 @@ class GithubDownload:
             http2=True,
         )
 
+        notify = Notify(
+            default_notification_application_name='install GitHub release',
+        )
         try:
             with Progress(auto_refresh=False) as progress:
                 self.download_list(releases, progress=progress, output_dir=output_dir)
+
+            notify.title = 'Download completed!'
+            notify.icon = 'download'
+            notify.message = (
+                'The GitHub download has been completed and will be installed.'
+            )
+        except Exception:
+            notify.title = 'Download Error!'
+            notify.icon = 'state-error'
+            notify.message = 'An error occurred during the GitHub download!'
         finally:
             # 保存最新的版本号
             releases.insert(0, ['repository', 'version', 'description'])
             releases = [release for release in releases if len(release) <= 3]
             clevercsv.write_table(releases, output_dir / lockfile_path.name)
+            notify.send(block=False)
 
 
 # %%

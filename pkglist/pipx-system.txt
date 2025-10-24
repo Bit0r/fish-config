@@ -3,8 +3,6 @@ edir
 #pre-commit
 # grub2 主题预览
 grub2-theme-preview
-# django lint
-djlint
 # docker 镜像压缩
 docker-squash
 # sqlite 数据导入

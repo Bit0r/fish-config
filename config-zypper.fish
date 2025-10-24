@@ -7,7 +7,11 @@ if confirm 'Do you want to add mirror?'
         set line (string split ' ' $line)
         set url $line[1]
         set name $line[2]
-        sudo zypper ar -p 98 $url $name
+        set priority $line[3]
+        if [ -z $priority ]
+            set priority 98
+        end
+        sudo zypper ar -p $priority $url $name
     end
 end
 

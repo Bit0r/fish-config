@@ -1,5 +1,9 @@
-switches = -scF -ts
-switches_a = -se -rr5 -oh -oi2 -qo+
+# [NOTE]: 等号两边一定不能有空格，因为.ini文件要求=两边都不能有空格
+# 必须是key=value，而不能是key = value
+
+# -sc<charset>[objects]设置字符集，-scF表示使用UTF-8字符集
+# -ts 保留所有时间
+switches=-scF -ts
 
 # -se适用于压缩大量小文件的场景，将相同后缀名小文件视为一个数据流
 # -v<size>[k|b|M|m|G|g]设置分卷压缩，-v4g表示每个压缩文件的大小为4g。小写字母2为底数，大写字母10为底数。1m=1<<20byte，1M=1e6byte
@@ -7,10 +11,9 @@ switches_a = -se -rr5 -oh -oi2 -qo+
 # -x@<lf>是-x<f>的文件列表版本，每行一个<f>
 # -m<n>设置压缩等级，默认为-m3，-m2压缩率更低
 # -mt<threads>设置线程数，-mt8表示手动指定8个线程。如果非必要，不要设置线程数，因为会自动根据设置最佳线程数
-# -rr[N]设置恢复数据的冗余度，默认为-rr=-rr3p，-rr5p表示冗余度为5%
+# -rr[N]设置恢复数据的冗余度，默认为-rr=-rr3p，-rr5p表示冗余度为5%，RAR 5.0格式不加p也视为百分比
 # -oh保留硬链接
 # -oi2自动分析相同的文件，然后保留一个副本，同时打印出相同文件的信息
 # -qo+ 添加快速打开元数据，显著提高预览速度
 # -p设置压缩文件的密码
-# -sc<charset>[objects]设置字符集，-scF表示使用UTF-8字符集
-# -ts 保留所有时间
+switches_a=-se -rr7 -v2g -oh -oi2 -qo+

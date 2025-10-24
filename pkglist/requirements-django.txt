@@ -1,3 +1,5 @@
+django==5.2	# Django latest LTS
+
 # development tools ----
 django-extensions	# This is a repository for collecting global custom management extensions for the Django Framework.
 easydjango-project	# EasyDjango is a command-line tool for quickly setting up a new Django project with customizable options, including app creation, templates, static files, and superuser setup.
@@ -8,6 +10,8 @@ django-easy-audit	# Yet another Django audit log app, hopefully the simplest one
 # django-simple-history	# Store model history and view/revert changes from admin site.
 # django-reversion	# django-reversion is an extension to the Django web framework that provides version control for model instances.
 django-hijack	# With Django Hijack, admins can log in and work on behalf of other users without having to know their credentials.
+django-template-lsp	# Language Server Protocol support for Django templates.
+djlint	# Lint & Format HTML Templates
 
 # models ----
 django-taggit	# Simple tagging for django

@@ -6,7 +6,8 @@ all-the-package-names
 yarn-completions
 #typescript-go
 node-modules-inspector
-shadcn-vue
+#shadcn-vue
+@park-ui/cli
 @alova/wormhole
 @biomejs/biome
 #nuxthub
