@@ -318,19 +318,18 @@ class GithubDownload:
                 self.download_list(releases, progress=progress, output_dir=output_dir)
 
             notify.title = 'Download completed!'
-            notify.icon = 'download'
             notify.message = (
                 'The GitHub download has been completed and will be installed.'
             )
         except Exception:
             notify.title = 'Download Error!'
-            notify.icon = 'state-error'
             notify.message = 'An error occurred during the GitHub download!'
         finally:
             # 保存最新的版本号
             releases.insert(0, ['repository', 'version', 'description'])
             releases = [release for release in releases if len(release) <= 3]
             clevercsv.write_table(releases, output_dir / lockfile_path.name)
+            # 发送通知
             notify.send(block=False)
 
 

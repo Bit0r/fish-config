@@ -70,7 +70,13 @@ end
 sudo cp ./config/sudo/sudoers.d/* /etc/sudoers.d/
 
 # 配置 adduser
-sudo cp ./config/adduser/adduser.conf /etc/adduser-sudoer.conf
+sudo cp ./config/users/adduser.conf /etc/adduser-sudoer.conf
+
+# 配置 useradd
+sudo cp -b ./config/users/useradd.conf /etc/default/useradd
+
+# 配置 login.defs
+sudo cp ./config/users/*.defs /etc/login.defs.d/
 
 # 配置 systemd service
 sudo cp -aT ./config/systemd/system/ /etc/systemd/system/
