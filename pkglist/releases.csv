@@ -108,6 +108,7 @@ quarto-dev/quarto-cli,,可使用python代码的文档生成
 jgraph/drawio-desktop,,绘图工具
 charmbracelet/freeze,,终端命令转图片
 ,,包管理安装,WerWolv/ImHex,,hex编辑器
+quickemu-project/quickgui,,Quickemu的GUI
 TheAssassin/AppImageLauncher,,AppImage启动器
 heyman/heynote,,程序员的草稿本
 CherryHQ/cherry-studio,,AI客户端

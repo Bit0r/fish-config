@@ -7,6 +7,7 @@ runlike	# 导出 Docker Container 的运行命令
 yamlfix	# yaml 格式化
 config-formatter	# 配置文件格式化
 pypyp	# 在命令行中运行 python
+magika	# 文件类型检测
 deepdiff[optimize]	# 深度比较
 nbdime	# Jupyter Notebook 的对比工具
 mercury	# 将 Notebook 转化为网页应用

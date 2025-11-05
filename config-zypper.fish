@@ -25,7 +25,13 @@ end
 # 给某些软件源使用代理
 if confirm 'Do you want to set a proxy for the repository?'
     set proxy_url http://localhost:8800
-    for repo in vivaldi home_Psheng home_MasterPatricko
+    for repo in \
+        google-chrome \
+        vivaldi \
+        home_Psheng \
+        home_MasterPatricko \
+        home_Herbster0815_HTPC
+
         zypper-set-proxy $repo $proxy_url
     end
 end
