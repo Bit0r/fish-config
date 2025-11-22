@@ -1,12 +1,14 @@
-"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+"$schema"="https://jj-vcs.github.io/jj/latest/config-schema.json"
 
 [user]
-	name  = "Bit0r"
-	email = "nie_wang@outlook.com"
+	name ="Bit0r"
+	email="nie_wang@outlook.com"
 
 [ui]
-	editor = "code -w"
+	editor="code -w"
 
 [aliases]
-	init = ["git", "init"]
-	push = ["git", "push"]
+	init =["git", "init"]
+	pull =["git", "pull"]
+	push =["git", "push"]
+	clone=["git", "clone"]

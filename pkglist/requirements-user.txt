@@ -11,7 +11,6 @@ pillow-avif-plugin	# avif支持
 scikit-image[optional]	# 图像处理
 moviepy	# 视频处理
 vidgear[asyncio]	# 视频流处理
-httpx[cli,http2,socks,brotli]
 #fastapi[all]
 litestar[standard]	# 后端
 fastmcp	# mcp协议
@@ -30,9 +29,9 @@ name-that-hash	# hash字符串类型识别
 #pdf2docx
 pytablereader[all]
 pytablewriter[all]
-#playwright
-#pytest-playwright
-DrissionPage	# 网络爬虫
+web3
+httpx[cli,http2,socks,brotli]
+scrapling[all]	# 网络爬虫
 pywebio	# web交互
 pyarmor	# 加密
 pygambit	# 博弈论库
@@ -43,4 +42,3 @@ rustworkx[all]	# rust编写的图算法库
 great_tables	# 输出精美表格
 #xmltodict
 scanf
-selectolax	# html解析

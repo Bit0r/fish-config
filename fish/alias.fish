@@ -1,4 +1,4 @@
-set -l http_proxy http://localhost:8800
+set -l http_proxy http://localhost:1080
 set -l socks5_proxy socks5://localhost:1080
 set -l socks5h_proxy socks5h://localhost:1080
 
@@ -32,8 +32,7 @@ alias -s cnki2bib 'cnki2bib -nod'
 alias -s nvrun 'env DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json'
 alias -s rsync-safe 'rsync --ignore-existing'
 # Fire的bool flag必须在前面：https://github.com/google/python-fire/blob/master/docs/guide.md#boolean-arguments
-alias -s fscode "fscode --is_exchange --editor='code -w'"
-#alias -s fscode "fscode --is_exchange --editor='code -w' --create='new' --remove='del' --move='mov'"
+alias -s fscode "fscode --exchange='mv --exchange -iT' --editor='code -w' --create='new' --remove='del' --move='mov'"
 alias -s xclip 'xclip -selection clipboard'
 
 alias -s tup 'sudo zypper refresh && sudo zypper dup --no-allow-vendor-change'

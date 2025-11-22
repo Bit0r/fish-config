@@ -20,7 +20,8 @@ Metaphorme/ezcheck,,文件校验
 ,,用renameutils代替,marcusbuffett/pipe-rename,,在文本编辑器中批量重命名文件
 ,,包管理安装,sharkdp/bat,,cat的替代品
 noborus/ov,,现代化的 pager
-microsoft/edit,,微软的终端文本编辑器
+,,,microsoft/edit,,微软的终端文本编辑器
+sinelaw/fresh,,新一代终端文本编辑器
 ,,,ynqa/jnv,,交互式json过滤器
 ,,,PaulJuliusMartinez/jless,,json查看器
 yshavit/mdq,,markdown查询工具
